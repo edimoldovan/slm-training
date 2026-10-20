@@ -1,0 +1,112 @@
+{
+  "run": "run-002",
+  "split": "valid",
+  "n": 427,
+  "endpoint": null,
+  "exact_match": 0.6252927400468384,
+  "command_match": 0.7634660421545667,
+  "well_formed": 0.9765807962529274,
+  "tokens_per_s": 1213.087713535969,
+  "worst": [
+    {
+      "q": "Tell me how to launch the default coding agent in a terminal.",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-agent-prompt [--inline] <prompt...>"
+    },
+    {
+      "q": "I want to sign in to a Claude, Codex, or Grok subscription. What do I run?",
+      "expected": "omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]",
+      "got": "omarchy-agent-account-exec <claude|codex|grok>"
+    },
+    {
+      "q": "I want to print the config home of the active Claude, Codex, or Grok account. What do I run?",
+      "expected": "omarchy-agent-account-home <claude|codex|grok>",
+      "got": "omarchy-agent-account-exec <claude|codex|grok>"
+    },
+    {
+      "q": "Print the Codex usage record as JSON",
+      "expected": "omarchy-agent-usage-codex [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-grok [--force] [--limits-only]"
+    },
+    {
+      "q": "What do I type to configure Quickshell lock screen authentication?",
+      "expected": "omarchy-apply-lock",
+      "got": "omarchy-system-sleep-monitor"
+    },
+    {
+      "q": "How to set the default audio input and move active streams",
+      "expected": "omarchy-audio-input-set-default <node-id> <source-name>",
+      "got": "omarchy-audio-output-set-default <node-id> <sink-name>"
+    },
+    {
+      "q": "Which omarchy command will switch between audio outputs while preserving the mute status?",
+      "expected": "omarchy-audio-output-switch",
+      "got": "omarchy-capture-webcam-resize <smaller|larger|reset|small|medium|large>"
+    },
+    {
+      "q": "What should I run to configure the bar and its widget layout?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-branding-about <image|text|reset>"
+    },
+    {
+      "q": "Is there a command to adjust keyboard backlight brightness using available steps?",
+      "expected": "omarchy-brightness-keyboard [--no-osd] <up|down|cycle|off|restore>",
+      "got": "omarchy-brightness-keyboard-gpu-memory"
+    },
+    {
+      "q": "What should I run to list webcam devices that support video capture?",
+      "expected": "omarchy-capture-webcam-list",
+      "got": "omarchy-capture-webcam"
+    },
+    {
+      "q": "Is there a command to set the Omarchy package channel?",
+      "expected": "omarchy-channel-set <stable|rc|edge|dev>",
+      "got": "omarchy-channel-current"
+    },
+    {
+      "q": "Command to set the Omarchy package channel",
+      "expected": "omarchy-channel-set <stable|rc|edge|dev>",
+      "got": "omarchy-channel-current"
+    },
+    {
+      "q": "set the Omarchy package channel?",
+      "expected": "omarchy-channel-set <stable|rc|edge|dev>",
+      "got": "omarchy-channel-current"
+    },
+    {
+      "q": "In Omarchy, how do I set and launch the default coding agent?",
+      "expected": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]",
+      "got": "omarchy-launch-editor [--inline] <launch|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave|brave"
+    },
+    {
+      "q": "Tell me how to measure theme switcher cache and selector prep times.",
+      "expected": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]",
+      "got": "omarchy-dev-set-herdr-machines [--available]"
+    },
+    {
+      "q": "Tell me how to point Omarchy at a local checkout after reboot.",
+      "expected": "omarchy-dev-link <path-to-checkout> [--no-reboot]",
+      "got": "omarchy-channel-current"
+    },
+    {
+      "q": "Command to preview an Omarchy theme palette in the terminal",
+      "expected": "omarchy-dev-theme-preview [theme-name|theme-dir|colors.toml] [--no-color] [--no-osc|--osc]",
+      "got": "omarchy-theme-set-by-theme <theme-name>"
+    },
+    {
+      "q": "How do I measure live disk read and write speed?",
+      "expected": "omarchy-disk-speedtest [target-dir]",
+      "got": "omarchy-system-lid-inhibit"
+    },
+    {
+      "q": "How to print drive information such as size, model, and mount details",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-drive-info [port]"
+    },
+    {
+      "q": "list available monospace fonts?",
+      "expected": "omarchy-font-list",
+      "got": "omarchy-remove-list"
+    }
+  ]
+}

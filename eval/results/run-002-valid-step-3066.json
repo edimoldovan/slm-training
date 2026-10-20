@@ -1,0 +1,112 @@
+{
+  "run": "run-002",
+  "split": "valid",
+  "n": 427,
+  "endpoint": null,
+  "exact_match": 0.9437939110070258,
+  "command_match": 0.9648711943793911,
+  "well_formed": 0.9953161592505855,
+  "tokens_per_s": 1239.8782282788195,
+  "worst": [
+    {
+      "q": "I want to print the config home of the active Claude, Codex, or Grok account. What do I run?",
+      "expected": "omarchy-agent-account-home <claude|codex|grok>",
+      "got": "omarchy-agent-account-state <registry|home|homes|list|refresh|begin|register|recover|use|rename|remove|mode|link|autoswitch> [provider] [args...]"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hyprland-monitor-clamshell"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock no other locker is alive to own",
+      "expected": "omarchy-hyprland-session-lock-stranded <own-pid>",
+      "got": "omarchy-system-sleep-lock"
+    },
+    {
+      "q": "I want to toggle the current weather panel. What do I run?",
+      "expected": "omarchy-notification-weather",
+      "got": "omarchy-toggle-enabled screensaver-off && echo \"screensaver is off\""
+    },
+    {
+      "q": "How do I apply an Omarchy theme?",
+      "expected": "omarchy-theme-set <theme-name>",
+      "got": "omarchy-theme-set-claude [--activate]"
+    },
+    {
+      "q": "Toggle nightlight screen temperature",
+      "expected": "omarchy-toggle-nightlight [--status]",
+      "got": "omarchy-capture-region [region|windows|smart|fullscreen] [--keep-freeze] [--match-monitor] | --take-fullscreen | --take-window | --select-window <next|prev|left|right|up|down>"
+    },
+    {
+      "q": "Returns a formatted weather status string with temperature and wind speed",
+      "expected": "omarchy-weather-status",
+      "got": "omarchy-audio-output-switch"
+    },
+    {
+      "q": "Create a desktop launcher for a web app",
+      "expected": "omarchy-webapp-install [name url icon-url-or-name [custom-exec] [mime-types]]",
+      "got": "omarchy-tui-install [name command window-style icon-url-or-name]"
+    },
+    {
+      "q": "Keybinding for Mute",
+      "expected": "XF86AudioMute",
+      "got": "SUPER + SHIFT + M"
+    },
+    {
+      "q": "What is the keybinding for Brightness minimum?",
+      "expected": "SHIFT + XF86MonBrightnessDown",
+      "got": "CTRL + ALT + DELETE"
+    },
+    {
+      "q": "Keybinding for Eject media",
+      "expected": "XF86Eject",
+      "got": "SUPER + SHIFT + Y"
+    },
+    {
+      "q": "Keybinding for Monitor scaling up",
+      "expected": "SUPER + SLASH",
+      "got": "XF86AudioMute"
+    },
+    {
+      "q": "Hotkey for Monitor scaling up",
+      "expected": "SUPER + SLASH",
+      "got": "XF86AudioMute"
+    },
+    {
+      "q": "How do I omarchy CLI?",
+      "expected": "~ ❯ omarchy\nOmarchy command center\n\nUsage:\n  omarchy <command> [args...]\n  omarchy commands [--all] [--json] [--check]\n  omarchy <group> --help\n  omarchy <group> <command> --help\n\nCommon commands:\n  omarchy update              Update Omarchy and system packages\n  omarchy theme list          List available themes\n  omarchy theme set <name>    Apply a theme\n  omarchy font list           List available fonts\n  omarchy screenshot          Take a screenshot\n  omarchy debug               Print debugging information\n\nGroups:\n  agent          AI coding agents, their usage, and subscription accounts\n  audio          Audio input and output controls\n  bar            Omarchy shell bar layout and settings\n  battery        Battery status helpers\n  bluetooth      Bluetooth device controls\n  branch         Omarchy git branch management\n  branding       About and screensaver branding\n  brightness     Display and keyboard brightness\n  capture        Screenshots and screen recording\n  channel        Omarchy release channel management\n  clipboard      Clipboard helpers\n  cmd            Command and shortcut helpers\n  config         System configuration helpers\n  debug          Diagnostics and support logs\n  ...",
+      "got": "omarchy-agent-crash <pid> [comm] [exe] [signal]"
+    },
+    {
+      "q": "How do I keyboard, Mouse, Trackpad?",
+      "expected": "hl.config({\n  input = {\n    -- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt\n    kb_layout = \"us,dk\",\n    kb_options = \"omarchy:shift_caps_compose,grp:alts_toggle\",\n\n    -- Change speed of keyboard repeat\n    repeat_rate = 40,\n    repeat_delay = 600,\n\n    -- Increase sensitivity for mouse/trackpad (default: 0)\n    sensitivity = 0.35,\n\n    touchpad = {\n      -- Use natural (inverse) scrolling\n      natural_scroll = true,\n\n      -- Use two-finger clicks for right-click instead of lower-right corner\n      clickfinger_behavior = true,\n\n      -- Control the speed of your scrolling\n      scroll_factor = 0.3,\n    },\n  },\n})\n\n-- Scroll faster in the terminal\no.window(\"(Alacritty|kitty|foot)\", { scroll_touchpad = 1.5 })",
+      "got": "omarchy-hw-dell-xps-oled"
+    },
+    {
+      "q": "What should I run to configure the bar and its widget layout?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] ["
+    },
+    {
+      "q": "How to configure the bar and its widget layout",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] ["
+    },
+    {
+      "q": "I want to record dictation using Voxtype. What do I run?",
+      "expected": "omarchy-dictation-voxtype <start|stop|toggle>",
+      "got": "omarchy-dictation-voxtype"
+    },
+    {
+      "q": "succeed when Docker needs sudo, fail when it can be used directly?",
+      "expected": "omarchy-sudo-docker [--configured]",
+      "got": "omarchy-sudo-docker"
+    },
+    {
+      "q": "Which keybinding triggers Browser?",
+      "expected": "SUPER + SHIFT + RETURN",
+      "got": "SUPER + SHIFT + CTRL + A"
+    }
+  ]
+}

@@ -45,7 +45,25 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run | config (layers, hidden) | steps | lr | best val loss | best step | tokens/s | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
-| run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | | | | One change: steps doubled (accuracy still rising at the end of run-001). |
+| run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
+| run-003 | 8, 512 (29.5M, float32) | see below | 6e-4 | | | | One change: extended question templates (heads, verb synonyms, name words), corpus rebuilt, tokenizer unchanged. |
+
+### run-002 details (2026-10-20)
+
+- Same curve as run-001: val loss (whole valid.txt) lowest 3.17 at step 500, 4.38 at the end; train loss 0.025 at the end.
+- Level 3 on the 427 held-out pairs (`eval/results/run-002-valid-step-*.json`):
+
+| checkpoint | exact | command | well-formed |
+| --- | --- | --- | --- |
+| step-1000 | 0.625 | 0.763 | 0.977 |
+| step-1500 | 0.815 | 0.855 | 1.000 |
+| step-2000 | 0.895 | 0.934 | 0.995 |
+| step-2500 | 0.918 | 0.951 | 0.995 |
+| step-3000 | 0.956 | 0.972 | 0.995 |
+| step-3066 | 0.944 | 0.965 | 0.995 |
+
+- Remaining failures are neighbouring script names (`omarchy-agent-account-state` for `omarchy-agent-account-home`, `omarchy-theme-set-claude` for `omarchy-theme-set`).
+- The three free-phrased prompts at step 3,066: `omarchy-update-boot`, `SUPER + SHIFT + RETURN`, `omarchy-theme-set-t3code`. Still wrong; more steps add no phrasing coverage, so run-003 follows plan rule 2 (more pairs per script).
 
 ### run-001 details (2026-10-20)
 
@@ -60,6 +78,16 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | step-1533 (final) | 0.867 | 0.916 | 0.995 |
 
 - The checkpoint with the lowest val loss answers 40% of questions; the final one answers 92%. Checkpoint selection for shipping uses command match on the held-out pairs, not valid.txt loss.
+- Export of `step-1533.safetensors` (2026-10-20): `hf/run-001`, `gguf/run-001-f16.gguf`, `gguf/run-001-Q8_0.gguf` (36,009,472 bytes, SHA-256 `11ab3f608b63f71af852faab56e4d7badb4828e5bd8efc3d1f3c04a1353e7fad`). `generate.py`, `mlx_lm.generate` on the HF folder and `llama-completion` on the Q8_0 GGUF give identical greedy answers for the three sample prompts, each ending at `<|end|>` (llama.cpp reports `[end of text]`):
+
+| prompt | answer |
+| --- | --- |
+| How do I update Omarchy? | `omarchy-update-available` |
+| What is the keybinding for Terminal? | `SUPER + SHIFT + RETURN` |
+| How do I set a theme? | `omarchy-theme-set-by-theme <theme-name>` |
+
+- These three prompts are free paraphrases, not template questions; two of three answers name a neighbouring command (`omarchy-update`, `omarchy-theme-set`, `SUPER + RETURN` would be right). Template questions score 0.916. Lever per the plan: more paraphrase templates in `make_pairs.py`.
+- Build 10080 has no `-no-cnv` in `llama-cli`; the raw completion command is `llama-completion -m <gguf> -p "<prompt>" -n 64 --temp 0 --no-display-prompt`. `--log-disable` also silences the generated text in this build.
 
 ## Level 4 results
 
