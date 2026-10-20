@@ -17,6 +17,9 @@ TOKENIZER_CONFIG = {
     "add_bos_token": True,
     "add_eos_token": False,
     "legacy": True,
+    # Chat template for OpenAI-style clients (llama-server /v1/chat/completions, Cherry Studio):
+    # every user message becomes a pair prompt, assistant messages close with <|end|>, system messages are dropped.
+    "chat_template": "{% for message in messages %}{% if message['role'] == 'user' %}<|q|>{{ message['content'] }}<|a|>{% elif message['role'] == 'assistant' %}{{ message['content'] }}<|end|>{% endif %}{% endfor %}",
     # The tokenizer is trained with add_dummy_prefix=False; without this the HF tokenizer
     # inserts a stray "▁" token after <|q|> (checked against sp.encode, 2026-10-20).
     "add_prefix_space": False,
