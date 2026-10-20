@@ -1,0 +1,112 @@
+{
+  "run": "run-004",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.9355742296918768,
+  "command_match": 0.9369747899159664,
+  "well_formed": 0.9985994397759104,
+  "tokens_per_s": 1245.6209727694563,
+  "worst": [
+    {
+      "q": "Launch the default coding agent",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent [--inline] [--pick]"
+    },
+    {
+      "q": "ascii",
+      "expected": "omarchy-ascii [text...]",
+      "got": "omarchy-transcode [--path path] [input] [format] [resolution]"
+    },
+    {
+      "q": "What is the command to configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "How can I configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "omarchy-branding-about-animation"
+    },
+    {
+      "q": "omarchy brightness display",
+      "expected": "omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]",
+      "got": "omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-theme-install [git-repo-url]"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-select"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "hw vulkan",
+      "expected": "omarchy-hw-vulkan",
+      "got": "omarchy-hw-fingerprint"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-session-lock.<|a|>omarchy-system-lock"
+    },
+    {
+      "q": "Restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-remove-preinstalls"
+    },
+    {
+      "q": "How to restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-remove-preinstalls"
+    },
+    {
+      "q": "How do I set up 1Password and its Chromium extension?",
+      "expected": "omarchy-install-service-1password",
+      "got": "omarchy-remove-service-1password"
+    },
+    {
+      "q": "install service once",
+      "expected": "omarchy-install-service-once",
+      "got": "omarchy-install-service-dropbox"
+    },
+    {
+      "q": "install service spotify",
+      "expected": "omarchy-install-service-spotify",
+      "got": "omarchy-install-service-dropbox"
+    }
+  ]
+}

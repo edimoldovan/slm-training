@@ -14,6 +14,9 @@
 - Step 1 corpus (2026-10-20): `git clone https://github.com/basecamp/omarchy` at commit 3ac43659dcbf88e84d951e3ce979b48a60a7d1f2 (version 4.0.0.alpha), owner-approved. Kept `bin/`, `config/`, `default/` (i18n: `en` only, translation manifest dropped), `install/`, `migrations/`, `docs/`, `manual/*.md` (English pages; `manual/<lang>/` translations dropped), `README.md`, `version`. Dropped `.git`, `themes/`, `test/`, `applications/`, `shell/`, `scripts/`, `plans/`, `agents/`, `etc/`, `CLAUDE.md`, `AGENTS.md`, images, video, fonts, cursors. The manual is in the repository, so no web fetch. 1,210 files, 3.34 MB.
 - Step 1 pairs: 8,713 derived, 8,633 after dedupe (80 questions with two different answers kept the first), 100 held back as test with seed 42, 8,533 in `pairs.txt`. Templates in `data/pairs/templates.txt`: 15 per script (14 for imperative summaries, S3 for all), 5 per keybinding (198 parsed), 2 for manual headings with a code block (34).
 - Step 1 split: raw documents 95/5 by document (seed 42); pairs 95/5 at random (seed 43), independent of the document split, so validation questions are about scripts present in train, like the sealed test.
+- Step 5 training (2026-10-20): four runs, one change each (steps ×2, templates, steps ×2). Checkpoints chosen by command match on held-out pairs. Shipping candidate run-004 step 6,500.
+- Step 6 testing: level 1 pass; level 2 cannot be met as written (see sign-off); level 3 pass (0.945 / 0.997); level 4 Mac pass (0.940 / 1.000); AMD pending.
+- Step 7: GGUF built and verified on the Mac; copied to the box; llama-server (Arch `llama-cpp`) started by the owner; validation pairs match the Mac exactly with run-003.
 - Step 2 environment: venv and named packages installed; GPU device confirmed. Added after the owner deferred: torch 2.14.1 (the converter imports it), pytest 9.1.1, and llama.cpp's converter from tag b10080 (same commit as the Homebrew build) under `tools/llama.cpp-b10080/` with its `gguf-py` installed (gguf 0.19.0).
 - Tokenizer: `add_dummy_prefix=False` added to the plan's settings (with the default, `<|q|>` encodes as two ids). HF export sets `add_prefix_space: false` for the same reason.
 - Step 3 tokenizer: trained, checks pass, token counts below.
@@ -47,7 +50,25 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
 | run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
-| run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | | | | One change: steps doubled again (plan rule 4, accuracy still rising at the end of run-003). |
+| run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | 2.960 (valid.txt) | 500 | 66k → 45k | One change: steps doubled again. Level 3 peaks at step 6,500: command 0.945, exact 0.944, well-formed 0.997. **Shipped: `step-6500.safetensors`.** Sealed test on the Mac: command 0.940, exact 0.940, well-formed 1.000. |
+
+### run-004 results (2026-10-20), shipping candidate
+
+- Level 3 on the 714 held-out pairs (`eval/results/run-004-valid-step-*.json`):
+
+| checkpoint | exact | command | well-formed |
+| --- | --- | --- | --- |
+| step-5000 | 0.926 | 0.929 | 0.997 |
+| step-5500 | 0.924 | 0.930 | 0.999 |
+| step-6000 | 0.938 | 0.943 | 0.999 |
+| step-6500 | 0.944 | 0.945 | 0.997 |
+| step-6836 (final) | 0.936 | 0.937 | 0.999 |
+
+- Doubling steps again gained 0.5 points over run-003 (0.940 → 0.945); accuracy has flattened at this model size and template set. Next lever if more is wanted: plan rule 3, grow the model (hidden 768, 12 layers).
+- Level 4, sealed test, Mac, `step-6500.safetensors` (`eval/results/run-004-test.json`): n=100, command 0.940, exact 0.940, well-formed 1.000. The 6 misses are all bare name-word questions (template F2: `hw n1x`, `shell`, `dictation voxtype`, `hyprland toggle`, `install service signal`, `capture screenrecording process`), each answered with a neighbouring script name.
+- Free-phrased prompts (not template questions) at step 6,500: `How do I update Omarchy?` → `omarchy-update [-y]`; `What is the keybinding for Terminal?` → `SUPER + RETURN`; `How do I take a screenshot?` → `omarchy-capture-screenshot [...]`; `How do I set a theme?` → `omarchy-theme-install [git-repo-url]`; `How do I change the theme?` → `omarchy-theme-set-gnome`; `How do I install docker?` → `omarchy-install-docker-dbs`; `How do I lock the screen?` → `omarchy-toggle-nightlight [--status]`; `How do I toggle night light?` → `omarchy-toggle-fullscreen-desktop [toggle|on|off]`. Three of eight right: free phrasing is the model's weak side and is what the owner spot check measures.
+- Export: `hf/run-004`, `gguf/run-004-f16.gguf`, `gguf/run-004-Q8_0.gguf` (36,009,472 bytes, SHA-256 `bb14cb629540d3a9cd40274e62a0e97a30c002082e715284907a90f28e7ad176`). `generate.py`, `mlx_lm.generate` and `llama-completion` all answer `omarchy-update [-y]` for the update prompt. Copied to the Omarchy box as `~/models/run-004-Q8_0.gguf`, hash verified.
+- AMD column: pending the owner restarting `llama-server -m ~/models/run-004-Q8_0.gguf -c 1024 --port 8080`; then `eval/score.py --split test --run run-004 --endpoint http://localhost:8080/completion` from the box.
 
 ### run-003 results (2026-10-20)
 
@@ -129,11 +150,13 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 ## Sign-off
 
+Shipping candidate: run-004 `step-6500.safetensors` → `gguf/run-004-Q8_0.gguf`.
+
 | Check | Threshold | Mac | AMD |
 | --- | --- | --- | --- |
-| Pipeline tests | all pass |  | n/a |
-| Best val loss | < 2.0 |  | n/a |
-| Command match, test | ≥ 0.90 |  |  |
-| Well-formed, test | ≥ 0.98 |  |  |
-| Mac vs AMD gap | ≤ 0.03 |  |  |
-| Owner spot check | owner's call | n/a |  |
+| Pipeline tests | all pass | 5 passed (2026-10-20, after the run-003 corpus rebuild) | n/a |
+| Best val loss | < 2.0 | 2.96 on valid.txt (fails as written: that text is mostly unseen scripts); 0.52 or lower on the pair documents (run-001 measurement; later runs train longer) | n/a |
+| Command match, test | ≥ 0.90 | 0.940 | pending server restart with run-004 |
+| Well-formed, test | ≥ 0.98 | 1.000 | pending |
+| Mac vs AMD gap | ≤ 0.03 | | pending (0.000 on the 714 validation pairs with run-003) |
+| Owner spot check | owner's call | n/a | pending |

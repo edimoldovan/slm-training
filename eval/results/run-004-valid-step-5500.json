@@ -1,0 +1,112 @@
+{
+  "run": "run-004",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.9243697478991597,
+  "command_match": 0.9299719887955182,
+  "well_formed": 0.9985994397759104,
+  "tokens_per_s": 1247.180363825292,
+  "worst": [
+    {
+      "q": "Launch the default coding agent",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "How do I run the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "How do I launch Claude?",
+      "expected": "omarchy-agent-account-exec <claude|codex|grok> [args...]",
+      "got": "omarchy-agent-account-home <claude|codex|grok>"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-home <claude|codex|grok>"
+    },
+    {
+      "q": "ascii",
+      "expected": "omarchy-ascii [text...]",
+      "got": "omarchy-transcode [--path path] [input] [format] [resolution]"
+    },
+    {
+      "q": "What is the command to configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "How can I configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "omarchy branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "omarchy brightness display",
+      "expected": "omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]",
+      "got": "omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-clipboard-text-color"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-hyprland-window-transparency-toggle"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-select"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "I want to install a hook into ~/.config/omarchy/hooks/<type>.d/. What do I run?",
+      "expected": "omarchy-hook-install <type> <file>",
+      "got": "omarchy-hook [name] [args...]"
+    },
+    {
+      "q": "Match Dell XPS systems",
+      "expected": "omarchy-hw-dell-xps-haptic-touchpad",
+      "got": "omarchy-hw-dell-xps-oled"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hw-match-device-tree <compatibles...>"
+    },
+    {
+      "q": "omarchy hw touchscreen",
+      "expected": "omarchy-hw-touchscreen",
+      "got": "omarchy-hw-match <pattern>"
+    },
+    {
+      "q": "hw vulkan",
+      "expected": "omarchy-hw-vulkan",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "Is there a command to print the name of the currently focused Hyprland monitor?",
+      "expected": "omarchy-hyprland-monitor-focused",
+      "got": "omarchy-hyprland-monitor-focused-apple [monitor]"
+    }
+  ]
+}

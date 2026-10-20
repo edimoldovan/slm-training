@@ -1,0 +1,112 @@
+{
+  "run": "run-004",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.9439775910364145,
+  "command_match": 0.9453781512605042,
+  "well_formed": 0.9971988795518207,
+  "tokens_per_s": 1246.3621716444106,
+  "worst": [
+    {
+      "q": "Launch the default coding agent",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-launch-agent [--inline] [--pick]"
+    },
+    {
+      "q": "How do I change Claude?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-agent-account-exec <claude|codex|grok> [args...]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "What is the command to configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "How can I configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "omarchy-branding-about-animation"
+    },
+    {
+      "q": "omarchy brightness display",
+      "expected": "omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]",
+      "got": "omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-select"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "I want to install a hook into ~/.config/omarchy/hooks/<type>.d/. What do I run?",
+      "expected": "omarchy-hook-install <type> <file>",
+      "got": "omarchy-hook [name] [args...]"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "hw vulkan",
+      "expected": "omarchy-hw-vulkan",
+      "got": "omarchy-hw-intel-ptl"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-session-lock.\n<|q|>omarchy restart helix\n\nmkdir -p \"$sleep_lock_dropin\"\n\n# The monitor only applies on demand.\n#\n# Read the cached sysfs IDs rather than lspci, which reads PCI config space and\n# resumes runtime-suspended GPUs"
+    },
+    {
+      "q": "Restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-remove-preinstalls"
+    },
+    {
+      "q": "How to restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-remove-preinstalls"
+    },
+    {
+      "q": "install service once",
+      "expected": "omarchy-install-service-once",
+      "got": "omarchy-install-service-dropbox"
+    },
+    {
+      "q": "install service spotify",
+      "expected": "omarchy-install-service-spotify",
+      "got": "omarchy-install-service-dropbox"
+    },
+    {
+      "q": "launch signal",
+      "expected": "omarchy-launch-signal",
+      "got": "omarchy-launch-terminal [--pid=<terminal-pid>] [command...]"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "run": "run-004",
+  "split": "test",
+  "n": 100,
+  "endpoint": null,
+  "exact_match": 0.94,
+  "command_match": 0.94,
+  "well_formed": 1.0,
+  "tokens_per_s": 1185.7398013249815,
+  "worst": [
+    {
+      "q": "capture screenrecording process",
+      "expected": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]",
+      "got": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]"
+    },
+    {
+      "q": "dictation voxtype",
+      "expected": "omarchy-dictation-voxtype <start|stop|toggle>",
+      "got": "omarchy-remove-dictation-voxtype"
+    },
+    {
+      "q": "hw n1x",
+      "expected": "omarchy-hw-n1x",
+      "got": "omarchy-hw-dell-xps13-dx13260-ptl"
+    },
+    {
+      "q": "hyprland toggle",
+      "expected": "omarchy-hyprland-toggle <flag-name> [on|off|toggle]",
+      "got": "omarchy-hyprland-toggle-disabled <flag-name>"
+    },
+    {
+      "q": "install service signal",
+      "expected": "omarchy-install-service-signal",
+      "got": "omarchy-install-service-dropbox"
+    },
+    {
+      "q": "shell",
+      "expected": "omarchy-shell [-q] <target> <method> [args...]",
+      "got": "omarchy-launch-shell"
+    }
+  ]
+}
