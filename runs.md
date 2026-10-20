@@ -15,6 +15,7 @@
 - Step 1 pairs: 8,713 derived, 8,633 after dedupe (80 questions with two different answers kept the first), 100 held back as test with seed 42, 8,533 in `pairs.txt`. Templates in `data/pairs/templates.txt`: 15 per script (14 for imperative summaries, S3 for all), 5 per keybinding (198 parsed), 2 for manual headings with a code block (34).
 - Step 1 split: raw documents 95/5 by document (seed 42); pairs 95/5 at random (seed 43), independent of the document split, so validation questions are about scripts present in train, like the sealed test.
 - Step 5 training (2026-10-20): four runs, one change each (steps ×2, templates, steps ×2). Checkpoints chosen by command match on held-out pairs. Shipping candidate run-004 step 6,500.
+- Step 5, run-005 (2026-10-21): manual prose pairs; shipped step 7,000; sealed test on the Mac 0.967 / 0.989 on command-like pairs.
 - Step 6 testing: level 1 pass; level 2 cannot be met as written (see sign-off); level 3 pass (0.945 / 0.997); level 4 pass on the Mac and on the AMD box (0.940 / 1.000 on both, gap 0.000). Owner spot check pending.
 - Step 7: GGUF built and verified on the Mac; copied to the box; llama-server (Arch `llama-cpp`) started by the owner; validation pairs match the Mac exactly with run-003.
 - Step 2 environment: venv and named packages installed; GPU device confirmed. Added after the owner deferred: torch 2.14.1 (the converter imports it), pytest 9.1.1, and llama.cpp's converter from tag b10080 (same commit as the Homebrew build) under `tools/llama.cpp-b10080/` with its `gguf-py` installed (gguf 0.19.0).
@@ -50,8 +51,24 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
 | run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
-| run-005 | 8, 512 (29.5M, float32) | 7,168 | 6e-4 | | | | One change: manual prose pairs added (owner request 2026-10-21: answer questions beyond commands). Steps = 4 × formula of the new token count, as run-004. |
+| run-005 | 8, 512 (29.5M, float32) | 7,168 | 6e-4 | 2.829 (valid.txt) | 600 | 50k → 48k | One change: manual prose pairs added. Best at step 7,000: command-like pairs command 0.953, exact 0.953, well-formed 0.997; prose (36 held-out) exact 0.667, first eight words 0.694, well-formed 0.861. **Shipped: `step-7000.safetensors`.** Sealed test: command-like 0.967 / 0.989, prose 1 of 3. |
 | run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | 2.960 (valid.txt) | 500 | 66k → 45k | One change: steps doubled again. Level 3 peaks at step 6,500: command 0.945, exact 0.944, well-formed 0.997. **Shipped: `step-6500.safetensors`.** Sealed test on the Mac: command 0.940, exact 0.940, well-formed 1.000. |
+
+### run-005 results (2026-10-21), shipped
+
+- Level 3 on the 763 held-out pairs (`eval/results/run-005-valid-step-*.json`), headline numbers over the 727 command-like pairs:
+
+| checkpoint | exact | command | well-formed | prose exact | prose first 8 words | prose well-formed |
+| --- | --- | --- | --- | --- | --- | --- |
+| step-6000 | 0.946 | 0.949 | 0.997 | 0.583 | 0.611 | 0.889 |
+| step-6500 | 0.949 | 0.950 | 0.999 | 0.611 | 0.611 | 0.861 |
+| step-7000 | 0.953 | 0.953 | 0.997 | 0.667 | 0.694 | 0.861 |
+| step-7168 (final) | 0.953 | 0.953 | 0.999 | 0.611 | 0.639 | 0.833 |
+
+- Commands improved slightly over run-004 (0.945 → 0.953). Prose: two thirds of held-out manual questions get the right paragraph; a wrong paragraph is a neighbouring section; the well-formed misses are paragraphs that repeat a 3-gram or run past 192 tokens.
+- Free questions at step 7,000: `Tell me about themes` → the themes paragraph; `What about Wi-Fi and Bluetooth?` → the FAQ answer; `What is the top bar?` → the hide-bar paragraph (near miss); `What is Omarchy?` → `omarchy-install-editor-zed` (no pair asks that: the page title is "Welcome to Omarchy" and h1 titles get P2/P4 only); `How does updating work?` → a wrong paragraph. Commands unchanged: `omarchy-update [-y]`, `SUPER + RETURN`, the capture command.
+- Level 4, sealed test (regenerated set: 90 command, 7 key, 3 prose), Mac, `step-7000.safetensors` (`eval/results/run-005-test.json`): command-like pairs command 0.967, exact 0.967, well-formed 0.989; prose 1 of 3.
+- Export: `hf/run-005` (chat template included), `gguf/run-005-Q8_0.gguf`, 36,009,696 bytes, SHA-256 `40a1ec089814641786f91fecacdcd82611558c193108a98bdcedd3c0ad4984e3`; `llama-completion -no-cnv` gives `omarchy-update [-y]` and the themes paragraph. Copied to the Omarchy box as `~/models/run-005-Q8_0.gguf` (hash verified); `~/models/omallm.gguf` links to it and the omallm app reads that name. The AMD sealed-test column for run-005 is open until the owner restarts llama-server with this file.
 
 ### run-005 corpus (2026-10-21)
 
@@ -160,7 +177,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 ## Sign-off
 
-Shipping candidate: run-004 `step-6500.safetensors` → `gguf/run-004-Q8_0.gguf`.
+Shipped: run-005 `step-7000.safetensors` → `gguf/run-005-Q8_0.gguf` (2026-10-21). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
 
 | Check | Threshold | Mac | AMD |
 | --- | --- | --- | --- |

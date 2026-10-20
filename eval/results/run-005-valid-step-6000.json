@@ -1,0 +1,138 @@
+{
+  "run": "run-005",
+  "split": "valid",
+  "n": 763,
+  "endpoint": null,
+  "exact_match": 0.9436038514442916,
+  "command_match": 0.9477303988995873,
+  "well_formed": 0.9972489683631361,
+  "tokens_per_s": 1250.9421191385068,
+  "by_kind": {
+    "command": {
+      "n": 680,
+      "exact": 0.9455882352941176,
+      "command_or_first8": 0.9485294117647058,
+      "well_formed": 0.9970588235294118
+    },
+    "key": {
+      "n": 46,
+      "exact": 0.9347826086956522,
+      "command_or_first8": 0.9565217391304348,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 36,
+      "exact": 0.5833333333333334,
+      "command_or_first8": 0.6111111111111112,
+      "well_formed": 0.8888888888888888
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "What is the command to open the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-agent-crash <pid> [comm] [exe] [signal]"
+    },
+    {
+      "q": "omarchy audio input mute",
+      "expected": "omarchy-audio-input-mute",
+      "got": "omarchy-audio-input-set-default <node-id> <source-name>"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "Every theme ships with its own set of backgrounds, and you can add extras of your own in `~/.config/omarchy/backgrounds/[theme]`. If you want to add an extra background image to, say, the nord theme, you just put the file in `~/.config/omarchy/backgrounds/nord`."
+    },
+    {
+      "q": "Add a feature",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-upgrade-to-quattro [--yes] [--reboot] [--dev] [--channel stable|rc|edge] [--user USER]"
+    },
+    {
+      "q": "How can I install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala>"
+    },
+    {
+      "q": "What is the command to install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen>"
+    },
+    {
+      "q": "omarchy dictation use",
+      "expected": "omarchy-dictation-use <backend>",
+      "got": "omarchy-network-speedtest [down|up]"
+    },
+    {
+      "q": "omarchy display text size",
+      "expected": "omarchy-display-text-size [size|reset]",
+      "got": "omarchy-menu-clipboard"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "hook",
+      "expected": "omarchy-hook [name] [args...]",
+      "got": "omarchy-hook-install <type> <file>"
+    },
+    {
+      "q": "omarchy hw intel",
+      "expected": "omarchy-hw-intel",
+      "got": "omarchy-hw-elgato-camlink-4k"
+    },
+    {
+      "q": "Returns true when running on a laptop (has a lid or laptop chassis)",
+      "expected": "omarchy-hw-laptop",
+      "got": "omarchy-restart-app <application-name>"
+    },
+    {
+      "q": "omarchy hw surface",
+      "expected": "omarchy-hw-surface",
+      "got": "omarchy-launch-or-focus-webapp <window-pattern> <url-and-flags...>"
+    },
+    {
+      "q": "hyprland monitor internal mirror",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-watch"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "omarchy install editor zed",
+      "expected": "omarchy-install-editor-zed",
+      "got": "omarchy-install-editor-helix"
+    },
+    {
+      "q": "What is the command to restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)?",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-remove-preinstalls"
+    },
+    {
+      "q": "How can I set up Sunshine?",
+      "expected": "omarchy-install-service-sunshine",
+      "got": "omarchy-install-service-tailscale"
+    },
+    {
+      "q": "omarchy launch about",
+      "expected": "omarchy-launch-about",
+      "got": "omarchy-launch-signal"
+    },
+    {
+      "q": "launch about",
+      "expected": "omarchy-launch-about",
+      "got": "Pick your default agent with `omarchy default agent <name>` or under _Setup > Defaults > Agent_ in the Omarchy Menu (`Super + Space`). If the agent isn't installed yet, picking it installs it first. A fresh Omarchy will invite you to make this choice with a one-time notification."
+    }
+  ]
+}

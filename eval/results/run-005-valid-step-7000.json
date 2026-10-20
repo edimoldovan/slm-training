@@ -1,0 +1,138 @@
+{
+  "run": "run-005",
+  "split": "valid",
+  "n": 763,
+  "endpoint": null,
+  "exact_match": 0.9477303988995873,
+  "command_match": 0.953232462173315,
+  "well_formed": 0.9972489683631361,
+  "tokens_per_s": 1250.4265135518153,
+  "by_kind": {
+    "command": {
+      "n": 680,
+      "exact": 0.9529411764705882,
+      "command_or_first8": 0.9529411764705882,
+      "well_formed": 0.9970588235294118
+    },
+    "key": {
+      "n": 46,
+      "exact": 0.8913043478260869,
+      "command_or_first8": 0.9782608695652174,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 36,
+      "exact": 0.6666666666666666,
+      "command_or_first8": 0.6944444444444444,
+      "well_formed": 0.8611111111111112
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-crash-mute [--] [<program>] [on|off|toggle]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-crash <pid> [comm] [exe] [signal]"
+    },
+    {
+      "q": "omarchy audio input mute",
+      "expected": "omarchy-audio-input-mute",
+      "got": "omarchy-audio-input-set-default <node-id> <source-name>"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "fzf gives you fuzzy finding of files via the `ff` alias. Go to any directory, type `ff`, and you'll be able to fuzzy find your way to any file in that tree, while seeing a preview of the files you're narrowing down on the right-hand"
+    },
+    {
+      "q": "omarchy capture screenshot",
+      "expected": "omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]",
+      "got": "omarchy-capture-region [region|windows|smart|fullscreen] [--keep-freeze] [--match-monitor] | --take-fullscreen | --take-window | --select-window <next|prev|left|right|up|down>"
+    },
+    {
+      "q": "What is the command to install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala>"
+    },
+    {
+      "q": "What is the command to restore Omarchy?",
+      "expected": "omarchy-dev-unlink [--no-reboot]",
+      "got": "omarchy-reinstall-configs"
+    },
+    {
+      "q": "omarchy display text size",
+      "expected": "omarchy-display-text-size [size|reset]",
+      "got": "omarchy-brightness-display-apple [--no-osd] [+N%|N%-|N%]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "hibernation setup",
+      "expected": "omarchy-hibernation-setup [--force] [--no-rebuild]",
+      "got": "omarchy-hibernation-remove"
+    },
+    {
+      "q": "hook",
+      "expected": "omarchy-hook [name] [args...]",
+      "got": "omarchy-hook-install <type> <file>"
+    },
+    {
+      "q": "Returns true when running on a laptop (has a lid or laptop chassis)",
+      "expected": "omarchy-hw-laptop",
+      "got": "omarchy-restart-app <application-name>"
+    },
+    {
+      "q": "omarchy hw surface",
+      "expected": "omarchy-hw-surface",
+      "got": "omarchy-launch-or-focus-webapp <window-pattern> <url-and-flags...>"
+    },
+    {
+      "q": "omarchy hyprland monitor focused",
+      "expected": "omarchy-hyprland-monitor-focused",
+      "got": "omarchy-hyprland-monitor-focused-apple [monitor]"
+    },
+    {
+      "q": "hyprland monitor internal mirror",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-watch"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "omarchy launch about",
+      "expected": "omarchy-launch-about",
+      "got": "omarchy-launch-spotify"
+    },
+    {
+      "q": "launch about",
+      "expected": "omarchy-launch-about",
+      "got": "Pick your default agent with `omarchy default agent <name>` or under _Setup > Defaults > Agent_ in the Omarchy Menu (`Super + Space`). If the agent isn't installed yet, picking it installs it first. A fresh Omarchy will invite you to make this choice with a one-time notification."
+    },
+    {
+      "q": "How can I run the Omarchy shell?",
+      "expected": "omarchy-launch-shell",
+      "got": "omarchy-restart-shell"
+    }
+  ]
+}

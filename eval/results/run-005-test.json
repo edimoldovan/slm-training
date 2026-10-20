@@ -1,0 +1,57 @@
+{
+  "run": "run-005",
+  "split": "test",
+  "n": 100,
+  "endpoint": null,
+  "exact_match": 0.9690721649484536,
+  "command_match": 0.9690721649484536,
+  "well_formed": 0.9896907216494846,
+  "tokens_per_s": 1202.5029672209325,
+  "by_kind": {
+    "command": {
+      "n": 90,
+      "exact": 0.9666666666666667,
+      "command_or_first8": 0.9666666666666667,
+      "well_formed": 0.9888888888888889
+    },
+    "key": {
+      "n": 7,
+      "exact": 1.0,
+      "command_or_first8": 1.0,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 3,
+      "exact": 0.3333333333333333,
+      "command_or_first8": 0.3333333333333333,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "hyprland toggle",
+      "expected": "omarchy-hyprland-toggle <flag-name> [on|off|toggle]",
+      "got": "omarchy-hyprland-toggle-disabled <flag-name>"
+    },
+    {
+      "q": "install dictation superwhisper",
+      "expected": "omarchy-install-dictation-superwhisper",
+      "got": "omarchy-dictation-superwhisper <start|stop|toggle>"
+    },
+    {
+      "q": "shell",
+      "expected": "omarchy-shell [-q] <target> <method> [args...]",
+      "got": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] ["
+    },
+    {
+      "q": "What is idle?",
+      "expected": "The Omarchy shell owns idle behavior, and the timings are a top-level `idle` block in `~/.config/omarchy/shell.json`:",
+      "got": "{\n  \"version\": 1,\n  \"idle\": {\n    \"screensaver\": 150,\n    \"lock\": 300\n  }\n}"
+    },
+    {
+      "q": "How does DNS work?",
+      "expected": "Omarchy uses whatever DNS your network hands out over DHCP. You can override that for the whole machine under _Setup > Network > DNS_, where Cloudflare and Google are one click away. Pick _Custom_ to type in your own servers.",
+      "got": "Omarchy assumes you're running on a 2x-capable retina-class display by default. This is what you need to get those nice, crisp programmer fonts. It's what almost all new premium laptops with high-resolution screens are optimized for. It's what you'd want to run on a 27\" 5K Apple Studio Display/ProArt PA27JCV/Samsung S9/Kuycon G27P or 32\" 6K Apple XDR/ProArt PA32QCV/Kuycon G32P."
+    }
+  ]
+}

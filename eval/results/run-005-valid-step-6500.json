@@ -1,0 +1,138 @@
+{
+  "run": "run-005",
+  "split": "valid",
+  "n": 763,
+  "endpoint": null,
+  "exact_match": 0.9463548830811555,
+  "command_match": 0.9504814305364512,
+  "well_formed": 0.9986244841815681,
+  "tokens_per_s": 1253.9863116141803,
+  "by_kind": {
+    "command": {
+      "n": 680,
+      "exact": 0.9485294117647058,
+      "command_or_first8": 0.95,
+      "well_formed": 0.9985294117647059
+    },
+    "key": {
+      "n": 46,
+      "exact": 0.9347826086956522,
+      "command_or_first8": 0.9782608695652174,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 36,
+      "exact": 0.6111111111111112,
+      "command_or_first8": 0.6111111111111112,
+      "well_formed": 0.8611111111111112
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy audio input mute",
+      "expected": "omarchy-audio-input-mute",
+      "got": "omarchy-audio-input-set-default <node-id> <source-name>"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "Foot is notes to edit files in `/usr/share/omarchy/` (`bin/`, `config/`, `default/`, `shell/`, `themes/`, `migrations/`, etc.)\n\n## Scops\n\n| Key | What it does |\n|-------|----------|\n| btop | `~/."
+    },
+    {
+      "q": "How can I install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala>"
+    },
+    {
+      "q": "What is the command to install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala>"
+    },
+    {
+      "q": "What is the command to measure theme switcher cache?",
+      "expected": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]",
+      "got": "omarchy-theme-switcher"
+    },
+    {
+      "q": "What is the command to restore Omarchy?",
+      "expected": "omarchy-dev-unlink [--no-reboot]",
+      "got": "omarchy-reinstall"
+    },
+    {
+      "q": "omarchy dictation use",
+      "expected": "omarchy-dictation-use <backend>",
+      "got": "omarchy-dictation <start|stop|toggle>"
+    },
+    {
+      "q": "omarchy display text size",
+      "expected": "omarchy-display-text-size [size|reset]",
+      "got": "omarchy-brightness-display-mute <on|off>"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "hibernation setup",
+      "expected": "omarchy-hibernation-setup [--force] [--no-rebuild]",
+      "got": "omarchy-hibernation-remove"
+    },
+    {
+      "q": "hook",
+      "expected": "omarchy-hook [name] [args...]",
+      "got": "omarchy-hook-install <type> <file>"
+    },
+    {
+      "q": "omarchy hw intel",
+      "expected": "omarchy-hw-intel",
+      "got": "omarchy-hw-intel-ptl"
+    },
+    {
+      "q": "Returns true when running on a laptop (has a lid or laptop chassis)",
+      "expected": "omarchy-hw-laptop",
+      "got": "omarchy-restart-app <application-name>"
+    },
+    {
+      "q": "omarchy hw surface",
+      "expected": "omarchy-hw-surface",
+      "got": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "omarchy hyprland monitor focused",
+      "expected": "omarchy-hyprland-monitor-focused",
+      "got": "omarchy-hyprland-monitor-focused-apple [monitor]"
+    },
+    {
+      "q": "hyprland monitor internal mirror",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-watch"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "install chromium copy url",
+      "expected": "omarchy-install-chromium-copy-url",
+      "got": "omarchy-install-chromium-google-account"
+    },
+    {
+      "q": "omarchy install editor zed",
+      "expected": "omarchy-install-editor-zed",
+      "got": "omarchy-install-editor-helix"
+    },
+    {
+      "q": "omarchy launch about",
+      "expected": "omarchy-launch-about",
+      "got": "omarchy-launch-discord-community"
+    }
+  ]
+}

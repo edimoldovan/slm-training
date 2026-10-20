@@ -1,0 +1,138 @@
+{
+  "run": "run-005",
+  "split": "valid",
+  "n": 763,
+  "endpoint": null,
+  "exact_match": 0.9477303988995873,
+  "command_match": 0.953232462173315,
+  "well_formed": 0.9986244841815681,
+  "tokens_per_s": 1257.4206459316856,
+  "by_kind": {
+    "command": {
+      "n": 680,
+      "exact": 0.9529411764705882,
+      "command_or_first8": 0.9529411764705882,
+      "well_formed": 0.9985294117647059
+    },
+    "key": {
+      "n": 46,
+      "exact": 0.8913043478260869,
+      "command_or_first8": 0.9782608695652174,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 36,
+      "exact": 0.6111111111111112,
+      "command_or_first8": 0.6388888888888888,
+      "well_formed": 0.8333333333333334
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-crash-mute [--] [<program>] [on|off|toggle]"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "fzf gives you fuzzy finding of files via the `ff` alias. Go to any directory, type `ff`, and you'll be able to fuzzy find your way to any file in that tree, while seeing a preview of the files you're narrowing down on the right-hand"
+    },
+    {
+      "q": "What is the command to install a feature?",
+      "expected": "omarchy-chromium-add-feature <feature>",
+      "got": "omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala>"
+    },
+    {
+      "q": "omarchy dictation use",
+      "expected": "omarchy-dictation-use <backend>",
+      "got": "omarchy-dictation-superwhisper <start|stop|toggle>"
+    },
+    {
+      "q": "omarchy display text size",
+      "expected": "omarchy-display-text-size [size|reset]",
+      "got": "omarchy-brightness-display-apple [--no-osd] [+N%|N%-|N%]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "hibernation setup",
+      "expected": "omarchy-hibernation-setup [--force] [--no-rebuild]",
+      "got": "omarchy-hibernation-remove"
+    },
+    {
+      "q": "hook",
+      "expected": "omarchy-hook [name] [args...]",
+      "got": "omarchy-hook-install <type> <file>"
+    },
+    {
+      "q": "Returns true when running on a laptop (has a lid or laptop chassis)",
+      "expected": "omarchy-hw-laptop",
+      "got": "omarchy-system-lid-inhibit"
+    },
+    {
+      "q": "omarchy hw surface",
+      "expected": "omarchy-hw-surface",
+      "got": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "hyprland monitor internal mirror",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-watch"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "omarchy install editor zed",
+      "expected": "omarchy-install-editor-zed",
+      "got": "omarchy-install-editor-helix"
+    },
+    {
+      "q": "omarchy launch about",
+      "expected": "omarchy-launch-about",
+      "got": "omarchy-launch-signal"
+    },
+    {
+      "q": "launch about",
+      "expected": "omarchy-launch-about",
+      "got": "omarchy-launch-nautilus"
+    },
+    {
+      "q": "launch terminal",
+      "expected": "omarchy-launch-terminal [--pid=<terminal-pid>] [command...]",
+      "got": "omarchy-launch-terminal-tmux"
+    },
+    {
+      "q": "omarchy menu share",
+      "expected": "omarchy-menu-share <clipboard|file|folder> [path...]",
+      "got": "omarchy-menu-clipboard"
+    },
+    {
+      "q": "How can I create a shell plugin?",
+      "expected": "omarchy-plugin-add [git-url] [--enable] [--yes]",
+      "got": "omarchy-plugin-enable <id> [placement]"
+    },
+    {
+      "q": "omarchy restart herdr",
+      "expected": "omarchy-restart-herdr",
+      "got": "omarchy-refresh-herdr"
+    }
+  ]
+}
