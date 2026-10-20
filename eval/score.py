@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 END = "<|end|>"
+END_ID = 5  # id of <|end|> in tokenizer/tokenizer.model (unk 0, bos 1, eos 2, then the three symbols)
 PAIR_RE = re.compile(r"<\|q\|>(.*?)<\|a\|>(.*?)<\|end\|>", re.S)
 
 
@@ -75,9 +76,12 @@ class Endpoint:
                 self.last_tps = n / (r["eval_duration"] / 1e9)
         else:
             r = self.post({"prompt": f"<|q|>{q}<|a|>", "n_predict": self.max_tokens, "temperature": 0,
-                           "stop": [END], "cache_prompt": False})
+                           "stop": [END], "cache_prompt": False, "return_tokens": True})
             text = r.get("content", "")
-            ended = r.get("stop_type") == "word" or bool(r.get("stopped_word"))
+            # llama.cpp treats <|end|> as an end-of-generation token by name, so it stops with
+            # stop_type "eos" and the text never contains the symbol; the stop word is a fallback.
+            toks = r.get("tokens") or []
+            ended = (toks[-1] == END_ID) if toks else (r.get("stop_type") in ("eos", "word") or bool(r.get("stopped_word")))
             n = r.get("tokens_predicted", 0)
             t = r.get("timings", {})
             if t.get("predicted_per_second"):

@@ -6,3 +6,4 @@ data/*.bin
 checkpoints/
 hf/
 gguf/
+tools/

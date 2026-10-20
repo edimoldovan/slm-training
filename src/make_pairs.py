@@ -4,7 +4,7 @@
 Sources:
   scripts      data/raw/omarchy/bin/omarchy-*      `# omarchy:summary=` and `# omarchy:args=` header lines
   keybindings  data/raw/omarchy/default/hypr/bindings/*.lua, config/hypr/bindings.lua   o.bind("KEY", "Description", ...)
-  manual       data/raw/manual/*.md                 heading followed by a fenced code block in its section
+  manual       data/raw/omarchy/manual/*.md         heading followed by a fenced code block in its section
 
 Writes data/pairs/pairs.jsonl (q, a, source), data/pairs/pairs.txt (the training format),
 data/pairs/templates.txt (every template, for review) and data/test/prompts.jsonl (held back).
@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 OMARCHY = RAW / "omarchy"
-MANUAL = RAW / "manual"
+MANUAL = OMARCHY / "manual"
 
 # Imperative summaries only: a first word ending in "s" is third person ("Returns true if ...")
 # unless it is one of these imperatives.
@@ -31,14 +31,28 @@ SCRIPT_TEMPLATES = [
     ("S3", "{Summary}", False),
     ("S4", "How can I {summary}?", True),
     ("S5", "I want to {summary}. What do I run?", True),
+    ("S6", "Which omarchy command will {summary}?", True),
+    ("S7", "Is there a command to {summary}?", True),
+    ("S8", "What should I run to {summary}?", True),
+    ("S9", "Command to {summary}", True),
+    ("S10", "How to {summary}", True),
+    ("S11", "In Omarchy, how do I {summary}?", True),
+    ("S12", "Tell me how to {summary}.", True),
+    ("S13", "What do I type to {summary}?", True),
+    ("S14", "{summary}?", True),
+    ("S15", "Script to {summary}", True),
 ]
 KEY_TEMPLATES = [
     ("K1", "What is the keybinding for {desc}?"),
     ("K2", "What is the shortcut for {desc}?"),
     ("K3", "Keybinding for {desc}"),
+    ("K4", "Hotkey for {desc}"),
+    ("K5", "Which keybinding triggers {desc}?"),
 ]
+# M1 for headings that read as an instruction ("Install X"); M2 for noun or -ing headings.
 MANUAL_TEMPLATES = [
     ("M1", "How do I {heading}?"),
+    ("M2", "What is the command for {heading}?"),
 ]
 
 META_RE = re.compile(r"^# omarchy:([a-z-]+)=(.*)$")
@@ -126,9 +140,9 @@ def manual_pairs(stats):
                     in_fence = False
                     if heading and not done and block:
                         stats["manual code blocks"] += 1
-                        for tid, template in MANUAL_TEMPLATES:
-                            q = template.format(heading=lower_first(heading.rstrip("?.")))
-                            pairs.append({"q": q, "a": "\n".join(block), "source": source, "template": tid})
+                        h = heading.rstrip("?.:")
+                        tid, template = MANUAL_TEMPLATES[0] if is_imperative(h) and not h.split(" ", 1)[0].lower().endswith("ing") else MANUAL_TEMPLATES[1]
+                        pairs.append({"q": template.format(heading=lower_first(h)), "a": "\n".join(block), "source": source, "template": tid})
                         done = True
                     block = []
                 else:

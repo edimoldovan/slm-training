@@ -2,8 +2,9 @@
 """Build data/train.txt and data/valid.txt from data/raw/ plus the derived pairs in data/pairs/.
 
 Each source file becomes one document: a `### <relative path>` header, the content, a blank
-line. Pairs are appended after the raw documents. Split by document, seed 42, 95/5; a pair
-follows the split of its source document.
+line. Pairs are appended after the raw documents. Raw documents are split 95/5 with seed 42.
+Pairs are split 95/5 independently (seed 43), so validation questions are about scripts whose
+text is in train, the same situation as the sealed test set.
 """
 import json
 import random
@@ -15,10 +16,11 @@ RAW = ROOT / "data" / "raw"
 PAIRS = ROOT / "data" / "pairs" / "pairs.jsonl"
 SEED = 42
 VALID_FRACTION = 0.05
-OMARCHY_KEEP = {"bin", "config", "default", "install", "migrations", "README.md"}
+OMARCHY_KEEP = {"bin", "config", "default", "install", "migrations", "docs", "manual", "README.md", "version"}
 DROP_SUFFIXES = {
     ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".svg", ".bmp",
     ".ttf", ".otf", ".woff", ".woff2",
+    ".mp4", ".mp3", ".wav", ".ogg",
     ".lock", ".pyc", ".o", ".so", ".dylib", ".zip", ".gz", ".tar", ".pdf", ".DS_Store",
 }
 DROP_NAMES = {"package-lock.json", "yarn.lock", "Gemfile.lock", "Cargo.lock", "uv.lock", "poetry.lock", "pnpm-lock.yaml", ".DS_Store"}
@@ -32,6 +34,10 @@ def wanted(rel: Path) -> bool:
             return False
         top = rel.parts[1]
         if top not in OMARCHY_KEEP and not top.startswith("CHANGELOG"):
+            return False
+        if top == "manual" and len(rel.parts) > 3:  # translations live in manual/<lang>/
+            return False
+        if rel.parts[1:3] == ("default", "i18n") and len(rel.parts) > 4 and rel.parts[3] != "en":
             return False
     return rel.suffix.lower() not in DROP_SUFFIXES and rel.name not in DROP_NAMES
 
@@ -76,8 +82,11 @@ def main():
     split = {"train": {"docs": [], "pairs": []}, "valid": {"docs": [], "pairs": []}}
     for name in names:
         split["valid" if name in valid_names else "train"]["docs"].append(name)
-    for pair in pairs:
-        split["valid" if pair["source"] in valid_names else "train"]["pairs"].append(pair)
+    pair_order = list(range(len(pairs)))
+    random.Random(SEED + 1).shuffle(pair_order)
+    valid_pairs = set(pair_order[: round(VALID_FRACTION * len(pairs))])
+    for i, pair in enumerate(pairs):
+        split["valid" if i in valid_pairs else "train"]["pairs"].append(pair)
 
     for name, part in split.items():
         out = ROOT / "data" / f"{name}.txt"

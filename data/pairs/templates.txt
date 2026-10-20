@@ -1,0 +1,69 @@
+# Templates used by src/make_pairs.py (deterministic, no language model)
+
+S1  How do I {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S2  What is the command to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S3  {Summary}   -> script name + args   (535 pairs)
+S4  How can I {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S5  I want to {summary}. What do I run?   [imperative summaries only]   -> script name + args   (511 pairs)
+S6  Which omarchy command will {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S7  Is there a command to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S8  What should I run to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S9  Command to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+S10  How to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+S11  In Omarchy, how do I {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S12  Tell me how to {summary}.   [imperative summaries only]   -> script name + args   (511 pairs)
+S13  What do I type to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S14  {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S15  Script to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+K1  What is the keybinding for {desc}?   -> key combo   (182 pairs)
+K2  What is the shortcut for {desc}?   -> key combo   (182 pairs)
+K3  Keybinding for {desc}   -> key combo   (182 pairs)
+K4  Hotkey for {desc}   -> key combo   (182 pairs)
+K5  Which keybinding triggers {desc}?   -> key combo   (182 pairs)
+M1  How do I {heading}?   -> fenced code block under the heading   (17 pairs)
+M2  What is the command for {heading}?   -> fenced code block under the heading   (17 pairs)
+
+# One example per template
+
+S1  <|q|>How do I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S2  <|q|>What is the command to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S3  <|q|>Launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S4  <|q|>How can I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S5  <|q|>I want to launch the default coding agent in a terminal. What do I run?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S6  <|q|>Which omarchy command will launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S7  <|q|>Is there a command to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S8  <|q|>What should I run to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S9  <|q|>Command to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S10  <|q|>How to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S11  <|q|>In Omarchy, how do I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S12  <|q|>Tell me how to launch the default coding agent in a terminal.<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S13  <|q|>What do I type to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S14  <|q|>launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S15  <|q|>Script to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+K1  <|q|>What is the keybinding for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K2  <|q|>What is the shortcut for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K3  <|q|>Keybinding for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K4  <|q|>Hotkey for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K5  <|q|>Which keybinding triggers Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+M1  <|q|>How do I dwindle vs scrolling layout?<|a|>hl.config({
+  general = {
+    layout = "scrolling",
+  },
+})<|end|>   (from omarchy/manual/04-navigation.md)
+M2  <|q|>What is the command for rearranging the bar?<|a|>omarchy bar position bottom
+omarchy bar background glassy  # opaque, glassy, none, or cycle
+omarchy bar move omarchy.weather --section centerBegin --index 0
+omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
+omarchy bar set omarchy.clock format "HH:mm"
+omarchy bar defaults          # back to the shipped layout<|end|>   (from omarchy/manual/05-the-top-bar.md)
+
+# Stats
+
+dropped: same question, different answer: 80
+keybindings parsed: 198
+manual code blocks: 34
+non-imperative summaries (S3 only): 24
+pairs before dedupe: 8713
+pairs after dedupe: 8633
+held back as test (seed 42): 100
+pairs.txt: 8533
