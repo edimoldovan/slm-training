@@ -1,0 +1,112 @@
+{
+  "run": "run-003",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.8851540616246498,
+  "command_match": 0.8977591036414566,
+  "well_formed": 0.9957983193277311,
+  "tokens_per_s": 1249.4820736513532,
+  "worst": [
+    {
+      "q": "Launch the default coding agent",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "How do I show Claude?",
+      "expected": "omarchy-agent-account-list [claude|codex|grok] [--json]",
+      "got": "omarchy-agent-account-exec <claude|codex|grok> [args...]"
+    },
+    {
+      "q": "How do I change Claude?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-agent-account-list [claude|codex|grok] [--json]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "omarchy-branding-about-animation"
+    },
+    {
+      "q": "omarchy branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "omarchy brightness display",
+      "expected": "omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]",
+      "got": "omarchy-brightness-display-apple [--no-osd] [+N%|N%-|N%]"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-clipboard-text"
+    },
+    {
+      "q": "What is the command to set the default browser?",
+      "expected": "omarchy-default-browser [chromium|chrome|brave|brave-origin|edge|firefox|zen]",
+      "got": "omarchy-cmd-default-browser"
+    },
+    {
+      "q": "dev benchmark theme switcher",
+      "expected": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]",
+      "got": "omarchy-dev-benchmark-cli [--repeat=<count>]"
+    },
+    {
+      "q": "Record dictation",
+      "expected": "omarchy-dictation <start|stop|toggle>",
+      "got": "omarchy-dictation-superwhisper <start|stop|toggle>"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-hyprland-window-single-square-aspect-toggle"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-select"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-emoji"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "Match Dell XPS systems",
+      "expected": "omarchy-hw-dell-xps-haptic-touchpad",
+      "got": "omarchy-hw-dell-xps13-dx13260-ptl"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "Clear the internal-monitor-disable toggle if no external display is connected",
+      "expected": "omarchy-hw-recover-internal-monitor",
+      "got": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>"
+    },
+    {
+      "q": "omarchy hw touchscreen",
+      "expected": "omarchy-hw-touchscreen",
+      "got": "omarchy-hw-recover-internal-monitor"
+    }
+  ]
+}

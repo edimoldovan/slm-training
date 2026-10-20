@@ -1,0 +1,112 @@
+{
+  "run": "run-003",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.8711484593837535,
+  "command_match": 0.8809523809523809,
+  "well_formed": 0.9985994397759104,
+  "tokens_per_s": 1255.2668663742331,
+  "worst": [
+    {
+      "q": "How do I launch Claude?",
+      "expected": "omarchy-agent-account-exec <claude|codex|grok> [args...]",
+      "got": "omarchy-agent-account-list"
+    },
+    {
+      "q": "How do I change Claude?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "agent account rename",
+      "expected": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>",
+      "got": "omarchy-agent-account-exec <claude|codex|grok> [args...]"
+    },
+    {
+      "q": "How can I rename a Claude?",
+      "expected": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>",
+      "got": "omarchy-agent-account-list [claude|codex|grok] [--json]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "What is the command to configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "How can I configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-bar [toggle|on|off]"
+    },
+    {
+      "q": "Which omarchy command will choose a legible transparent bar text color?",
+      "expected": "omarchy-bar-text-color",
+      "got": "omarchy-menu-text-color"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "omarchy branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-clipboard-text"
+    },
+    {
+      "q": "What is the command to copy a file?",
+      "expected": "omarchy-clipboard-paste-file [--copy-only] <mime-type> <path>",
+      "got": "omarchy-chromium-copy-url-host"
+    },
+    {
+      "q": "How can I copy text?",
+      "expected": "omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]",
+      "got": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]"
+    },
+    {
+      "q": "Record dictation",
+      "expected": "omarchy-dictation <start|stop|toggle>",
+      "got": "omarchy-dictation-superwhisper <start|stop|toggle>"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-hyprland-monitor-focused"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-password"
+    },
+    {
+      "q": "How do I choose a drive?",
+      "expected": "omarchy-drive-select",
+      "got": "omarchy-drive-password"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    }
+  ]
+}

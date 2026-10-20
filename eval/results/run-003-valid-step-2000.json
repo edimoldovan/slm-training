@@ -1,0 +1,112 @@
+{
+  "run": "run-003",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.8333333333333334,
+  "command_match": 0.8543417366946778,
+  "well_formed": 0.9957983193277311,
+  "tokens_per_s": 1103.850562020803,
+  "worst": [
+    {
+      "q": "Launch the default coding agent",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-launch-nautilus-cwd"
+    },
+    {
+      "q": "How do I run the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "How do I show Claude?",
+      "expected": "omarchy-agent-account-list [claude|codex|grok] [--json]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "How do I change Claude?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-theme-bg-switcher"
+    },
+    {
+      "q": "Diagnose a crashed process with the default coding agent",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]"
+    },
+    {
+      "q": "What is the command to display the Claude Code usage record as JSON?",
+      "expected": "omarchy-agent-usage-claude [--force] [--limits-only]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "What is the command to apply Omarchy system setup in the installed target?",
+      "expected": "omarchy-apply-system",
+      "got": "omarchy-install-chromium-google-account"
+    },
+    {
+      "q": "What is the command to configure the bar?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar-text"
+    },
+    {
+      "q": "branding about",
+      "expected": "omarchy-branding-about <image|text|reset>",
+      "got": "omarchy-branding-about-animation"
+    },
+    {
+      "q": "omarchy branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "Is there a command to start or stop screen recording?",
+      "expected": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]",
+      "got": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]"
+    },
+    {
+      "q": "How can I run or stop screen recording?",
+      "expected": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]",
+      "got": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-theme-set-foot"
+    },
+    {
+      "q": "What is the command to copy a file?",
+      "expected": "omarchy-clipboard-paste-file [--copy-only] <mime-type> <path>",
+      "got": "omarchy-chromium-copy-url-host"
+    },
+    {
+      "q": "omarchy clipboard paste text",
+      "expected": "omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]",
+      "got": "omarchy-clipboard-paste-file [--copy-only] <mime-type> <path>"
+    },
+    {
+      "q": "How can I copy text?",
+      "expected": "omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]",
+      "got": "omarchy-theme-bg-set <path-to-media>"
+    },
+    {
+      "q": "Record dictation",
+      "expected": "omarchy-dictation <start|stop|toggle>",
+      "got": "omarchy-dictation-superwhisper <start|stop|toggle>"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-powerprofiles-init"
+    }
+  ]
+}

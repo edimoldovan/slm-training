@@ -46,7 +46,23 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
-| run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | | | | One change: extended question templates (heads, verb synonyms, name words); corpus rebuilt, tokenizer unchanged. Steps = 2 × formula (2 × 1,709), the same doubled schedule as run-002. |
+| run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
+| run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | | | | One change: steps doubled again (plan rule 4, accuracy still rising at the end of run-003). |
+
+### run-003 results (2026-10-20)
+
+- Level 3 on the 714 held-out pairs (`eval/results/run-003-valid-step-*.json`):
+
+| checkpoint | exact | command | well-formed |
+| --- | --- | --- | --- |
+| step-2000 | 0.833 | 0.854 | 0.996 |
+| step-2500 | 0.871 | 0.881 | 0.999 |
+| step-3000 | 0.885 | 0.898 | 0.996 |
+| step-3418 (final) | 0.933 | 0.940 | 0.996 |
+
+- The new validation set is harder than run-002's (more phrasings per script, 714 instead of 427 pairs), so the numbers are not comparable across runs. Remaining failures are mostly scripts sharing a long prefix (`omarchy-agent-account-*`) and the bare name-word questions (`done`, `drive info`).
+- Free-phrased prompts at step 3,418: `How do I update Omarchy?` → `omarchy-update [-y]`; `What is the keybinding for Terminal?` → `SUPER + RETURN`; `How do I take a screenshot?` → `omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]`; `How do I set a theme?` → `omarchy-theme-set-tmux` (a per-app variant; `omarchy-theme-set` expected); `How do I install docker?` → `omarchy-install-docker-dbs`.
+- Export of `step-3418.safetensors`: `gguf/run-003-Q8_0.gguf`, 36,009,472 bytes, SHA-256 `0f6ae79ff02c2f57e37dc8c223e9de79b6d97404ac70cc8ef6f8fbee66f89ced`; `llama-completion` answers `omarchy-update [-y]` for the update prompt. Copied to the Omarchy box as `~/models/run-003-Q8_0.gguf` (hash verified) so the llama-server setup can be prepared while run-004 trains.
 
 ### run-003 corpus (2026-10-20)
 

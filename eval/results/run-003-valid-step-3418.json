@@ -1,0 +1,112 @@
+{
+  "run": "run-003",
+  "split": "valid",
+  "n": 714,
+  "endpoint": null,
+  "exact_match": 0.9327731092436975,
+  "command_match": 0.9397759103641457,
+  "well_formed": 0.9957983193277311,
+  "tokens_per_s": 1241.617919895482,
+  "worst": [
+    {
+      "q": "Is there a command to sign in to a Claude, Codex, or Grok subscription?",
+      "expected": "omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "How do I change Claude?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-agent-account-list [claude|codex|grok] [--json]"
+    },
+    {
+      "q": "omarchy agent prompt",
+      "expected": "omarchy-agent-prompt [--inline] <prompt...>",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "omarchy branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "omarchy-branding-screensaver <image|text|reset>"
+    },
+    {
+      "q": "How can I extract text?",
+      "expected": "omarchy-capture-text",
+      "got": "omarchy-clipboard-text"
+    },
+    {
+      "q": "done",
+      "expected": "omarchy-done <check|mark|ensure> <name>",
+      "got": "omarchy-hyprland-monitor-focused"
+    },
+    {
+      "q": "drive info",
+      "expected": "omarchy-drive-info <drive>",
+      "got": "omarchy-drive-select"
+    },
+    {
+      "q": "file select",
+      "expected": "omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions \"<ext ext...>\"]",
+      "got": "omarchy-menu-emoji"
+    },
+    {
+      "q": "omarchy games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-retroarch"
+    },
+    {
+      "q": "Match Dell XPS systems",
+      "expected": "omarchy-hw-dell-xps-haptic-touchpad",
+      "got": "omarchy-hw-dell-xps-oled"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "omarchy hw touchscreen",
+      "expected": "omarchy-hw-touchscreen",
+      "got": "omarchy-hw-webcam"
+    },
+    {
+      "q": "hw vulkan",
+      "expected": "omarchy-hw-vulkan",
+      "got": "omarchy-hw-x86"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock",
+      "expected": "omarchy-hyprland-session-locked",
+      "got": "omarchy-restart-shell"
+    },
+    {
+      "q": "How can I add Microsoft Outlook?",
+      "expected": "omarchy-install-service-microsoft",
+      "got": "omarchy-remove-service-microsoft"
+    },
+    {
+      "q": "install service once",
+      "expected": "omarchy-install-service-once",
+      "got": "omarchy-install-service-signal"
+    },
+    {
+      "q": "How do I let mpv?",
+      "expected": "omarchy-install-video-decode",
+      "got": "omarchy-theme-set-templates"
+    },
+    {
+      "q": "launch signal",
+      "expected": "omarchy-launch-signal",
+      "got": "omarchy-launch-spotify"
+    },
+    {
+      "q": "menu share",
+      "expected": "omarchy-menu-share <clipboard|file|folder> [path...]",
+      "got": "omarchy-menu-tmux"
+    }
+  ]
+}
