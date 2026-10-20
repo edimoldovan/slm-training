@@ -46,7 +46,12 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
-| run-003 | 8, 512 (29.5M, float32) | see below | 6e-4 | | | | One change: extended question templates (heads, verb synonyms, name words), corpus rebuilt, tokenizer unchanged. |
+| run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | | | | One change: extended question templates (heads, verb synonyms, name words); corpus rebuilt, tokenizer unchanged. Steps = 2 × formula (2 × 1,709), the same doubled schedule as run-002. |
+
+### run-003 corpus (2026-10-20)
+
+- `make_pairs.py` extended per plan rule 2 (templates H1–H4 summary heads, Y1–Y3 verb synonyms from a fixed table, F1–F2 script-name words; all listed in `data/pairs/templates.txt`). 14,636 pairs derived, 14,385 after dedupe (251 questions with two answers kept the first), 100 held back as test (seed 42, regenerated from the larger pool; the previous set was never scored), 14,285 in `pairs.txt`.
+- Corpus: train.txt 1,144 documents + 13,571 pairs, 4,769,042 bytes, 1,400,359 tokens (bos 14,715 = documents); valid.txt 60 documents + 714 pairs, 279,056 bytes, 82,658 tokens. Level 1 tests: 5 passed. Formula: 40 epochs → 1,709 steps; run-003 uses 2 × 1,709 = 3,418.
 
 ### run-002 details (2026-10-20)
 

@@ -15,6 +15,15 @@ S12  Tell me how to {summary}.   [imperative summaries only]   -> script name + 
 S13  What do I type to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
 S14  {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
 S15  Script to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+H1  How do I {head}?   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (283 pairs)
+H2  {Head}   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (284 pairs)
+H3  What is the command to {head}?   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (283 pairs)
+H4  How can I {head}?   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (283 pairs)
+Y1  How do I {syn} {rest}?   [syn from VERB_SYNONYMS below replaces the first word; rest = summary or head without its first word]   -> script name + args   (1183 pairs)
+Y2  How can I {syn} {rest}?   [syn from VERB_SYNONYMS below replaces the first word; rest = summary or head without its first word]   -> script name + args   (1183 pairs)
+Y3  What is the command to {syn} {rest}?   [syn from VERB_SYNONYMS below replaces the first word; rest = summary or head without its first word]   -> script name + args   (1183 pairs)
+F1  omarchy {words}   [words = script name without omarchy-, dashes as spaces]   -> script name + args   (535 pairs)
+F2  {words}   [words = script name without omarchy-, dashes as spaces]   -> script name + args   (535 pairs)
 K1  What is the keybinding for {desc}?   -> key combo   (182 pairs)
 K2  What is the shortcut for {desc}?   -> key combo   (182 pairs)
 K3  Keybinding for {desc}   -> key combo   (182 pairs)
@@ -40,6 +49,15 @@ S12  <|q|>Tell me how to launch the default coding agent in a terminal.<|a|>omar
 S13  <|q|>What do I type to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S14  <|q|>launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S15  <|q|>Script to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+F1  <|q|>omarchy agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+F2  <|q|>agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H1  <|q|>How do I launch the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H2  <|q|>Launch the default coding agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H3  <|q|>What is the command to launch the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H4  <|q|>How can I launch the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y1  <|q|>How do I open the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y2  <|q|>How can I open the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y3  <|q|>What is the command to open the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 K1  <|q|>What is the keybinding for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
 K2  <|q|>What is the shortcut for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
 K3  <|q|>Keybinding for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
@@ -57,13 +75,65 @@ omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
 omarchy bar set omarchy.clock format "HH:mm"
 omarchy bar defaults          # back to the shipped layout<|end|>   (from omarchy/manual/05-the-top-bar.md)
 
+# Verb synonyms (first word of the summary -> replacements)
+
+update: upgrade, refresh
+upgrade: update
+install: add, set up
+remove: uninstall, delete
+uninstall: remove
+launch: open, start, run
+open: launch, start
+start: launch, run
+run: start, launch
+show: display, print, list
+print: show, display
+list: show, print
+display: show
+set: change, configure
+apply: set, use
+change: set, switch
+switch: change, toggle
+toggle: switch, turn on or off
+restart: reload, relaunch
+refresh: reload, update
+reload: refresh, restart
+check: verify, test
+detect: check, find
+choose: pick, select
+select: pick, choose
+pick: choose, select
+enable: turn on, activate
+disable: turn off, deactivate
+capture: take, record
+take: capture
+lock: secure
+reset: restore, reinitialize
+setup: set up, configure
+configure: set up, set
+create: make, add
+add: install, create
+delete: remove
+edit: change, modify
+diagnose: debug, troubleshoot
+send: dispatch
+stop: end, kill
+kill: stop, end
+mute: silence
+fix: repair
+migrate: move, convert
+search: find, look up
+find: search for, locate
+
 # Stats
 
-dropped: same question, different answer: 80
+dropped: same question, different answer: 251
 keybindings parsed: 198
 manual code blocks: 34
 non-imperative summaries (S3 only): 24
-pairs before dedupe: 8713
-pairs after dedupe: 8633
+pairs before dedupe: 14636
+summary heads: 305
+synonym forms: 767
+pairs after dedupe: 14385
 held back as test (seed 42): 100
-pairs.txt: 8533
+pairs.txt: 14285
