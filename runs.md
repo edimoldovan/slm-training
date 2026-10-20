@@ -64,6 +64,19 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 - Free-phrased prompts at step 3,418: `How do I update Omarchy?` → `omarchy-update [-y]`; `What is the keybinding for Terminal?` → `SUPER + RETURN`; `How do I take a screenshot?` → `omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]`; `How do I set a theme?` → `omarchy-theme-set-tmux` (a per-app variant; `omarchy-theme-set` expected); `How do I install docker?` → `omarchy-install-docker-dbs`.
 - Export of `step-3418.safetensors`: `gguf/run-003-Q8_0.gguf`, 36,009,472 bytes, SHA-256 `0f6ae79ff02c2f57e37dc8c223e9de79b6d97404ac70cc8ef6f8fbee66f89ced`; `llama-completion` answers `omarchy-update [-y]` for the update prompt. Copied to the Omarchy box as `~/models/run-003-Q8_0.gguf` (hash verified) so the llama-server setup can be prepared while run-004 trains.
 
+### AMD box, llama-server with run-003 (2026-10-20)
+
+- Deliverable per the owner: the GGUF file served by llama.cpp (`llama-server`), not Ollama. The box has Arch package `llama-cpp` 0.6.0 (llama.cpp build 11429, commit d812350493), installed and started by the owner: `llama-server -m ~/models/run-003-Q8_0.gguf -c 1024 --port 8080`.
+- `POST /completion` with `{"prompt": "<|q|>How do I update Omarchy?<|a|>", "n_predict": 64, "temperature": 0, "stop": ["<|end|>"]}` → `omarchy-update [-y]`, `stop_type` `eos`, last token id 5 (`<|end|>` acts as an end token).
+- Mac vs AMD on the 714 validation pairs (not the sealed test), run-003 step-3418 (`eval/results/run-003-valid-amd-valid.json`):
+
+| side | exact | command | well-formed | tokens/s |
+| --- | --- | --- | --- | --- |
+| Mac, MLX float32 | 0.933 | 0.940 | 0.996 | 1,242 |
+| AMD, llama-server Q8_0 | 0.931 | 0.940 | 0.994 | 3,817 |
+
+- Command-match gap 0.000, within the 0.03 threshold. Same worst failures on both sides.
+
 ### run-003 corpus (2026-10-20)
 
 - `make_pairs.py` extended per plan rule 2 (templates H1–H4 summary heads, Y1–Y3 verb synonyms from a fixed table, F1–F2 script-name words; all listed in `data/pairs/templates.txt`). 14,636 pairs derived, 14,385 after dedupe (251 questions with two answers kept the first), 100 held back as test (seed 42, regenerated from the larger pool; the previous set was never scored), 14,285 in `pairs.txt`.
