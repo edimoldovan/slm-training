@@ -1,0 +1,112 @@
+{
+  "run": "run-001",
+  "split": "valid",
+  "n": 427,
+  "endpoint": null,
+  "exact_match": 0.3161592505854801,
+  "command_match": 0.405152224824356,
+  "well_formed": 0.9929742388758782,
+  "tokens_per_s": 1214.2021527441605,
+  "worst": [
+    {
+      "q": "Tell me how to launch the default coding agent in a terminal.",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-launch-terminal-herdr"
+    },
+    {
+      "q": "I want to switch Claude, Codex, or Grok accounts automatically near a limit, or only notify. What do I run?",
+      "expected": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] [manual|auto] [threshold]"
+    },
+    {
+      "q": "In Omarchy, how do I forget an added Claude, Codex, or Grok account?",
+      "expected": "omarchy-agent-account-remove [claude|codex|grok] <account>",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "Print the Codex usage record as JSON",
+      "expected": "omarchy-agent-usage-codex [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-claude [--force] [--limits-only]"
+    },
+    {
+      "q": "What should I run to print the Codex usage record as JSON?",
+      "expected": "omarchy-agent-usage-codex [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-claude [--force] [--limits-only]"
+    },
+    {
+      "q": "In Omarchy, how do I print the Fireworks usage record as JSON?",
+      "expected": "omarchy-agent-usage-fireworks [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-grok [--force]"
+    },
+    {
+      "q": "I want to print the Grok usage record as JSON. What do I run?",
+      "expected": "omarchy-agent-usage-grok [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-claude [--force] [--limits-only]"
+    },
+    {
+      "q": "What do I type to configure Quickshell lock screen authentication?",
+      "expected": "omarchy-apply-lock",
+      "got": "omarchy-system-sleep-monitor"
+    },
+    {
+      "q": "How can I apply Omarchy system setup in the installed target?",
+      "expected": "omarchy-apply-system",
+      "got": "omarchy-migrate-notify"
+    },
+    {
+      "q": "How to set the default audio input and move active streams",
+      "expected": "omarchy-audio-input-set-default <node-id> <source-name>",
+      "got": "omarchy-audio-output-switch"
+    },
+    {
+      "q": "Tell me how to set the default audio input and move active streams.",
+      "expected": "omarchy-audio-input-set-default <node-id> <source-name>",
+      "got": "omarchy-audio-output-switch"
+    },
+    {
+      "q": "Which omarchy command will switch between audio outputs while preserving the mute status?",
+      "expected": "omarchy-audio-output-switch",
+      "got": "omarchy-agent-usage-grok [--force] [--limits-only]"
+    },
+    {
+      "q": "Manage the speaker tuning for this laptop",
+      "expected": "omarchy-audio-tuning <on|off|status|match|fronted-sink> [--force]",
+      "got": "omarchy-hw-aarch64-apple"
+    },
+    {
+      "q": "I want to manage the speaker tuning for this laptop. What do I run?",
+      "expected": "omarchy-audio-tuning <on|off|status|match|fronted-sink> [--force]",
+      "got": "omarchy-launch-screensaver"
+    },
+    {
+      "q": "What should I run to configure the bar and its widget layout?",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-capture-screenshot"
+    },
+    {
+      "q": "How to configure the bar and its widget layout",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-toggle-toggle"
+    },
+    {
+      "q": "How can I send the low battery warning notification and run battery-low hooks?",
+      "expected": "omarchy-battery-low <percentage>",
+      "got": "omarchy-battery-status"
+    },
+    {
+      "q": "How can I check whether an active Omarchy Direct Boot EFI entry is configured?",
+      "expected": "omarchy-boot-direct [--number]",
+      "got": "omarchy-hw-aarch64-apple"
+    },
+    {
+      "q": "Command to check whether an active Omarchy Direct Boot EFI entry is configured",
+      "expected": "omarchy-boot-direct [--number]",
+      "got": "omarchy-hw-aarch64-apple"
+    },
+    {
+      "q": "Script to check whether an active Omarchy Direct Boot EFI entry is configured",
+      "expected": "omarchy-boot-direct [--number]",
+      "got": "omarchy-hw-nvidia-without-gsp"
+    }
+  ]
+}

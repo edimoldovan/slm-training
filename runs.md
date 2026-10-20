@@ -18,7 +18,8 @@
 - Tokenizer: `add_dummy_prefix=False` added to the plan's settings (with the default, `<|q|>` encodes as two ids). HF export sets `add_prefix_space: false` for the same reason.
 - Step 3 tokenizer: trained, checks pass, token counts below.
 - Step 4 model and training script: `python src/train.py --run smoke --steps 20 --batch-size 4`: 29.5M parameters, loss 9.49 at step 1 → 7.35 at step 20, `generate.py` produces tokens from `checkpoints/smoke/step-20.safetensors`. Level 1 tests: 5 passed. bos count in train.bin = 9,250 = documents (1,144 raw + 8,106 pairs); valid.bin 487 = 60 + 427.
-- Pending GGUF checks for step 7, once the converter is available: token types of ids 3–5 in the GGUF must be USER_DEFINED (4); `tokenizer.ggml.add_space_prefix` must be false; `llama-tokenize -m <gguf> -p "<|q|>How do I update Omarchy?<|a|>" --ids` must equal `[1] + sp.encode(prompt)`.
+- Export path verified on the smoke checkpoint (2026-10-20): `export_hf.py` → HF tokenizer ids equal SentencePiece ids → `convert_hf_to_gguf.py --outtype f16` (67 MB) → `llama-quantize Q8_0` (36 MB) → `llama-tokenize` gives `[1, 3, 576, 393, 372, 882, 426, 7743, 4]` for `<|q|>How do I update Omarchy?<|a|>`, identical to `[bos] + sp.encode(prompt)`. GGUF metadata: `add_space_prefix` false, `add_bos_token` true, bos 1, eos 2, context 1,024, vocab 8,192. The three pair symbols are typed CONTROL (ids 3–5); llama.cpp treats `<|end|>` as an end-of-generation token by name, so generation stops there without printing it.
+- `python -c "import gguf"` from the project root picks up the project's own `gguf/` output folder; the converter is unaffected (it uses its sibling `gguf-py`). Run GGUF-reading snippets with `tools/llama.cpp-b10080/gguf-py` first on `sys.path`.
 
 ## Corpus stats
 
@@ -43,6 +44,22 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 | run | config (layers, hidden) | steps | lr | best val loss | best step | tokens/s | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
+| run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | | | | One change: steps doubled (accuracy still rising at the end of run-001). |
+
+### run-001 details (2026-10-20)
+
+- Train loss 9.47 at step 1, 2.89 by step 300, 0.04 at the end. Val loss (whole valid.txt) 5.35 at step 100, lowest 3.17 at step 500, then rising to 3.89.
+- valid.txt is 60 unseen raw documents (about 60k tokens) plus 427 held-out pairs (about 15k tokens), so its loss is dominated by unseen shell scripts and stays above the level 2 threshold of 2.0 for every checkpoint. Measured on the 427 pair documents alone: 1.21 at step 500, 0.68 at step 1,000, 0.52 at step 1,533.
+- Level 3 on the 427 held-out pairs (`eval/results/run-001-valid-*.json`):
+
+| checkpoint | exact | command | well-formed |
+| --- | --- | --- | --- |
+| step-500 (best val loss) | 0.316 | 0.405 | 0.993 |
+| step-1000 | 0.749 | 0.841 | 1.000 |
+| step-1533 (final) | 0.867 | 0.916 | 0.995 |
+
+- The checkpoint with the lowest val loss answers 40% of questions; the final one answers 92%. Checkpoint selection for shipping uses command match on the held-out pairs, not valid.txt loss.
 
 ## Level 4 results
 

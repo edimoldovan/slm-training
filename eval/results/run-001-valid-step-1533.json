@@ -1,0 +1,112 @@
+{
+  "run": "run-001",
+  "split": "valid",
+  "n": 427,
+  "endpoint": null,
+  "exact_match": 0.8665105386416861,
+  "command_match": 0.9156908665105387,
+  "well_formed": 0.9953161592505855,
+  "tokens_per_s": 1209.6879588420359,
+  "worst": [
+    {
+      "q": "I want to sign in to a Claude, Codex, or Grok subscription. What do I run?",
+      "expected": "omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]",
+      "got": "omarchy-agent-account-exec <claude|codex|grok> [args...]"
+    },
+    {
+      "q": "Remove hibernation setup including swap and boot resume settings",
+      "expected": "omarchy-hibernation-remove",
+      "got": "omarchy-hibernation-setup [--force] [--no-rebuild]"
+    },
+    {
+      "q": "Returns true when an external monitor is physically connected",
+      "expected": "omarchy-hw-external-monitors",
+      "got": "omarchy-hyprland-monitor-internal-monitor"
+    },
+    {
+      "q": "Returns true when the compositor holds a session lock no other locker is alive to own",
+      "expected": "omarchy-hyprland-session-lock-stranded <own-pid>",
+      "got": "omarchy-system-sleep-lock"
+    },
+    {
+      "q": "Restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-refresh-tmux"
+    },
+    {
+      "q": "How to install Signal and launch it",
+      "expected": "omarchy-install-service-signal",
+      "got": "omarchy-install-ai-t3-code [stable|nightly] [--no-launch]"
+    },
+    {
+      "q": "What do I type to insert an emoji into the focused application?",
+      "expected": "omarchy-menu-emoji-insert <emoji>",
+      "got": "omarchy-done <check|mark|ensure> <name>"
+    },
+    {
+      "q": "I want to toggle the current weather panel. What do I run?",
+      "expected": "omarchy-notification-weather",
+      "got": "omarchy-toggle-fullscreen-desktop [toggle|on|off]"
+    },
+    {
+      "q": "remove a development environment that was previously installed via omarchy-install-dev-env?",
+      "expected": "omarchy-remove-dev-env <ruby|node|bun|deno|go|php|laravel|symfony|python|elixir|phoenix|zig|rust|java|dotnet|ocaml|clojure|scala>",
+      "got": "omarchy-remove-security-sudoless-docker"
+    },
+    {
+      "q": "I want to show current background. What do I run?",
+      "expected": "omarchy-theme-bg-current",
+      "got": "omarchy-theme-bg-boot-intro"
+    },
+    {
+      "q": "How do I apply an Omarchy theme?",
+      "expected": "omarchy-theme-set <theme-name>",
+      "got": "omarchy-theme-set-by-theme <theme-name>"
+    },
+    {
+      "q": "How to open the Omarchy theme switcher",
+      "expected": "omarchy-theme-switcher",
+      "got": "omarchy-theme-bg-switcher"
+    },
+    {
+      "q": "Script to open the Omarchy theme switcher",
+      "expected": "omarchy-theme-switcher",
+      "got": "omarchy-theme-bg-switcher"
+    },
+    {
+      "q": "Check whether Omarchy updates are available",
+      "expected": "omarchy-update-available",
+      "got": "omarchy-crash-watch"
+    },
+    {
+      "q": "What should I run to prompt for required reboot or service restarts after updates?",
+      "expected": "omarchy-update-restart [--services-only|--reboot-only]",
+      "got": "omarchy-apply-system"
+    },
+    {
+      "q": "Script to print the installed Omarchy version",
+      "expected": "omarchy-version",
+      "got": "omarchy-version-channel"
+    },
+    {
+      "q": "Returns a formatted weather status string with temperature and wind speed",
+      "expected": "omarchy-weather-status",
+      "got": "omarchy-notification-weather"
+    },
+    {
+      "q": "Hotkey for Omawrite",
+      "expected": "SUPER + SHIFT + W",
+      "got": "omarchy-menu-input prompt [menu args...]"
+    },
+    {
+      "q": "What is the shortcut for Google Maps?",
+      "expected": "SUPER + SHIFT + S",
+      "got": "XF86AudioMicMute"
+    },
+    {
+      "q": "What is the shortcut for Zoom in (JIS + key)?",
+      "expected": "CTRL + SHIFT + semicolon",
+      "got": "omarchy-menu-select prompt [option...]"
+    }
+  ]
+}
