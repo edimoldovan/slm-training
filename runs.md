@@ -13,6 +13,8 @@
 
 - Step 1 corpus: waiting for the owner's source list and manual URL.
 - Step 2 environment: venv and named packages installed; GPU device confirmed. Converter not resolved yet.
+- Tokenizer: `add_dummy_prefix=False` added to the plan's settings (with the default, `<|q|>` encodes as two ids). HF export sets `add_prefix_space: false` for the same reason.
+- Pending GGUF checks for step 7, once the converter is available: token types of ids 3–5 in the GGUF must be USER_DEFINED (4); `tokenizer.ggml.add_space_prefix` must be false; `llama-tokenize -m <gguf> -p "<|q|>How do I update Omarchy?<|a|>" --ids` must equal `[1] + sp.encode(prompt)`.
 
 ## Corpus stats
 

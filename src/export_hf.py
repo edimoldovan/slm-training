@@ -17,6 +17,14 @@ TOKENIZER_CONFIG = {
     "add_bos_token": True,
     "add_eos_token": False,
     "legacy": True,
+    # The tokenizer is trained with add_dummy_prefix=False; without this the HF tokenizer
+    # inserts a stray "▁" token after <|q|> (checked against sp.encode, 2026-10-20).
+    "add_prefix_space": False,
+    # Marks the three pair symbols as user-defined tokens for llama.cpp's converter.
+    "added_tokens_decoder": {
+        str(i): {"content": c, "lstrip": False, "rstrip": False, "normalized": False, "special": False, "single_word": False}
+        for i, c in ((3, "<|q|>"), (4, "<|a|>"), (5, "<|end|>"))
+    },
 }
 
 
