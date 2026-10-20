@@ -16,6 +16,8 @@
 - Step 1 split: raw documents 95/5 by document (seed 42); pairs 95/5 at random (seed 43), independent of the document split, so validation questions are about scripts present in train, like the sealed test.
 - Step 2 environment: venv and named packages installed; GPU device confirmed. Added after the owner deferred: torch 2.14.1 (the converter imports it), pytest 9.1.1, and llama.cpp's converter from tag b10080 (same commit as the Homebrew build) under `tools/llama.cpp-b10080/` with its `gguf-py` installed (gguf 0.19.0).
 - Tokenizer: `add_dummy_prefix=False` added to the plan's settings (with the default, `<|q|>` encodes as two ids). HF export sets `add_prefix_space: false` for the same reason.
+- Step 3 tokenizer: trained, checks pass, token counts below.
+- Step 4 model and training script: `python src/train.py --run smoke --steps 20 --batch-size 4`: 29.5M parameters, loss 9.49 at step 1 → 7.35 at step 20, `generate.py` produces tokens from `checkpoints/smoke/step-20.safetensors`. Level 1 tests: 5 passed. bos count in train.bin = 9,250 = documents (1,144 raw + 8,106 pairs); valid.bin 487 = 60 + 427.
 - Pending GGUF checks for step 7, once the converter is available: token types of ids 3–5 in the GGUF must be USER_DEFINED (4); `tokenizer.ggml.add_space_prefix` must be false; `llama-tokenize -m <gguf> -p "<|q|>How do I update Omarchy?<|a|>" --ids` must equal `[1] + sp.encode(prompt)`.
 
 ## Corpus stats
@@ -28,7 +30,14 @@
 
 ## Tokenizer
 
-(filled by step 3)
+SentencePiece BPE, vocab 8,192, trained on train.txt only (step 3, 2026-10-20). Checks: 50/50 random lines round-trip exactly; `<|q|>` → [3], `<|a|>` → [4], `<|end|>` → [5].
+
+| file | tokens (bos per document included) |
+| --- | --- |
+| train.txt | 1,255,441 |
+| valid.txt | 75,492 |
+
+Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. Steps for run-001 = round(40 × 1,255,441 / 32,768) = 1,533.
 
 ## Runs
 
