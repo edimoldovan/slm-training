@@ -15,7 +15,7 @@
 - Step 1 pairs: 8,713 derived, 8,633 after dedupe (80 questions with two different answers kept the first), 100 held back as test with seed 42, 8,533 in `pairs.txt`. Templates in `data/pairs/templates.txt`: 15 per script (14 for imperative summaries, S3 for all), 5 per keybinding (198 parsed), 2 for manual headings with a code block (34).
 - Step 1 split: raw documents 95/5 by document (seed 42); pairs 95/5 at random (seed 43), independent of the document split, so validation questions are about scripts present in train, like the sealed test.
 - Step 5 training (2026-10-20): four runs, one change each (steps ×2, templates, steps ×2). Checkpoints chosen by command match on held-out pairs. Shipping candidate run-004 step 6,500.
-- Step 6 testing: level 1 pass; level 2 cannot be met as written (see sign-off); level 3 pass (0.945 / 0.997); level 4 Mac pass (0.940 / 1.000); AMD pending.
+- Step 6 testing: level 1 pass; level 2 cannot be met as written (see sign-off); level 3 pass (0.945 / 0.997); level 4 pass on the Mac and on the AMD box (0.940 / 1.000 on both, gap 0.000). Owner spot check pending.
 - Step 7: GGUF built and verified on the Mac; copied to the box; llama-server (Arch `llama-cpp`) started by the owner; validation pairs match the Mac exactly with run-003.
 - Step 2 environment: venv and named packages installed; GPU device confirmed. Added after the owner deferred: torch 2.14.1 (the converter imports it), pytest 9.1.1, and llama.cpp's converter from tag b10080 (same commit as the Homebrew build) under `tools/llama.cpp-b10080/` with its `gguf-py` installed (gguf 0.19.0).
 - Tokenizer: `add_dummy_prefix=False` added to the plan's settings (with the default, `<|q|>` encodes as two ids). HF export sets `add_prefix_space: false` for the same reason.
@@ -69,7 +69,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 - Free-phrased prompts (not template questions) at step 6,500: `How do I update Omarchy?` → `omarchy-update [-y]`; `What is the keybinding for Terminal?` → `SUPER + RETURN`; `How do I take a screenshot?` → `omarchy-capture-screenshot [...]`; `How do I set a theme?` → `omarchy-theme-install [git-repo-url]`; `How do I change the theme?` → `omarchy-theme-set-gnome`; `How do I install docker?` → `omarchy-install-docker-dbs`; `How do I lock the screen?` → `omarchy-toggle-nightlight [--status]`; `How do I toggle night light?` → `omarchy-toggle-fullscreen-desktop [toggle|on|off]`. Three of eight right: free phrasing is the model's weak side and is what the owner spot check measures.
 - Export: `hf/run-004`, `gguf/run-004-f16.gguf`, `gguf/run-004-Q8_0.gguf` (36,009,472 bytes, SHA-256 `bb14cb629540d3a9cd40274e62a0e97a30c002082e715284907a90f28e7ad176`). `generate.py`, `mlx_lm.generate` and `llama-completion` all answer `omarchy-update [-y]` for the update prompt. Copied to the Omarchy box as `~/models/run-004-Q8_0.gguf`, hash verified.
 - Step 7 done-criterion "the service starts on boot": not done. `llama-server` runs as a foreground process started by the owner. A systemd user unit is the owner's step (file `~/.config/systemd/user/omarchy-slm.service`, `ExecStart=/usr/bin/llama-server -m %h/models/run-004-Q8_0.gguf -c 1024 --port 8080`, then `systemctl --user enable --now omarchy-slm`).
-- AMD column: pending the owner restarting `llama-server -m ~/models/run-004-Q8_0.gguf -c 1024 --port 8080`; then `eval/score.py --split test --run run-004 --endpoint http://localhost:8080/completion` from the box.
+- Level 4, sealed test, AMD box, `llama-server` (Arch llama-cpp 0.6.0, build 11429) with `~/models/run-004-Q8_0.gguf`, `eval/score.py --split test --run run-004 --endpoint http://localhost:8080/completion` (`eval/results/run-004-test-amd.json`): n=100, command 0.940, exact 0.940, well-formed 1.000, 3,524 tokens/s. Identical to the Mac; gap 0.000.
 
 ### run-003 results (2026-10-20)
 
@@ -157,7 +157,7 @@ Shipping candidate: run-004 `step-6500.safetensors` → `gguf/run-004-Q8_0.gguf`
 | --- | --- | --- | --- |
 | Pipeline tests | all pass | 5 passed (2026-10-20, after the run-003 corpus rebuild) | n/a |
 | Best val loss | < 2.0 | run-004 step-6500: 4.29 on valid.txt at that step (2.96 at step 500); fails as written because valid.txt is mostly 60 unseen scripts (loss 6.52 on those). On the 714 pair documents alone: 0.454. Proceeding past this row is the owner's call. | n/a |
-| Command match, test | ≥ 0.90 | 0.940 | pending server restart with run-004 |
-| Well-formed, test | ≥ 0.98 | 1.000 | pending |
-| Mac vs AMD gap | ≤ 0.03 | | pending (0.000 on the 714 validation pairs with run-003) |
+| Command match, test | ≥ 0.90 | 0.940 | 0.940 |
+| Well-formed, test | ≥ 0.98 | 1.000 | 1.000 |
+| Mac vs AMD gap | ≤ 0.03 | 0.000 | 0.000 |
 | Owner spot check | owner's call | n/a | pending |
