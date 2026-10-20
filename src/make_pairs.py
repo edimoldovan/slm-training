@@ -119,6 +119,18 @@ NAME_TEMPLATES = [
     ("F1", "omarchy {words}"),
     ("F2", "{words}"),
 ]
+# Prose answers from the manual (run-005): a heading's first paragraph answers questions about the heading.
+# h1 page titles use P2 and P4 only; a heading that is itself a question (the FAQ page) is used verbatim (P5).
+PROSE_TEMPLATES = [
+    ("P1", "What is {heading}?"),
+    ("P2", "Tell me about {heading}"),
+    ("P3", "How does {heading} work?"),
+    ("P4", "{Heading}"),
+]
+PROSE_QUESTION_TEMPLATE = ("P5", "{Heading}")
+MAX_ANSWER_WORDS = 90
+MIN_ANSWER_WORDS = 8
+LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]*\)")
 # M1 for headings that read as an instruction ("Install X"); M2 for noun or -ing headings.
 MANUAL_TEMPLATES = [
     ("M1", "How do I {heading}?"),
@@ -182,10 +194,10 @@ def script_pairs(stats):
             if needs_imperative and not imperative:
                 continue
             q = template.format(summary=lower_first(summary), Summary=summary)
-            pairs.append({"q": q, "a": answer, "source": source, "template": tid})
+            pairs.append({"q": q, "a": answer, "source": source, "template": tid, "kind": "command"})
         words = path.name.removeprefix("omarchy-").replace("-", " ")
         for tid, template in NAME_TEMPLATES:
-            pairs.append({"q": template.format(words=words), "a": answer, "source": source, "template": tid})
+            pairs.append({"q": template.format(words=words), "a": answer, "source": source, "template": tid, "kind": "command"})
         if not imperative:
             continue
         head = summary_head(summary)
@@ -193,7 +205,7 @@ def script_pairs(stats):
             stats["summary heads"] += 1
             for tid, template in HEAD_TEMPLATES:
                 q = template.format(head=lower_first(head), Head=head)
-                pairs.append({"q": q, "a": answer, "source": source, "template": tid})
+                pairs.append({"q": q, "a": answer, "source": source, "template": tid, "kind": "command"})
         verb = summary.split(" ", 1)[0].lower()
         for syn in VERB_SYNONYMS.get(verb, []):
             stats["synonym forms"] += 1
@@ -202,7 +214,7 @@ def script_pairs(stats):
                 for target in targets:
                     rest = target.split(" ", 1)[1] if " " in target else ""
                     if rest:
-                        pairs.append({"q": template.format(syn=syn, rest=rest), "a": answer, "source": source, "template": tid})
+                        pairs.append({"q": template.format(syn=syn, rest=rest), "a": answer, "source": source, "template": tid, "kind": "command"})
     return pairs
 
 
@@ -222,7 +234,7 @@ def keybinding_pairs(stats):
             key, desc = m.group(1).strip(), m.group(2).strip()
             stats["keybindings parsed"] += 1
             for tid, template in KEY_TEMPLATES:
-                pairs.append({"q": template.format(desc=desc), "a": key, "source": source, "template": tid})
+                pairs.append({"q": template.format(desc=desc), "a": key, "source": source, "template": tid, "kind": "key"})
     return pairs
 
 
@@ -246,7 +258,7 @@ def manual_pairs(stats):
                         stats["manual code blocks"] += 1
                         h = heading.rstrip("?.:")
                         tid, template = MANUAL_TEMPLATES[0] if is_imperative(h) and not h.split(" ", 1)[0].lower().endswith("ing") else MANUAL_TEMPLATES[1]
-                        pairs.append({"q": template.format(heading=lower_first(h)), "a": "\n".join(block), "source": source, "template": tid})
+                        pairs.append({"q": template.format(heading=lower_first(h)), "a": "\n".join(block), "source": source, "template": tid, "kind": "snippet"})
                         done = True
                     block = []
                 else:
@@ -257,6 +269,68 @@ def manual_pairs(stats):
     return pairs
 
 
+def first_paragraph(lines, start):
+    """The first prose paragraph after line `start`, before the next heading; links reduced to their text."""
+    para, in_fence = [], False
+    for line in lines[start:]:
+        if HEADING_RE.match(line) and not in_fence:
+            break
+        if FENCE_RE.match(line):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        text = line.strip()
+        if not text or text.startswith(("- ", "* ", "|", "![", ">", "<", "1. ")):
+            if para:
+                break
+            continue
+        para.append(text)
+    text = LINK_RE.sub(r"\1", " ".join(para)).replace("**", "")
+    words = text.split()
+    if len(words) < MIN_ANSWER_WORDS:
+        return None
+    if len(words) > MAX_ANSWER_WORDS:
+        head = words[:MAX_ANSWER_WORDS]
+        ends = [i for i, w in enumerate(head) if w.endswith((".", "!", "?"))]
+        words = head[: ends[-1] + 1] if ends else head
+    return " ".join(words)
+
+
+def prose_pairs(stats):
+    pairs = []
+    if not MANUAL.is_dir():
+        return pairs
+    for path in sorted(MANUAL.glob("*.md")):
+        source = str(path.relative_to(RAW))
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        in_fence = False
+        for i, line in enumerate(lines):
+            if FENCE_RE.match(line):
+                in_fence = not in_fence
+                continue
+            h = HEADING_RE.match(line)
+            if not h or in_fence:
+                continue
+            level = len(line) - len(line.lstrip("#"))
+            heading = h.group(1).strip().rstrip("!.:")
+            answer = first_paragraph(lines, i + 1)
+            if not answer:
+                stats["manual headings without a paragraph"] += 1
+                continue
+            stats["manual headings with prose"] += 1
+            if heading.endswith("?"):
+                tid, template = PROSE_QUESTION_TEMPLATE
+                pairs.append({"q": template.format(Heading=heading), "a": answer, "source": source, "template": tid, "kind": "prose"})
+                continue
+            for tid, template in PROSE_TEMPLATES:
+                if level == 1 and tid in ("P1", "P3"):
+                    continue
+                q = template.format(heading=lower_first(heading), Heading=heading)
+                pairs.append({"q": q, "a": answer, "source": source, "template": tid, "kind": "prose"})
+    return pairs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--test-seed", type=int, default=42)
@@ -264,7 +338,7 @@ def main():
     args = ap.parse_args()
 
     stats = Counter()
-    raw = script_pairs(stats) + keybinding_pairs(stats) + manual_pairs(stats)
+    raw = script_pairs(stats) + keybinding_pairs(stats) + manual_pairs(stats) + prose_pairs(stats)
     stats["pairs before dedupe"] = len(raw)
 
     answers = OrderedDict()
@@ -287,14 +361,14 @@ def main():
     pairs_dir.mkdir(parents=True, exist_ok=True)
     with (pairs_dir / "pairs.jsonl").open("w", encoding="utf-8") as f:
         for p in train:
-            f.write(json.dumps({"q": p["q"], "a": p["a"], "source": p["source"]}, ensure_ascii=False) + "\n")
+            f.write(json.dumps({"q": p["q"], "a": p["a"], "source": p["source"], "kind": p["kind"]}, ensure_ascii=False) + "\n")
     with (pairs_dir / "pairs.txt").open("w", encoding="utf-8") as f:
         for p in train:
             f.write(f"<|q|>{p['q']}<|a|>{p['a']}<|end|>\n")
     (ROOT / "data" / "test").mkdir(parents=True, exist_ok=True)
     with (ROOT / "data" / "test" / "prompts.jsonl").open("w", encoding="utf-8") as f:
         for p in test:
-            f.write(json.dumps({"q": p["q"], "a": p["a"]}, ensure_ascii=False) + "\n")
+            f.write(json.dumps({"q": p["q"], "a": p["a"], "kind": p["kind"]}, ensure_ascii=False) + "\n")
 
     per_template = Counter(p["template"] for p in pairs)
     example = {}
@@ -313,6 +387,9 @@ def main():
         lines.append(f"{tid}  {template}   -> key combo   ({per_template[tid]} pairs)")
     for tid, template in MANUAL_TEMPLATES:
         lines.append(f"{tid}  {template}   -> fenced code block under the heading   ({per_template[tid]} pairs)")
+    for tid, template in PROSE_TEMPLATES + [PROSE_QUESTION_TEMPLATE]:
+        lines.append(f"{tid}  {template}   -> the heading's first paragraph, at most {MAX_ANSWER_WORDS} words   ({per_template[tid]} pairs)")
+    lines.append("kinds: " + ", ".join(f"{k} {n}" for k, n in sorted(Counter(p['kind'] for p in pairs).items())))
     lines += ["", "# One example per template", ""]
     for tid, p in example.items():
         lines.append(f"{tid}  <|q|>{p['q']}<|a|>{p['a']}<|end|>   (from {p['source']})")

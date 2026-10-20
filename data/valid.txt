@@ -4636,41 +4636,31 @@ if [[ -f $mise_config ]] && [[ $(mise config get -f "$mise_config" settings.upgr
   mise settings unset upgrade.auto_prune
 fi
 
-<|q|>Is there a command to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>
-
-<|q|>Launch the default coding agent<|a|>omarchy-agent [--inline] [--pick]<|end|>
-
-<|q|>How can I start the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>
-
-<|q|>How do I run the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>
-
-<|q|>How do I sign in to a Claude, Codex, or Grok subscription?<|a|>omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]<|end|>
-
-<|q|>Is there a command to sign in to a Claude, Codex, or Grok subscription?<|a|>omarchy-agent-account-add [--check] [--events] [--reauth <account>] [claude|codex|grok] [label]<|end|>
+<|q|>What is the command to open the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>
 
 <|q|>I want to copy subscription account logins to another Omarchy machine over SSH. What do I run?<|a|>omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]<|end|>
 
-<|q|>Which omarchy command will copy subscription account logins to another Omarchy machine over SSH?<|a|>omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]<|end|>
+<|q|>What is the command to run Claude, Codex, or Grok as the selected subscription account?<|a|>omarchy-agent-account-exec <claude|codex|grok> [args...]<|end|>
 
-<|q|>How do I launch Claude, Codex, or Grok as the selected subscription account?<|a|>omarchy-agent-account-exec <claude|codex|grok> [args...]<|end|>
+<|q|>What is the command to start Claude?<|a|>omarchy-agent-account-exec <claude|codex|grok> [args...]<|end|>
 
-<|q|>How do I launch Claude?<|a|>omarchy-agent-account-exec <claude|codex|grok> [args...]<|end|>
+<|q|>What do I type to print the config home of the active Claude, Codex, or Grok account?<|a|>omarchy-agent-account-home <claude|codex|grok><|end|>
 
-<|q|>How do I show Claude?<|a|>omarchy-agent-account-list [claude|codex|grok] [--json]<|end|>
+<|q|>Script to print the config home of the active Claude, Codex, or Grok account<|a|>omarchy-agent-account-home <claude|codex|grok><|end|>
+
+<|q|>How do I list Claude?<|a|>omarchy-agent-account-list [claude|codex|grok] [--json]<|end|>
 
 <|q|>What is the command to show Claude, Codex, and Grok subscription accounts and their limits?<|a|>omarchy-agent-account-list [claude|codex|grok] [--json]<|end|>
 
-<|q|>How do I change Claude?<|a|>omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]<|end|>
+<|q|>Script to switch Claude, Codex, or Grok accounts automatically near a limit, or only notify<|a|>omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]<|end|>
 
-<|q|>Forget an added Claude<|a|>omarchy-agent-account-remove [claude|codex|grok] <account><|end|>
+<|q|>What is the command to forget an added Claude?<|a|>omarchy-agent-account-remove [claude|codex|grok] <account><|end|>
 
-<|q|>agent account rename<|a|>omarchy-agent-account-rename [claude|codex|grok] <account> <name><|end|>
+<|q|>How do I pick which Claude?<|a|>omarchy-agent-account-use [claude|codex|grok] [account|next]<|end|>
 
-<|q|>How can I rename a Claude?<|a|>omarchy-agent-account-rename [claude|codex|grok] <account> <name><|end|>
+<|q|>Is there a command to diagnose a crashed process with the default coding agent?<|a|>omarchy-agent-crash <pid> [comm] [exe] [signal]<|end|>
 
-<|q|>How do I pick which Claude, Codex, or Grok account new sessions use?<|a|>omarchy-agent-account-use [claude|codex|grok] [account|next]<|end|>
-
-<|q|>Diagnose a crashed process with the default coding agent<|a|>omarchy-agent-crash <pid> [comm] [exe] [signal]<|end|>
+<|q|>omarchy agent crash<|a|>omarchy-agent-crash <pid> [comm] [exe] [signal]<|end|>
 
 <|q|>agent crash<|a|>omarchy-agent-crash <pid> [comm] [exe] [signal]<|end|>
 
@@ -4678,1389 +4668,1499 @@ fi
 
 <|q|>omarchy agent prompt<|a|>omarchy-agent-prompt [--inline] <prompt...><|end|>
 
-<|q|>Which omarchy command will print the Claude Code usage record as JSON?<|a|>omarchy-agent-usage-claude [--force] [--limits-only]<|end|>
+<|q|>What should I run to print the Claude Code usage record as JSON?<|a|>omarchy-agent-usage-claude [--force] [--limits-only]<|end|>
 
-<|q|>Script to print the Claude Code usage record as JSON<|a|>omarchy-agent-usage-claude [--force] [--limits-only]<|end|>
+<|q|>What is the command to show the Claude Code usage record as JSON?<|a|>omarchy-agent-usage-claude [--force] [--limits-only]<|end|>
 
-<|q|>What is the command to display the Claude Code usage record as JSON?<|a|>omarchy-agent-usage-claude [--force] [--limits-only]<|end|>
-
-<|q|>Which omarchy command will print the Codex usage record as JSON?<|a|>omarchy-agent-usage-codex [--force] [--limits-only]<|end|>
-
-<|q|>How do I print the Fireworks usage record as JSON?<|a|>omarchy-agent-usage-fireworks [--force] [--limits-only]<|end|>
+<|q|>How to print the Grok usage record as JSON<|a|>omarchy-agent-usage-grok [--force] [--limits-only]<|end|>
 
 <|q|>How can I show the Grok usage record as JSON?<|a|>omarchy-agent-usage-grok [--force] [--limits-only]<|end|>
 
-<|q|>Tell me how to print the Kimi usage record as JSON.<|a|>omarchy-agent-usage-kimi [--force] [--limits-only]<|end|>
+<|q|>Script to apply Omarchy hardware-specific packages and system configuration<|a|>omarchy-apply-hardware<|end|>
 
-<|q|>How do I regenerate the AI agent usage data files?<|a|>omarchy-agent-usage-update [--force] [--limits-only] [--except <agent>] [agent...]<|end|>
-
-<|q|>I want to regenerate the AI agent usage data files. What do I run?<|a|>omarchy-agent-usage-update [--force] [--limits-only] [--except <agent>] [agent...]<|end|>
-
-<|q|>How do I apply Omarchy hardware-specific packages and system configuration?<|a|>omarchy-apply-hardware<|end|>
-
-<|q|>What do I type to apply Omarchy hardware-specific packages and system configuration?<|a|>omarchy-apply-hardware<|end|>
+<|q|>Apply Omarchy hardware-specific packages<|a|>omarchy-apply-hardware<|end|>
 
 <|q|>How do I set Quickshell lock screen authentication?<|a|>omarchy-apply-lock<|end|>
 
 <|q|>How do I shrink the NVIDIA N1x firmware's GPU memory reservation to 4 GiB?<|a|>omarchy-apply-n1x-gpu-memory<|end|>
 
-<|q|>What is the command to apply Omarchy system setup in the installed target?<|a|>omarchy-apply-system<|end|>
+<|q|>Tell me how to shrink the NVIDIA N1x firmware's GPU memory reservation to 4 GiB.<|a|>omarchy-apply-n1x-gpu-memory<|end|>
 
-<|q|>ascii<|a|>omarchy-ascii [text...]<|end|>
+<|q|>In Omarchy, how do I apply Omarchy system setup in the installed target?<|a|>omarchy-apply-system<|end|>
 
-<|q|>Command to toggle microphone mute. Drives the hardware mic-mute LED on laptops that expose one<|a|>omarchy-audio-input-mute<|end|>
+<|q|>How can I use Omarchy system setup?<|a|>omarchy-apply-system<|end|>
 
-<|q|>Is there a command to set the default audio input and move active streams?<|a|>omarchy-audio-input-set-default <node-id> <source-name><|end|>
+<|q|>How do I render text as ASCII art in the font the Omarchy logo is drawn in?<|a|>omarchy-ascii [text...]<|end|>
 
-<|q|>How do I set the default audio output and move active streams?<|a|>omarchy-audio-output-set-default <node-id> <sink-name><|end|>
+<|q|>Which omarchy command will render text as ASCII art in the font the Omarchy logo is drawn in?<|a|>omarchy-ascii [text...]<|end|>
 
-<|q|>omarchy audio output set default<|a|>omarchy-audio-output-set-default <node-id> <sink-name><|end|>
+<|q|>omarchy audio input mute<|a|>omarchy-audio-input-mute<|end|>
+
+<|q|>How do I toggle microphone mute. Drives the hardware mic-mute LED?<|a|>omarchy-audio-input-mute<|end|>
+
+<|q|>How can I toggle microphone mute. Drives the hardware mic-mute LED?<|a|>omarchy-audio-input-mute<|end|>
+
+<|q|>In Omarchy, how do I set the default audio input and move active streams?<|a|>omarchy-audio-input-set-default <node-id> <source-name><|end|>
+
+<|q|>What do I type to set the default audio input and move active streams?<|a|>omarchy-audio-input-set-default <node-id> <source-name><|end|>
+
+<|q|>What is the command to change the default audio input and move active streams?<|a|>omarchy-audio-input-set-default <node-id> <source-name><|end|>
+
+<|q|>What is the command to configure the default audio input and move active streams?<|a|>omarchy-audio-input-set-default <node-id> <source-name><|end|>
 
 <|q|>What is the command to configure the default audio output?<|a|>omarchy-audio-output-set-default <node-id> <sink-name><|end|>
 
-<|q|>Which omarchy command will adjust output volume and show the Omarchy OSD?<|a|>omarchy-audio-output-volume <raise|lower|mute-toggle|+N|-N><|end|>
+<|q|>What do I type to print the sink whose volume and mute a given output really uses?<|a|>omarchy-audio-output-sink [sink-name]<|end|>
 
-<|q|>Is there a command to cycle to the next media source and transfer playback when the current source is playing?<|a|>omarchy-audio-source-switch [next|previous]<|end|>
+<|q|>Print the sink whose volume<|a|>omarchy-audio-output-sink [sink-name]<|end|>
 
-<|q|>How do I manage the speaker tuning for this laptop?<|a|>omarchy-audio-tuning <on|off|status|match|fronted-sink> [--force]<|end|>
+<|q|>How do I print PulseAudio sink or source availability for the shell?<|a|>omarchy-audio-sink-availability [sources]<|end|>
 
-<|q|>Which omarchy command will manage the speaker tuning for this laptop?<|a|>omarchy-audio-tuning <on|off|status|match|fronted-sink> [--force]<|end|>
+<|q|>Is there a command to choose a legible transparent bar text color?<|a|>omarchy-bar-text-color<|end|>
 
-<|q|>In Omarchy, how do I manage the speaker tuning for this laptop?<|a|>omarchy-audio-tuning <on|off|status|match|fronted-sink> [--force]<|end|>
-
-<|q|>What is the command to configure the bar?<|a|>omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key><|end|>
-
-<|q|>How can I configure the bar?<|a|>omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key><|end|>
-
-<|q|>How can I set the bar and its widget layout?<|a|>omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key><|end|>
-
-<|q|>Which omarchy command will choose a legible transparent bar text color?<|a|>omarchy-bar-text-color<|end|>
+<|q|>In Omarchy, how do I choose a legible transparent bar text color?<|a|>omarchy-bar-text-color<|end|>
 
 <|q|>Which omarchy command will control a Bluetooth device?<|a|>omarchy-bluetooth-device [pair|connect|disconnect|forget] <address><|end|>
 
-<|q|>omarchy bluetooth device<|a|>omarchy-bluetooth-device [pair|connect|disconnect|forget] <address><|end|>
+<|q|>In Omarchy, how do I turn Bluetooth on or off, remembered across reboots?<|a|>omarchy-bluetooth-power <on|off|toggle|is-on><|end|>
 
-<|q|>What is the command to turn Bluetooth on or off, remembered across reboots?<|a|>omarchy-bluetooth-power <on|off|toggle|is-on><|end|>
+<|q|>I want to check whether an active Omarchy Direct Boot EFI entry is configured. What do I run?<|a|>omarchy-boot-direct [--number]<|end|>
 
 <|q|>Is there a command to check whether an active Omarchy Direct Boot EFI entry is configured?<|a|>omarchy-boot-direct [--number]<|end|>
 
-<|q|>How do I verify whether an active Omarchy Direct Boot EFI entry is configured?<|a|>omarchy-boot-direct [--number]<|end|>
-
-<|q|>What is the command to test whether an active Omarchy Direct Boot EFI entry is configured?<|a|>omarchy-boot-direct [--number]<|end|>
-
 <|q|>branding about<|a|>omarchy-branding-about <image|text|reset><|end|>
+
+<|q|>What is the command to shared helpers for animating the About branding (source this, don't run it)?<|a|>omarchy-branding-about-animation<|end|>
+
+<|q|>How to shared helpers for animating the About branding (source this, don't run it)<|a|>omarchy-branding-about-animation<|end|>
 
 <|q|>shared helpers for animating the About branding (source this, don't run it)?<|a|>omarchy-branding-about-animation<|end|>
 
-<|q|>omarchy branding about animation<|a|>omarchy-branding-about-animation<|end|>
+<|q|>How do I display or adjust brightness on the focused display?<|a|>omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]<|end|>
 
-<|q|>Which omarchy command will show or adjust brightness on the focused display?<|a|>omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]<|end|>
-
-<|q|>What do I type to show or adjust brightness on the focused display?<|a|>omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]<|end|>
-
-<|q|>omarchy brightness display<|a|>omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]<|end|>
+<|q|>Which omarchy command will show or adjust Apple Studio Display and Apple XDR Display brightness using asdcontrol?<|a|>omarchy-brightness-display-apple [--no-osd] [+N%|N%-|N%]<|end|>
 
 <|q|>How do I show or adjust DDC/CI display brightness for a Hyprland monitor?<|a|>omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]<|end|>
 
-<|q|>Which omarchy command will show or adjust DDC/CI display brightness for a Hyprland monitor?<|a|>omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]<|end|>
+<|q|>Show or adjust DDC/CI display brightness for a Hyprland monitor<|a|>omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]<|end|>
 
-<|q|>Command to show or adjust DDC/CI display brightness for a Hyprland monitor<|a|>omarchy-brightness-display-ddc <monitor> [+N%|N%-|N%]<|end|>
+<|q|>How can I adjust keyboard backlight brightness?<|a|>omarchy-brightness-keyboard [--no-osd] <up|down|cycle|off|restore><|end|>
 
-<|q|>adjust keyboard backlight brightness using available steps?<|a|>omarchy-brightness-keyboard [--no-osd] <up|down|cycle|off|restore><|end|>
+<|q|>What should I run to set the mic-mute indicator LED on laptops that expose a platform::micmute LED node?<|a|>omarchy-brightness-keyboard-mute <on|off><|end|>
 
-<|q|>What is the command to change the mic-mute indicator LED?<|a|>omarchy-brightness-keyboard-mute <on|off><|end|>
+<|q|>How do I change the mic-mute indicator LED on laptops that expose a platform::micmute LED node?<|a|>omarchy-brightness-keyboard-mute <on|off><|end|>
 
 <|q|>Is there a command to start or stop screen recording?<|a|>omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]<|end|>
 
-<|q|>How can I run or stop screen recording?<|a|>omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]<|end|>
+<|q|>How to start or stop screen recording<|a|>omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]<|end|>
 
-<|q|>What is the command to check or signal the current user's recording processes?<|a|>omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]<|end|>
-
-<|q|>Which omarchy command will pick a webcam and start a screen recording with it?<|a|>omarchy-capture-screenrecording-with-webcam<|end|>
+<|q|>Check or signal the current user's recording processes<|a|>omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]<|end|>
 
 <|q|>Is there a command to pick a webcam and start a screen recording with it?<|a|>omarchy-capture-screenrecording-with-webcam<|end|>
 
-<|q|>Which omarchy command will take a screenshot?<|a|>omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]<|end|>
+<|q|>omarchy capture screenrecording with webcam<|a|>omarchy-capture-screenrecording-with-webcam<|end|>
+
+<|q|>In Omarchy, how do I take a screenshot?<|a|>omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]<|end|>
+
+<|q|>omarchy capture screenshot<|a|>omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]<|end|>
 
 <|q|>How can I capture a screenshot?<|a|>omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]<|end|>
 
-<|q|>How do I extract text from a screenshot region with OCR?<|a|>omarchy-capture-text<|end|>
-
-<|q|>How can I extract text?<|a|>omarchy-capture-text<|end|>
-
-<|q|>List webcam devices that support video capture<|a|>omarchy-capture-webcam-list<|end|>
-
-<|q|>How do I resize the active webcam recording overlay?<|a|>omarchy-capture-webcam-resize <smaller|larger|reset|small|medium|large><|end|>
+<|q|>How to resize the active webcam recording overlay<|a|>omarchy-capture-webcam-resize <smaller|larger|reset|small|medium|large><|end|>
 
 <|q|>capture webcam resize<|a|>omarchy-capture-webcam-resize <smaller|larger|reset|small|medium|large><|end|>
 
-<|q|>Set the Omarchy package channel<|a|>omarchy-channel-set <stable|rc|edge|dev><|end|>
+<|q|>How can I print the active Omarchy package channel?<|a|>omarchy-channel-current<|end|>
+
+<|q|>Is there a command to set the Omarchy package channel?<|a|>omarchy-channel-set <stable|rc|edge|dev><|end|>
 
 <|q|>What should I run to set the Omarchy package channel?<|a|>omarchy-channel-set <stable|rc|edge|dev><|end|>
 
-<|q|>channel set<|a|>omarchy-channel-set <stable|rc|edge|dev><|end|>
+<|q|>Add a feature<|a|>omarchy-chromium-add-feature <feature><|end|>
+
+<|q|>How can I install a feature?<|a|>omarchy-chromium-add-feature <feature><|end|>
 
 <|q|>What is the command to install a feature?<|a|>omarchy-chromium-add-feature <feature><|end|>
 
-<|q|>Command to native messaging host: download the URL sent by the yt-dlp Chromium extension<|a|>omarchy-chromium-ytdlp-host<|end|>
+<|q|>How do I native messaging host: copy a Chromium tab URL to the clipboard?<|a|>omarchy-chromium-copy-url-host<|end|>
+
+<|q|>Script to native messaging host: download the URL sent by the yt-dlp Chromium extension<|a|>omarchy-chromium-ytdlp-host<|end|>
 
 <|q|>Script to open a clipboard history entry<|a|>omarchy-clipboard-open --history-index <index><|end|>
 
-<|q|>What is the command to copy a file?<|a|>omarchy-clipboard-paste-file [--copy-only] <mime-type> <path><|end|>
+<|q|>How do I copy a file to the clipboard and paste it?<|a|>omarchy-clipboard-paste-file [--copy-only] <mime-type> <path><|end|>
+
+<|q|>How do I copy text to the clipboard and type or paste it?<|a|>omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]<|end|>
 
 <|q|>In Omarchy, how do I copy text to the clipboard and type or paste it?<|a|>omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]<|end|>
 
-<|q|>omarchy clipboard paste text<|a|>omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]<|end|>
+<|q|>How can I hand a command line to the running Chromium-based browser?<|a|>omarchy-cmd-browser-handoff <browser-command> [browser-args...]<|end|>
 
-<|q|>How can I copy text?<|a|>omarchy-clipboard-paste-text [--shift-insert] [--copy-only] [--history-index <index>|<text>]<|end|>
+<|q|>What should I run to hand a command line to the running Chromium-based browser?<|a|>omarchy-cmd-browser-handoff <browser-command> [browser-args...]<|end|>
 
-<|q|>How do I print the desktop entry ID of the default web browser?<|a|>omarchy-cmd-default-browser<|end|>
+<|q|>hand a command line to the running Chromium-based browser?<|a|>omarchy-cmd-browser-handoff <browser-command> [browser-args...]<|end|>
 
-<|q|>What is the command to display the desktop entry ID of the default web browser?<|a|>omarchy-cmd-default-browser<|end|>
+<|q|>How can I hand a command line?<|a|>omarchy-cmd-browser-handoff <browser-command> [browser-args...]<|end|>
 
-<|q|>Script to check whether any required commands are missing<|a|>omarchy-cmd-missing<|end|>
+<|q|>What is the command to check whether all required commands are available?<|a|>omarchy-cmd-present<|end|>
 
-<|q|>Command to print the current working directory of the active terminal window<|a|>omarchy-cmd-terminal-cwd [terminal-pid]<|end|>
+<|q|>Is there a command to check whether all required commands are available?<|a|>omarchy-cmd-present<|end|>
 
-<|q|>How can I show the current working directory of the active terminal window?<|a|>omarchy-cmd-terminal-cwd [terminal-pid]<|end|>
+<|q|>check whether all required commands are available?<|a|>omarchy-cmd-present<|end|>
 
-<|q|>What should I run to silence crash notifications for one program, or list what is silenced?<|a|>omarchy-crash-mute [--] [<program>] [on|off|toggle]<|end|>
+<|q|>watch for process crashes and offer an AI diagnosis?<|a|>omarchy-crash-watch<|end|>
 
-<|q|>In Omarchy, how do I watch for process crashes and offer an AI diagnosis?<|a|>omarchy-crash-watch<|end|>
+<|q|>How can I print debugging information?<|a|>omarchy-debug [--no-sudo] [--print]<|end|>
 
-<|q|>Script to watch for process crashes and offer an AI diagnosis<|a|>omarchy-crash-watch<|end|>
+<|q|>How can I show idle, screensaver, and lock diagnostics?<|a|>omarchy-debug-idle [log-lines]<|end|>
 
-<|q|>How do I set and launch the default coding agent?<|a|>omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]<|end|>
-
-<|q|>Tell me how to set and launch the default coding agent.<|a|>omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]<|end|>
+<|q|>What should I run to set and launch the default coding agent?<|a|>omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]<|end|>
 
 <|q|>omarchy default browser<|a|>omarchy-default-browser [chromium|chrome|brave|brave-origin|edge|firefox|zen]<|end|>
 
-<|q|>What is the command to set the default browser?<|a|>omarchy-default-browser [chromium|chrome|brave|brave-origin|edge|firefox|zen]<|end|>
+<|q|>get or set the default dictation backend?<|a|>omarchy-default-dictation [backend]<|end|>
 
-<|q|>What is the command to configure the default browser for Omarchy and XDG handlers?<|a|>omarchy-default-browser [chromium|chrome|brave|brave-origin|edge|firefox|zen]<|end|>
+<|q|>How to set the default terminal used by xdg-terminal-exec<|a|>omarchy-default-terminal [alacritty|foot|ghostty|kitty]<|end|>
 
-<|q|>How do I get or set the default dictation backend?<|a|>omarchy-default-dictation [backend]<|end|>
+<|q|>What is the command to add a new Omarchy migration in the current source tree?<|a|>omarchy-dev-add-migration [--no-edit]<|end|>
 
-<|q|>How to get or set the default dictation backend<|a|>omarchy-default-dictation [backend]<|end|>
-
-<|q|>Command to set the default terminal used by xdg-terminal-exec<|a|>omarchy-default-terminal [alacritty|foot|ghostty|kitty]<|end|>
-
-<|q|>What do I type to set the default terminal used by xdg-terminal-exec?<|a|>omarchy-default-terminal [alacritty|foot|ghostty|kitty]<|end|>
-
-<|q|>set the default terminal used by xdg-terminal-exec?<|a|>omarchy-default-terminal [alacritty|foot|ghostty|kitty]<|end|>
-
-<|q|>What should I run to create a new Omarchy migration in the current source tree?<|a|>omarchy-dev-add-migration [--no-edit]<|end|>
-
-<|q|>What is the command to make a new Omarchy migration?<|a|>omarchy-dev-add-migration [--no-edit]<|end|>
-
-<|q|>dev benchmark theme switcher<|a|>omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]<|end|>
+<|q|>What is the command to measure theme switcher cache?<|a|>omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]<|end|>
 
 <|q|>I want to add branded glyphs to the Omarchy icon font. What do I run?<|a|>omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]<|end|>
 
-<|q|>How can I install branded glyphs?<|a|>omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]<|end|>
+<|q|>omarchy dev font<|a|>omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]<|end|>
+
+<|q|>How can I install branded glyphs to the Omarchy icon font?<|a|>omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]<|end|>
 
 <|q|>How can I install and enable ydotool mouse automation for Omarchy development?<|a|>omarchy-dev-install-ydoo<|end|>
 
-<|q|>Command to install and enable ydotool mouse automation for Omarchy development<|a|>omarchy-dev-install-ydoo<|end|>
+<|q|>How to point Omarchy at a local checkout after reboot<|a|>omarchy-dev-link <path-to-checkout> [--no-reboot]<|end|>
 
-<|q|>How do I add and enable ydotool mouse automation for Omarchy development?<|a|>omarchy-dev-install-ydoo<|end|>
+<|q|>Tell me how to play a realistic run of notifications to look at the notification UI.<|a|>omarchy-dev-notification-demo [--scene <name>]... [--fast] [--gap <seconds>] [--timeout <ms>] [--loop] [--shuffle] [--keep] [--list] [--replay <count> [--match <text>]]<|end|>
 
-<|q|>Command to open the omarchy-shell dev gallery (qs.Ui kit preview)<|a|>omarchy-dev-ui-preview [section]<|end|>
+<|q|>show the current Omarchy dev-link state?<|a|>omarchy-dev-status<|end|>
 
 <|q|>How to open the omarchy-shell dev gallery (qs.Ui kit preview)<|a|>omarchy-dev-ui-preview [section]<|end|>
 
-<|q|>How do I start the omarchy-shell dev gallery (qs.Ui kit preview)?<|a|>omarchy-dev-ui-preview [section]<|end|>
+<|q|>Tell me how to open the omarchy-shell dev gallery (qs.Ui kit preview).<|a|>omarchy-dev-ui-preview [section]<|end|>
 
-<|q|>Record dictation<|a|>omarchy-dictation <start|stop|toggle><|end|>
+<|q|>dev ui preview<|a|>omarchy-dev-ui-preview [section]<|end|>
 
-<|q|>record dictation using Voxtype?<|a|>omarchy-dictation-voxtype <start|stop|toggle><|end|>
+<|q|>What is the command to restore Omarchy?<|a|>omarchy-dev-unlink [--no-reboot]<|end|>
 
-<|q|>measure live disk read and write speed?<|a|>omarchy-disk-speedtest [target-dir]<|end|>
+<|q|>Tell me how to save a configured dictation backend after stopping the previous backend.<|a|>omarchy-dictation-use <backend><|end|>
 
-<|q|>How to scale text everywhere — omarchy shell, GTK apps, and terminals<|a|>omarchy-display-text-size [size|reset]<|end|>
+<|q|>omarchy dictation use<|a|>omarchy-dictation-use <backend><|end|>
 
-<|q|>scale text everywhere — omarchy shell, GTK apps, and terminals?<|a|>omarchy-display-text-size [size|reset]<|end|>
+<|q|>How can I measure live disk read and write speed?<|a|>omarchy-disk-speedtest [target-dir]<|end|>
 
-<|q|>In Omarchy, how do I show or configure the system DNS provider?<|a|>omarchy-dns [Cloudflare|Google|DHCP|Custom]<|end|>
+<|q|>Tell me how to measure live disk read and write speed.<|a|>omarchy-disk-speedtest [target-dir]<|end|>
 
-<|q|>What is the command to print or configure the system DNS provider?<|a|>omarchy-dns [Cloudflare|Google|DHCP|Custom]<|end|>
+<|q|>omarchy display text size<|a|>omarchy-display-text-size [size|reset]<|end|>
 
-<|q|>Is there a command to configure the dock shown on floating workspaces?<|a|>omarchy-dock position [top|bottom|left|right] | autohide [on|off|toggle] | pinned [<desktop-id>...] | pin <desktop-id> | unpin <desktop-id><|end|>
+<|q|>Tell me how to show or configure the system DNS provider.<|a|>omarchy-dns [Cloudflare|Google|DHCP|Custom]<|end|>
 
-<|q|>Script to configure the dock shown on floating workspaces<|a|>omarchy-dock position [top|bottom|left|right] | autohide [on|off|toggle] | pinned [<desktop-id>...] | pin <desktop-id> | unpin <desktop-id><|end|>
+<|q|>What should I run to configure the dock shown on floating workspaces?<|a|>omarchy-dock position [top|bottom|left|right] | autohide [on|off|toggle] | pinned [<desktop-id>...] | pin <desktop-id> | unpin <desktop-id><|end|>
+
+<|q|>I want to check or mark completed Omarchy setup tasks. What do I run?<|a|>omarchy-done <check|mark|ensure> <name><|end|>
 
 <|q|>Which omarchy command will check or mark completed Omarchy setup tasks?<|a|>omarchy-done <check|mark|ensure> <name><|end|>
 
-<|q|>check or mark completed Omarchy setup tasks?<|a|>omarchy-done <check|mark|ensure> <name><|end|>
+<|q|>What is the command to test or mark completed Omarchy setup tasks?<|a|>omarchy-done <check|mark|ensure> <name><|end|>
 
-<|q|>done<|a|>omarchy-done <check|mark|ensure> <name><|end|>
-
-<|q|>drive info<|a|>omarchy-drive-info <drive><|end|>
-
-<|q|>What is the command to set a new password for an encrypted drive?<|a|>omarchy-drive-password<|end|>
-
-<|q|>What do I type to set a new password for an encrypted drive?<|a|>omarchy-drive-password<|end|>
-
-<|q|>How can I configure a new password for an encrypted drive?<|a|>omarchy-drive-password<|end|>
-
-<|q|>How can I pick a drive?<|a|>omarchy-drive-select<|end|>
-
-<|q|>How do I choose a drive from a list with info that includes space and brand. Used by omarchy-drive-password?<|a|>omarchy-drive-select<|end|>
+<|q|>How do I show drive information such as size, model, and mount details?<|a|>omarchy-drive-info <drive><|end|>
 
 <|q|>How do I choose a drive?<|a|>omarchy-drive-select<|end|>
 
-<|q|>file select<|a|>omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions "<ext ext...>"]<|end|>
+<|q|>How can I choose a drive from a list with info that includes space and brand. Used by omarchy-drive-password?<|a|>omarchy-drive-select<|end|>
+
+<|q|>How can I choose a drive?<|a|>omarchy-drive-select<|end|>
+
+<|q|>Pick files with the desktop file chooser<|a|>omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions "<ext ext...>"]<|end|>
+
+<|q|>How do I pick files?<|a|>omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions "<ext ext...>"]<|end|>
 
 <|q|>Pick files<|a|>omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions "<ext ext...>"]<|end|>
 
-<|q|>How do I choose files with the desktop file chooser?<|a|>omarchy-file-select [--title <title>] [--multiple] [--directory] [--extensions "<ext ext...>"]<|end|>
+<|q|>How do I list or set the glyph forms for Chinese, Japanese, and Korean text?<|a|>omarchy-font-cjk [jp|kr|sc|tc|hk|default]<|end|>
 
-<|q|>Which omarchy command will show or set the glyph forms for Chinese, Japanese, and Korean text?<|a|>omarchy-font-cjk [jp|kr|sc|tc|hk|default]<|end|>
+<|q|>Which omarchy command will show current monospace font?<|a|>omarchy-font-current<|end|>
 
-<|q|>How can I show current monospace font?<|a|>omarchy-font-current<|end|>
+<|q|>What should I run to list available monospace fonts?<|a|>omarchy-font-list<|end|>
 
-<|q|>What is the command to display current monospace font?<|a|>omarchy-font-current<|end|>
+<|q|>What should I run to set the system monospace font?<|a|>omarchy-font-set <font-name><|end|>
 
-<|q|>What is the command to list available monospace fonts?<|a|>omarchy-font-list<|end|>
+<|q|>Script to set the system monospace font<|a|>omarchy-font-set <font-name><|end|>
 
-<|q|>Command to list available monospace fonts<|a|>omarchy-font-list<|end|>
+<|q|>In Omarchy, how do I list installed RetroArch core names?<|a|>omarchy-games-retro-cores<|end|>
 
-<|q|>How do I show available monospace fonts?<|a|>omarchy-font-list<|end|>
+<|q|>How can I create a desktop launcher for a RetroArch game?<|a|>omarchy-games-retro-install [core path-to-game]<|end|>
 
-<|q|>Set the system monospace font<|a|>omarchy-font-set <font-name><|end|>
+<|q|>What do I type to create a desktop launcher for a RetroArch game?<|a|>omarchy-games-retro-install [core path-to-game]<|end|>
 
 <|q|>omarchy games retro install<|a|>omarchy-games-retro-install [core path-to-game]<|end|>
 
-<|q|>Which omarchy command will check that a git URL names a repository, not a transport helper?<|a|>omarchy-git-url-check <git-url><|end|>
+<|q|>What is the command to check that a git URL names a repository?<|a|>omarchy-git-url-check <git-url><|end|>
 
-<|q|>Check that a git URL names a repository<|a|>omarchy-git-url-check <git-url><|end|>
+<|q|>How do I test that a git URL names a repository, not a transport helper?<|a|>omarchy-git-url-check <git-url><|end|>
 
-<|q|>What is the command to verify that a git URL names a repository?<|a|>omarchy-git-url-check <git-url><|end|>
+<|q|>What should I run to check if hibernation is supported?<|a|>omarchy-hibernation-available<|end|>
 
-<|q|>What is the command to check if hibernation is supported?<|a|>omarchy-hibernation-available<|end|>
+<|q|>In Omarchy, how do I check if hibernation is supported?<|a|>omarchy-hibernation-available<|end|>
 
-<|q|>What is the command to test if hibernation is supported?<|a|>omarchy-hibernation-available<|end|>
+<|q|>In Omarchy, how do I remove hibernation setup including swap and boot resume settings?<|a|>omarchy-hibernation-remove<|end|>
 
-<|q|>What should I run to remove hibernation setup including swap and boot resume settings?<|a|>omarchy-hibernation-remove<|end|>
-
-<|q|>Command to remove hibernation setup including swap and boot resume settings<|a|>omarchy-hibernation-remove<|end|>
-
-<|q|>What should I run to set up hibernation with swap and boot resume configuration?<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
+<|q|>How do I delete hibernation setup including swap and boot resume settings?<|a|>omarchy-hibernation-remove<|end|>
 
 <|q|>Tell me how to set up hibernation with swap and boot resume configuration.<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
 
-<|q|>How do I configure up hibernation?<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
+<|q|>hibernation setup<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
 
-<|q|>What is the command to configure up hibernation with swap and boot resume configuration?<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
+<|q|>Set up hibernation<|a|>omarchy-hibernation-setup [--force] [--no-rebuild]<|end|>
 
-<|q|>How do I launch a named hook from ~/.config/omarchy/hooks/<name> and ~/.config/omarchy/hooks/<name>.d/?<|a|>omarchy-hook [name] [args...]<|end|>
+<|q|>How to run a named hook from ~/.config/omarchy/hooks/<name> and ~/.config/omarchy/hooks/<name>.d/<|a|>omarchy-hook [name] [args...]<|end|>
 
-<|q|>How do I launch a named hook?<|a|>omarchy-hook [name] [args...]<|end|>
+<|q|>hook<|a|>omarchy-hook [name] [args...]<|end|>
 
-<|q|>I want to install a hook into ~/.config/omarchy/hooks/<type>.d/. What do I run?<|a|>omarchy-hook-install <type> <file><|end|>
+<|q|>Command to install a hook into ~/.config/omarchy/hooks/<type>.d/<|a|>omarchy-hook-install <type> <file><|end|>
 
-<|q|>How to install a hook into ~/.config/omarchy/hooks/<type>.d/<|a|>omarchy-hook-install <type> <file><|end|>
+<|q|>How can I set up a hook into ~/.config/omarchy/hooks/<type>.d/?<|a|>omarchy-hook-install <type> <file><|end|>
 
-<|q|>Which omarchy command will detect whether the computer is an Apple Silicon Mac?<|a|>omarchy-hw-aarch64-apple<|end|>
+<|q|>I want to detect whether the computer is an Apple Silicon Mac. What do I run?<|a|>omarchy-hw-aarch64-apple<|end|>
 
-<|q|>How do I check whether the computer is an Apple Silicon Mac?<|a|>omarchy-hw-aarch64-apple<|end|>
+<|q|>How can I find whether the computer is an Apple Silicon Mac?<|a|>omarchy-hw-aarch64-apple<|end|>
 
-<|q|>How do I find whether the computer is an Apple Silicon Mac?<|a|>omarchy-hw-aarch64-apple<|end|>
+<|q|>How can I check whether the computer is an NVIDIA GB10 desktop?<|a|>omarchy-hw-aarch64-gb10<|end|>
 
-<|q|>How do I detect whether the computer is an NVIDIA GB10 desktop, such as the DGX Spark?<|a|>omarchy-hw-aarch64-gb10<|end|>
+<|q|>Tell me how to detect whether the computer is an Apple Silicon Mac (the old name of omarchy-hw-aarch64-apple).<|a|>omarchy-hw-apple-silicon<|end|>
 
-<|q|>Command to detect whether the computer is an NVIDIA GB10 desktop, such as the DGX Spark<|a|>omarchy-hw-aarch64-gb10<|end|>
+<|q|>What is the command to find whether the computer is an Apple Silicon Mac (the old name of omarchy-hw-aarch64-apple)?<|a|>omarchy-hw-apple-silicon<|end|>
 
-<|q|>How to detect whether the computer is an NVIDIA GB10 desktop, such as the DGX Spark<|a|>omarchy-hw-aarch64-gb10<|end|>
+<|q|>Tell me how to detect ASUS ExpertBook B9406 series laptops on Intel Panther Lake.<|a|>omarchy-hw-asus-expertbook-b9406<|end|>
 
-<|q|>Detect whether the computer is an NVIDIA N1x laptop<|a|>omarchy-hw-aarch64-n1x<|end|>
+<|q|>What is the command to detect ASUS ExpertBook B9406 series laptops?<|a|>omarchy-hw-asus-expertbook-b9406<|end|>
 
-<|q|>How do I check whether the computer is an Apple Silicon Mac (the old name of omarchy-hw-aarch64-apple)?<|a|>omarchy-hw-apple-silicon<|end|>
-
-<|q|>How do I detect whether the computer is an Asus ROG machine?<|a|>omarchy-hw-asus-rog<|end|>
+<|q|>What is the command to find ASUS ExpertBook B9406 series laptops on Intel Panther Lake?<|a|>omarchy-hw-asus-expertbook-b9406<|end|>
 
 <|q|>How can I detect ASUS Zenbook UX5406AA series laptops on Intel Panther Lake?<|a|>omarchy-hw-asus-zenbook-ux5406aa<|end|>
 
-<|q|>How do I check ASUS Zenbook UX5406AA series laptops?<|a|>omarchy-hw-asus-zenbook-ux5406aa<|end|>
+<|q|>Tell me how to detect ASUS Zenbook UX5406AA series laptops on Intel Panther Lake.<|a|>omarchy-hw-asus-zenbook-ux5406aa<|end|>
 
-<|q|>What is the command to find ASUS Zenbook UX5406AA series laptops?<|a|>omarchy-hw-asus-zenbook-ux5406aa<|end|>
+<|q|>What is the command to check ASUS Zenbook UX5406AA series laptops?<|a|>omarchy-hw-asus-zenbook-ux5406aa<|end|>
+
+<|q|>What should I run to match Dell XPS systems with the Synaptics haptic touchpad?<|a|>omarchy-hw-dell-xps-haptic-touchpad<|end|>
 
 <|q|>Match Dell XPS systems<|a|>omarchy-hw-dell-xps-haptic-touchpad<|end|>
 
-<|q|>How do I match Dell XPS systems with LG OLED panel on Intel Panther Lake (Xe3) GPU?<|a|>omarchy-hw-dell-xps-oled<|end|>
+<|q|>Tell me how to match Dell XPS systems with LG OLED panel on Intel Panther Lake (Xe3) GPU.<|a|>omarchy-hw-dell-xps-oled<|end|>
 
-<|q|>Match the Dell XPS 13 DX13260 that requires the sidecar amplifier workaround<|a|>omarchy-hw-dell-xps13-sidecar-amps<|end|>
+<|q|>Tell me how to match the Dell XPS 13 DX13260 that requires the sidecar amplifier workaround.<|a|>omarchy-hw-dell-xps13-sidecar-amps<|end|>
 
-<|q|>In Omarchy, how do I match the Dell XPS 13 DX13260 that requires the sidecar amplifier workaround?<|a|>omarchy-hw-dell-xps13-sidecar-amps<|end|>
-
-<|q|>Script to print the most likely display backlight device<|a|>omarchy-hw-display<|end|>
-
-<|q|>What is the command to display the most likely display backlight device?<|a|>omarchy-hw-display<|end|>
+<|q|>Command to print the most likely display backlight device<|a|>omarchy-hw-display<|end|>
 
 <|q|>How do I find whether an Elgato Cam Link 4K is plugged in?<|a|>omarchy-hw-elgato-camlink-4k<|end|>
 
-<|q|>Returns true when an external monitor is physically connected<|a|>omarchy-hw-external-monitors<|end|>
+<|q|>detect whether the computer is a Framework Laptop 16?<|a|>omarchy-hw-framework16<|end|>
+
+<|q|>Tell me how to detect whether the system has an active hybrid GPU configuration.<|a|>omarchy-hw-hybrid-gpu<|end|>
 
 <|q|>detect whether the system has an active hybrid GPU configuration?<|a|>omarchy-hw-hybrid-gpu<|end|>
 
-<|q|>What is the command to find whether the system has an active hybrid GPU configuration?<|a|>omarchy-hw-hybrid-gpu<|end|>
+<|q|>How do I check whether the system has an active hybrid GPU configuration?<|a|>omarchy-hw-hybrid-gpu<|end|>
 
-<|q|>I want to detect an Intel SOF-capable audio DSP. What do I run?<|a|>omarchy-hw-intel-sof<|end|>
+<|q|>Detect whether the computer has an Intel CPU<|a|>omarchy-hw-intel<|end|>
 
-<|q|>What is the command to detect whether the computer has an NVIDIA GPU?<|a|>omarchy-hw-nvidia<|end|>
+<|q|>Tell me how to detect whether the computer has an Intel CPU.<|a|>omarchy-hw-intel<|end|>
 
-<|q|>How do I detect whether NVIDIA drives the display (rather than a hybrid iGPU)?<|a|>omarchy-hw-nvidia-display<|end|>
+<|q|>Script to detect whether the computer has an Intel CPU<|a|>omarchy-hw-intel<|end|>
+
+<|q|>omarchy hw intel<|a|>omarchy-hw-intel<|end|>
+
+<|q|>Returns true when running on a laptop (has a lid or laptop chassis)<|a|>omarchy-hw-laptop<|end|>
+
+<|q|>What is the command to match against the computer's DMI product name or product family (case-insensitive)?<|a|>omarchy-hw-match <pattern><|end|>
+
+<|q|>How to match against the computer's DMI product name or product family (case-insensitive)<|a|>omarchy-hw-match <pattern><|end|>
+
+<|q|>How to detect whether the computer is an NVIDIA N1x laptop (the old name of omarchy-hw-aarch64-n1x)<|a|>omarchy-hw-n1x<|end|>
+
+<|q|>How can I detect whether the computer has an NVIDIA GPU?<|a|>omarchy-hw-nvidia<|end|>
+
+<|q|>Command to detect whether the computer has an NVIDIA GPU<|a|>omarchy-hw-nvidia<|end|>
+
+<|q|>How can I detect whether the computer has an NVIDIA GPU with GSP firmware (Turing or newer)?<|a|>omarchy-hw-nvidia-gsp<|end|>
+
+<|q|>Which omarchy command will detect whether the computer has an NVIDIA GPU with GSP firmware (Turing or newer)?<|a|>omarchy-hw-nvidia-gsp<|end|>
 
 <|q|>How can I check whether the computer has an NVIDIA GPU with GSP firmware (Turing or newer)?<|a|>omarchy-hw-nvidia-gsp<|end|>
 
+<|q|>How can I detect whether the computer has an NVIDIA GPU without GSP firmware (Maxwell/Pascal/Volta)?<|a|>omarchy-hw-nvidia-without-gsp<|end|>
+
 <|q|>What is the command to print the hardware platform: x86, aarch64, aarch64-apple, aarch64-qualcomm, aarch64-n1x or aarch64-gb10?<|a|>omarchy-hw-platform<|end|>
 
-<|q|>How do I display the hardware platform: x86, aarch64, aarch64-apple, aarch64-qualcomm, aarch64-n1x or aarch64-gb10?<|a|>omarchy-hw-platform<|end|>
+<|q|>Print the hardware platform: x86, aarch64, aarch64-apple, aarch64-qualcomm, aarch64-n1x or aarch64-gb10<|a|>omarchy-hw-platform<|end|>
+
+<|q|>How do I show the hardware platform: x86?<|a|>omarchy-hw-platform<|end|>
 
 <|q|>Clear the internal-monitor-disable toggle if no external display is connected<|a|>omarchy-hw-recover-internal-monitor<|end|>
 
-<|q|>How to detect whether the computer is a Microsoft Surface device<|a|>omarchy-hw-surface<|end|>
+<|q|>Which omarchy command will clear the internal-monitor-disable toggle if no external display is connected?<|a|>omarchy-hw-recover-internal-monitor<|end|>
+
+<|q|>Script to detect whether the computer is a Microsoft Surface device<|a|>omarchy-hw-surface<|end|>
+
+<|q|>omarchy hw surface<|a|>omarchy-hw-surface<|end|>
+
+<|q|>How do I check whether the computer is a Microsoft Surface device?<|a|>omarchy-hw-surface<|end|>
+
+<|q|>Print the detected Hyprland touchpad or trackpad device name<|a|>omarchy-hw-touchpad<|end|>
 
 <|q|>How can I display the detected Hyprland touchpad?<|a|>omarchy-hw-touchpad<|end|>
 
-<|q|>omarchy hw touchscreen<|a|>omarchy-hw-touchscreen<|end|>
+<|q|>Is there a command to print the detected Hyprland touchscreen or tablet device name?<|a|>omarchy-hw-touchscreen<|end|>
 
-<|q|>Print the detected Hyprland touchscreen<|a|>omarchy-hw-touchscreen<|end|>
+<|q|>How to print the detected Hyprland touchscreen or tablet device name<|a|>omarchy-hw-touchscreen<|end|>
 
-<|q|>How can I detect whether Vulkan is available?<|a|>omarchy-hw-vulkan<|end|>
+<|q|>Command to detect whether Vulkan is available<|a|>omarchy-hw-vulkan<|end|>
 
-<|q|>hw vulkan<|a|>omarchy-hw-vulkan<|end|>
+<|q|>How can I test whether a webcam is available?<|a|>omarchy-hw-webcam<|end|>
 
-<|q|>What is the command to find whether Vulkan is available?<|a|>omarchy-hw-vulkan<|end|>
+<|q|>Is there a command to detect whether the CPU is x86_64?<|a|>omarchy-hw-x86<|end|>
 
-<|q|>In Omarchy, how do I show or set window corners: theme, sharp, or rounded?<|a|>omarchy-hyprland-corners [theme|sharp|rounded]<|end|>
+<|q|>Tell me how to detect whether the CPU is x86_64.<|a|>omarchy-hw-x86<|end|>
+
+<|q|>What is the command to show or set window corners: theme, sharp, or rounded?<|a|>omarchy-hyprland-corners [theme|sharp|rounded]<|end|>
+
+<|q|>How to show or set window corners: theme, sharp, or rounded<|a|>omarchy-hyprland-corners [theme|sharp|rounded]<|end|>
 
 <|q|>How do I list or set window corners: theme, sharp, or rounded?<|a|>omarchy-hyprland-corners [theme|sharp|rounded]<|end|>
 
-<|q|>How can I list or set window corners: theme, sharp, or rounded?<|a|>omarchy-hyprland-corners [theme|sharp|rounded]<|end|>
+<|q|>Which omarchy command will focus a Hyprland window by application identity?<|a|>omarchy-hyprland-focus-app <app-name><|end|>
 
-<|q|>omarchy hyprland focus app<|a|>omarchy-hyprland-focus-app <app-name><|end|>
+<|q|>How to apply clamshell display state to Hyprland monitors<|a|>omarchy-hyprland-monitor-clamshell<|end|>
 
-<|q|>Is there a command to print the name of the currently focused Hyprland monitor?<|a|>omarchy-hyprland-monitor-focused<|end|>
+<|q|>How do I set clamshell display state to Hyprland monitors?<|a|>omarchy-hyprland-monitor-clamshell<|end|>
 
-<|q|>How do I enable, disable, toggle, or recover the internal laptop display?<|a|>omarchy-hyprland-monitor-internal <on|off|toggle|recover><|end|>
+<|q|>Which omarchy command will print the name of the currently focused Hyprland monitor?<|a|>omarchy-hyprland-monitor-focused<|end|>
 
-<|q|>enable, disable, toggle, or recover the internal laptop display?<|a|>omarchy-hyprland-monitor-internal <on|off|toggle|recover><|end|>
+<|q|>omarchy hyprland monitor focused<|a|>omarchy-hyprland-monitor-focused<|end|>
 
-<|q|>I want to print the name of the built-in laptop display, including disabled outputs. What do I run?<|a|>omarchy-hyprland-monitor-laptop<|end|>
+<|q|>Is there a command to return success if the focused or named Hyprland monitor is an Apple display?<|a|>omarchy-hyprland-monitor-focused-apple [monitor]<|end|>
 
-<|q|>Is there a command to print the name of the built-in laptop display, including disabled outputs?<|a|>omarchy-hyprland-monitor-laptop<|end|>
+<|q|>hyprland monitor internal mirror<|a|>omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover><|end|>
+
+<|q|>Script to print the name of the built-in laptop display, including disabled outputs<|a|>omarchy-hyprland-monitor-laptop<|end|>
+
+<|q|>hyprland monitor modeless<|a|>omarchy-hyprland-monitor-modeless<|end|>
 
 <|q|>What do I type to show, set, or adjust focused Hyprland monitor scaling?<|a|>omarchy-hyprland-monitor-scaling [up|down|SCALE]<|end|>
 
-<|q|>Script to watch Hyprland monitor events and recover monitor toggles when a monitor is removed<|a|>omarchy-hyprland-monitor-watch<|end|>
+<|q|>What is the command to watch Hyprland monitor events and recover monitor toggles when a monitor is removed?<|a|>omarchy-hyprland-monitor-watch<|end|>
 
-<|q|>How do I pause or resume Hyprland config auto-reload around package transactions?<|a|>omarchy-hyprland-reload-guard<|end|>
+<|q|>In Omarchy, how do I watch Hyprland monitor events and recover monitor toggles when a monitor is removed?<|a|>omarchy-hyprland-monitor-watch<|end|>
 
 <|q|>Returns true when the compositor holds a session lock<|a|>omarchy-hyprland-session-locked<|end|>
 
 <|q|>Tell me how to toggle permanent Hyprland flags by copying them into a directory that's sourced entirely.<|a|>omarchy-hyprland-toggle <flag-name> [on|off|toggle]<|end|>
 
-<|q|>Script to toggle permanent Hyprland flags by copying them into a directory that's sourced entirely<|a|>omarchy-hyprland-toggle <flag-name> [on|off|toggle]<|end|>
-
 <|q|>How can I check if a Hyprland toggle is currently disabled (missing)?<|a|>omarchy-hyprland-toggle-disabled <flag-name><|end|>
 
-<|q|>How do I check if a Hyprland toggle is currently enabled?<|a|>omarchy-hyprland-toggle-enabled <flag-name><|end|>
+<|q|>How do I verify if a Hyprland toggle is currently enabled?<|a|>omarchy-hyprland-toggle-enabled <flag-name><|end|>
 
-<|q|>Which omarchy command will check if a Hyprland toggle is currently enabled?<|a|>omarchy-hyprland-toggle-enabled <flag-name><|end|>
-
-<|q|>How can I test if a Hyprland toggle is currently enabled?<|a|>omarchy-hyprland-toggle-enabled <flag-name><|end|>
+<|q|>How do I test if a Hyprland toggle is currently enabled?<|a|>omarchy-hyprland-toggle-enabled <flag-name><|end|>
 
 <|q|>What do I type to close all open windows?<|a|>omarchy-hyprland-window-close-all [--wait]<|end|>
 
-<|q|>omarchy hyprland window close all<|a|>omarchy-hyprland-window-close-all [--wait]<|end|>
+<|q|>What is the command to minimize a window?<|a|>omarchy-hyprland-window-minimize [window-address]<|end|>
 
-<|q|>Which omarchy command will minimize a window to the dock?<|a|>omarchy-hyprland-window-minimize [window-address]<|end|>
+<|q|>What is the command to toggle to pop-out a tile to stay fixed on a display basis?<|a|>omarchy-hyprland-window-pop [width height x y]<|end|>
 
-<|q|>Toggle to pop-out a tile to stay fixed on a display basis<|a|>omarchy-hyprland-window-pop [width height x y]<|end|>
+<|q|>Script to toggle to pop-out a tile to stay fixed on a display basis<|a|>omarchy-hyprland-window-pop [width height x y]<|end|>
 
-<|q|>How do I turn on or off to pop-out a tile to stay fixed on a display basis?<|a|>omarchy-hyprland-window-pop [width height x y]<|end|>
+<|q|>How do I toggle single-window square aspect ratio?<|a|>omarchy-hyprland-window-single-square-aspect-toggle<|end|>
 
-<|q|>How to toggle tiled fullscreen for the focused Hyprland window<|a|>omarchy-hyprland-window-tiled-fullscreen-toggle<|end|>
+<|q|>toggle single-window square aspect ratio?<|a|>omarchy-hyprland-window-single-square-aspect-toggle<|end|>
 
-<|q|>What is the command to switch tiled fullscreen for the focused Hyprland window?<|a|>omarchy-hyprland-window-tiled-fullscreen-toggle<|end|>
+<|q|>How can I toggle tiled fullscreen for the focused Hyprland window?<|a|>omarchy-hyprland-window-tiled-fullscreen-toggle<|end|>
 
-<|q|>How do I turn on or off tiled fullscreen?<|a|>omarchy-hyprland-window-tiled-fullscreen-toggle<|end|>
+<|q|>Show or set how see-through windows are: opaque, transparent, or glassy<|a|>omarchy-hyprland-window-transparency [opaque|transparent|glassy]<|end|>
 
-<|q|>Is there a command to save or restore the focused Hyprland window width?<|a|>omarchy-hyprland-window-width <save|restore><|end|>
+<|q|>Command to show or set how see-through windows are: opaque, transparent, or glassy<|a|>omarchy-hyprland-window-transparency [opaque|transparent|glassy]<|end|>
 
-<|q|>How can I display the layout of a workspace: dwindle?<|a|>omarchy-hyprland-workspace-layout-current [workspace-id]<|end|>
+<|q|>omarchy hyprland window width<|a|>omarchy-hyprland-window-width <save|restore><|end|>
 
-<|q|>What is the command to display the layout of a workspace: dwindle, scrolling, or floating?<|a|>omarchy-hyprland-workspace-layout-current [workspace-id]<|end|>
+<|q|>Which omarchy command will show or set the layout of workspaces without one of their own: dwindle, scrolling, or floating?<|a|>omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]<|end|>
 
-<|q|>How can I display or set the layout of workspaces without one of their own: dwindle, scrolling, or floating?<|a|>omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]<|end|>
+<|q|>How to show or set the layout of workspaces without one of their own: dwindle, scrolling, or floating<|a|>omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]<|end|>
 
-<|q|>What is the command to display or set the layout of workspaces without one of their own: dwindle, scrolling, or floating?<|a|>omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]<|end|>
+<|q|>How do I print or set the layout of workspaces without one of their own: dwindle, scrolling, or floating?<|a|>omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]<|end|>
 
 <|q|>What should I run to cycle the current active workspace through the dwindle, scrolling, and floating layouts?<|a|>omarchy-hyprland-workspace-layout-toggle [back]<|end|>
 
 <|q|>Command to cycle the current active workspace through the dwindle, scrolling, and floating layouts<|a|>omarchy-hyprland-workspace-layout-toggle [back]<|end|>
 
-<|q|>Script to cycle the current active workspace through the dwindle, scrolling, and floating layouts<|a|>omarchy-hyprland-workspace-layout-toggle [back]<|end|>
+<|q|>How do I install the Claude desktop app?<|a|>omarchy-install-ai-claude<|end|>
 
-<|q|>I want to print a user-facing string in the current language. What do I run?<|a|>omarchy-i18n [--count <n>] <key> [args...] | --number <value><|end|>
+<|q|>What is the command to install the Hermes desktop app?<|a|>omarchy-install-ai-hermes<|end|>
 
-<|q|>Tell me how to install the ChatGPT desktop app.<|a|>omarchy-install-ai-chatgpt<|end|>
+<|q|>How do I install the OpenClaw agent platform and its Control UI web app?<|a|>omarchy-install-ai-openclaw<|end|>
 
-<|q|>How do I add the ChatGPT desktop app?<|a|>omarchy-install-ai-chatgpt<|end|>
+<|q|>What should I run to install T3 Code and point it at the Omarchy palette?<|a|>omarchy-install-ai-t3-code [stable|nightly] [--no-launch]<|end|>
 
-<|q|>What is the command to install the OpenClaw agent platform and its Control UI web app?<|a|>omarchy-install-ai-openclaw<|end|>
+<|q|>How to install a packaged app, surfacing the install in a floating terminal<|a|>omarchy-install-app <display-name> <packages><|end|>
 
-<|q|>I want to install the OpenClaw agent platform and its Control UI web app. What do I run?<|a|>omarchy-install-ai-openclaw<|end|>
+<|q|>Tell me how to install a packaged app, surfacing the install in a floating terminal.<|a|>omarchy-install-app <display-name> <packages><|end|>
 
-<|q|>Command to install T3 Code and point it at the Omarchy palette<|a|>omarchy-install-ai-t3-code [stable|nightly] [--no-launch]<|end|>
+<|q|>Is there a command to install the Claude extension for Chromium-based browsers?<|a|>omarchy-install-chromium-claude<|end|>
 
-<|q|>What is the command to set up T3 Code and point it at the Omarchy palette?<|a|>omarchy-install-ai-t3-code [stable|nightly] [--no-launch]<|end|>
+<|q|>In Omarchy, how do I install the Claude extension for Chromium-based browsers?<|a|>omarchy-install-chromium-claude<|end|>
 
-<|q|>What is the command to set up T3 Code?<|a|>omarchy-install-ai-t3-code [stable|nightly] [--no-launch]<|end|>
+<|q|>install chromium copy url<|a|>omarchy-install-chromium-copy-url<|end|>
 
-<|q|>How can I install a packaged app and launch it once it finishes?<|a|>omarchy-install-and-launch <display-name> <packages> <desktop-id><|end|>
+<|q|>What is the command to add the native messaging host for the Copy URL Chromium extension?<|a|>omarchy-install-chromium-copy-url<|end|>
 
-<|q|>How do I install a packaged app, surfacing the install in a floating terminal?<|a|>omarchy-install-app <display-name> <packages><|end|>
+<|q|>What is the command to add the native messaging host?<|a|>omarchy-install-chromium-copy-url<|end|>
 
-<|q|>How can I set up a packaged app, surfacing the install in a floating terminal?<|a|>omarchy-install-app <display-name> <packages><|end|>
+<|q|>How can I set up the native messaging host for the Copy URL Chromium extension?<|a|>omarchy-install-chromium-copy-url<|end|>
 
-<|q|>Script to install a supported browser<|a|>omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen><|end|>
+<|q|>How can I allow Chromium to sign in to Google accounts by adding the required OAuth credentials?<|a|>omarchy-install-chromium-google-account<|end|>
 
-<|q|>omarchy install browser<|a|>omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen><|end|>
+<|q|>What do I type to install the native messaging host for the yt-dlp Chromium extension?<|a|>omarchy-install-chromium-ytdlp<|end|>
 
-<|q|>What is the command to set up a supported browser?<|a|>omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen><|end|>
+<|q|>How can I set up the native messaging host for the yt-dlp Chromium extension?<|a|>omarchy-install-chromium-ytdlp<|end|>
 
-<|q|>What is the command to let Chromium use the cameras of Snapdragon laptops?<|a|>omarchy-install-camera<|end|>
+<|q|>How do I install a supported development environment?<|a|>omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala><|end|>
 
-<|q|>What should I run to install the Claude extension for Chromium-based browsers?<|a|>omarchy-install-chromium-claude<|end|>
+<|q|>How can I add a supported development environment?<|a|>omarchy-install-dev-env <ruby|node|bun|deno|go|laravel|symfony|php|python|elixir|phoenix|rust|java|zig|ocaml|dotnet|clojure|scala><|end|>
 
-<|q|>What is the command to allow Chromium to sign in to Google accounts by adding the required OAuth credentials?<|a|>omarchy-install-chromium-google-account<|end|>
+<|q|>omarchy install dictation superwhisper<|a|>omarchy-install-dictation-superwhisper<|end|>
 
-<|q|>Is there a command to allow Chromium to sign in to Google accounts by adding the required OAuth credentials?<|a|>omarchy-install-chromium-google-account<|end|>
+<|q|>Install and configure Voxtype dictation<|a|>omarchy-install-dictation-voxtype<|end|>
 
-<|q|>Command to install the native messaging host for the yt-dlp Chromium extension<|a|>omarchy-install-chromium-ytdlp<|end|>
+<|q|>How can I install and configure Voxtype dictation?<|a|>omarchy-install-dictation-voxtype<|end|>
 
-<|q|>Is there a command to install and configure Superwhisper dictation?<|a|>omarchy-install-dictation-superwhisper<|end|>
+<|q|>How can I add and configure Voxtype dictation?<|a|>omarchy-install-dictation-voxtype<|end|>
 
-<|q|>What should I run to install and configure Voxtype dictation?<|a|>omarchy-install-dictation-voxtype<|end|>
+<|q|>How can I install one of the supported databases?<|a|>omarchy-install-docker-dbs<|end|>
 
-<|q|>In Omarchy, how do I install and configure Voxtype dictation?<|a|>omarchy-install-dictation-voxtype<|end|>
+<|q|>How do I set up one of the supported databases in a Docker container with the suitable development options?<|a|>omarchy-install-docker-dbs<|end|>
 
-<|q|>How can I install one of the supported databases in a Docker container with the suitable development options?<|a|>omarchy-install-docker-dbs<|end|>
+<|q|>Which omarchy command will install Emacs with Omarchy theme and font integration via the omarchy-emacs AUR package?<|a|>omarchy-install-editor-emacs<|end|>
 
-<|q|>How can I set up Emacs?<|a|>omarchy-install-editor-emacs<|end|>
+<|q|>What is the command to add Emacs with Omarchy theme and font integration via the omarchy-emacs AUR package?<|a|>omarchy-install-editor-emacs<|end|>
 
-<|q|>What is the command to set up Emacs with Omarchy theme and font integration via the omarchy-emacs AUR package?<|a|>omarchy-install-editor-emacs<|end|>
+<|q|>What is the command to set up Helix and configure it to use the current Omarchy theme?<|a|>omarchy-install-editor-helix<|end|>
 
-<|q|>What is the command to set up Emacs?<|a|>omarchy-install-editor-emacs<|end|>
+<|q|>Script to install VS Code and configure Omarchy defaults for secrets, updates, and theme<|a|>omarchy-install-editor-vscode<|end|>
 
-<|q|>How do I set up Helix?<|a|>omarchy-install-editor-helix<|end|>
+<|q|>install editor vscode<|a|>omarchy-install-editor-vscode<|end|>
 
-<|q|>How can I add VS Code and configure Omarchy defaults for secrets, updates, and theme?<|a|>omarchy-install-editor-vscode<|end|>
+<|q|>How do I install VS Code?<|a|>omarchy-install-editor-vscode<|end|>
 
-<|q|>What is the command to set up VS Code?<|a|>omarchy-install-editor-vscode<|end|>
+<|q|>How do I add VS Code and configure Omarchy defaults for secrets, updates, and theme?<|a|>omarchy-install-editor-vscode<|end|>
 
-<|q|>How do I set up Zed Editor?<|a|>omarchy-install-editor-zed<|end|>
+<|q|>How do I add VS Code?<|a|>omarchy-install-editor-vscode<|end|>
 
-<|q|>What is the command to set up Zed Editor and configure it with the current Omarchy theme?<|a|>omarchy-install-editor-zed<|end|>
+<|q|>How do I install Zed Editor and configure it with the current Omarchy theme?<|a|>omarchy-install-editor-zed<|end|>
 
-<|q|>What is the command to install a Nerd Font package and switch the system to it?<|a|>omarchy-install-font <display-name> <package> <family><|end|>
+<|q|>What is the command to install Zed Editor and configure it with the current Omarchy theme?<|a|>omarchy-install-editor-zed<|end|>
 
-<|q|>Which omarchy command will install Battle.net standalone via umu-launcher + GE-Proton (no Steam, no Lutris, no Heroic)?<|a|>omarchy-install-gaming-battlenet<|end|>
+<|q|>omarchy install editor zed<|a|>omarchy-install-editor-zed<|end|>
 
-<|q|>I want to install lib32 graphics drivers (Vulkan + NVIDIA) for any detected GPUs. What do I run?<|a|>omarchy-install-gaming-gpu-lib32<|end|>
+<|q|>How do I set up Zed Editor and configure it with the current Omarchy theme?<|a|>omarchy-install-editor-zed<|end|>
 
-<|q|>What is the command to install lib32 graphics drivers (Vulkan + NVIDIA)?<|a|>omarchy-install-gaming-gpu-lib32<|end|>
+<|q|>How can I set up Zed Editor?<|a|>omarchy-install-editor-zed<|end|>
 
-<|q|>How do I install Heroic Games Launcher (Epic, GOG, Amazon Prime Gaming) with graphics drivers?<|a|>omarchy-install-gaming-heroic<|end|>
+<|q|>What is the command to set up a Nerd Font package and switch the system to it?<|a|>omarchy-install-font <display-name> <package> <family><|end|>
 
-<|q|>What is the command to set up Heroic Games Launcher (Epic?<|a|>omarchy-install-gaming-heroic<|end|>
+<|q|>Is there a command to install Battle.net standalone via umu-launcher + GE-Proton (no Steam, no Lutris, no Heroic)?<|a|>omarchy-install-gaming-battlenet<|end|>
 
-<|q|>Install Lutris<|a|>omarchy-install-gaming-lutris<|end|>
+<|q|>What do I type to install Battle.net standalone via umu-launcher + GE-Proton (no Steam, no Lutris, no Heroic)?<|a|>omarchy-install-gaming-battlenet<|end|>
 
-<|q|>How can I add Lutris with Wine + DXVK for running Windows games (Battle.net, EA, Ubisoft Connect, etc.)?<|a|>omarchy-install-gaming-lutris<|end|>
+<|q|>How do I install Battle.net standalone?<|a|>omarchy-install-gaming-battlenet<|end|>
 
-<|q|>How can I install RetroArch?<|a|>omarchy-install-gaming-retroarch<|end|>
+<|q|>install and launch Geforce Now?<|a|>omarchy-install-gaming-geforce-now<|end|>
 
-<|q|>What do I type to install Steam and graphics drivers selected for this system?<|a|>omarchy-install-gaming-steam<|end|>
+<|q|>Which omarchy command will install Heroic Games Launcher (Epic, GOG, Amazon Prime Gaming) with graphics drivers?<|a|>omarchy-install-gaming-heroic<|end|>
 
-<|q|>I want to install Xbox Cloud Gaming as a web app and launch it. What do I run?<|a|>omarchy-install-gaming-xbox-cloud<|end|>
+<|q|>Is there a command to install Lutris with Wine + DXVK for running Windows games (Battle.net, EA, Ubisoft Connect, etc.)?<|a|>omarchy-install-gaming-lutris<|end|>
 
-<|q|>How do I add Xbox Cloud Gaming as a web app?<|a|>omarchy-install-gaming-xbox-cloud<|end|>
+<|q|>Tell me how to install RetroArch with the full libretro core set plus FBNeo and a ~/Games ROM directory.<|a|>omarchy-install-gaming-retroarch<|end|>
 
-<|q|>How can I set up Xbox Cloud Gaming as a web app and launch it?<|a|>omarchy-install-gaming-xbox-cloud<|end|>
+<|q|>What is the command to set up Steam?<|a|>omarchy-install-gaming-steam<|end|>
 
-<|q|>What is the command to install Hermes Desktop for the default agent; its runtime provides the hermes command?<|a|>omarchy-install-hermes-cli <--check|--now|--retire-mise><|end|>
+<|q|>How can I install Xbox Cloud Gaming as a web app and launch it?<|a|>omarchy-install-gaming-xbox-cloud<|end|>
 
-<|q|>What is the command to add Hermes Desktop for the default agent; its runtime provides the hermes command?<|a|>omarchy-install-hermes-cli <--check|--now|--retire-mise><|end|>
+<|q|>What is the command to add Hermes Desktop?<|a|>omarchy-install-hermes-cli <--check|--now|--retire-mise><|end|>
 
-<|q|>How can I set up Hermes Desktop for the default agent; its runtime provides the hermes command?<|a|>omarchy-install-hermes-cli <--check|--now|--retire-mise><|end|>
+<|q|>How do I install OpenClaw for the default agent as the self-updating copy under ~/.openclaw?<|a|>omarchy-install-openclaw-cli <--check|--now><|end|>
 
-<|q|>How can I set up OpenClaw?<|a|>omarchy-install-openclaw-cli <--check|--now><|end|>
+<|q|>How to install OpenClaw for the default agent as the self-updating copy under ~/.openclaw<|a|>omarchy-install-openclaw-cli <--check|--now><|end|>
 
-<|q|>Restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)<|a|>omarchy-install-preinstalls<|end|>
+<|q|>What is the command to restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)?<|a|>omarchy-install-preinstalls<|end|>
 
-<|q|>How to restore the preinstalled Omarchy applications (web apps, TUIs, and selected packages)<|a|>omarchy-install-preinstalls<|end|>
+<|q|>In Omarchy, how do I install 1Password and its Chromium extension?<|a|>omarchy-install-service-1password<|end|>
 
-<|q|>install preinstalls<|a|>omarchy-install-preinstalls<|end|>
+<|q|>Script to install 1Password and its Chromium extension<|a|>omarchy-install-service-1password<|end|>
 
-<|q|>I want to install 1Password and its Chromium extension. What do I run?<|a|>omarchy-install-service-1password<|end|>
+<|q|>How do I add 1Password?<|a|>omarchy-install-service-1password<|end|>
 
-<|q|>Which omarchy command will install 1Password and its Chromium extension?<|a|>omarchy-install-service-1password<|end|>
+<|q|>What is the command to set up 1Password?<|a|>omarchy-install-service-1password<|end|>
 
-<|q|>How can I install 1Password?<|a|>omarchy-install-service-1password<|end|>
+<|q|>Is there a command to install and start the Dropbox service. Must then be authenticated via the web?<|a|>omarchy-install-service-dropbox<|end|>
 
-<|q|>How do I set up 1Password and its Chromium extension?<|a|>omarchy-install-service-1password<|end|>
+<|q|>What do I type to install and start the Dropbox service. Must then be authenticated via the web?<|a|>omarchy-install-service-dropbox<|end|>
 
-<|q|>How do I add and start the Dropbox service. Must then be authenticated via the web?<|a|>omarchy-install-service-dropbox<|end|>
+<|q|>What do I type to install Microsoft Outlook, Word, Excel, PowerPoint, Teams, and OneDrive as web apps?<|a|>omarchy-install-service-microsoft<|end|>
 
-<|q|>install Microsoft Outlook, Word, Excel, PowerPoint, Teams, and OneDrive as web apps?<|a|>omarchy-install-service-microsoft<|end|>
+<|q|>What should I run to install the ONCE service, enable its background service, and launch the TUI?<|a|>omarchy-install-service-once<|end|>
 
-<|q|>How do I install Microsoft Outlook?<|a|>omarchy-install-service-microsoft<|end|>
+<|q|>How do I add Signal?<|a|>omarchy-install-service-signal<|end|>
 
-<|q|>How can I add Microsoft Outlook?<|a|>omarchy-install-service-microsoft<|end|>
+<|q|>How can I set up Spotify?<|a|>omarchy-install-service-spotify<|end|>
 
-<|q|>How can I set up Microsoft Outlook, Word, Excel, PowerPoint, Teams, and OneDrive as web apps?<|a|>omarchy-install-service-microsoft<|end|>
+<|q|>How can I add Sunshine and open Moonlight streaming ports for LAN and Tailscale?<|a|>omarchy-install-service-sunshine<|end|>
 
-<|q|>How to install the ONCE service, enable its background service, and launch the TUI<|a|>omarchy-install-service-once<|end|>
+<|q|>How can I set up Sunshine?<|a|>omarchy-install-service-sunshine<|end|>
 
-<|q|>install service once<|a|>omarchy-install-service-once<|end|>
+<|q|>I want to install the Tailscale mesh VPN service and a web app for the Tailscale Admin Console. What do I run?<|a|>omarchy-install-service-tailscale<|end|>
 
-<|q|>Which omarchy command will install Signal and launch it?<|a|>omarchy-install-service-signal<|end|>
+<|q|>How can I set up one of the approved terminals and set it as the default for Omarchy (Super + Return etc)?<|a|>omarchy-install-terminal <alacritty|foot|ghostty|kitty><|end|>
 
-<|q|>Is there a command to install Signal and launch it?<|a|>omarchy-install-service-signal<|end|>
+<|q|>What should I run to check whether Dropbox is installed and running?<|a|>omarchy-installed-service-dropbox<|end|>
 
-<|q|>What should I run to install Signal and launch it?<|a|>omarchy-install-service-signal<|end|>
+<|q|>How can I test whether Dropbox is installed?<|a|>omarchy-installed-service-dropbox<|end|>
 
-<|q|>How do I set up Signal and launch it?<|a|>omarchy-install-service-signal<|end|>
+<|q|>check whether Tailscale is installed and running?<|a|>omarchy-installed-service-tailscale<|end|>
 
-<|q|>install service spotify<|a|>omarchy-install-service-spotify<|end|>
+<|q|>What is the command to test whether Tailscale is installed?<|a|>omarchy-installed-service-tailscale<|end|>
 
-<|q|>How can I set up Sunshine and open Moonlight streaming ports for LAN and Tailscale?<|a|>omarchy-install-service-sunshine<|end|>
+<|q|>omarchy launch about<|a|>omarchy-launch-about<|end|>
 
-<|q|>What is the command to set up Sunshine and open Moonlight streaming ports for LAN and Tailscale?<|a|>omarchy-install-service-sunshine<|end|>
+<|q|>launch about<|a|>omarchy-launch-about<|end|>
 
-<|q|>Command to install the Tailscale mesh VPN service and a web app for the Tailscale Admin Console<|a|>omarchy-install-service-tailscale<|end|>
+<|q|>I want to launch the installed Battle.net client via umu-launcher + GE-Proton. What do I run?<|a|>omarchy-launch-battlenet [--with-mangohud]<|end|>
 
-<|q|>install service tailscale<|a|>omarchy-install-service-tailscale<|end|>
+<|q|>What is the command to launch a config file?<|a|>omarchy-launch-config-editor <path><|end|>
 
-<|q|>What is the command to install the T3 Code desktop app from its AppImage release?<|a|>omarchy-install-t3code-app <stable|nightly><|end|>
+<|q|>How can I start a config file in the user's editor and surface a toast?<|a|>omarchy-launch-config-editor <path><|end|>
 
-<|q|>Script to install the T3 Code desktop app from its AppImage release<|a|>omarchy-install-t3code-app <stable|nightly><|end|>
+<|q|>omarchy launch discord community<|a|>omarchy-launch-discord-community<|end|>
 
-<|q|>How do I add the T3 Code desktop app?<|a|>omarchy-install-t3code-app <stable|nightly><|end|>
+<|q|>Script to open the Docker TUI (lazydocker) with access to the Docker daemon<|a|>omarchy-launch-docker-tui<|end|>
 
-<|q|>How do I set up the T3 Code desktop app from its AppImage release?<|a|>omarchy-install-t3code-app <stable|nightly><|end|>
+<|q|>How can I launch the Docker TUI (lazydocker)?<|a|>omarchy-launch-docker-tui<|end|>
 
-<|q|>How do I let mpv?<|a|>omarchy-install-video-decode<|end|>
+<|q|>In Omarchy, how do I launch the default editor selected via Omarchy defaults?<|a|>omarchy-launch-editor [--inline] <path><|end|>
 
-<|q|>How do I verify whether Dropbox is installed and running?<|a|>omarchy-installed-service-dropbox<|end|>
+<|q|>How can I open the default editor selected?<|a|>omarchy-launch-editor [--inline] <path><|end|>
 
-<|q|>How can I verify whether Dropbox is installed and running?<|a|>omarchy-installed-service-dropbox<|end|>
+<|q|>What is the command to start the default editor selected?<|a|>omarchy-launch-editor [--inline] <path><|end|>
 
-<|q|>How do I test whether Dropbox is installed?<|a|>omarchy-installed-service-dropbox<|end|>
+<|q|>What is the command to launch a floating terminal with the Omarchy presentation wrapper?<|a|>omarchy-launch-floating-terminal-with-presentation <command><|end|>
 
-<|q|>How can I verify whether Tailscale is installed?<|a|>omarchy-installed-service-tailscale<|end|>
+<|q|>launch Files?<|a|>omarchy-launch-nautilus<|end|>
 
-<|q|>What is the command to test whether Tailscale is installed and running?<|a|>omarchy-installed-service-tailscale<|end|>
+<|q|>Tell me how to launch Files in the active terminal's current directory.<|a|>omarchy-launch-nautilus-cwd<|end|>
 
-<|q|>What do I type to show or set the Omarchy language and the session's locale?<|a|>omarchy-language [<code>|list|locale [<code>]|seed <code>]<|end|>
+<|q|>In Omarchy, how do I open the OpenClaw Control UI (or its terminal UI with --tui), onboarding or starting the gateway first when needed?<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
 
-<|q|>show or set the Omarchy language and the session's locale?<|a|>omarchy-language [<code>|list|locale [<code>]|seed <code>]<|end|>
+<|q|>Tell me how to open the OpenClaw Control UI (or its terminal UI with --tui), onboarding or starting the gateway first when needed.<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
 
-<|q|>I want to launch 1Password or start its installer when missing. What do I run?<|a|>omarchy-launch-1password<|end|>
+<|q|>What is the command to launch the OpenClaw Control UI (or its terminal UI with --tui), onboarding or starting the gateway first when needed?<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
 
-<|q|>What is the command to launch the fastfetch TUI that gives information about the current system?<|a|>omarchy-launch-about<|end|>
+<|q|>How can I start the OpenClaw Control UI (or its terminal UI with --tui), onboarding or starting the gateway first when needed?<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
 
-<|q|>Which omarchy command will launch the installed Battle.net client via umu-launcher + GE-Proton?<|a|>omarchy-launch-battlenet [--with-mangohud]<|end|>
+<|q|>Command to launch an app or focus an existing window matching a pattern<|a|>omarchy-launch-or-focus <window-pattern> <launch-command><|end|>
 
-<|q|>How can I start the installed Battle.net client via umu-launcher + GE-Proton?<|a|>omarchy-launch-battlenet [--with-mangohud]<|end|>
+<|q|>What should I run to launch a TUI or focus an existing terminal window for it?<|a|>omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]<|end|>
 
-<|q|>launch the default browser as determined by xdg-settings?<|a|>omarchy-launch-browser [url]<|end|>
+<|q|>How can I run a TUI or focus an existing terminal window for it?<|a|>omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]<|end|>
 
-<|q|>How to open a config file in the user's editor and surface a toast<|a|>omarchy-launch-config-editor <path><|end|>
+<|q|>In Omarchy, how do I launch or focus on a given web app identified by the window-pattern?<|a|>omarchy-launch-or-focus-webapp <window-pattern> <url-and-flags...><|end|>
 
-<|q|>How can I launch a config file in the user's editor and surface a toast?<|a|>omarchy-launch-config-editor <path><|end|>
+<|q|>How can I run the Omarchy shell?<|a|>omarchy-launch-shell<|end|>
 
-<|q|>How do I launch the Omarchy Discord community in the Discord app or a browser?<|a|>omarchy-launch-discord-community<|end|>
+<|q|>How can I launch Signal or start its installer when missing?<|a|>omarchy-launch-signal<|end|>
 
-<|q|>How can I start the Omarchy Discord community in the Discord app or a browser?<|a|>omarchy-launch-discord-community<|end|>
+<|q|>Which omarchy command will launch Signal or start its installer when missing?<|a|>omarchy-launch-signal<|end|>
 
-<|q|>How can I start the Omarchy Discord community?<|a|>omarchy-launch-discord-community<|end|>
+<|q|>What is the command to run Signal or start its installer when missing?<|a|>omarchy-launch-signal<|end|>
 
-<|q|>How can I run the default editor selected via Omarchy defaults?<|a|>omarchy-launch-editor [--inline] <path><|end|>
+<|q|>What should I run to launch Spotify or start its installer when missing?<|a|>omarchy-launch-spotify<|end|>
 
-<|q|>Launch a floating terminal with the Omarchy presentation wrapper<|a|>omarchy-launch-floating-terminal-with-presentation <command><|end|>
+<|q|>launch terminal<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
 
-<|q|>What is the command to start a floating terminal with the Omarchy presentation wrapper?<|a|>omarchy-launch-floating-terminal-with-presentation <command><|end|>
+<|q|>How can I launch a terminal?<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
 
-<|q|>What is the command to run a floating terminal with the Omarchy presentation wrapper?<|a|>omarchy-launch-floating-terminal-with-presentation <command><|end|>
+<|q|>How do I launch or attach to the persistent herdr session in a terminal?<|a|>omarchy-launch-terminal-herdr<|end|>
 
-<|q|>How can I run Files?<|a|>omarchy-launch-nautilus<|end|>
+<|q|>What is the command to start or attach to the persistent herdr session in a terminal?<|a|>omarchy-launch-terminal-herdr<|end|>
 
-<|q|>What is the command to run Files?<|a|>omarchy-launch-nautilus<|end|>
+<|q|>What should I run to launch a TUI command in the default terminal with Omarchy styling?<|a|>omarchy-launch-tui [--app-id=<app-id>] <command> [args...]<|end|>
 
-<|q|>Which omarchy command will launch Files in the active terminal's current directory?<|a|>omarchy-launch-nautilus-cwd<|end|>
+<|q|>What is the command to start a TUI command in the default terminal with Omarchy styling?<|a|>omarchy-launch-tui [--app-id=<app-id>] <command> [args...]<|end|>
 
-<|q|>How to launch Files in the active terminal's current directory<|a|>omarchy-launch-nautilus-cwd<|end|>
+<|q|>What is the command to launch a URL as a web app in the default supported browser?<|a|>omarchy-launch-webapp <url><|end|>
 
-<|q|>How do I open the OpenClaw Control UI (or its terminal UI?<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
+<|q|>Launch a URL as a web app<|a|>omarchy-launch-webapp <url><|end|>
 
-<|q|>What is the command to open the OpenClaw Control UI (or its terminal UI?<|a|>omarchy-launch-openclaw [--tui [--message <text>]]<|end|>
+<|q|>How do I start a URL as a web app?<|a|>omarchy-launch-webapp <url><|end|>
 
-<|q|>What is the command to launch an app?<|a|>omarchy-launch-or-focus <window-pattern> <launch-command><|end|>
+<|q|>In Omarchy, how do I generate the system locale for an Omarchy language?<|a|>omarchy-locale-generate <code><|end|>
 
-<|q|>How can I launch a TUI or focus an existing terminal window for it?<|a|>omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]<|end|>
+<|q|>In Omarchy, how do I launch the clipboard manager?<|a|>omarchy-menu-clipboard<|end|>
 
-<|q|>How to launch a TUI or focus an existing terminal window for it<|a|>omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]<|end|>
+<|q|>How do I launch emojis?<|a|>omarchy-menu-emoji<|end|>
 
-<|q|>How can I start a TUI?<|a|>omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]<|end|>
+<|q|>In Omarchy, how do I launch emojis?<|a|>omarchy-menu-emoji<|end|>
 
-<|q|>What is the command to run the Omarchy screensaver in the default terminal on the system with the correct font configuration?<|a|>omarchy-launch-screensaver<|end|>
+<|q|>Script to insert an emoji into the focused application<|a|>omarchy-menu-emoji-insert <emoji><|end|>
 
-<|q|>How can I run the Omarchy shell with its log kept in the journal?<|a|>omarchy-launch-shell<|end|>
+<|q|>pick a file from a menu?<|a|>omarchy-menu-file label paths formats [menu args...]<|end|>
 
-<|q|>I want to launch Signal or start its installer when missing. What do I run?<|a|>omarchy-launch-signal<|end|>
+<|q|>menu file<|a|>omarchy-menu-file label paths formats [menu args...]<|end|>
 
-<|q|>launch signal<|a|>omarchy-launch-signal<|end|>
+<|q|>Command to display annotated Herdr keybindings using an interactive search menu<|a|>omarchy-menu-herdr-keybindings [--print|-p] [--config <path>]<|end|>
 
-<|q|>How do I open Spotify?<|a|>omarchy-launch-spotify<|end|>
+<|q|>What is the command to show annotated Herdr keybindings using an interactive search menu?<|a|>omarchy-menu-herdr-keybindings [--print|-p] [--config <path>]<|end|>
 
-<|q|>How do I launch a terminal in the active terminal's current directory?<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
+<|q|>How do I open a generic image selector menu?<|a|>omarchy-menu-images [--selected <image>] [--print-name] [--show-labels] [--filterable] [--lazy-thumbnails] [--preload] [--cache-only] [--print-rows] <image-dir>...<|end|>
 
-<|q|>launch a terminal in the active terminal's current directory?<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
+<|q|>Display Hyprland keybindings defined in your configuration using an interactive search menu<|a|>omarchy-menu-keybindings<|end|>
 
-<|q|>How can I open a terminal?<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
+<|q|>Which omarchy command will display Hyprland keybindings defined in your configuration using an interactive search menu?<|a|>omarchy-menu-keybindings<|end|>
 
-<|q|>What is the command to run a terminal in the active terminal's current directory?<|a|>omarchy-launch-terminal [--pid=<terminal-pid>] [command...]<|end|>
+<|q|>menu keybindings<|a|>omarchy-menu-keybindings<|end|>
 
-<|q|>What do I type to launch or attach to the persistent herdr session in a terminal?<|a|>omarchy-launch-terminal-herdr<|end|>
+<|q|>How can I display Hyprland keybindings defined?<|a|>omarchy-menu-keybindings<|end|>
 
-<|q|>How do I run or attach to the persistent herdr session in a terminal?<|a|>omarchy-launch-terminal-herdr<|end|>
+<|q|>What is the command to show Hyprland keybindings defined?<|a|>omarchy-menu-keybindings<|end|>
 
-<|q|>I want to launch or attach to the Work tmux session in a terminal. What do I run?<|a|>omarchy-launch-terminal-tmux<|end|>
+<|q|>I want to pick a shell plugin to enable, disable, clone, or remove. What do I run?<|a|>omarchy-menu-plugin <enable|disable|clone|remove><|end|>
 
-<|q|>What is the command to open or attach to the Work tmux session in a terminal?<|a|>omarchy-launch-terminal-tmux<|end|>
+<|q|>What should I run to pick a shell plugin to enable, disable, clone, or remove?<|a|>omarchy-menu-plugin <enable|disable|clone|remove><|end|>
 
-<|q|>How do I start a TUI command in the default terminal with Omarchy styling?<|a|>omarchy-launch-tui [--app-id=<app-id>] <command> [args...]<|end|>
+<|q|>What do I type to pick one or multiple options from a menu?<|a|>omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]<|end|>
 
-<|q|>What is the command to start a TUI command?<|a|>omarchy-launch-tui [--app-id=<app-id>] <command> [args...]<|end|>
+<|q|>omarchy menu share<|a|>omarchy-menu-share <clipboard|file|folder> [path...]<|end|>
 
-<|q|>How do I start a fixed lifecycle operation through the platform's own packages?<|a|>omarchy-lifecycle-dispatch [--resolve] <operation> [arguments...]<|end|>
+<|q|>Command to select and set the system timezone<|a|>omarchy-menu-timezone<|end|>
 
-<|q|>I want to generate the system locale for an Omarchy language. What do I run?<|a|>omarchy-locale-generate <code><|end|>
+<|q|>menu timezone<|a|>omarchy-menu-timezone<|end|>
 
-<|q|>Script to control the Omarchy menu (toggle / summon / close / refresh)<|a|>omarchy-menu [toggle|summon|close|refresh|ping] [route]<|end|>
+<|q|>In Omarchy, how do I display annotated Tmux keybindings using an interactive search menu?<|a|>omarchy-menu-tmux-keybindings [--print|-p] [--config <path>]<|end|>
 
-<|q|>I want to launch the clipboard manager. What do I run?<|a|>omarchy-menu-clipboard<|end|>
+<|q|>Display annotated Tmux keybindings<|a|>omarchy-menu-tmux-keybindings [--print|-p] [--config <path>]<|end|>
 
-<|q|>Tell me how to launch the clipboard manager.<|a|>omarchy-menu-clipboard<|end|>
+<|q|>How do I run pending Omarchy migrations?<|a|>omarchy-migrate [--pending]<|end|>
 
-<|q|>What is the command to run the clipboard manager?<|a|>omarchy-menu-clipboard<|end|>
+<|q|>How can I notify the user when Omarchy has pending migrations?<|a|>omarchy-migrate-notify<|end|>
 
-<|q|>Script to pick a file from a menu<|a|>omarchy-menu-file label paths formats [menu args...]<|end|>
+<|q|>How do I list Omarchy's default mise tools, or opt this user out of or back into them?<|a|>omarchy-mise-default-tools <list|declares <tool>|disable|enable><|end|>
 
-<|q|>How can I choose a file?<|a|>omarchy-menu-file label paths formats [menu args...]<|end|>
+<|q|>What is the command to show Omarchy's default mise tools?<|a|>omarchy-mise-default-tools <list|declares <tool>|disable|enable><|end|>
 
-<|q|>In Omarchy, how do I display Hyprland keybindings defined in your configuration using an interactive search menu?<|a|>omarchy-menu-keybindings<|end|>
+<|q|>I want to install a small mise-backed wrapper for a given tool. What do I run?<|a|>omarchy-mise-install <package> [command-name [bin-name]]<|end|>
 
-<|q|>menu plugin<|a|>omarchy-menu-plugin <enable|disable|clone|remove><|end|>
+<|q|>How do I add a small mise-backed wrapper for a given tool?<|a|>omarchy-mise-install <package> [command-name [bin-name]]<|end|>
 
-<|q|>How can I pick a shell plugin?<|a|>omarchy-menu-plugin <enable|disable|clone|remove><|end|>
+<|q|>Script to print monitor panel state for the shell<|a|>omarchy-monitor-state<|end|>
 
-<|q|>How can I select a shell plugin?<|a|>omarchy-menu-plugin <enable|disable|clone|remove><|end|>
+<|q|>How do I show monitor panel state for the shell?<|a|>omarchy-monitor-state<|end|>
 
-<|q|>How can I choose one?<|a|>omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]<|end|>
+<|q|>Is there a command to record N1x hardware and boot evidence to /var/log/omarchy-n1x-probe.log, on demand?<|a|>omarchy-n1x-probe<|end|>
 
-<|q|>menu share<|a|>omarchy-menu-share <clipboard|file|folder> [path...]<|end|>
+<|q|>Script to show or pin the Wi-Fi band for the active connection<|a|>omarchy-network-band [auto|2.4|5|6]<|end|>
 
-<|q|>How do I share clipboard?<|a|>omarchy-menu-share <clipboard|file|folder> [path...]<|end|>
+<|q|>How do I list or pin the Wi-Fi band for the active connection?<|a|>omarchy-network-band [auto|2.4|5|6]<|end|>
 
-<|q|>I want to select and set the system timezone. What do I run?<|a|>omarchy-menu-timezone<|end|>
-
-<|q|>What should I run to run pending Omarchy migrations?<|a|>omarchy-migrate [--pending]<|end|>
-
-<|q|>How to run pending Omarchy migrations<|a|>omarchy-migrate [--pending]<|end|>
-
-<|q|>How can I start pending Omarchy migrations?<|a|>omarchy-migrate [--pending]<|end|>
-
-<|q|>I want to notify the user when Omarchy has pending migrations. What do I run?<|a|>omarchy-migrate-notify<|end|>
-
-<|q|>Tell me how to notify the user when Omarchy has pending migrations.<|a|>omarchy-migrate-notify<|end|>
-
-<|q|>Tell me how to list Omarchy's default mise tools, or opt this user out of or back into them.<|a|>omarchy-mise-default-tools <list|declares <tool>|disable|enable><|end|>
-
-<|q|>What should I run to install a small mise-backed wrapper for a given tool?<|a|>omarchy-mise-install <package> [command-name [bin-name]]<|end|>
-
-<|q|>How can I add a small mise-backed wrapper for a given tool?<|a|>omarchy-mise-install <package> [command-name [bin-name]]<|end|>
-
-<|q|>Print monitor panel state for the shell<|a|>omarchy-monitor-state<|end|>
-
-<|q|>What should I run to print monitor panel state for the shell?<|a|>omarchy-monitor-state<|end|>
-
-<|q|>omarchy monitor state<|a|>omarchy-monitor-state<|end|>
-
-<|q|>What should I run to record N1x hardware and boot evidence to /var/log/omarchy-n1x-probe.log, on demand?<|a|>omarchy-n1x-probe<|end|>
-
-<|q|>How to record N1x hardware and boot evidence to /var/log/omarchy-n1x-probe.log, on demand<|a|>omarchy-n1x-probe<|end|>
-
-<|q|>How do I show or pin the Wi-Fi band for the active connection?<|a|>omarchy-network-band [auto|2.4|5|6]<|end|>
-
-<|q|>What is the command to print or pin the Wi-Fi band for the active connection?<|a|>omarchy-network-band [auto|2.4|5|6]<|end|>
-
-<|q|>What is the command to list or pin the Wi-Fi band for the active connection?<|a|>omarchy-network-band [auto|2.4|5|6]<|end|>
-
-<|q|>Command to print the active Wi-Fi connection's password<|a|>omarchy-network-password <interface><|end|>
-
-<|q|>print the active Wi-Fi connection's password?<|a|>omarchy-network-password <interface><|end|>
-
-<|q|>network password<|a|>omarchy-network-password <interface><|end|>
+<|q|>How to print the active Wi-Fi connection's password<|a|>omarchy-network-password <interface><|end|>
 
 <|q|>Is there a command to generate a Wi-Fi QR matrix for the shell?<|a|>omarchy-network-qr [--meta] [interface]<|end|>
 
-<|q|>omarchy network qr<|a|>omarchy-network-qr [--meta] [interface]<|end|>
+<|q|>Generate a Wi-Fi QR matrix<|a|>omarchy-network-qr [--meta] [interface]<|end|>
 
-<|q|>Command to print active network status for the shell<|a|>omarchy-network-status [--verbose]<|end|>
+<|q|>Is there a command to print active network status for the shell?<|a|>omarchy-network-status [--verbose]<|end|>
 
-<|q|>Tell me how to print active network status for the shell.<|a|>omarchy-network-status [--verbose]<|end|>
+<|q|>How can I show active network status for the shell?<|a|>omarchy-network-status [--verbose]<|end|>
 
-<|q|>How do I print active network status?<|a|>omarchy-network-status [--verbose]<|end|>
+<|q|>How do I check whether the default route runs over connected Wi-Fi?<|a|>omarchy-network-wifi-connected<|end|>
 
-<|q|>How can I show active network status?<|a|>omarchy-network-status [--verbose]<|end|>
+<|q|>How do I show the current battery status notification?<|a|>omarchy-notification-battery<|end|>
 
-<|q|>What is the command to check whether the default route runs over connected Wi-Fi?<|a|>omarchy-network-wifi-connected<|end|>
+<|q|>Is there a command to show the current battery status notification?<|a|>omarchy-notification-battery<|end|>
 
-<|q|>In Omarchy, how do I show the current battery status notification?<|a|>omarchy-notification-battery<|end|>
+<|q|>show the current battery status notification?<|a|>omarchy-notification-battery<|end|>
 
-<|q|>Script to show the current battery status notification<|a|>omarchy-notification-battery<|end|>
+<|q|>What is the command to dismiss a notification by summary substring. Used by the first-run notifications to dismiss them after clicking for action?<|a|>omarchy-notification-dismiss <summary><|end|>
 
-<|q|>Show the current time<|a|>omarchy-notification-time<|end|>
+<|q|>What do I type to dismiss a notification by summary substring. Used by the first-run notifications to dismiss them after clicking for action?<|a|>omarchy-notification-dismiss <summary><|end|>
 
-<|q|>Command to wait for the desktop notification server to accept notifications<|a|>omarchy-notification-wait [timeout-seconds]<|end|>
+<|q|>Is there a command to show the current time and date notification?<|a|>omarchy-notification-time<|end|>
 
-<|q|>Script to run OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done<|a|>omarchy-openclaw-onboard<|end|>
+<|q|>Command to show the current time and date notification<|a|>omarchy-notification-time<|end|>
 
-<|q|>omarchy openclaw onboard<|a|>omarchy-openclaw-onboard<|end|>
+<|q|>Which omarchy command will toggle the current weather panel?<|a|>omarchy-notification-weather<|end|>
 
-<|q|>How can I start OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done?<|a|>omarchy-openclaw-onboard<|end|>
+<|q|>How can I turn on or off the current weather panel?<|a|>omarchy-notification-weather<|end|>
 
-<|q|>What should I run to install Arch packages if they are missing?<|a|>omarchy-pkg-add <packages...><|end|>
+<|q|>How can I run OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done?<|a|>omarchy-openclaw-onboard<|end|>
 
-<|q|>omarchy pkg add<|a|>omarchy-pkg-add <packages...><|end|>
+<|q|>Is there a command to run OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done?<|a|>omarchy-openclaw-onboard<|end|>
 
-<|q|>What is the command to install the named packages?<|a|>omarchy-pkg-aur-add <packages...><|end|>
+<|q|>Command to run OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done<|a|>omarchy-openclaw-onboard<|end|>
 
-<|q|>How do I show a fuzzy-finder TUI?<|a|>omarchy-pkg-aur-install<|end|>
+<|q|>How do I start OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done?<|a|>omarchy-openclaw-onboard<|end|>
 
-<|q|>How can I show a fuzzy-finder TUI?<|a|>omarchy-pkg-aur-install<|end|>
+<|q|>Which omarchy command will show the Omarchy Quickshell on-screen display?<|a|>omarchy-osd [-i|--icon <icon>] [-m|--message <text>] [-p|--progress <0-100>] [-d|--duration <ms>]<|end|>
 
-<|q|>How can I show the default package set for this computer's platform, or for the named one: the base list plus its architecture's and platform's additions?<|a|>omarchy-pkg-defaults [x86|aarch64|aarch64-apple|aarch64-qualcomm|aarch64-n1x|aarch64-gb10]<|end|>
+<|q|>show the Omarchy Quickshell on-screen display?<|a|>omarchy-osd [-i|--icon <icon>] [-m|--message <text>] [-p|--progress <0-100>] [-d|--duration <ms>]<|end|>
 
-<|q|>What is the command to show the default package set for this computer's platform, or for the named one: the base list plus its architecture's and platform's additions?<|a|>omarchy-pkg-defaults [x86|aarch64|aarch64-apple|aarch64-qualcomm|aarch64-n1x|aarch64-gb10]<|end|>
+<|q|>How can I list the Omarchy Quickshell on-screen display?<|a|>omarchy-osd [-i|--icon <icon>] [-m|--message <text>] [-p|--progress <0-100>] [-d|--duration <ms>]<|end|>
 
-<|q|>What is the command to remove all the named packages?<|a|>omarchy-pkg-drop <packages...><|end|>
+<|q|>What is the command to list the Omarchy Quickshell on-screen display?<|a|>omarchy-osd [-i|--icon <icon>] [-m|--message <text>] [-p|--progress <0-100>] [-d|--duration <ms>]<|end|>
 
-<|q|>Which omarchy command will show a fuzzy-finder TUI for picking new Arch and OPR packages to install?<|a|>omarchy-pkg-install<|end|>
+<|q|>Is there a command to install Arch packages if they are missing?<|a|>omarchy-pkg-add <packages...><|end|>
 
-<|q|>Returns true if any of the named packages are missing from the system (or false if they're all there)<|a|>omarchy-pkg-missing <packages...><|end|>
+<|q|>How do I install the named packages to the system from the AUR if they're missing. Returns false if it couldn't be done?<|a|>omarchy-pkg-aur-add <packages...><|end|>
 
-<|q|>What should I run to emit every first-party and user plugin manifest as JSON?<|a|>omarchy-plugin-catalog<|end|>
+<|q|>How do I show a fuzzy-finder TUI for picking new AUR packages to install?<|a|>omarchy-pkg-aur-install<|end|>
 
-<|q|>omarchy plugin clone<|a|>omarchy-plugin-clone <source-id> [--edit]<|end|>
+<|q|>What is the command to display a fuzzy-finder TUI?<|a|>omarchy-pkg-aur-install<|end|>
 
-<|q|>What do I type to disable a shell plugin?<|a|>omarchy-plugin-disable <id><|end|>
+<|q|>Print the default package set<|a|>omarchy-pkg-defaults [x86|aarch64|aarch64-apple|aarch64-qualcomm|aarch64-n1x|aarch64-gb10]<|end|>
 
-<|q|>How do I deactivate a shell plugin?<|a|>omarchy-plugin-disable <id><|end|>
+<|q|>How can I show the default package set?<|a|>omarchy-pkg-defaults [x86|aarch64|aarch64-apple|aarch64-qualcomm|aarch64-n1x|aarch64-gb10]<|end|>
 
-<|q|>omarchy plugin enable<|a|>omarchy-plugin-enable <id> [placement]<|end|>
+<|q|>How can I display the default package set for this computer's platform, or for the named one: the base list plus its architecture's and platform's additions?<|a|>omarchy-pkg-defaults [x86|aarch64|aarch64-apple|aarch64-qualcomm|aarch64-n1x|aarch64-gb10]<|end|>
+
+<|q|>How can I uninstall all the named packages?<|a|>omarchy-pkg-drop <packages...><|end|>
+
+<|q|>Tell me how to show a fuzzy-finder TUI for picking new Arch and OPR packages to install.<|a|>omarchy-pkg-install<|end|>
+
+<|q|>show a fuzzy-finder TUI for picking new Arch and OPR packages to install?<|a|>omarchy-pkg-install<|end|>
+
+<|q|>How can I create a shell plugin?<|a|>omarchy-plugin-add [git-url] [--enable] [--yes]<|end|>
+
+<|q|>I want to emit every first-party and user plugin manifest as JSON. What do I run?<|a|>omarchy-plugin-catalog<|end|>
+
+<|q|>Tell me how to enable a shell plugin.<|a|>omarchy-plugin-enable <id> [placement]<|end|>
 
 <|q|>How can I activate a shell plugin?<|a|>omarchy-plugin-enable <id> [placement]<|end|>
 
-<|q|>What is the command to list discovered shell plugins?<|a|>omarchy-plugin-list [--json]<|end|>
+<|q|>How do I show discovered shell plugins?<|a|>omarchy-plugin-list [--json]<|end|>
 
 <|q|>In Omarchy, how do I remove an installed shell plugin?<|a|>omarchy-plugin-remove [id] [--yes]<|end|>
 
-<|q|>omarchy plugin remove<|a|>omarchy-plugin-remove [id] [--yes]<|end|>
+<|q|>Script to remove an installed shell plugin<|a|>omarchy-plugin-remove [id] [--yes]<|end|>
 
-<|q|>Is there a command to update installed git-managed plugins?<|a|>omarchy-plugin-update [id] [--yes]<|end|>
+<|q|>How can I delete an installed shell plugin?<|a|>omarchy-plugin-remove [id] [--yes]<|end|>
 
-<|q|>How do I validate a plugin folder against the Omarchy plugin manifest schema?<|a|>omarchy-plugin-validate <plugin-folder><|end|>
+<|q|>Tell me how to update installed git-managed plugins.<|a|>omarchy-plugin-update [id] [--yes]<|end|>
 
-<|q|>validate a plugin folder against the Omarchy plugin manifest schema?<|a|>omarchy-plugin-validate <plugin-folder><|end|>
+<|q|>What is the command to list themes that can style the Plymouth boot screen?<|a|>omarchy-plymouth-list<|end|>
 
-<|q|>What is the command to display which theme is styling the Plymouth boot screen?<|a|>omarchy-plymouth-current<|end|>
+<|q|>omarchy plymouth reset<|a|>omarchy-plymouth-reset<|end|>
 
-<|q|>Command to preview a Plymouth boot screen with custom colors and logo<|a|>omarchy-plymouth-preview <background-hex> <text-hex> <path-to-logo.png> <output-path><|end|>
+<|q|>Tell me how to set the Plymouth boot theme colors and logo.<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
 
-<|q|>How to set the Plymouth boot theme colors and logo<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
+<|q|>What do I type to set the Plymouth boot theme colors and logo?<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
 
-<|q|>omarchy plymouth set<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
+<|q|>Is there a command to set the Plymouth boot theme from an Omarchy theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
 
-<|q|>How do I set the Plymouth boot theme colors?<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
+<|q|>How do I set the Plymouth boot theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
 
-<|q|>How do I change the Plymouth boot theme colors and logo?<|a|>omarchy-plymouth-set <background-hex> <text-hex> <path-to-logo.png><|end|>
+<|q|>How do I change the Plymouth boot theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
 
-<|q|>Which omarchy command will set the Plymouth boot theme from an Omarchy theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
+<|q|>omarchy plymouth switcher<|a|>omarchy-plymouth-switcher<|end|>
 
-<|q|>What should I run to set the Plymouth boot theme from an Omarchy theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
+<|q|>How do I launch the Plymouth unlock screen switcher?<|a|>omarchy-plymouth-switcher<|end|>
 
-<|q|>What is the command to set the Plymouth boot theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
+<|q|>Set and remember the power profile for AC or battery use<|a|>omarchy-powerprofiles-set [autodetect|ac|battery] [power-saver|balanced|performance]<|end|>
 
-<|q|>How can I change the Plymouth boot theme?<|a|>omarchy-plymouth-set-by-theme <theme-name><|end|>
+<|q|>Is there a command to set and remember the power profile for AC or battery use?<|a|>omarchy-powerprofiles-set [autodetect|ac|battery] [power-saver|balanced|performance]<|end|>
 
-<|q|>What is the command to change the correct power profile on boot based on current AC/battery state?<|a|>omarchy-powerprofiles-init<|end|>
+<|q|>How can I finish first-login setup for Omarchy?<|a|>omarchy-provision-first-run [--force]<|end|>
 
-<|q|>What is the command to change the correct power profile?<|a|>omarchy-powerprofiles-init<|end|>
+<|q|>Finish the hardware setup an image build deferred to this machine<|a|>omarchy-provision-hardware<|end|>
 
-<|q|>What should I run to set and remember the power profile for AC or battery use?<|a|>omarchy-powerprofiles-set [autodetect|ac|battery] [power-saver|balanced|performance]<|end|>
+<|q|>What should I run to finish the hardware setup an image build deferred to this machine?<|a|>omarchy-provision-hardware<|end|>
 
-<|q|>omarchy powerprofiles set<|a|>omarchy-powerprofiles-set [autodetect|ac|battery] [power-saver|balanced|performance]<|end|>
+<|q|>provision owner<|a|>omarchy-provision-owner<|end|>
 
-<|q|>Command to finalize Omarchy user setup (runtime tweaks /etc/skel can't do)<|a|>omarchy-provision-user<|end|>
+<|q|>How do I finalize Omarchy user setup (runtime tweaks /etc/skel can't do)?<|a|>omarchy-provision-user<|end|>
 
-<|q|>In Omarchy, how do I overwrite the user herdr config with the Omarchy default and reload herdr?<|a|>omarchy-refresh-herdr<|end|>
+<|q|>Which omarchy command will refresh the ~/.config/chromium-flags.conf file from the Omarchy defaults?<|a|>omarchy-refresh-chromium<|end|>
 
-<|q|>Overwrite the user herdr config<|a|>omarchy-refresh-herdr<|end|>
+<|q|>Command to refresh the ~/.config/chromium-flags.conf file from the Omarchy defaults<|a|>omarchy-refresh-chromium<|end|>
 
-<|q|>omarchy refresh hyprsunset<|a|>omarchy-refresh-hyprsunset<|end|>
+<|q|>refresh chromium<|a|>omarchy-refresh-chromium<|end|>
 
-<|q|>refresh hyprsunset<|a|>omarchy-refresh-hyprsunset<|end|>
+<|q|>copy a shipped user config from $OMARCHY_PATH/config into ~/.config (backs up your version)?<|a|>omarchy-refresh-config <config-path><|end|>
+
+<|q|>In Omarchy, how do I overwrite all the user Hyprland Lua configs in ~/.config/hypr with the Omarchy defaults?<|a|>omarchy-refresh-hyprland<|end|>
+
+<|q|>Overwrite the user config for hyprsunset with the Omarchy default and restart the service<|a|>omarchy-refresh-hyprsunset<|end|>
+
+<|q|>Which omarchy command will overwrite the user config for the Limine bootloader and rebuild it?<|a|>omarchy-refresh-limine<|end|>
 
 <|q|>In Omarchy, how do I overwrite the user config for the Limine bootloader and rebuild it?<|a|>omarchy-refresh-limine<|end|>
 
-<|q|>overwrite the user config for the Limine bootloader and rebuild it?<|a|>omarchy-refresh-limine<|end|>
+<|q|>In Omarchy, how do I overwrite the package configuration for /etc/pacman with the Omarchy default of using its dedicated mirrors and repositories, then update all packages?<|a|>omarchy-refresh-pacman<|end|>
 
-<|q|>Tell me how to overwrite the user config for the Plymouth drive decryption and boot sequence with the Omarchy default and rebuild it.<|a|>omarchy-refresh-plymouth<|end|>
+<|q|>refresh pacman<|a|>omarchy-refresh-pacman<|end|>
 
-<|q|>How can I refresh the SDDM theme from default?<|a|>omarchy-refresh-sddm<|end|>
+<|q|>What is the command to overwrite the user config for the Plymouth drive decryption and boot sequence with the Omarchy default and rebuild it?<|a|>omarchy-refresh-plymouth<|end|>
 
-<|q|>What should I run to refresh the SDDM theme from default?<|a|>omarchy-refresh-sddm<|end|>
+<|q|>What is the command to refresh the SDDM theme from default?<|a|>omarchy-refresh-sddm<|end|>
 
-<|q|>What is the command to reload the SDDM theme from default?<|a|>omarchy-refresh-sddm<|end|>
+<|q|>How can I refresh the SDDM theme?<|a|>omarchy-refresh-sddm<|end|>
 
-<|q|>What is the command to update the SDDM theme from default?<|a|>omarchy-refresh-sddm<|end|>
+<|q|>How do I reload the SDDM theme?<|a|>omarchy-refresh-sddm<|end|>
 
-<|q|>I want to reset shell.json to Omarchy defaults. What do I run?<|a|>omarchy-refresh-shell<|end|>
+<|q|>How can I reload the SDDM theme?<|a|>omarchy-refresh-sddm<|end|>
 
-<|q|>Is there a command to reset shell.json to Omarchy defaults?<|a|>omarchy-refresh-shell<|end|>
+<|q|>In Omarchy, how do I reinstall Omarchy packages and reset default configs?<|a|>omarchy-reinstall<|end|>
 
-<|q|>What should I run to reset shell.json to Omarchy defaults?<|a|>omarchy-refresh-shell<|end|>
+<|q|>What is the command to restore Omarchy user configs and shipped defaults in $HOME (destructive)?<|a|>omarchy-reinstall-configs<|end|>
 
-<|q|>How can I restore shell.json?<|a|>omarchy-refresh-shell<|end|>
+<|q|>How to reinstall all default Omarchy packages from the stable channel, or on aarch64 the edge channel<|a|>omarchy-reinstall-pkgs<|end|>
 
-<|q|>How do I reinitialize shell.json to Omarchy defaults?<|a|>omarchy-refresh-shell<|end|>
+<|q|>What do I type to reinstall all default Omarchy packages from the stable channel, or on aarch64 the edge channel?<|a|>omarchy-reinstall-pkgs<|end|>
 
-<|q|>How can I reinstall Omarchy packages?<|a|>omarchy-reinstall<|end|>
+<|q|>How do I delete the ChatGPT desktop app along with its configuration and caches?<|a|>omarchy-remove-ai-chatgpt<|end|>
 
-<|q|>What is the command to reset Omarchy user configs and shipped defaults in $HOME (destructive)?<|a|>omarchy-reinstall-configs<|end|>
+<|q|>How can I remove the Claude desktop app along with its configuration and caches?<|a|>omarchy-remove-ai-claude<|end|>
 
-<|q|>Which omarchy command will reset Omarchy user configs and shipped defaults in $HOME (destructive)?<|a|>omarchy-reinstall-configs<|end|>
+<|q|>How do I uninstall the Claude desktop app along with its configuration and caches?<|a|>omarchy-remove-ai-claude<|end|>
 
-<|q|>How can I reinitialize Omarchy user configs and shipped defaults in $HOME (destructive)?<|a|>omarchy-reinstall-configs<|end|>
+<|q|>How can I uninstall the Claude desktop app along?<|a|>omarchy-remove-ai-claude<|end|>
 
-<|q|>How do I reinstall all default Omarchy packages from the stable channel, or on aarch64 the edge channel?<|a|>omarchy-reinstall-pkgs<|end|>
+<|q|>I want to remove the Hermes desktop app along with the Hermes runtime it installed. What do I run?<|a|>omarchy-remove-ai-hermes<|end|>
 
-<|q|>omarchy reinstall pkgs<|a|>omarchy-reinstall-pkgs<|end|>
+<|q|>What is the command to uninstall the Hermes desktop app along?<|a|>omarchy-remove-ai-hermes<|end|>
 
-<|q|>How do I uninstall the ChatGPT desktop app along?<|a|>omarchy-remove-ai-chatgpt<|end|>
+<|q|>How can I uninstall LM Studio along?<|a|>omarchy-remove-ai-lm-studio<|end|>
 
-<|q|>What is the command to uninstall the ChatGPT desktop app along?<|a|>omarchy-remove-ai-chatgpt<|end|>
+<|q|>What should I run to remove Ollama along with every model it pulled?<|a|>omarchy-remove-ai-ollama<|end|>
 
-<|q|>What is the command to delete the ChatGPT desktop app along with its configuration and caches?<|a|>omarchy-remove-ai-chatgpt<|end|>
+<|q|>How can I remove the Perplexity desktop app along with its runtime caches?<|a|>omarchy-remove-ai-perplexity<|end|>
 
-<|q|>Script to remove the Claude desktop app along with its configuration and caches<|a|>omarchy-remove-ai-claude<|end|>
+<|q|>What is the command to remove the Perplexity desktop app along?<|a|>omarchy-remove-ai-perplexity<|end|>
 
-<|q|>Remove the Hermes desktop app along with the Hermes runtime it installed<|a|>omarchy-remove-ai-hermes<|end|>
+<|q|>In Omarchy, how do I remove T3 Code along with its configuration and workspaces?<|a|>omarchy-remove-ai-t3-code<|end|>
 
-<|q|>What is the command to uninstall the Hermes desktop app along with the Hermes runtime it installed?<|a|>omarchy-remove-ai-hermes<|end|>
+<|q|>How can I delete T3 Code along?<|a|>omarchy-remove-ai-t3-code<|end|>
 
-<|q|>How do I delete LM Studio along?<|a|>omarchy-remove-ai-lm-studio<|end|>
+<|q|>How do I delete a supported browser?<|a|>omarchy-remove-browser <chrome|brave|brave-origin|edge|firefox|zen><|end|>
 
-<|q|>How can I remove the OpenClaw agent platform along with its gateway service and web app?<|a|>omarchy-remove-ai-openclaw<|end|>
+<|q|>How do I delete a development environment that was previously installed?<|a|>omarchy-remove-dev-env <ruby|node|bun|deno|go|php|laravel|symfony|python|elixir|phoenix|zig|rust|java|dotnet|ocaml|clojure|scala><|end|>
 
-<|q|>How can I uninstall the OpenClaw agent platform along with its gateway service and web app?<|a|>omarchy-remove-ai-openclaw<|end|>
+<|q|>Command to remove Superwhisper dictation and its desktop integration<|a|>omarchy-remove-dictation-superwhisper<|end|>
 
-<|q|>How do I delete the OpenClaw agent platform along with its gateway service and web app?<|a|>omarchy-remove-ai-openclaw<|end|>
+<|q|>Script to remove Superwhisper dictation and its desktop integration<|a|>omarchy-remove-dictation-superwhisper<|end|>
 
-<|q|>Script to remove T3 Code along with its configuration and workspaces<|a|>omarchy-remove-ai-t3-code<|end|>
+<|q|>How do I delete Superwhisper dictation?<|a|>omarchy-remove-dictation-superwhisper<|end|>
 
-<|q|>How can I delete a supported browser?<|a|>omarchy-remove-browser <chrome|brave|brave-origin|edge|firefox|zen><|end|>
+<|q|>Which omarchy command will remove Voxtype dictation and its configuration?<|a|>omarchy-remove-dictation-voxtype<|end|>
 
-<|q|>What should I run to remove Superwhisper dictation and its desktop integration?<|a|>omarchy-remove-dictation-superwhisper<|end|>
+<|q|>How do I uninstall Voxtype dictation?<|a|>omarchy-remove-dictation-voxtype<|end|>
 
-<|q|>omarchy remove dictation superwhisper<|a|>omarchy-remove-dictation-superwhisper<|end|>
+<|q|>How do I delete the GeForce NOW Flatpak app?<|a|>omarchy-remove-gaming-geforce-now<|end|>
 
-<|q|>Remove Voxtype dictation and its configuration<|a|>omarchy-remove-dictation-voxtype<|end|>
+<|q|>What is the command to remove Heroic Games Launcher and its game libraries, configs, and caches?<|a|>omarchy-remove-gaming-heroic<|end|>
 
-<|q|>How can I remove Voxtype dictation and its configuration?<|a|>omarchy-remove-dictation-voxtype<|end|>
+<|q|>Is there a command to remove Heroic Games Launcher and its game libraries, configs, and caches?<|a|>omarchy-remove-gaming-heroic<|end|>
 
-<|q|>How do I uninstall Voxtype dictation and its configuration?<|a|>omarchy-remove-dictation-voxtype<|end|>
+<|q|>What should I run to remove Heroic Games Launcher and its game libraries, configs, and caches?<|a|>omarchy-remove-gaming-heroic<|end|>
 
-<|q|>What is the command to remove Battle.net, its Proton prefix, installed games, and desktop entry?<|a|>omarchy-remove-gaming-battlenet<|end|>
+<|q|>What do I type to remove Heroic Games Launcher and its game libraries, configs, and caches?<|a|>omarchy-remove-gaming-heroic<|end|>
 
-<|q|>remove gaming geforce now<|a|>omarchy-remove-gaming-geforce-now<|end|>
+<|q|>How do I remove the Minecraft launcher along with its worlds, mods, and caches?<|a|>omarchy-remove-gaming-minecraft<|end|>
 
-<|q|>How can I delete the GeForce NOW Flatpak app?<|a|>omarchy-remove-gaming-geforce-now<|end|>
+<|q|>I want to remove the Minecraft launcher along with its worlds, mods, and caches. What do I run?<|a|>omarchy-remove-gaming-minecraft<|end|>
 
-<|q|>Remove Lutris, Wine, umu-launcher, and all their configs and caches<|a|>omarchy-remove-gaming-lutris<|end|>
+<|q|>remove gaming minecraft<|a|>omarchy-remove-gaming-minecraft<|end|>
 
-<|q|>Command to remove Lutris, Wine, umu-launcher, and all their configs and caches<|a|>omarchy-remove-gaming-lutris<|end|>
+<|q|>How can I uninstall the Minecraft launcher along with its worlds, mods, and caches?<|a|>omarchy-remove-gaming-minecraft<|end|>
 
-<|q|>remove Lutris, Wine, umu-launcher, and all their configs and caches?<|a|>omarchy-remove-gaming-lutris<|end|>
+<|q|>How do I uninstall the xpadneo Xbox controller driver and undo its module/blacklist config?<|a|>omarchy-remove-gaming-xbox-controllers<|end|>
 
-<|q|>How to remove the Minecraft launcher along with its worlds, mods, and caches<|a|>omarchy-remove-gaming-minecraft<|end|>
+<|q|>How can I remove or uninstall the selected launcher entry?<|a|>omarchy-remove-launcher-entry <desktop-id> <name><|end|>
 
-<|q|>Script to remove RetroArch, all libretro cores, and its config/saves. Leaves ~/Games/roms and ~/Games/bios alone<|a|>omarchy-remove-gaming-retroarch<|end|>
+<|q|>Which omarchy command will remove or uninstall the selected launcher entry?<|a|>omarchy-remove-launcher-entry <desktop-id> <name><|end|>
 
-<|q|>How do I remove RetroArch?<|a|>omarchy-remove-gaming-retroarch<|end|>
+<|q|>What should I run to remove preinstalled Omarchy applications (web apps, TUIs, and selected packages)?<|a|>omarchy-remove-preinstalls<|end|>
 
-<|q|>How can I uninstall RetroArch?<|a|>omarchy-remove-gaming-retroarch<|end|>
+<|q|>In Omarchy, how do I remove preinstalled Omarchy applications (web apps, TUIs, and selected packages)?<|a|>omarchy-remove-preinstalls<|end|>
 
-<|q|>What is the command to delete RetroArch?<|a|>omarchy-remove-gaming-retroarch<|end|>
+<|q|>What should I run to remove FIDO2 authentication from sudo and polkit?<|a|>omarchy-remove-security-fido2<|end|>
 
-<|q|>Script to remove Steam and all of its game libraries, configs, and caches<|a|>omarchy-remove-gaming-steam<|end|>
+<|q|>What is the command to uninstall FIDO2 authentication from sudo and polkit?<|a|>omarchy-remove-security-fido2<|end|>
 
-<|q|>In Omarchy, how do I remove the xpadneo Xbox controller driver and undo its module/blacklist config?<|a|>omarchy-remove-gaming-xbox-controllers<|end|>
+<|q|>remove security fingerprint<|a|>omarchy-remove-security-fingerprint<|end|>
 
-<|q|>Script to remove or uninstall the selected launcher entry<|a|>omarchy-remove-launcher-entry <desktop-id> <name><|end|>
+<|q|>Script to disable the OpenSSH server, remove standard firewall rules, and optionally remove authorized keys<|a|>omarchy-remove-security-sshd<|end|>
 
-<|q|>How can I uninstall preinstalled Omarchy applications (web apps, TUIs, and selected packages)?<|a|>omarchy-remove-preinstalls<|end|>
+<|q|>How do I disable the OpenSSH server?<|a|>omarchy-remove-security-sshd<|end|>
 
-<|q|>What is the command to remove FIDO2 authentication?<|a|>omarchy-remove-security-fido2<|end|>
+<|q|>How do I disable sudoless Docker by removing your user from the docker group?<|a|>omarchy-remove-security-sudoless-docker<|end|>
 
-<|q|>What is the command to deactivate the OpenSSH server, remove standard firewall rules, and optionally remove authorized keys?<|a|>omarchy-remove-security-sshd<|end|>
+<|q|>How can I disable sudoless Docker by removing your user from the docker group?<|a|>omarchy-remove-security-sudoless-docker<|end|>
 
-<|q|>Command to disable sudoless Docker by removing your user from the docker group<|a|>omarchy-remove-security-sudoless-docker<|end|>
+<|q|>I want to disable sudoless Docker by removing your user from the docker group. What do I run?<|a|>omarchy-remove-security-sudoless-docker<|end|>
 
-<|q|>What is the command to deactivate sudoless Docker by removing your user from the docker group?<|a|>omarchy-remove-security-sudoless-docker<|end|>
+<|q|>What is the command to turn off sudoless Docker by removing your user from the docker group?<|a|>omarchy-remove-security-sudoless-docker<|end|>
 
-<|q|>I want to remove 1Password and its Chromium extension. What do I run?<|a|>omarchy-remove-service-1password<|end|>
+<|q|>How can I deactivate sudoless Docker by removing your user?<|a|>omarchy-remove-security-sudoless-docker<|end|>
 
-<|q|>omarchy remove service 1password<|a|>omarchy-remove-service-1password<|end|>
+<|q|>How can I remove 1Password and its Chromium extension?<|a|>omarchy-remove-service-1password<|end|>
 
-<|q|>How do I uninstall 1Password and its Chromium extension?<|a|>omarchy-remove-service-1password<|end|>
+<|q|>Script to remove 1Password and its Chromium extension<|a|>omarchy-remove-service-1password<|end|>
 
-<|q|>What do I type to remove Dropbox and its bar plugin?<|a|>omarchy-remove-service-dropbox<|end|>
+<|q|>Which omarchy command will remove Dropbox and its bar plugin?<|a|>omarchy-remove-service-dropbox<|end|>
 
-<|q|>How do I turn off the gcr-ssh-agent SSH agent?<|a|>omarchy-remove-service-ssh-agent<|end|>
+<|q|>In Omarchy, how do I remove Dropbox and its bar plugin?<|a|>omarchy-remove-service-dropbox<|end|>
 
-<|q|>Command to remove Sunshine and close Omarchy-managed Moonlight streaming ports<|a|>omarchy-remove-service-sunshine<|end|>
+<|q|>remove service dropbox<|a|>omarchy-remove-service-dropbox<|end|>
 
-<|q|>How can I delete Tailscale and its bar plugin?<|a|>omarchy-remove-service-tailscale<|end|>
+<|q|>I want to remove the Microsoft Outlook, Word, Excel, PowerPoint, Teams, and OneDrive web apps. What do I run?<|a|>omarchy-remove-service-microsoft<|end|>
 
-<|q|>What should I run to restart an application by killing it and relaunching via uwsm?<|a|>omarchy-restart-app <application-name> [application-args...]<|end|>
+<|q|>Tell me how to remove the Microsoft Outlook, Word, Excel, PowerPoint, Teams, and OneDrive web apps.<|a|>omarchy-remove-service-microsoft<|end|>
+
+<|q|>Remove Sunshine and close Omarchy-managed Moonlight streaming ports<|a|>omarchy-remove-service-sunshine<|end|>
+
+<|q|>How to remove Sunshine and close Omarchy-managed Moonlight streaming ports<|a|>omarchy-remove-service-sunshine<|end|>
+
+<|q|>How can I uninstall Sunshine and close Omarchy-managed Moonlight streaming ports?<|a|>omarchy-remove-service-sunshine<|end|>
+
+<|q|>How can I uninstall Sunshine?<|a|>omarchy-remove-service-sunshine<|end|>
+
+<|q|>What should I run to remove Tailscale and its bar plugin?<|a|>omarchy-remove-service-tailscale<|end|>
+
+<|q|>In Omarchy, how do I remove Tailscale and its bar plugin?<|a|>omarchy-remove-service-tailscale<|end|>
+
+<|q|>Script to remove Tailscale and its bar plugin<|a|>omarchy-remove-service-tailscale<|end|>
+
+<|q|>How do I delete Tailscale and its bar plugin?<|a|>omarchy-remove-service-tailscale<|end|>
+
+<|q|>I want to restart an application by killing it and relaunching via uwsm. What do I run?<|a|>omarchy-restart-app <application-name> [application-args...]<|end|>
 
 <|q|>What do I type to restart an application by killing it and relaunching via uwsm?<|a|>omarchy-restart-app <application-name> [application-args...]<|end|>
 
-<|q|>How do I relaunch audio services and recover stuck USB audio devices?<|a|>omarchy-restart-audio<|end|>
+<|q|>Tell me how to restart audio services and recover stuck USB audio devices.<|a|>omarchy-restart-audio<|end|>
 
-<|q|>Tell me how to export the current theme's gum styling into the environment.<|a|>omarchy-restart-gum<|end|>
+<|q|>How do I reload audio services?<|a|>omarchy-restart-audio<|end|>
 
-<|q|>How do I refresh Helix configuration?<|a|>omarchy-restart-helix<|end|>
+<|q|>What do I type to unblock and restart the bluetooth service?<|a|>omarchy-restart-bluetooth<|end|>
 
-<|q|>Tell me how to reload herdr if running with the latest configuration.<|a|>omarchy-restart-herdr<|end|>
+<|q|>Command to export the current theme's gum styling into the environment<|a|>omarchy-restart-gum<|end|>
 
-<|q|>restart herdr<|a|>omarchy-restart-herdr<|end|>
+<|q|>omarchy restart herdr<|a|>omarchy-restart-herdr<|end|>
 
-<|q|>How can I refresh herdr if running with the latest configuration?<|a|>omarchy-restart-herdr<|end|>
+<|q|>Restart the hyprsunset service (used for blue light filtering/night light)<|a|>omarchy-restart-hyprsunset<|end|>
 
-<|q|>Tell me how to reload hyprland configuration (used by the Omarchy theme switching).<|a|>omarchy-restart-hyprctl<|end|>
+<|q|>Tell me how to reload opencode configuration (used by the Omarchy theme switching).<|a|>omarchy-restart-opencode<|end|>
 
-<|q|>What do I type to reload hyprland configuration (used by the Omarchy theme switching)?<|a|>omarchy-restart-hyprctl<|end|>
+<|q|>How can I reset the trackpad by unbinding and rebinding its driver?<|a|>omarchy-restart-trackpad<|end|>
 
-<|q|>How can I reload the hyprsunset service (used for blue light filtering/night light)?<|a|>omarchy-restart-hyprsunset<|end|>
+<|q|>What should I run to reset the trackpad by unbinding and rebinding its driver?<|a|>omarchy-restart-trackpad<|end|>
 
-<|q|>Is there a command to reload opencode configuration (used by the Omarchy theme switching)?<|a|>omarchy-restart-opencode<|end|>
+<|q|>How can I reset the trackpad by unbinding?<|a|>omarchy-restart-trackpad<|end|>
 
-<|q|>How can I reload the Omarchy shell?<|a|>omarchy-restart-shell<|end|>
+<|q|>How can I relaunch the XCompose input method service (fcitx5) to apply new compose key settings?<|a|>omarchy-restart-xcompose<|end|>
 
-<|q|>Command to reload supported terminal emulators after config changes<|a|>omarchy-restart-terminal<|end|>
+<|q|>How can I add or remove an EFI boot entry for the Omarchy UKI, allowing the system to boot directly?<|a|>omarchy-setup-direct-boot<|end|>
 
-<|q|>restart terminal<|a|>omarchy-restart-terminal<|end|>
+<|q|>What is the command to create or remove an EFI boot entry for the Omarchy UKI, allowing the system to boot directly?<|a|>omarchy-setup-direct-boot<|end|>
 
-<|q|>How can I restart tmux if running with the latest configuration?<|a|>omarchy-restart-tmux<|end|>
-
-<|q|>What should I run to restart tmux if running with the latest configuration?<|a|>omarchy-restart-tmux<|end|>
-
-<|q|>Tell me how to restart tmux if running with the latest configuration.<|a|>omarchy-restart-tmux<|end|>
-
-<|q|>Tell me how to unblock and restart the Wi-Fi service.<|a|>omarchy-restart-wifi<|end|>
-
-<|q|>Script to unblock and restart the Wi-Fi service<|a|>omarchy-restart-wifi<|end|>
-
-<|q|>restart wifi<|a|>omarchy-restart-wifi<|end|>
-
-<|q|>How can I restart the XCompose input method service (fcitx5)?<|a|>omarchy-restart-xcompose<|end|>
-
-<|q|>What is the command to reload the XCompose input method service (fcitx5)?<|a|>omarchy-restart-xcompose<|end|>
-
-<|q|>What do I type to run the Omarchy screensaver using random effects from TTE?<|a|>omarchy-screensaver<|end|>
-
-<|q|>Run the Omarchy screensaver<|a|>omarchy-screensaver<|end|>
-
-<|q|>How to provide internal helpers for command-scoped sudo authentication<|a|>omarchy-security-functions<|end|>
-
-<|q|>Command to add or remove an EFI boot entry for the Omarchy UKI, allowing the system to boot directly<|a|>omarchy-setup-direct-boot<|end|>
-
-<|q|>How to add or remove an EFI boot entry for the Omarchy UKI, allowing the system to boot directly<|a|>omarchy-setup-direct-boot<|end|>
-
-<|q|>What is the command to select input methods?<|a|>omarchy-setup-input [mozc|hangul|pinyin|chewing|cangjie5]<|end|>
+<|q|>What is the command to select input methods for Japanese, Korean, or Chinese typing?<|a|>omarchy-setup-input [mozc|hangul|pinyin|chewing|cangjie5]<|end|>
 
 <|q|>How can I pick input methods?<|a|>omarchy-setup-input [mozc|hangul|pinyin|chewing|cangjie5]<|end|>
 
-<|q|>select the keyboard layouts available for switching?<|a|>omarchy-setup-keyboard<|end|>
+<|q|>How to select the keyboard layouts available for switching<|a|>omarchy-setup-keyboard<|end|>
 
-<|q|>What is the command to set up FIDO2 authentication for sudo and polkit?<|a|>omarchy-setup-security-fido2<|end|>
+<|q|>Command to set up FIDO2 authentication for sudo and polkit<|a|>omarchy-setup-security-fido2<|end|>
 
-<|q|>How can I enable sudoless Docker by adding your user to the docker group (root-equivalent!)?<|a|>omarchy-setup-security-sudoless-docker<|end|>
+<|q|>set up FIDO2 authentication for sudo and polkit?<|a|>omarchy-setup-security-fido2<|end|>
 
-<|q|>How to enable sudoless Docker by adding your user to the docker group (root-equivalent!)<|a|>omarchy-setup-security-sudoless-docker<|end|>
+<|q|>How do I set up fingerprint authentication?<|a|>omarchy-setup-security-fingerprint<|end|>
 
-<|q|>Script to enable sudoless Docker by adding your user to the docker group (root-equivalent!)<|a|>omarchy-setup-security-sudoless-docker<|end|>
+<|q|>How can I enable an SSH agent (gcr-ssh-agent) that prompts?<|a|>omarchy-setup-security-ssh-agent<|end|>
 
-<|q|>How can I enable sudoless Docker by adding your user?<|a|>omarchy-setup-security-sudoless-docker<|end|>
+<|q|>What is the command to activate an SSH agent (gcr-ssh-agent) that prompts for key passphrases graphically?<|a|>omarchy-setup-security-ssh-agent<|end|>
 
-<|q|>How can I activate sudoless Docker by adding your user?<|a|>omarchy-setup-security-sudoless-docker<|end|>
+<|q|>Set up the OpenSSH server, open the firewall, and authorize an SSH key<|a|>omarchy-setup-security-sshd [--key=<public-key>] [--gh-keys <github-username>]<|end|>
 
-<|q|>How do I shared helpers for editing ~/.config/omarchy/shell.json (source this, don't run it)?<|a|>omarchy-shell-config<|end|>
+<|q|>omarchy setup security sudoless docker<|a|>omarchy-setup-security-sudoless-docker<|end|>
 
-<|q|>How can I shared helpers for editing ~/.config/omarchy/shell.json (source this, don't run it)?<|a|>omarchy-shell-config<|end|>
+<|q|>How can I turn on sudoless Docker by adding your user?<|a|>omarchy-setup-security-sudoless-docker<|end|>
 
-<|q|>What do I type to shared helpers for editing ~/.config/omarchy/shell.json (source this, don't run it)?<|a|>omarchy-shell-config<|end|>
+<|q|>Command to display a "Done!" or "Failed!" message and wait for user to press any key<|a|>omarchy-show-done [exit-code]<|end|>
 
-<|q|>Is there a command to display a "Done!" or "Failed!" message and wait for user to press any key?<|a|>omarchy-show-done [exit-code]<|end|>
+<|q|>How do I show a "Done!" or "Failed!" message and wait for user to press any key?<|a|>omarchy-show-done [exit-code]<|end|>
 
-<|q|>How can I show a "Done!"?<|a|>omarchy-show-done [exit-code]<|end|>
+<|q|>Tell me how to check whether Omarchy has turned off system sleep on this machine.<|a|>omarchy-sleep-disabled<|end|>
 
-<|q|>What is the command to show a "Done!" or "Failed!" message and wait for user to press any key?<|a|>omarchy-show-done [exit-code]<|end|>
+<|q|>How can I verify whether Omarchy has turned off system sleep on this machine?<|a|>omarchy-sleep-disabled<|end|>
 
-<|q|>What is the command to check whether Omarchy has turned off system sleep on this machine?<|a|>omarchy-sleep-disabled<|end|>
+<|q|>How do I test whether Omarchy has turned off system sleep on this machine?<|a|>omarchy-sleep-disabled<|end|>
 
 <|q|>Tell me how to create or restore system snapshots with snapper.<|a|>omarchy-snapshot <create|restore><|end|>
 
+<|q|>omarchy snapshot<|a|>omarchy-snapshot <create|restore><|end|>
+
 <|q|>What is the command to make or restore system snapshots with snapper?<|a|>omarchy-snapshot <create|restore><|end|>
 
-<|q|>How can I add or restore system snapshots with snapper?<|a|>omarchy-snapshot <create|restore><|end|>
+<|q|>Which omarchy command will toggle passwordless sudo for the current user?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
 
-<|q|>In Omarchy, how do I succeed when Docker needs sudo, fail when it can be used directly?<|a|>omarchy-sudo-docker [--configured]<|end|>
+<|q|>How can I toggle passwordless sudo?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
 
-<|q|>omarchy sudo docker<|a|>omarchy-sudo-docker [--configured]<|end|>
+<|q|>What is the command to keep logind from suspending on lid close while a display it misses is in use?<|a|>omarchy-system-lid-inhibit<|end|>
 
-<|q|>How do I prompt for sudo once and keep the credential alive in the background?<|a|>omarchy-sudo-keepalive<|end|>
+<|q|>Keep logind from suspending on lid close while a display it misses is in use<|a|>omarchy-system-lid-inhibit<|end|>
 
-<|q|>What do I type to toggle passwordless sudo for the current user?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
+<|q|>system lid inhibit<|a|>omarchy-system-lid-inhibit<|end|>
 
-<|q|>How can I switch passwordless sudo?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
+<|q|>What is the command to secure the computer and turn off the display?<|a|>omarchy-system-lock<|end|>
 
-<|q|>How can I turn on or off passwordless sudo for the current user?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
+<|q|>Lock before suspend and wait for the session lock to become secure<|a|>omarchy-system-sleep-lock<|end|>
 
-<|q|>What is the command to turn on or off passwordless sudo for the current user?<|a|>omarchy-sudo-passwordless [MINUTES|permanent|--active|--disable]<|end|>
+<|q|>Which omarchy command will monitor sleep preparation and lock before suspend?<|a|>omarchy-system-sleep-monitor<|end|>
 
-<|q|>system<|a|>omarchy-system <logout|reboot|shutdown><|end|>
+<|q|>In Omarchy, how do I monitor sleep preparation and lock before suspend?<|a|>omarchy-system-sleep-monitor<|end|>
 
-<|q|>What is the command to log out?<|a|>omarchy-system <logout|reboot|shutdown><|end|>
+<|q|>What should I run to print CPU and memory stats for the shell?<|a|>omarchy-system-stats [--bar-widget]<|end|>
 
-<|q|>What do I type to lock and reconcile displays when the laptop lid closes?<|a|>omarchy-system-lid-close<|end|>
-
-<|q|>I want to keep logind from suspending on lid close while a display it misses is in use. What do I run?<|a|>omarchy-system-lid-inhibit<|end|>
-
-<|q|>What is the command to keep logind?<|a|>omarchy-system-lid-inhibit<|end|>
-
-<|q|>How can I secure before suspend and wait for the session lock to become secure?<|a|>omarchy-system-sleep-lock<|end|>
-
-<|q|>In Omarchy, how do I print CPU and memory stats for the shell?<|a|>omarchy-system-stats [--bar-widget]<|end|>
-
-<|q|>Script to print CPU and memory stats for the shell<|a|>omarchy-system-stats [--bar-widget]<|end|>
-
-<|q|>How can I wake displays and restore brightness after idle?<|a|>omarchy-system-wake<|end|>
+<|q|>omarchy system stats<|a|>omarchy-system-stats [--bar-widget]<|end|>
 
 <|q|>Is there a command to wake displays and restore brightness after idle?<|a|>omarchy-system-wake<|end|>
 
-<|q|>What should I run to save incoming Taildrop files and announce them?<|a|>omarchy-tailscale-receive [--once] [directory]<|end|>
+<|q|>How do I send files to a machine on your tailnet with Taildrop?<|a|>omarchy-tailscale-send <machine> [file...]<|end|>
+
+<|q|>Tell me how to send files to a machine on your tailnet with Taildrop.<|a|>omarchy-tailscale-send <machine> [file...]<|end|>
+
+<|q|>Play the current background's matching theme intro<|a|>omarchy-theme-bg-boot-intro<|end|>
+
+<|q|>How do I cache background switcher thumbnails for the current theme?<|a|>omarchy-theme-bg-cache<|end|>
 
 <|q|>Which omarchy command will show current background?<|a|>omarchy-theme-bg-current<|end|>
 
-<|q|>How do I cycle to the next background for the current theme?<|a|>omarchy-theme-bg-next<|end|>
+<|q|>Is there a command to cycle to the next background for the current theme?<|a|>omarchy-theme-bg-next<|end|>
 
-<|q|>How can I open the Omarchy background switcher?<|a|>omarchy-theme-bg-switcher<|end|>
+<|q|>Command to cycle to the next background for the current theme<|a|>omarchy-theme-bg-next<|end|>
 
-<|q|>resolve semantic colors from an Omarchy theme colors.toml?<|a|>omarchy-theme-color [--file <colors.toml>] (--all | --raw | <key> [fallback])<|end|>
+<|q|>How can I set the current background image?<|a|>omarchy-theme-bg-set <path-to-media><|end|>
 
-<|q|>What is the command to generate a theme's colors.toml from its alacritty.toml palette?<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
+<|q|>What is the command to change the current background image?<|a|>omarchy-theme-bg-set <path-to-media><|end|>
 
-<|q|>theme colors from alacritty<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
+<|q|>What is the command to configure the current background image?<|a|>omarchy-theme-bg-set <path-to-media><|end|>
 
-<|q|>What is the command to generate a theme's colors.toml?<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
+<|q|>I want to open the Omarchy background switcher. What do I run?<|a|>omarchy-theme-bg-switcher<|end|>
 
-<|q|>How can I show current theme?<|a|>omarchy-theme-current<|end|>
+<|q|>Script to open the Omarchy background switcher<|a|>omarchy-theme-bg-switcher<|end|>
 
-<|q|>Script to show current theme<|a|>omarchy-theme-current<|end|>
+<|q|>Is there a command to resolve semantic colors from an Omarchy theme colors.toml?<|a|>omarchy-theme-color [--file <colors.toml>] (--all | --raw | <key> [fallback])<|end|>
 
-<|q|>Is there a command to print the directory holding a theme, preferring a user-installed copy?<|a|>omarchy-theme-dir <theme-name><|end|>
+<|q|>Tell me how to resolve semantic colors from an Omarchy theme colors.toml.<|a|>omarchy-theme-color [--file <colors.toml>] (--all | --raw | <key> [fallback])<|end|>
 
-<|q|>How do I show the directory holding a theme?<|a|>omarchy-theme-dir <theme-name><|end|>
+<|q|>omarchy theme colors from alacritty<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
 
-<|q|>How do I install a theme from a git repository?<|a|>omarchy-theme-install [git-repo-url]<|end|>
+<|q|>How do I generate a theme's colors.toml?<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
 
-<|q|>How do I install a theme?<|a|>omarchy-theme-install [git-repo-url]<|end|>
+<|q|>How can I generate a theme's colors.toml?<|a|>omarchy-theme-colors-from-alacritty <theme-dir><|end|>
+
+<|q|>What is the command to show current theme?<|a|>omarchy-theme-current<|end|>
+
+<|q|>How do I list current theme?<|a|>omarchy-theme-current<|end|>
+
+<|q|>List the user-installed themes that came from a git clone<|a|>omarchy-theme-extras<|end|>
+
+<|q|>Is there a command to list the user-installed themes that came from a git clone?<|a|>omarchy-theme-extras<|end|>
+
+<|q|>How to list the user-installed themes that came from a git clone<|a|>omarchy-theme-extras<|end|>
+
+<|q|>Is there a command to install a theme from a git repository?<|a|>omarchy-theme-install [git-repo-url]<|end|>
+
+<|q|>What should I run to install a theme from a git repository?<|a|>omarchy-theme-install [git-repo-url]<|end|>
+
+<|q|>How do I set up a theme?<|a|>omarchy-theme-install [git-repo-url]<|end|>
 
 <|q|>How can I print OSC sequences?<|a|>omarchy-theme-osc<|end|>
 
-<|q|>Refresh the current theme<|a|>omarchy-theme-refresh<|end|>
+<|q|>How do I refresh the current theme?<|a|>omarchy-theme-refresh<|end|>
 
-<|q|>How can I update the current theme from its templates?<|a|>omarchy-theme-refresh<|end|>
+<|q|>What is the command to refresh the current theme?<|a|>omarchy-theme-refresh<|end|>
 
-<|q|>How do I remove a user-installed theme?<|a|>omarchy-theme-remove [theme-name]<|end|>
+<|q|>How do I reload the current theme?<|a|>omarchy-theme-refresh<|end|>
 
-<|q|>Which omarchy command will remove a user-installed theme?<|a|>omarchy-theme-remove [theme-name]<|end|>
+<|q|>What is the command to use the current theme color?<|a|>omarchy-theme-set-browser<|end|>
 
-<|q|>Is there a command to remove a user-installed theme?<|a|>omarchy-theme-remove [theme-name]<|end|>
+<|q|>write the current theme color into the browser policy directories?<|a|>omarchy-theme-set-browser-policy <rrggbb><|end|>
 
-<|q|>How do I set an Omarchy theme?<|a|>omarchy-theme-set <theme-name><|end|>
+<|q|>How can I sync the generated Omarchy theme to Claude Code?<|a|>omarchy-theme-set-claude [--activate]<|end|>
 
-<|q|>I want to write the current theme color into the browser policy directories. What do I run?<|a|>omarchy-theme-set-browser-policy <rrggbb><|end|>
+<|q|>In Omarchy, how do I sync the generated Omarchy theme to Claude Code?<|a|>omarchy-theme-set-claude [--activate]<|end|>
 
-<|q|>Command to sync the generated Omarchy theme to Claude Code<|a|>omarchy-theme-set-claude [--activate]<|end|>
+<|q|>What should I run to apply current Omarchy theme colors and background alpha to running Foot terminals?<|a|>omarchy-theme-set-foot<|end|>
 
-<|q|>How can I sync the generated Omarchy theme?<|a|>omarchy-theme-set-claude [--activate]<|end|>
+<|q|>How can I give terminals, btop, and GTK apps a see-through background while windows are glassy?<|a|>omarchy-theme-set-glass [theme-dir]<|end|>
 
-<|q|>What do I type to apply current Omarchy theme colors and background alpha to running Foot terminals?<|a|>omarchy-theme-set-foot<|end|>
+<|q|>What is the command to give terminals?<|a|>omarchy-theme-set-glass [theme-dir]<|end|>
 
-<|q|>omarchy theme set gnome<|a|>omarchy-theme-set-gnome<|end|>
+<|q|>What is the command to set the current theme?<|a|>omarchy-theme-set-gnome<|end|>
 
-<|q|>theme set gnome<|a|>omarchy-theme-set-gnome<|end|>
+<|q|>How do I use the current theme?<|a|>omarchy-theme-set-gnome<|end|>
+
+<|q|>What is the command to use the current theme?<|a|>omarchy-theme-set-gnome<|end|>
+
+<|q|>How can I mirror the current theme to your herdr machines that run Omarchy?<|a|>omarchy-theme-set-herdr-machines [--available]<|end|>
 
 <|q|>Which omarchy command will mirror the current theme to your herdr machines that run Omarchy?<|a|>omarchy-theme-set-herdr-machines [--available]<|end|>
 
-<|q|>Tell me how to mirror the current theme to your herdr machines that run Omarchy.<|a|>omarchy-theme-set-herdr-machines [--available]<|end|>
+<|q|>Is there a command to mirror the current theme to your herdr machines that run Omarchy?<|a|>omarchy-theme-set-herdr-machines [--available]<|end|>
 
-<|q|>mirror the current theme to your herdr machines that run Omarchy?<|a|>omarchy-theme-set-herdr-machines [--available]<|end|>
+<|q|>How can I tell running Hunk sessions?<|a|>omarchy-theme-set-hunk<|end|>
 
-<|q|>What should I run to sync the generated Omarchy theme to Hermes as a skin?<|a|>omarchy-theme-set-hermes [--activate] [--wait]<|end|>
+<|q|>I want to apply the current theme keyboard color to supported keyboards. What do I run?<|a|>omarchy-theme-set-keyboard<|end|>
 
-<|q|>What do I type to sync the generated Omarchy theme to Hermes as a skin?<|a|>omarchy-theme-set-hermes [--activate] [--wait]<|end|>
+<|q|>What is the command to apply the current theme keyboard color?<|a|>omarchy-theme-set-keyboard<|end|>
 
-<|q|>omarchy theme set hermes<|a|>omarchy-theme-set-hermes [--activate] [--wait]<|end|>
-
-<|q|>Tell running Hunk sessions to pick up the new terminal colors<|a|>omarchy-theme-set-hunk<|end|>
-
-<|q|>Which omarchy command will apply the current theme keyboard color to supported keyboards?<|a|>omarchy-theme-set-keyboard<|end|>
+<|q|>How do I set the current theme keyboard color?<|a|>omarchy-theme-set-keyboard<|end|>
 
 <|q|>How can I set the current theme keyboard color?<|a|>omarchy-theme-set-keyboard<|end|>
 
-<|q|>What is the command to set the current theme keyboard color to supported keyboards?<|a|>omarchy-theme-set-keyboard<|end|>
+<|q|>How do I use the current theme keyboard color?<|a|>omarchy-theme-set-keyboard<|end|>
 
-<|q|>How can I set the current theme keyboard color to ASUS ROG keyboards?<|a|>omarchy-theme-set-keyboard-asus-rog<|end|>
+<|q|>Is there a command to apply the current theme keyboard color to Framework Laptop 16 keyboards?<|a|>omarchy-theme-set-keyboard-f16<|end|>
 
-<|q|>sync Omarchy theme to all Obsidian vaults?<|a|>omarchy-theme-set-obsidian<|end|>
+<|q|>How can I set the current theme keyboard color to Framework Laptop 16 keyboards?<|a|>omarchy-theme-set-keyboard-f16<|end|>
 
-<|q|>What is the command to sync the generated Omarchy theme to T3 Code?<|a|>omarchy-theme-set-t3code<|end|>
+<|q|>omarchy theme set obsidian<|a|>omarchy-theme-set-obsidian<|end|>
 
-<|q|>Script to sync the generated Omarchy theme to T3 Code<|a|>omarchy-theme-set-t3code<|end|>
+<|q|>How can I sync the generated Omarchy theme to T3 Code?<|a|>omarchy-theme-set-t3code<|end|>
 
-<|q|>How do I generate themed config files from Omarchy templates?<|a|>omarchy-theme-set-templates<|end|>
+<|q|>sync the generated Omarchy theme to T3 Code?<|a|>omarchy-theme-set-t3code<|end|>
 
-<|q|>generate themed config files from Omarchy templates?<|a|>omarchy-theme-set-templates<|end|>
+<|q|>What is the command to open the Omarchy theme switcher?<|a|>omarchy-theme-switcher<|end|>
 
-<|q|>What should I run to sync Omarchy theme to VS Code, VSCodium, and Cursor?<|a|>omarchy-theme-set-vscode<|end|>
+<|q|>How can I launch the Omarchy theme switcher?<|a|>omarchy-theme-switcher<|end|>
 
-<|q|>Is there a command to open the Omarchy theme switcher?<|a|>omarchy-theme-switcher<|end|>
+<|q|>How to update user-installed git themes<|a|>omarchy-theme-update<|end|>
 
-<|q|>What do I type to open the Omarchy theme switcher?<|a|>omarchy-theme-switcher<|end|>
+<|q|>What is the command to upgrade user-installed git themes?<|a|>omarchy-theme-update<|end|>
 
-<|q|>open the Omarchy theme switcher?<|a|>omarchy-theme-switcher<|end|>
+<|q|>What is the command to refresh user-installed git themes?<|a|>omarchy-theme-update<|end|>
 
-<|q|>How can I toggle Omarchy features between enabled and disabled?<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
+<|q|>How do I turn on or off Omarchy features between enabled?<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
 
-<|q|>Tell me how to toggle Omarchy features between enabled and disabled.<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
+<|q|>How can I turn on or off Omarchy features between enabled and disabled?<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
 
-<|q|>What is the command to toggle Omarchy features between enabled?<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
+<|q|>How can I toggle animations?<|a|>omarchy-toggle-animations [toggle|on|off]<|end|>
 
-<|q|>What is the command to turn on or off Omarchy features between enabled and disabled?<|a|>omarchy-toggle <flag-name> [toggle|on|off]<|end|>
+<|q|>How do I toggle bar visibility without killing the Omarchy shell (on hides the bar, off shows it)?<|a|>omarchy-toggle-bar [toggle|on|off]<|end|>
 
-<|q|>What should I run to toggle bar visibility without killing the Omarchy shell (on hides the bar, off shows it)?<|a|>omarchy-toggle-bar [toggle|on|off]<|end|>
+<|q|>How can I toggle bar visibility without killing the Omarchy shell (on hides the bar?<|a|>omarchy-toggle-bar [toggle|on|off]<|end|>
 
-<|q|>How do I toggle bar visibility without killing the Omarchy shell (on hides the bar?<|a|>omarchy-toggle-bar [toggle|on|off]<|end|>
+<|q|>How can I turn on or off bar visibility without killing the Omarchy shell (on hides the bar?<|a|>omarchy-toggle-bar [toggle|on|off]<|end|>
 
-<|q|>Which omarchy command will toggle crash capture notifications?<|a|>omarchy-toggle-crash-capture<|end|>
+<|q|>Which omarchy command will check if a toggle is enabled (flag file exists)?<|a|>omarchy-toggle-enabled <flag-name><|end|>
 
-<|q|>How do I switch crash capture notifications?<|a|>omarchy-toggle-crash-capture<|end|>
+<|q|>What is the command to toggle a full screen desktop: hide the top bar?<|a|>omarchy-toggle-fullscreen-desktop [toggle|on|off]<|end|>
 
-<|q|>How do I check if a toggle is enabled (flag file exists)?<|a|>omarchy-toggle-enabled <flag-name><|end|>
+<|q|>How can I switch a full screen desktop: hide the top bar and remove the window gaps together?<|a|>omarchy-toggle-fullscreen-desktop [toggle|on|off]<|end|>
 
-<|q|>What should I run to check if a toggle is enabled (flag file exists)?<|a|>omarchy-toggle-enabled <flag-name><|end|>
+<|q|>How do I switch dedicated vs integrated GPU mode via supergfxd (for hybrid gpu laptops, like Asus G14)?<|a|>omarchy-toggle-hybrid-gpu<|end|>
 
-<|q|>What should I run to toggle idle behavior so the system either idles normally or stays awake?<|a|>omarchy-toggle-idle [toggle|stay-awake|allow-idle|status]<|end|>
+<|q|>How do I toggle idle behavior so the system either idles normally or stays awake?<|a|>omarchy-toggle-idle [toggle|stay-awake|allow-idle|status]<|end|>
 
-<|q|>I want to enable, disable, or toggle a Hyprland input device. What do I run?<|a|>omarchy-toggle-input-device <touchpad|touchscreen> [on|off|toggle]<|end|>
+<|q|>How to enable, disable, or toggle a Hyprland input device<|a|>omarchy-toggle-input-device <touchpad|touchscreen> [on|off|toggle]<|end|>
 
-<|q|>Toggle notification do-not-disturb mode<|a|>omarchy-toggle-notification-silencing<|end|>
+<|q|>Is there a command to toggle nightlight screen temperature?<|a|>omarchy-toggle-nightlight [--status]<|end|>
 
-<|q|>Toggle screensaver availability<|a|>omarchy-toggle-screensaver<|end|>
+<|q|>I want to toggle screensaver availability. What do I run?<|a|>omarchy-toggle-screensaver<|end|>
 
-<|q|>How can I toggle suspend availability in the system menu?<|a|>omarchy-toggle-suspend<|end|>
+<|q|>toggle screensaver<|a|>omarchy-toggle-screensaver<|end|>
 
-<|q|>Which omarchy command will toggle suspend availability in the system menu?<|a|>omarchy-toggle-suspend<|end|>
+<|q|>How can I turn on or off screensaver availability?<|a|>omarchy-toggle-screensaver<|end|>
 
-<|q|>What should I run to toggle suspend availability in the system menu?<|a|>omarchy-toggle-suspend<|end|>
+<|q|>How to toggle suspend availability in the system menu<|a|>omarchy-toggle-suspend<|end|>
 
-<|q|>toggle suspend availability in the system menu?<|a|>omarchy-toggle-suspend<|end|>
+<|q|>How do I toggle mirroring theme changes?<|a|>omarchy-toggle-theme-sync<|end|>
 
-<|q|>How do I toggle suspend availability?<|a|>omarchy-toggle-suspend<|end|>
+<|q|>Enable, disable, or toggle the touch functionality of the screen<|a|>omarchy-toggle-touchscreen [on|off|toggle]<|end|>
 
-<|q|>I want to transcode an image into ASCII/Unicode art text. What do I run?<|a|>omarchy-transcode-ascii <input-image.svg|png> <output-path> [--width <columns>] [--height <rows>] [--mode <braille|block>] [--threshold <percent>] [--invert]<|end|>
+<|q|>Is there a command to transcode pictures and videos for sharing?<|a|>omarchy-transcode [--path path] [input] [format] [resolution]<|end|>
 
-<|q|>What is the command to create a desktop launcher for a terminal UI app?<|a|>omarchy-tui-install [name command window-style icon-url-or-name]<|end|>
+<|q|>In Omarchy, how do I transcode an image into ASCII/Unicode art text?<|a|>omarchy-transcode-ascii <input-image.svg|png> <output-path> [--width <columns>] [--height <rows>] [--mode <braille|block>] [--threshold <percent>] [--invert]<|end|>
 
-<|q|>What is the command to make a desktop launcher for a terminal UI app?<|a|>omarchy-tui-install [name command window-style icon-url-or-name]<|end|>
+<|q|>omarchy tui install<|a|>omarchy-tui-install [name command window-style icon-url-or-name]<|end|>
 
-<|q|>Is there a command to remove all TUIs installed via omarchy-tui-install?<|a|>omarchy-tui-remove-all<|end|>
+<|q|>How to remove a terminal UI desktop launcher<|a|>omarchy-tui-remove [name]<|end|>
 
-<|q|>What is the command to update Omarchy?<|a|>omarchy-update [-y]<|end|>
+<|q|>What is the command to update Omarchy and system packages?<|a|>omarchy-update [-y]<|end|>
 
-<|q|>What is the command to verify the update log?<|a|>omarchy-update-analyze-logs<|end|>
+<|q|>How do I upgrade Omarchy?<|a|>omarchy-update [-y]<|end|>
 
-<|q|>How do I test whether Omarchy updates are available?<|a|>omarchy-update-available<|end|>
+<|q|>In Omarchy, how do I check the update log for known failure conditions?<|a|>omarchy-update-analyze-logs<|end|>
 
-<|q|>I want to update system firmware using fwupd. Ensures the fwupd EFI binary is installed. What do I run?<|a|>omarchy-update-firmware<|end|>
+<|q|>How do I check the update log?<|a|>omarchy-update-analyze-logs<|end|>
 
-<|q|>How do I refresh system firmware?<|a|>omarchy-update-firmware<|end|>
+<|q|>I want to update AUR packages if any are installed. What do I run?<|a|>omarchy-update-aur-pkgs<|end|>
 
-<|q|>What is the command to run a pacman transaction for the Omarchy update flow, shielded from desktop session teardown?<|a|>omarchy-update-pacman <pacman-args><|end|>
+<|q|>In Omarchy, how do I update AUR packages if any are installed?<|a|>omarchy-update-aur-pkgs<|end|>
 
-<|q|>How do I prune superseded versions from the pacman package cache?<|a|>omarchy-update-pkg-prune<|end|>
+<|q|>How can I check whether Omarchy updates are available?<|a|>omarchy-update-available<|end|>
 
-<|q|>Script to check free disk space required for an update<|a|>omarchy-update-requires-free-space<|end|>
+<|q|>What do I type to check whether Omarchy updates are available?<|a|>omarchy-update-available<|end|>
 
-<|q|>How do I prompt for required reboot or service restarts after updates?<|a|>omarchy-update-restart [--services-only|--reboot-only]<|end|>
+<|q|>I want to update the active Omarchy dev checkout. What do I run?<|a|>omarchy-update-dev<|end|>
 
-<|q|>What should I run to clear the shell update indicator after an update?<|a|>omarchy-update-status<|end|>
+<|q|>What is the command to update system firmware using fwupd. Ensures the fwupd EFI binary is installed?<|a|>omarchy-update-firmware<|end|>
 
-<|q|>How to clear the shell update indicator after an update<|a|>omarchy-update-status<|end|>
+<|q|>What is the command to update system firmware?<|a|>omarchy-update-firmware<|end|>
 
-<|q|>What should I run to manage sleep and idle inhibition during an update?<|a|>omarchy-update-stay-awake <start|stop><|end|>
+<|q|>What is the command to upgrade system firmware?<|a|>omarchy-update-firmware<|end|>
 
-<|q|>omarchy update stay awake<|a|>omarchy-update-stay-awake <start|stop><|end|>
+<|q|>How can I ensure the Omarchy?<|a|>omarchy-update-keyring<|end|>
 
-<|q|>What is the command to manage sleep?<|a|>omarchy-update-stay-awake <start|stop><|end|>
+<|q|>Run a command while holding the Omarchy update lock<|a|>omarchy-update-lock <held|run> [command] [args...]<|end|>
 
-<|q|>Which omarchy command will update system packages with pacman?<|a|>omarchy-update-system-pkgs<|end|>
+<|q|>What is the command to start a command while holding the Omarchy update lock?<|a|>omarchy-update-lock <held|run> [command] [args...]<|end|>
 
-<|q|>What is the command to retry a system package update that hit a conflict?<|a|>omarchy-update-system-pkgs-when-conflicted<|end|>
+<|q|>How do I review and optionally remove orphaned system packages after updates?<|a|>omarchy-update-orphan-pkgs [-y]<|end|>
 
-<|q|>Which omarchy command will retry a system package update that hit a conflict?<|a|>omarchy-update-system-pkgs-when-conflicted<|end|>
+<|q|>omarchy update orphan pkgs<|a|>omarchy-update-orphan-pkgs [-y]<|end|>
 
-<|q|>How can I upgrade a legacy Omarchy install to the package-backed Omarchy quattro layout?<|a|>omarchy-upgrade-to-quattro [--yes] [--reboot] [--dev] [--channel stable|rc|edge] [--user USER]<|end|>
+<|q|>Which omarchy command will run a pacman transaction for the Omarchy update flow, shielded from desktop session teardown?<|a|>omarchy-update-pacman <pacman-args><|end|>
 
-<|q|>Command to print the installed Omarchy version<|a|>omarchy-version<|end|>
+<|q|>prune superseded versions from the pacman package cache?<|a|>omarchy-update-pkg-prune<|end|>
 
-<|q|>Command to print the active Omarchy mirror and package channel<|a|>omarchy-version-channel<|end|>
+<|q|>How can I prune superseded versions?<|a|>omarchy-update-pkg-prune<|end|>
 
-<|q|>How do I display the active Omarchy mirror?<|a|>omarchy-version-channel<|end|>
+<|q|>check free disk space required for an update?<|a|>omarchy-update-requires-free-space<|end|>
 
-<|q|>omarchy version pkgs<|a|>omarchy-version-pkgs<|end|>
+<|q|>Prompt for required reboot or service restarts after updates<|a|>omarchy-update-restart [--services-only|--reboot-only]<|end|>
 
-<|q|>Open Voxtype configuration<|a|>omarchy-voxtype-config<|end|>
+<|q|>What do I type to prompt for required reboot or service restarts after updates?<|a|>omarchy-update-restart [--services-only|--reboot-only]<|end|>
 
-<|q|>How can I display or set the location used for weather reports?<|a|>omarchy-weather-location<|end|>
+<|q|>In Omarchy, how do I manage sleep and idle inhibition during an update?<|a|>omarchy-update-stay-awake <start|stop><|end|>
 
-<|q|>Open Zoom web meetings from browser protocol links<|a|>omarchy-webapp-handler-zoom [url]<|end|>
+<|q|>Tell me how to update system packages with pacman.<|a|>omarchy-update-system-pkgs<|end|>
 
-<|q|>What should I run to open Zoom web meetings from browser protocol links?<|a|>omarchy-webapp-handler-zoom [url]<|end|>
+<|q|>How do I retry a system package update that hit a conflict?<|a|>omarchy-update-system-pkgs-when-conflicted<|end|>
 
-<|q|>What is the command to start Zoom web meetings?<|a|>omarchy-webapp-handler-zoom [url]<|end|>
+<|q|>Compatibility wrapper for omarchy-migrate-notify<|a|>omarchy-update-user-notify<|end|>
 
-<|q|>How can I add a desktop launcher for a web app?<|a|>omarchy-webapp-install [name url icon-url-or-name [custom-exec] [mime-types]]<|end|>
+<|q|>How to upload logs to logs.omarchy.org<|a|>omarchy-upload-log <log-file><|end|>
 
-<|q|>How can I remove a web app desktop launcher?<|a|>omarchy-webapp-remove [name]<|end|>
+<|q|>Tell me how to upload logs to logs.omarchy.org.<|a|>omarchy-upload-log <log-file><|end|>
 
-<|q|>What should I run to remove all web apps installed via omarchy-webapp-install?<|a|>omarchy-webapp-remove-all<|end|>
+<|q|>What do I type to upload logs to logs.omarchy.org?<|a|>omarchy-upload-log <log-file><|end|>
 
-<|q|>How do I remove all web apps installed?<|a|>omarchy-webapp-remove-all<|end|>
+<|q|>How to print the active Omarchy dev-link git branch<|a|>omarchy-version-branch<|end|>
 
-<|q|>How do I delete all web apps installed?<|a|>omarchy-webapp-remove-all<|end|>
+<|q|>omarchy version branch<|a|>omarchy-version-branch<|end|>
 
-<|q|>What is the command to delete all web apps installed via omarchy-webapp-install?<|a|>omarchy-webapp-remove-all<|end|>
+<|q|>Tell me how to print the active Omarchy mirror and package channel.<|a|>omarchy-version-channel<|end|>
 
-<|q|>print the window class Chromium gives a web app opened at a URL?<|a|>omarchy-webapp-window-class <url><|end|>
+<|q|>Script to print the active Omarchy mirror and package channel<|a|>omarchy-version-channel<|end|>
 
-<|q|>Script to print the window class Chromium gives a web app opened at a URL<|a|>omarchy-webapp-window-class <url><|end|>
+<|q|>What is the command to display the active Omarchy mirror?<|a|>omarchy-version-channel<|end|>
+
+<|q|>How can I print when system packages were last upgraded?<|a|>omarchy-version-pkgs<|end|>
+
+<|q|>In Omarchy, how do I print when system packages were last upgraded?<|a|>omarchy-version-pkgs<|end|>
+
+<|q|>omarchy voxtype config<|a|>omarchy-voxtype-config<|end|>
+
+<|q|>What is the command to start Voxtype configuration?<|a|>omarchy-voxtype-config<|end|>
+
+<|q|>What is the command to start Voxtype AI model setup?<|a|>omarchy-voxtype-model<|end|>
+
+<|q|>omarchy webapp handler hey<|a|>omarchy-webapp-handler-hey [url]<|end|>
+
+<|q|>How can I open Zoom web meetings?<|a|>omarchy-webapp-handler-zoom [url]<|end|>
+
+<|q|>How can I start Zoom web meetings from browser protocol links?<|a|>omarchy-webapp-handler-zoom [url]<|end|>
+
+<|q|>What is the command to create a desktop launcher for a web app?<|a|>omarchy-webapp-install [name url icon-url-or-name [custom-exec] [mime-types]]<|end|>
+
+<|q|>Remove all web apps installed<|a|>omarchy-webapp-remove-all<|end|>
+
+<|q|>Which omarchy command will print the OEM Windows product key stored in firmware?<|a|>omarchy-windows-key<|end|>
+
+<|q|>What should I run to print the OEM Windows product key stored in firmware?<|a|>omarchy-windows-key<|end|>
+
+<|q|>What do I type to print the OEM Windows product key stored in firmware?<|a|>omarchy-windows-key<|end|>
 
 <|q|>How can I display the OEM Windows product key stored in firmware?<|a|>omarchy-windows-key<|end|>
 
-<|q|>Keybinding for Herdr<|a|>SUPER + CTRL + RETURN<|end|>
+<|q|>Hotkey for File manager<|a|>SUPER + SHIFT + F<|end|>
 
-<|q|>Which keybinding triggers Music?<|a|>SUPER + SHIFT + M<|end|>
+<|q|>What is the shortcut for Editor?<|a|>SUPER + SHIFT + N<|end|>
 
-<|q|>What is the shortcut for Signal?<|a|>SUPER + SHIFT + G<|end|>
+<|q|>What is the shortcut for Grok?<|a|>SUPER + SHIFT + ALT + A<|end|>
 
-<|q|>What is the keybinding for YouTube?<|a|>SUPER + SHIFT + Y<|end|>
+<|q|>Which keybinding triggers New email?<|a|>SUPER + SHIFT + ALT + E<|end|>
 
-<|q|>What is the keybinding for Google Messages?<|a|>SUPER + SHIFT + CTRL + G<|end|>
+<|q|>Keybinding for Google Messages<|a|>SUPER + SHIFT + CTRL + G<|end|>
 
-<|q|>What is the shortcut for Google Maps?<|a|>SUPER + SHIFT + S<|end|>
+<|q|>What is the shortcut for Direct input for the terminal prefix?<|a|>CTRL + SPACE<|end|>
 
-<|q|>Which keybinding triggers X?<|a|>SUPER + SHIFT + X<|end|>
+<|q|>What is the shortcut for Zoom in (JIS + key)?<|a|>CTRL + SHIFT + semicolon<|end|>
 
-<|q|>Hotkey for Universal paste<|a|>SUPER + V<|end|>
+<|q|>What is the shortcut for Brightness down?<|a|>XF86MonBrightnessDown<|end|>
 
-<|q|>What is the keybinding for Switch input language?<|a|>SUPER + I<|end|>
+<|q|>Which keybinding triggers Toggle touchpad?<|a|>XF86TouchpadToggle<|end|>
 
-<|q|>What is the shortcut for Switch input language back?<|a|>SUPER + SHIFT + I<|end|>
+<|q|>Hotkey for Brightness down precise<|a|>ALT + XF86MonBrightnessDown<|end|>
 
-<|q|>What is the keybinding for Mute?<|a|>XF86AudioMute<|end|>
+<|q|>Which keybinding triggers Brightness down precise?<|a|>ALT + XF86MonBrightnessDown<|end|>
 
-<|q|>Keybinding for Brightness maximum<|a|>SHIFT + XF86MonBrightnessUp<|end|>
+<|q|>What is the keybinding for Next track?<|a|>XF86AudioNext<|end|>
 
-<|q|>Hotkey for Brightness minimum<|a|>SHIFT + XF86MonBrightnessDown<|end|>
+<|q|>What is the keybinding for Eject media?<|a|>XF86Eject<|end|>
 
-<|q|>Keybinding for Switch audio output<|a|>SHIFT + XF86AudioMute<|end|>
+<|q|>What is the keybinding for Switch audio output?<|a|>SHIFT + XF86AudioMute<|end|>
 
-<|q|>Keybinding for Close all windows<|a|>CTRL + ALT + DELETE<|end|>
+<|q|>What is the shortcut for Pop window out (float & pin)?<|a|>SUPER + O<|end|>
 
-<|q|>Hotkey for Move window to up monitor<|a|>SUPER + SHIFT + CTRL + UP<|end|>
+<|q|>Which keybinding triggers Cycle workspace layout back?<|a|>SUPER + ALT + L<|end|>
 
-<|q|>What is the shortcut for Move window to down monitor?<|a|>SUPER + SHIFT + CTRL + DOWN<|end|>
+<|q|>What is the shortcut for Focus on right window?<|a|>SUPER + RIGHT<|end|>
 
-<|q|>What is the keybinding for Swap window to the right?<|a|>SUPER + SHIFT + RIGHT<|end|>
+<|q|>Keybinding for Focus on right window<|a|>SUPER + RIGHT<|end|>
 
-<|q|>Which keybinding triggers Focus on next monitor?<|a|>CTRL + ALT + TAB<|end|>
+<|q|>Hotkey for Next workspace<|a|>SUPER + TAB<|end|>
+
+<|q|>What is the shortcut for Move workspace to right monitor?<|a|>SUPER + SHIFT + ALT + RIGHT<|end|>
+
+<|q|>What is the shortcut for Move window to up monitor?<|a|>SUPER + SHIFT + CTRL + UP<|end|>
+
+<|q|>Keybinding for Move window to down monitor<|a|>SUPER + SHIFT + CTRL + DOWN<|end|>
+
+<|q|>Hotkey for Swap window to the left<|a|>SUPER + SHIFT + LEFT<|end|>
+
+<|q|>Keybinding for Swap window down<|a|>SUPER + SHIFT + DOWN<|end|>
+
+<|q|>What is the keybinding for Focus on previous monitor?<|a|>CTRL + ALT + SHIFT + TAB<|end|>
 
 <|q|>What is the keybinding for Expand window left?<|a|>SUPER + code:20<|end|>
 
-<|q|>Keybinding for Expand window left a little<|a|>SUPER + ALT + code:20<|end|>
+<|q|>What is the keybinding for Shrink window up?<|a|>SUPER + SHIFT + code:20<|end|>
 
-<|q|>What is the keybinding for Expand window down a little?<|a|>SUPER + SHIFT + ALT + code:21<|end|>
+<|q|>What is the keybinding for Shrink window left a little?<|a|>SUPER + ALT + code:21<|end|>
 
-<|q|>Hotkey for Shrink window left a lot<|a|>SUPER + CTRL + code:21<|end|>
+<|q|>Which keybinding triggers Shrink window left a little?<|a|>SUPER + ALT + code:21<|end|>
 
-<|q|>What is the keybinding for Scroll active workspace backward?<|a|>SUPER + mouse_up<|end|>
+<|q|>What is the keybinding for Expand window left a lot?<|a|>SUPER + CTRL + code:20<|end|>
 
-<|q|>What is the keybinding for Toggle window grouping?<|a|>SUPER + G<|end|>
+<|q|>What is the shortcut for Scroll active workspace backward?<|a|>SUPER + mouse_up<|end|>
 
-<|q|>Hotkey for Move window to group on left<|a|>SUPER + ALT + LEFT<|end|>
+<|q|>Hotkey for Scroll active workspace backward<|a|>SUPER + mouse_up<|end|>
 
-<|q|>Which keybinding triggers Move window to group on right?<|a|>SUPER + ALT + RIGHT<|end|>
+<|q|>Which keybinding triggers Move window?<|a|>SUPER + mouse:272<|end|>
 
-<|q|>Which keybinding triggers Previous window in group?<|a|>SUPER + ALT + SHIFT + TAB<|end|>
+<|q|>What is the shortcut for Move window to group on bottom?<|a|>SUPER + ALT + DOWN<|end|>
 
-<|q|>Keybinding for Theme menu<|a|>SUPER + SHIFT + CTRL + SPACE<|end|>
+<|q|>What is the keybinding for Monitor scaling up?<|a|>SUPER + SLASH<|end|>
 
-<|q|>What is the shortcut for Dismiss last notification?<|a|>SUPER + comma<|end|>
+<|q|>What is the shortcut for Emojis?<|a|>SUPER + CTRL + E<|end|>
 
-<|q|>Which keybinding triggers Dismiss last notification?<|a|>SUPER + comma<|end|>
+<|q|>What is the shortcut for Capture menu?<|a|>SUPER + CTRL + C<|end|>
 
-<|q|>Keybinding for Toggle silencing notifications<|a|>SUPER + CTRL + comma<|end|>
+<|q|>Hotkey for System menu<|a|>SUPER + ESCAPE<|end|>
 
-<|q|>Keybinding for Clear reminders<|a|>SUPER + SHIFT + CTRL + R<|end|>
+<|q|>Which keybinding triggers Background switcher?<|a|>SUPER + CTRL + SPACE<|end|>
 
-<|q|>Which keybinding triggers Show time?<|a|>SUPER + CTRL + ALT + T<|end|>
+<|q|>Hotkey for Dismiss last notification<|a|>SUPER + comma<|end|>
 
-<|q|>Which keybinding triggers Audio?<|a|>SUPER + CTRL + A<|end|>
+<|q|>Hotkey for Toggle laptop display mirroring<|a|>SUPER + CTRL + ALT + Delete<|end|>
 
-<|q|>What is the keybinding for Network?<|a|>SUPER + CTRL + N<|end|>
+<|q|>What is the shortcut for Screenshot?<|a|>PRINT<|end|>
 
-<|q|>How do I microsoft apps?<|a|>Exec=omarchy-launch-webapp "https://teams.cloud.microsoft/" --user-data-dir=/absolute/path/to/work-browser-profile<|end|>
+<|q|>Keybinding for Make webcam overlay smaller<|a|>SUPER + ALT + code:34<|end|>
+
+<|q|>Keybinding for Extract text (OCR) from screenshot<|a|>SUPER + CTRL + PRINT<|end|>
+
+<|q|>Keybinding for Reset zoom<|a|>SUPER + CTRL + ALT + Z<|end|>
+
+<|q|>Which keybinding triggers Reset zoom?<|a|>SUPER + CTRL + ALT + Z<|end|>
+
+<|q|>What is the command for using it?<|a|>omarchy windows vm status    # is it running?
+omarchy windows vm stop      # shut it down
+omarchy windows vm launch    # start and connect<|end|>
+
+<|q|>Tell me about welcome to Omarchy<|a|>Omarchy is an omakase Linux distribution based on Arch, the tiling window manager Hyprland, and the desktop construction-kit Quickshell. It ships with everything a modern, savvy computer user needs to be productive immediately. From Neovim (btw) to Chromium, Obsidian to LibreOffice, and Hype to Monologue. Hell, even a retro Winamp-style music player is there!<|end|>
+
+<|q|>How does unattended installs work?<|a|>The ISO can also install completely on its own — no keyboard, no wizard — when it's handed its configuration on a second drive. That's the way to treat Omarchy as a base image for VMs and fleet machines. See unattended installs.<|end|>
+
+<|q|>Tell me about dwindle vs scrolling layout<|a|>Omarchy's default layout is called dwindle. It keeps all the windows you open on a single workspace visible at all time, even if it has to shrink them down.<|end|>
+
+<|q|>How does floating workspaces work?<|a|>A floating workspace works like a traditional desktop: windows overlap, and you move and size them yourself. Each window gets a titlebar in your theme's colors, with buttons to minimize, maximize, and close. `Super + M` minimizes the focused window too. A minimized window waits in the dock; click its app to bring it back. Click a window to bring it forward. Resize it from any edge or corner.<|end|>
+
+<|q|>What is grouping windows?<|a|>Windows can be grouped using `Super + G`. Once you're in a group, every window you start while that's active will belong to the group. You can move between these grouped windows using `Super + Ctrl + Arrow Left/Right` or `Super + Alt + 1/2/3/4` to go directly to grouped window in order.<|end|>
+
+<|q|>The config file<|a|>All of it is stored in `~/.config/omarchy/shell.json`, under the `bar` key. Here's a trimmed version:<|end|>
+
+<|q|>Tell me about hotkeys<|a|>You can see all the main keyboard bindings with `Super + K` (Tmux bindings with `Super + Alt + K` and Herdr bindings with `Super + Ctrl + K`).<|end|>
+
+<|q|>What is tmux layout functions?<|a|>These functions must be run inside a Tmux session.<|end|>
+
+<|q|>Tell me about screenshots & Recording<|a|>Everything you can grab off the screen hangs off the Print Screen key. One key on its own takes a picture, and the modifiers take a recording, a colour, or the text inside a region. If your keyboard doesn't have a Print Screen key at all, `Super + Ctrl + Alt + C` takes the same screenshot, and `Super + Ctrl + C` opens the whole set as a menu.<|end|>
+
+<|q|>How does screen recording work?<|a|>`Alt + Print Screen` opens _Trigger > Capture > Screenrecord_, which asks what you want on the soundtrack: no audio, desktop audio, desktop plus microphone, or desktop plus microphone plus webcam. That last one only shows up if you actually have a camera plugged in. Pick one and Omarchy's recording picker lets you drag a region or click a window or monitor.<|end|>
+
+<|q|>How does transcoding before you share work?<|a|>A 4K screen recording or a raw HEIC off your phone is often too big to just send. `Super + Ctrl + .` (or _Trigger > Transcode_) fixes that. It offers you a fuzzy file picker over `~/Pictures` and `~/Videos`, then asks for a format and a size.<|end|>
+
+<|q|>The toggle menu<|a|>`Super + Ctrl + O` opens _Trigger > Toggle_ directly, or you can walk there from the Omarchy menu (`Super + Space`). Everything in that list is a switch you can flip without thinking about where the state lives. Switches for how the desktop looks sit next to it, under _Appearance_.<|end|>
+
+<|q|>How does indicators in the bar work?<|a|>When a mode is on, you get a small glyph in the middle of the top bar next to the clock. That's the indicators widget, and it carries dictation, screen recording, pending reminders, night light, do not disturb, and stay awake.<|end|>
+
+<|q|>AI<|a|>Omarchy includes launchers for the coding agents below without choosing a default for you. Run a command to install its CLI on first use, then authenticate when prompted. Hermes is the exception: nothing is installed for it on first use, and choosing it installs Hermes Desktop, as _Desktop apps_ below explains.<|end|>
+
+<|q|>Tell me about crash diagnosis<|a|>Omarchy watches systemd-coredump for process crashes. When something segfaults, you'll get a "Process crashed" notification — click it, and the crash is handed to your default agent along with Omarchy's diagnose-crash skill, which walks the agent through establishing the facts from the core dump and deciding whether the crash is worth reporting upstream. You can also run it by hand against any PID from `coredumpctl list` with `omarchy agent crash <pid>`.<|end|>
+
+<|q|>Tell me about try<|a|>try makes it easy to manage programming experiments with date-stamped directories. All experiments live in `~/Work/tries` and you can access them via `try`.<|end|>
+
+<|q|>Tell me about adding your own<|a|>Any terminal program can get the full app treatment. Go to _Install > TUI_ in the Omarchy menu (`Super + Space`), give it a name, a launch command, a window style, and an icon, and it'll show up in the app launcher like any other application. You can remove it again under _Remove > TUI_.<|end|>
+
+<|q|>What is LibreOffice?<|a|>LibreOffice is a complete office package with word processor, spreadsheet, presentations, drawing application, and more. It's compatible with files from Microsoft Office, so this is a great way to be able to open those Word documents.<|end|>
+
+<|q|>How does copy URL and Download Video work?<|a|>The Chromium-family browsers (Chromium itself, Chrome, Edge, and Brave) come with two Omarchy extensions that reach out of the browser and into the rest of your system.<|end|>
+
+<|q|>How does removing one again work?<|a|>Anything you installed here can be taken back off under _Remove > Browser_. Chromium isn't in that list — it's part of the base system.<|end|>
+
+<|q|>Dropbox<|a|>Dropbox is a great way to sync files between machines while keeping a backup in the cloud. To set it up, select _Install > Service > Dropbox_ from the Omarchy menu. Once it's running, hover the tray in the top right of the bar and right-click the Dropbox icon to finish the setup.<|end|>
+
+<|q|>What is NordVPN?<|a|>NordVPN is a standard VPN service that lets you exit your traffic from most regions around the world. To set it up, select _Install > Service > NordVPN_ from the Omarchy menu. After the reboot it asks for, run `nordvpn login` to authenticate.<|end|>
+
+<|q|>Microsoft apps<|a|>Select _Install > Service > Microsoft_ to add Outlook, Word, Excel, PowerPoint, Teams, and OneDrive as web apps. Each app has its own launcher and opens directly, using the commercial Microsoft 365 URLs and your existing browser profile. They open in the same browser app windows as Omarchy's other web apps; they do not install the separate Teams for Linux client.<|end|>
+
+<|q|>Steam<|a|>Install Steam by selecting _Install > Gaming > Steam_ from the Omarchy menu (`Super + Space`).<|end|>
+
+<|q|>Battle.net<|a|>Install Battle.net by selecting _Install > Gaming > Battle.net_ from the Omarchy menu (`Super + Space`). This gives you titles like Diablo, Starcraft, and World of Warcraft as a standalone install running under GE-Proton — no Steam, Lutris, or Heroic needed.<|end|>
+
+<|q|>How does lutris (Windows games) work?<|a|>Install Lutris by selecting _Install > Gaming > Lutris_ from the Omarchy menu (`Super + Space`). Lutris is the way to play Windows games from stores like EA and Ubisoft Connect that don't have their own installer above.<|end|>
+
+<|q|>Tell me about rolling back bad updates<|a|>If you ever have a problem after doing an update, you can rollback your system to the snapshot taken before the update. Just restart and pick the snapshot in the boot loading menu from before you started the update.<|end|>
+
+<|q|>What is resetting any changes?<|a|>If you end up making a mess of the configurations, you can always revert them to the defaults via _Update > Config_ in the Omarchy menu. Or by running `omarchy reinstall configs` to reset everything.<|end|>
+
+<|q|>Tell me about use ALT as SUPER<|a|>On some keyboards, it's not convenient to use the primary meta key (Windows/cmd key) as SUPER. You can change this to be ALT instead using this change:<|end|>
+
+<|q|>Toggle hibernation<|a|>You set up hibernation by running `omarchy hibernation setup` from the terminal. Hibernation creates a /swap subvolume on your boot drive the size of your physical RAM allocation, so make sure you have plenty of room to spare. On a 32GB machine, you'll always need 32GB+ free for this volume. Hibernation also requires the default Limine bootloader.<|end|>
+
+<|q|>Fonts<|a|>Omarchy uses JetBrainsMono Nerd Font as both the terminal and system font by default.<|end|>
+
+<|q|>What is about screen?<|a|>The same three options are under _Appearance > Branding > About_ for the _About_ screen you get from the Omarchy menu, and they work identically — the file is `~/.config/omarchy/branding/about.txt`, and the About window pops up after each change. The About art is converted to a smaller size than the screensaver's, since it has to fit in a window rather than fill your display.<|end|>
+
+<|q|>What is remove window gaps?<|a|>On laptop displays, some people prefer not to waste any pixels on window gaps (or even a top bar, which you can toggle off with `Super + Shift + Space`). You can toggle all gaps and borders off with `Super + Shift + Backspace`, or remove them permanently by removing the comments in this section of `~/.config/hypr/looknfeel.lua`:<|end|>
+
+<|q|>What an installed theme can contain<|a|>A theme you write yourself in `~/.config/omarchy/themes` can contain whatever you like — it's your machine and your file, and Omarchy applies all of it.<|end|>
+
+<|q|>How does VirtualBox work?<|a|>VirtualBox is a popular VM runner. You can run Omarchy inside that too. But performance probably won't be great.<|end|>
+
+<|q|>Steam Deck<|a|>The Steam Deck runs on Arch, which means you can run Omarchy on your Steam Deck. Altynbek Orumbayev has a full setup script and explanation on how to do it. How cool is that!<|end|>
 

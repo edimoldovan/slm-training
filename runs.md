@@ -50,7 +50,15 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
 | run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
+| run-005 | 8, 512 (29.5M, float32) | 7,168 | 6e-4 | | | | One change: manual prose pairs added (owner request 2026-10-21: answer questions beyond commands). Steps = 4 × formula of the new token count, as run-004. |
 | run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | 2.960 (valid.txt) | 500 | 66k → 45k | One change: steps doubled again. Level 3 peaks at step 6,500: command 0.945, exact 0.944, well-formed 0.997. **Shipped: `step-6500.safetensors`.** Sealed test on the Mac: command 0.940, exact 0.940, well-formed 1.000. |
+
+### run-005 corpus (2026-10-21)
+
+- Owner request: the model should also answer questions with explanations, not only commands. Source: the English manual's headings. For each heading (h1–h4) with a prose paragraph under it, the first paragraph (links reduced to their text, cut at a sentence end before 90 words, at least 8 words) answers P1 `What is {heading}?`, P2 `Tell me about {heading}`, P3 `How does {heading} work?`, P4 `{Heading}`; page titles (h1) use P2 and P4 only; a heading that is itself a question (the FAQ page) is used verbatim (P5). 278 headings with prose, 39 without; 972 prose pairs.
+- Every pair now carries a `kind`: command 13,441, key 910, prose 972, snippet 34. 15,620 derived, 15,357 after dedupe, 100 held back as test (seed 42, regenerated from the larger pool; the previous set scored 0.940 on run-004), 15,257 in `pairs.txt`.
+- Corpus: train.txt 1,144 documents + 14,494 pairs, 5,033,888 bytes, 1,468,328 tokens; valid.txt 60 documents + 763 pairs. Level 1 tests: 5 passed. Formula: 40 epochs → 1,792 steps; run-005 uses 4 × 1,792 = 7,168 (the run-004 schedule).
+- `eval/score.py`: the three headline numbers stay over the command-like pairs (command, key, snippet); a `by_kind` block reports prose separately (exact match and first-eight-words match) with a 192-token budget for prose answers.
 
 ### run-004 results (2026-10-20), shipping candidate
 

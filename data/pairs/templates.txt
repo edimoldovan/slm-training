@@ -31,6 +31,12 @@ K4  Hotkey for {desc}   -> key combo   (182 pairs)
 K5  Which keybinding triggers {desc}?   -> key combo   (182 pairs)
 M1  How do I {heading}?   -> fenced code block under the heading   (17 pairs)
 M2  What is the command for {heading}?   -> fenced code block under the heading   (17 pairs)
+P1  What is {heading}?   -> the heading's first paragraph, at most 90 words   (218 pairs)
+P2  Tell me about {heading}   -> the heading's first paragraph, at most 90 words   (261 pairs)
+P3  How does {heading} work?   -> the heading's first paragraph, at most 90 words   (218 pairs)
+P4  {Heading}   -> the heading's first paragraph, at most 90 words   (261 pairs)
+P5  {Heading}   -> the heading's first paragraph, at most 90 words   (14 pairs)
+kinds: command 13441, key 910, prose 972, snippet 34
 
 # One example per template
 
@@ -74,6 +80,11 @@ omarchy bar move omarchy.weather --section centerBegin --index 0
 omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
 omarchy bar set omarchy.clock format "HH:mm"
 omarchy bar defaults          # back to the shipped layout<|end|>   (from omarchy/manual/05-the-top-bar.md)
+P2  <|q|>Tell me about welcome to Omarchy<|a|>Omarchy is an omakase Linux distribution based on Arch, the tiling window manager Hyprland, and the desktop construction-kit Quickshell. It ships with everything a modern, savvy computer user needs to be productive immediately. From Neovim (btw) to Chromium, Obsidian to LibreOffice, and Hype to Monologue. Hell, even a retro Winamp-style music player is there!<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+P4  <|q|>Welcome to Omarchy<|a|>Omarchy is an omakase Linux distribution based on Arch, the tiling window manager Hyprland, and the desktop construction-kit Quickshell. It ships with everything a modern, savvy computer user needs to be productive immediately. From Neovim (btw) to Chromium, Obsidian to LibreOffice, and Hype to Monologue. Hell, even a retro Winamp-style music player is there!<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+P1  <|q|>What is use a wired or 2.4ghz keyboard?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
+P3  <|q|>How does use a wired or 2.4ghz keyboard work?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
+P5  <|q|>What about Wi-Fi and Bluetooth?<|a|>You won't find TUIs for Wi-Fi and Bluetooth — those jobs belong to the Omarchy shell. Click the Wi-Fi icon in the top bar (or hit `Super + Ctrl + N`) to see networks and connect, and click the Bluetooth icon (or hit `Super + Ctrl + B`) to pair and connect devices. See networking for the full story.<|end|>   (from omarchy/manual/21-tuis.md)
 
 # Verb synonyms (first word of the summary -> replacements)
 
@@ -127,13 +138,15 @@ find: search for, locate
 
 # Stats
 
-dropped: same question, different answer: 251
+dropped: same question, different answer: 263
 keybindings parsed: 198
 manual code blocks: 34
+manual headings with prose: 278
+manual headings without a paragraph: 39
 non-imperative summaries (S3 only): 24
-pairs before dedupe: 14636
+pairs before dedupe: 15620
 summary heads: 305
 synonym forms: 767
-pairs after dedupe: 14385
+pairs after dedupe: 15357
 held back as test (seed 42): 100
-pairs.txt: 14285
+pairs.txt: 15257
