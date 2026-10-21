@@ -51,8 +51,25 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
 | run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
+| run-006 | 8, 512 (29.5M, float32) | 8,084 | 6e-4 | 2.593 (valid.txt) | 600 | 49k → 47k | One change: 24 keybinding wordings (lowercase and plural forms, both keys when a description has two) and 7 more command wordings; 23,721 pairs. Best at step 8,084 on 1,181 held-out pairs: command-like exact 0.955, command 0.963; keys exact 0.976; commands 0.953; prose exact 0.660. **Shipped: `step-8084.safetensors`.** Sealed test: command-like exact 0.968, command 0.979, well-formed 0.979. |
 | run-005 | 8, 512 (29.5M, float32) | 7,168 | 6e-4 | 2.829 (valid.txt) | 600 | 50k → 48k | One change: manual prose pairs added. Best at step 7,000: command-like pairs command 0.953, exact 0.953, well-formed 0.997; prose (36 held-out) exact 0.667, first eight words 0.694, well-formed 0.861. **Shipped: `step-7000.safetensors`.** Sealed test: command-like 0.967 / 0.989, prose 1 of 3. |
 | run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | 2.960 (valid.txt) | 500 | 66k → 45k | One change: steps doubled again. Level 3 peaks at step 6,500: command 0.945, exact 0.944, well-formed 0.997. **Shipped: `step-6500.safetensors`.** Sealed test on the Mac: command 0.940, exact 0.940, well-formed 1.000. |
+
+### run-006 results (2026-10-21), shipped
+
+- Owner report: free wordings such as "what is the shortcut key for screenshots?" got wrong keybindings from run-005. Data change: 24 keybinding wordings per description (K1–K24 in `templates.txt`), seven of them also with the description in lowercase and in the plural for one-word descriptions; a description bound to two keys answers both ("PRINT or SUPER + CTRL + ALT + C"); 16 such descriptions. Commands get S16–S22. 23,904 derived, 23,721 after dedupe (command 17,042, key 5,673, prose 972, snippet 34), 100 held back as test, 1,655,668 train tokens, 8,084 steps (4 × 2,021).
+- Level 3 on the 1,181 held-out pairs (`eval/results/run-006-valid-step-*.json`):
+
+| checkpoint | command-like exact | commands exact | keys exact | prose exact | prose first 8 |
+| --- | --- | --- | --- | --- | --- |
+| step-7000 | 0.947 | 0.948 | 0.948 | 0.596 | 0.638 |
+| step-7500 | 0.953 | 0.953 | 0.958 | 0.660 | 0.681 |
+| step-8000 | 0.951 | 0.942 | 0.979 | 0.617 | 0.660 |
+| step-8084 (final) | 0.955 | 0.949 | 0.976 | 0.660 | 0.702 |
+
+- Level 4, sealed test (68 command, 27 key, 5 prose), Mac, `step-8084.safetensors` (`eval/results/run-006-test.json`): command-like exact 0.968, command 0.979, well-formed 0.979 (two keybinding answers ran past `<|end|>`); prose 3 of 5.
+- The owner's wordings at step 8,084: `what is the shortcut key for screenshots?` → `PRINT or SUPER + CTRL + ALT + C` (right for the cloned master: `default/hypr/bindings/media.lua` binds Screenshot to PRINT and SUPER + CTRL + ALT + C; the box's older install binds SUPER + SHIFT + S); `what is the shortcut key for taking screenshots?` → the manual's Omasnap paragraph; `What is the keybinding for Terminal?` → `SUPER + RETURN`; `How do I update Omarchy?` → `omarchy-update [-y]`. Still wrong: `shortcut for browser` → `SUPER + SHIFT + ALT + A`, `key for lock screen` → a command.
+- Export: `hf/run-006`, `gguf/run-006-Q8_0.gguf`, SHA-256 `410d96c3db4c8e5e3018e0a93b3208527141e2b8d302b3681941c76561e74b5f`; `llama-completion -no-cnv` answers `PRINT or SUPER + CTRL + ALT + C` for the screenshot question. Copied to the Omarchy box as `~/models/run-006-Q8_0.gguf`; `~/models/omallm.gguf` now links to it. The omallm app's `--ask` gives the same four answers.
 
 ### run-005 results (2026-10-21), shipped
 
@@ -177,7 +194,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 ## Sign-off
 
-Shipped: run-005 `step-7000.safetensors` → `gguf/run-005-Q8_0.gguf` (2026-10-21). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
+Shipped: run-006 `step-8084.safetensors` → `gguf/run-006-Q8_0.gguf` (2026-10-21, after run-005 on the same day). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
 
 | Check | Threshold | Mac | AMD |
 | --- | --- | --- | --- |

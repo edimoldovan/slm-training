@@ -1,0 +1,138 @@
+{
+  "run": "run-006",
+  "split": "valid",
+  "n": 1181,
+  "endpoint": null,
+  "exact_match": 0.9470899470899471,
+  "command_match": 0.9629629629629629,
+  "well_formed": 0.9920634920634921,
+  "tokens_per_s": 1223.95643193352,
+  "by_kind": {
+    "command": {
+      "n": 844,
+      "exact": 0.9478672985781991,
+      "command_or_first8": 0.95260663507109,
+      "well_formed": 0.995260663507109
+    },
+    "key": {
+      "n": 289,
+      "exact": 0.9480968858131488,
+      "command_or_first8": 0.9965397923875432,
+      "well_formed": 0.9826989619377162
+    },
+    "prose": {
+      "n": 47,
+      "exact": 0.5957446808510638,
+      "command_or_first8": 0.6382978723404256,
+      "well_formed": 0.8085106382978723
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "How do I launch the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "omarchy agent usage kimi",
+      "expected": "omarchy-agent-usage-kimi [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-update [--force] [--limits-only] [--except <agent>] [agent...]"
+    },
+    {
+      "q": "bar",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar-text-color"
+    },
+    {
+      "q": "omarchy dns",
+      "expected": "omarchy-dns [Cloudflare|Google|DHCP|Custom]",
+      "got": "omarchy-tailscale-receive [--once] [directory]"
+    },
+    {
+      "q": "games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-xbox-cloud"
+    },
+    {
+      "q": "omarchy hw aarch64 apple",
+      "expected": "omarchy-hw-aarch64-apple",
+      "got": "omarchy-hw-aarch64-n1x"
+    },
+    {
+      "q": "omarchy hw aarch64 gb10",
+      "expected": "omarchy-hw-aarch64-gb10",
+      "got": "omarchy-hw-aarch64-n1x"
+    },
+    {
+      "q": "hw match device tree",
+      "expected": "omarchy-hw-match-device-tree <compatibles...>",
+      "got": "omarchy-hw-match <pattern>"
+    },
+    {
+      "q": "What is the command to return success if the focused?",
+      "expected": "omarchy-hyprland-monitor-focused-apple [monitor]",
+      "got": "omarchy-hyprland-toggle-disabled <flag-name>"
+    },
+    {
+      "q": "I want to enable, disable, toggle, or recover mirroring the internal display to an external monitor. What do I run?",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>"
+    },
+    {
+      "q": "hyprland toggle disabled",
+      "expected": "omarchy-hyprland-toggle-disabled <flag-name>",
+      "got": "omarchy-hyprland-toggle-enabled <flag-name>"
+    },
+    {
+      "q": "omarchy install and launch",
+      "expected": "omarchy-install-and-launch <display-name> <packages> <desktop-id>",
+      "got": "omarchy-install-gaming-xbox-controllers"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-install-docker-dbs"
+    },
+    {
+      "q": "What is the command to add the T3 Code desktop app?",
+      "expected": "omarchy-install-t3code-app <stable|nightly>",
+      "got": "omarchy-install-ai-t3-code [stable|nightly] [--no-launch]"
+    },
+    {
+      "q": "omarchy installed service tailscale",
+      "expected": "omarchy-installed-service-tailscale",
+      "got": "omarchy-restart-tailscale"
+    },
+    {
+      "q": "installed service tailscale",
+      "expected": "omarchy-installed-service-tailscale",
+      "got": "omarchy-restart-tailscale"
+    },
+    {
+      "q": "Launch a TUI",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "How can I launch a TUI?",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "What is the command to start a TUI?",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "launch shell",
+      "expected": "omarchy-launch-shell",
+      "got": "omarchy-launch-terminal [--pid=<terminal-pid>] [command...]"
+    }
+  ]
+}

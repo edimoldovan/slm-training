@@ -1,0 +1,138 @@
+{
+  "run": "run-006",
+  "split": "valid",
+  "n": 1181,
+  "endpoint": null,
+  "exact_match": 0.9506172839506173,
+  "command_match": 0.9576719576719577,
+  "well_formed": 0.9911816578483245,
+  "tokens_per_s": 1252.9299807262125,
+  "by_kind": {
+    "command": {
+      "n": 844,
+      "exact": 0.9419431279620853,
+      "command_or_first8": 0.9454976303317536,
+      "well_formed": 0.9940758293838863
+    },
+    "key": {
+      "n": 289,
+      "exact": 0.9792387543252595,
+      "command_or_first8": 0.9965397923875432,
+      "well_formed": 0.9826989619377162
+    },
+    "prose": {
+      "n": 47,
+      "exact": 0.6170212765957447,
+      "command_or_first8": 0.6595744680851063,
+      "well_formed": 0.8936170212765957
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy agent account copy",
+      "expected": "omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "agent account copy",
+      "expected": "omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "bar",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar-text-color"
+    },
+    {
+      "q": "Send the low battery warning notification",
+      "expected": "omarchy-battery-low <percentage>",
+      "got": "omarchy-notification-send [--app-name <app-name>] [-g <glyph>] [-u <low|normal|critical>] [-i <icon>] [-t <ms>] [-r <id>] [-p] [--image <path-or-uri>] <headline> [description] [--exec <"
+    },
+    {
+      "q": "branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "On the same network at problem, where it kills your program. Omarchy gives you `Super + C`, `Super + X`, and `Super + V`, and they work everywhere, including the terminal. No separate reflex to learn for the shell."
+    },
+    {
+      "q": "How do I silence crash notifications?",
+      "expected": "omarchy-crash-mute [--] [<program>] [on|off|toggle]",
+      "got": "omarchy-toggle-crash-capture"
+    },
+    {
+      "q": "What is the command to silence crash notifications?",
+      "expected": "omarchy-crash-mute [--] [<program>] [on|off|toggle]",
+      "got": "omarchy-toggle-crash-capture"
+    },
+    {
+      "q": "Set and launch the default coding agent",
+      "expected": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]",
+      "got": "omarchy-agent [--inline] [--pick]"
+    },
+    {
+      "q": "Is there a command to set and launch the default coding agent?",
+      "expected": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]",
+      "got": "omarchy-agent [--inline] [--pick]"
+    },
+    {
+      "q": "Set and launch the default coding agent.",
+      "expected": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]",
+      "got": "omarchy-agent [--inline] [--pick]"
+    },
+    {
+      "q": "How do I measure theme switcher cache?",
+      "expected": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]",
+      "got": "omarchy-theme-switcher"
+    },
+    {
+      "q": "dev link",
+      "expected": "omarchy-dev-link <path-to-checkout> [--no-reboot]",
+      "got": "omarchy-dev-unlink [--no-reboot]"
+    },
+    {
+      "q": "omarchy dns",
+      "expected": "omarchy-dns [Cloudflare|Google|DHCP|Custom]",
+      "got": "omarchy-tailscale-receive [--once] [directory]"
+    },
+    {
+      "q": "games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-gaming-xbox-cloud"
+    },
+    {
+      "q": "omarchy hw aarch64 apple",
+      "expected": "omarchy-hw-aarch64-apple",
+      "got": "omarchy-hw-aarch64-qualcomm"
+    },
+    {
+      "q": "hw match device tree",
+      "expected": "omarchy-hw-match-device-tree <compatibles...>",
+      "got": "omarchy-hw-match <pattern>"
+    },
+    {
+      "q": "What is the command to return success if the focused?",
+      "expected": "omarchy-hyprland-monitor-focused-apple [monitor]",
+      "got": "omarchy-hyprland-toggle-disabled <flag-name>"
+    },
+    {
+      "q": "I want to enable, disable, toggle, or recover mirroring the internal display to an external monitor. What do I run?",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>"
+    },
+    {
+      "q": "hyprland toggle disabled",
+      "expected": "omarchy-hyprland-toggle-disabled <flag-name>",
+      "got": "omarchy-hyprland-toggle-enabled <flag-name>"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-install-docker-dbs"
+    }
+  ]
+}

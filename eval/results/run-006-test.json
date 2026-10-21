@@ -1,0 +1,72 @@
+{
+  "run": "run-006",
+  "split": "test",
+  "n": 100,
+  "endpoint": null,
+  "exact_match": 0.968421052631579,
+  "command_match": 0.9789473684210527,
+  "well_formed": 0.9789473684210527,
+  "tokens_per_s": 1166.475044786582,
+  "by_kind": {
+    "command": {
+      "n": 68,
+      "exact": 0.9705882352941176,
+      "command_or_first8": 0.9705882352941176,
+      "well_formed": 1.0
+    },
+    "key": {
+      "n": 27,
+      "exact": 0.9629629629629629,
+      "command_or_first8": 1.0,
+      "well_formed": 0.9259259259259259
+    },
+    "prose": {
+      "n": 5,
+      "exact": 0.6,
+      "command_or_first8": 0.6,
+      "well_formed": 0.6
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy dev unlink",
+      "expected": "omarchy-dev-unlink [--no-reboot]",
+      "got": "omarchy-dev-link <path-to-checkout> [--no-reboot]"
+    },
+    {
+      "q": "omarchy theme set keyboard f16",
+      "expected": "omarchy-theme-set-keyboard-f16",
+      "got": "omarchy-theme-set-keyboard-asus-rog"
+    },
+    {
+      "q": "What is idle?",
+      "expected": "The Omarchy shell owns idle behavior, and the timings are a top-level `idle` block in `~/.config/omarchy/shell.json`:",
+      "got": "SUPER + CTRL + I"
+    },
+    {
+      "q": "What is use ALT as SUPER?",
+      "expected": "On some keyboards, it's not convenient to use the primary meta key (Windows/cmd key) as SUPER. You can change this to be ALT instead using this change:",
+      "got": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up"
+    },
+    {
+      "q": "Key for Next window in group",
+      "expected": "SUPER + ALT + TAB or SUPER + ALT + mouse_down",
+      "got": "SUPER + ALT + TAB or SUPER + ALT + mouse_down"
+    },
+    {
+      "q": "What key combination is Previous window in group?",
+      "expected": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up",
+      "got": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up"
+    },
+    {
+      "q": "Tell me about universal clipboard",
+      "expected": "Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal and `Ctrl + C/V` to do it everywhere else. These Omarchy unified clipboard hotkeys work everywhere.",
+      "got": "Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal and `Ctrl + C/V` to do it everywhere else. These Omarchy unified clipboard hotkeys work everywhere."
+    },
+    {
+      "q": "How do I shrink window up a lot with the keyboard?",
+      "expected": "SUPER + CTRL + SHIFT + code:20",
+      "got": "SUPER + CTRL + code:20"
+    }
+  ]
+}

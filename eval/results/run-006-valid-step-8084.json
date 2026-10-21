@@ -1,0 +1,138 @@
+{
+  "run": "run-006",
+  "split": "valid",
+  "n": 1181,
+  "endpoint": null,
+  "exact_match": 0.955026455026455,
+  "command_match": 0.9629629629629629,
+  "well_formed": 0.9929453262786596,
+  "tokens_per_s": 1252.590958019884,
+  "by_kind": {
+    "command": {
+      "n": 844,
+      "exact": 0.9490521327014217,
+      "command_or_first8": 0.95260663507109,
+      "well_formed": 0.9964454976303317
+    },
+    "key": {
+      "n": 289,
+      "exact": 0.9757785467128027,
+      "command_or_first8": 0.9965397923875432,
+      "well_formed": 0.9826989619377162
+    },
+    "prose": {
+      "n": 47,
+      "exact": 0.6595744680851063,
+      "command_or_first8": 0.7021276595744681,
+      "well_formed": 0.9148936170212766
+    },
+    "snippet": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "omarchy agent account copy",
+      "expected": "omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "agent account copy",
+      "expected": "omarchy-agent-account-copy [--replace] <ssh-host> [claude|codex|grok...]",
+      "got": "omarchy-agent-account-rename [claude|codex|grok] <account> <name>"
+    },
+    {
+      "q": "omarchy agent usage kimi",
+      "expected": "omarchy-agent-usage-kimi [--force] [--limits-only]",
+      "got": "omarchy-agent-usage-update [--force] [--limits-only] [--except <agent>] [agent...]"
+    },
+    {
+      "q": "bar",
+      "expected": "omarchy-bar use <id> | reset | defaults | position [top|bottom|left|right] | background [opaque|glassy|none|cycle] | put <id> [placement] | move <id> [placement] | set <id> <key> <value> [--json] [placement] | get <id> <key>",
+      "got": "omarchy-bar-text-color"
+    },
+    {
+      "q": "omarchy capture screenrecording process",
+      "expected": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]",
+      "got": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]"
+    },
+    {
+      "q": "How do I measure theme switcher cache?",
+      "expected": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]",
+      "got": "omarchy-theme-switcher"
+    },
+    {
+      "q": "dev link",
+      "expected": "omarchy-dev-link <path-to-checkout> [--no-reboot]",
+      "got": "omarchy-dev-benchmark-cli [--repeat=<count>]"
+    },
+    {
+      "q": "omarchy dns",
+      "expected": "omarchy-dns [Cloudflare|Google|DHCP|Custom]",
+      "got": "omarchy-hyprland-window-minimize [window-address]"
+    },
+    {
+      "q": "games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "omarchy-install-hermes-cli <--check|--now|--retire-mise>"
+    },
+    {
+      "q": "omarchy hw aarch64 apple",
+      "expected": "omarchy-hw-aarch64-apple",
+      "got": "omarchy-hw-aarch64-qualcomm"
+    },
+    {
+      "q": "omarchy hw aarch64 gb10",
+      "expected": "omarchy-hw-aarch64-gb10",
+      "got": "omarchy-hw-aarch64-qualcomm"
+    },
+    {
+      "q": "hw match device tree",
+      "expected": "omarchy-hw-match-device-tree <compatibles...>",
+      "got": "omarchy-hw-match <pattern>"
+    },
+    {
+      "q": "What is the command to return success if the focused?",
+      "expected": "omarchy-hyprland-monitor-focused-apple [monitor]",
+      "got": "omarchy-hyprland-toggle-disabled <flag-name>"
+    },
+    {
+      "q": "I want to enable, disable, toggle, or recover mirroring the internal display to an external monitor. What do I run?",
+      "expected": "omarchy-hyprland-monitor-internal-mirror <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>"
+    },
+    {
+      "q": "hyprland toggle disabled",
+      "expected": "omarchy-hyprland-toggle-disabled <flag-name>",
+      "got": "omarchy-hyprland-toggle-enabled <flag-name>"
+    },
+    {
+      "q": "How do I install T3 Code?",
+      "expected": "omarchy-install-ai-t3-code [stable|nightly] [--no-launch]",
+      "got": "omarchy-install-t3code-app <stable|nightly>"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "omarchy-install-docker-dbs"
+    },
+    {
+      "q": "omarchy installed service tailscale",
+      "expected": "omarchy-installed-service-tailscale",
+      "got": "omarchy-tailscale-send <machine> [file...]"
+    },
+    {
+      "q": "Launch a TUI",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "How can I launch a TUI?",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    }
+  ]
+}
