@@ -41,6 +41,13 @@ SCRIPT_TEMPLATES = [
     ("S13", "What do I type to {summary}?", True),
     ("S14", "{summary}?", True),
     ("S15", "Script to {summary}", True),
+    ("S16", "Command for {summary}", True),
+    ("S17", "{summary} command", True),
+    ("S18", "What command will {summary}?", True),
+    ("S19", "Which command do I use to {summary}?", True),
+    ("S20", "How would I {summary}?", True),
+    ("S21", "Omarchy command to {summary}", True),
+    ("S22", "{Summary}.", False),
 ]
 KEY_TEMPLATES = [
     ("K1", "What is the keybinding for {desc}?"),
@@ -48,7 +55,28 @@ KEY_TEMPLATES = [
     ("K3", "Keybinding for {desc}"),
     ("K4", "Hotkey for {desc}"),
     ("K5", "Which keybinding triggers {desc}?"),
+    ("K6", "What is the shortcut key for {desc}?"),
+    ("K7", "What is the key for {desc}?"),
+    ("K8", "What is the hotkey for {desc}?"),
+    ("K9", "What key combination is {desc}?"),
+    ("K10", "Which keys do I press for {desc}?"),
+    ("K11", "{desc} shortcut"),
+    ("K12", "{desc} keybinding"),
+    ("K13", "{desc} hotkey"),
+    ("K14", "{desc} key"),
+    ("K15", "Shortcut for {desc}"),
+    ("K16", "Shortcut key for {desc}"),
+    ("K17", "Key for {desc}"),
+    ("K18", "Keyboard shortcut for {desc}"),
+    ("K19", "What is the keyboard shortcut for {desc}?"),
+    ("K20", "Which shortcut is {desc}?"),
+    ("K21", "What do I press for {desc}?"),
+    ("K22", "Keys for {desc}"),
+    ("K23", "What is the shortcut key for taking {desc}?"),
+    ("K24", "How do I {desc} with the keyboard?"),
 ]
+# Each description is also used in lowercase and, for one-word descriptions, in the plural, with these templates.
+KEY_VARIANT_TEMPLATES = ("K1", "K2", "K6", "K11", "K15", "K16", "K19")
 # Added for run-003 (plan rule 2: more pairs per script). All deterministic:
 # - the summary "head": the summary cut at the first separator below, e.g.
 #   "Update Omarchy and system packages" -> "Update Omarchy"; used only when it keeps two or more words
@@ -218,9 +246,20 @@ def script_pairs(stats):
     return pairs
 
 
+def desc_variants(desc):
+    """The description as written, in lowercase, and in the plural when it is one plain word."""
+    variants = [desc]
+    if desc.lower() != desc:
+        variants.append(desc.lower())
+    if " " not in desc and desc.isalpha() and not desc.lower().endswith("s"):
+        variants.append(desc.lower() + "s")
+    return variants
+
+
 def keybinding_pairs(stats):
     pairs = []
     files = sorted(OMARCHY.glob("default/hypr/bindings/*.lua")) + [OMARCHY / "config/hypr/bindings.lua"]
+    bindings = OrderedDict()  # description -> keys in file order; a description with two keys answers "A or B"
     for path in files:
         if not path.is_file():
             continue
@@ -233,8 +272,21 @@ def keybinding_pairs(stats):
                 continue
             key, desc = m.group(1).strip(), m.group(2).strip()
             stats["keybindings parsed"] += 1
-            for tid, template in KEY_TEMPLATES:
-                pairs.append({"q": template.format(desc=desc), "a": key, "source": source, "template": tid, "kind": "key"})
+            entry = bindings.setdefault(desc, {"keys": [], "source": source})
+            if key not in entry["keys"]:
+                entry["keys"].append(key)
+    for desc, entry in bindings.items():
+        answer = " or ".join(entry["keys"])
+        if len(entry["keys"]) > 1:
+            stats["descriptions with several keys"] += 1
+        for tid, template in KEY_TEMPLATES:
+            if tid == "K24" and not is_imperative(desc):
+                continue
+            if tid == "K23" and not desc.lower().startswith("screen"):
+                continue
+            for variant in (desc_variants(desc) if tid in KEY_VARIANT_TEMPLATES else [desc]):
+                d = lower_first(variant) if tid == "K24" else variant
+                pairs.append({"q": template.format(desc=d), "a": answer, "source": entry["source"], "template": tid, "kind": "key"})
     return pairs
 
 
@@ -384,7 +436,7 @@ def main():
     for tid, template in NAME_TEMPLATES:
         lines.append(f"{tid}  {template}   [words = script name without omarchy-, dashes as spaces]   -> script name + args   ({per_template[tid]} pairs)")
     for tid, template in KEY_TEMPLATES:
-        lines.append(f"{tid}  {template}   -> key combo   ({per_template[tid]} pairs)")
+        lines.append(f"{tid}  {template}   -> key combo(s), several joined with ' or '   ({per_template[tid]} pairs)" + ("   [also lowercase and plural forms of the description]" if tid in KEY_VARIANT_TEMPLATES else ""))
     for tid, template in MANUAL_TEMPLATES:
         lines.append(f"{tid}  {template}   -> fenced code block under the heading   ({per_template[tid]} pairs)")
     for tid, template in PROSE_TEMPLATES + [PROSE_QUESTION_TEMPLATE]:

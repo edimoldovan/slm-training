@@ -15,6 +15,13 @@ S12  Tell me how to {summary}.   [imperative summaries only]   -> script name + 
 S13  What do I type to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
 S14  {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
 S15  Script to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+S16  Command for {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+S17  {summary} command   [imperative summaries only]   -> script name + args   (511 pairs)
+S18  What command will {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S19  Which command do I use to {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S20  How would I {summary}?   [imperative summaries only]   -> script name + args   (511 pairs)
+S21  Omarchy command to {summary}   [imperative summaries only]   -> script name + args   (511 pairs)
+S22  {Summary}.   -> script name + args   (535 pairs)
 H1  How do I {head}?   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (283 pairs)
 H2  {Head}   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (284 pairs)
 H3  What is the command to {head}?   [head = summary cut at the first of (' and ', ', ', ' with ', ' for ', ' from ', ' using ', ' in ', ' on ', ' via ', ' or ', ' to '), two words or more]   -> script name + args   (283 pairs)
@@ -24,11 +31,30 @@ Y2  How can I {syn} {rest}?   [syn from VERB_SYNONYMS below replaces the first w
 Y3  What is the command to {syn} {rest}?   [syn from VERB_SYNONYMS below replaces the first word; rest = summary or head without its first word]   -> script name + args   (1183 pairs)
 F1  omarchy {words}   [words = script name without omarchy-, dashes as spaces]   -> script name + args   (535 pairs)
 F2  {words}   [words = script name without omarchy-, dashes as spaces]   -> script name + args   (535 pairs)
-K1  What is the keybinding for {desc}?   -> key combo   (182 pairs)
-K2  What is the shortcut for {desc}?   -> key combo   (182 pairs)
-K3  Keybinding for {desc}   -> key combo   (182 pairs)
-K4  Hotkey for {desc}   -> key combo   (182 pairs)
-K5  Which keybinding triggers {desc}?   -> key combo   (182 pairs)
+K1  What is the keybinding for {desc}?   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K2  What is the shortcut for {desc}?   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K3  Keybinding for {desc}   -> key combo(s), several joined with ' or '   (182 pairs)
+K4  Hotkey for {desc}   -> key combo(s), several joined with ' or '   (182 pairs)
+K5  Which keybinding triggers {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K6  What is the shortcut key for {desc}?   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K7  What is the key for {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K8  What is the hotkey for {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K9  What key combination is {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K10  Which keys do I press for {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K11  {desc} shortcut   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K12  {desc} keybinding   -> key combo(s), several joined with ' or '   (182 pairs)
+K13  {desc} hotkey   -> key combo(s), several joined with ' or '   (182 pairs)
+K14  {desc} key   -> key combo(s), several joined with ' or '   (182 pairs)
+K15  Shortcut for {desc}   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K16  Shortcut key for {desc}   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K17  Key for {desc}   -> key combo(s), several joined with ' or '   (182 pairs)
+K18  Keyboard shortcut for {desc}   -> key combo(s), several joined with ' or '   (182 pairs)
+K19  What is the keyboard shortcut for {desc}?   -> key combo(s), several joined with ' or '   (396 pairs)   [also lowercase and plural forms of the description]
+K20  Which shortcut is {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K21  What do I press for {desc}?   -> key combo(s), several joined with ' or '   (182 pairs)
+K22  Keys for {desc}   -> key combo(s), several joined with ' or '   (182 pairs)
+K23  What is the shortcut key for taking {desc}?   -> key combo(s), several joined with ' or '   (2 pairs)
+K24  How do I {desc} with the keyboard?   -> key combo(s), several joined with ' or '   (169 pairs)
 M1  How do I {heading}?   -> fenced code block under the heading   (17 pairs)
 M2  What is the command for {heading}?   -> fenced code block under the heading   (17 pairs)
 P1  What is {heading}?   -> the heading's first paragraph, at most 90 words   (218 pairs)
@@ -36,7 +62,7 @@ P2  Tell me about {heading}   -> the heading's first paragraph, at most 90 words
 P3  How does {heading} work?   -> the heading's first paragraph, at most 90 words   (218 pairs)
 P4  {Heading}   -> the heading's first paragraph, at most 90 words   (261 pairs)
 P5  {Heading}   -> the heading's first paragraph, at most 90 words   (14 pairs)
-kinds: command 13441, key 910, prose 972, snippet 34
+kinds: command 17042, key 5673, prose 972, snippet 34
 
 # One example per template
 
@@ -55,6 +81,13 @@ S12  <|q|>Tell me how to launch the default coding agent in a terminal.<|a|>omar
 S13  <|q|>What do I type to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S14  <|q|>launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S15  <|q|>Script to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S16  <|q|>Command for launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S17  <|q|>launch the default coding agent in a terminal command<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S18  <|q|>What command will launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S19  <|q|>Which command do I use to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S20  <|q|>How would I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S21  <|q|>Omarchy command to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S22  <|q|>Launch the default coding agent in a terminal.<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 F1  <|q|>omarchy agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 F2  <|q|>agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 H1  <|q|>How do I launch the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
@@ -69,6 +102,25 @@ K2  <|q|>What is the shortcut for Terminal?<|a|>SUPER + RETURN<|end|>   (from om
 K3  <|q|>Keybinding for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
 K4  <|q|>Hotkey for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
 K5  <|q|>Which keybinding triggers Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K6  <|q|>What is the shortcut key for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K7  <|q|>What is the key for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K8  <|q|>What is the hotkey for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K9  <|q|>What key combination is Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K10  <|q|>Which keys do I press for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K11  <|q|>Terminal shortcut<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K12  <|q|>Terminal keybinding<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K13  <|q|>Terminal hotkey<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K14  <|q|>Terminal key<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K15  <|q|>Shortcut for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K16  <|q|>Shortcut key for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K17  <|q|>Key for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K18  <|q|>Keyboard shortcut for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K19  <|q|>What is the keyboard shortcut for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K20  <|q|>Which shortcut is Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K21  <|q|>What do I press for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K22  <|q|>Keys for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K24  <|q|>How do I terminal with the keyboard?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K23  <|q|>What is the shortcut key for taking Screenshot?<|a|>PRINT or SUPER + CTRL + ALT + C<|end|>   (from omarchy/default/hypr/bindings/utilities.lua)
 M1  <|q|>How do I dwindle vs scrolling layout?<|a|>hl.config({
   general = {
     layout = "scrolling",
@@ -138,15 +190,16 @@ find: search for, locate
 
 # Stats
 
-dropped: same question, different answer: 263
+descriptions with several keys: 16
+dropped: same question, different answer: 183
 keybindings parsed: 198
 manual code blocks: 34
 manual headings with prose: 278
 manual headings without a paragraph: 39
 non-imperative summaries (S3 only): 24
-pairs before dedupe: 15620
+pairs before dedupe: 23904
 summary heads: 305
 synonym forms: 767
-pairs after dedupe: 15357
+pairs after dedupe: 23721
 held back as test (seed 42): 100
-pairs.txt: 15257
+pairs.txt: 23621

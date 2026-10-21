@@ -1,100 +1,100 @@
-{"q": "How can I launch Claude, Codex, or Grok as the selected subscription account?", "a": "omarchy-agent-account-exec <claude|codex|grok> [args...]", "kind": "command"}
-{"q": "How to print the Codex usage record as JSON", "a": "omarchy-agent-usage-codex [--force] [--limits-only]", "kind": "command"}
-{"q": "Tell me how to print the Fireworks usage record as JSON.", "a": "omarchy-agent-usage-fireworks [--force] [--limits-only]", "kind": "command"}
-{"q": "What is the command to show the Kimi usage record as JSON?", "a": "omarchy-agent-usage-kimi [--force] [--limits-only]", "kind": "command"}
-{"q": "Tell me how to apply Omarchy hardware-specific packages and system configuration.", "a": "omarchy-apply-hardware", "kind": "command"}
-{"q": "Which omarchy command will set the default audio output and move active streams?", "a": "omarchy-audio-output-set-default <node-id> <sink-name>", "kind": "command"}
-{"q": "Tell me how to print the sink whose volume and mute a given output really uses.", "a": "omarchy-audio-output-sink [sink-name]", "kind": "command"}
-{"q": "How can I print or adjust Apple Studio Display and Apple XDR Display brightness using asdcontrol?", "a": "omarchy-brightness-display-apple [--no-osd] [+N%|N%-|N%]", "kind": "command"}
-{"q": "How do I check or signal the current user's recording processes?", "a": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]", "kind": "command"}
-{"q": "capture screenrecording process", "a": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]", "kind": "command"}
-{"q": "resize the active webcam recording overlay?", "a": "omarchy-capture-webcam-resize <smaller|larger|reset|small|medium|large>", "kind": "command"}
-{"q": "What do I type to native messaging host: copy a Chromium tab URL to the clipboard?", "a": "omarchy-chromium-copy-url-host", "kind": "command"}
-{"q": "What should I run to native messaging host: download the URL sent by the yt-dlp Chromium extension?", "a": "omarchy-chromium-ytdlp-host", "kind": "command"}
-{"q": "clipboard paste file", "a": "omarchy-clipboard-paste-file [--copy-only] <mime-type> <path>", "kind": "command"}
-{"q": "How do I check whether any required commands are missing?", "a": "omarchy-cmd-missing", "kind": "command"}
-{"q": "How do I test whether any required commands are missing?", "a": "omarchy-cmd-missing", "kind": "command"}
-{"q": "Check whether all required commands are available", "a": "omarchy-cmd-present", "kind": "command"}
-{"q": "What is the command to set and launch the default coding agent?", "a": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]", "kind": "command"}
-{"q": "What is the command to create branded glyphs?", "a": "omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]", "kind": "command"}
-{"q": "dictation voxtype", "a": "omarchy-dictation-voxtype <start|stop|toggle>", "kind": "command"}
-{"q": "I want to show or set the glyph forms for Chinese, Japanese, and Korean text. What do I run?", "a": "omarchy-font-cjk [jp|kr|sc|tc|hk|default]", "kind": "command"}
-{"q": "How do I print available monospace fonts?", "a": "omarchy-font-list", "kind": "command"}
-{"q": "How do I create a desktop launcher for a RetroArch game?", "a": "omarchy-games-retro-install [core path-to-game]", "kind": "command"}
-{"q": "I want to match Dell XPS systems with LG OLED panel on Intel Panther Lake (Xe3) GPU. What do I run?", "a": "omarchy-hw-dell-xps-oled", "kind": "command"}
-{"q": "I want to detect whether the computer is a Framework Laptop 16. What do I run?", "a": "omarchy-hw-framework16", "kind": "command"}
-{"q": "hw n1x", "a": "omarchy-hw-n1x", "kind": "command"}
-{"q": "What is the command to check whether the computer has an NVIDIA GPU without GSP firmware (Maxwell/Pascal/Volta)?", "a": "omarchy-hw-nvidia-without-gsp", "kind": "command"}
-{"q": "What is the command to detect whether the computer is a Microsoft Surface device?", "a": "omarchy-hw-surface", "kind": "command"}
-{"q": "What should I run to print the detected Hyprland touchpad or trackpad device name?", "a": "omarchy-hw-touchpad", "kind": "command"}
-{"q": "How can I print the detected Hyprland touchscreen?", "a": "omarchy-hw-touchscreen", "kind": "command"}
-{"q": "Script to detect whether the CPU is x86_64", "a": "omarchy-hw-x86", "kind": "command"}
-{"q": "What is the command to set clamshell display state?", "a": "omarchy-hyprland-monitor-clamshell", "kind": "command"}
-{"q": "How can I use clamshell display state to Hyprland monitors?", "a": "omarchy-hyprland-monitor-clamshell", "kind": "command"}
-{"q": "hyprland toggle", "a": "omarchy-hyprland-toggle <flag-name> [on|off|toggle]", "kind": "command"}
-{"q": "How do I show a user-facing string?", "a": "omarchy-i18n [--count <n>] <key> [args...] | --number <value>", "kind": "command"}
-{"q": "In Omarchy, how do I install a packaged app and launch it once it finishes?", "a": "omarchy-install-and-launch <display-name> <packages> <desktop-id>", "kind": "command"}
-{"q": "How do I install a supported browser?", "a": "omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen>", "kind": "command"}
-{"q": "Install a supported browser", "a": "omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen>", "kind": "command"}
-{"q": "Which omarchy command will install a supported browser?", "a": "omarchy-install-browser <chromium|chrome|brave|brave-origin|edge|firefox|zen>", "kind": "command"}
-{"q": "install dictation superwhisper", "a": "omarchy-install-dictation-superwhisper", "kind": "command"}
-{"q": "What is the command to set up one of the supported databases?", "a": "omarchy-install-docker-dbs", "kind": "command"}
-{"q": "install service signal", "a": "omarchy-install-service-signal", "kind": "command"}
-{"q": "In Omarchy, how do I install Sunshine and open Moonlight streaming ports for LAN and Tailscale?", "a": "omarchy-install-service-sunshine", "kind": "command"}
-{"q": "Which omarchy command will install the T3 Code desktop app from its AppImage release?", "a": "omarchy-install-t3code-app <stable|nightly>", "kind": "command"}
-{"q": "Tell me how to launch 1Password or start its installer when missing.", "a": "omarchy-launch-1password", "kind": "command"}
-{"q": "What should I run to launch the installed Battle.net client via umu-launcher + GE-Proton?", "a": "omarchy-launch-battlenet [--with-mangohud]", "kind": "command"}
-{"q": "What do I type to launch the default browser as determined by xdg-settings?", "a": "omarchy-launch-browser [url]", "kind": "command"}
-{"q": "Which omarchy command will open the Omarchy Discord community in the Discord app or a browser?", "a": "omarchy-launch-discord-community", "kind": "command"}
-{"q": "How do I start the default editor selected via Omarchy defaults?", "a": "omarchy-launch-editor [--inline] <path>", "kind": "command"}
-{"q": "How do I launch an app or focus an existing window matching a pattern?", "a": "omarchy-launch-or-focus <window-pattern> <launch-command>", "kind": "command"}
-{"q": "How can I open an app or focus an existing window matching a pattern?", "a": "omarchy-launch-or-focus <window-pattern> <launch-command>", "kind": "command"}
-{"q": "What is the command to open an app?", "a": "omarchy-launch-or-focus <window-pattern> <launch-command>", "kind": "command"}
-{"q": "display Hyprland keybindings defined in your configuration using an interactive search menu?", "a": "omarchy-menu-keybindings", "kind": "command"}
-{"q": "What is the command to choose a shell plugin to enable, disable, clone, or remove?", "a": "omarchy-menu-plugin <enable|disable|clone|remove>", "kind": "command"}
-{"q": "I want to pick one or multiple options from a menu. What do I run?", "a": "omarchy-menu-select prompt [option...] [-- --multiple --selected <value> --on-change <command-json> --change-key <key> --width <pixels> --maxheight <pixels>]", "kind": "command"}
-{"q": "Dismiss a notification by summary substring. Used by the first-run notifications to dismiss them after clicking for action", "a": "omarchy-notification-dismiss <summary>", "kind": "command"}
-{"q": "How can I print the current time?", "a": "omarchy-notification-time", "kind": "command"}
-{"q": "How do I display the Omarchy Quickshell on-screen display?", "a": "omarchy-osd [-i|--icon <icon>] [-m|--message <text>] [-p|--progress <0-100>] [-d|--duration <ms>]", "kind": "command"}
-{"q": "Script to ensure default application launchers are installed", "a": "omarchy-refresh-applications", "kind": "command"}
-{"q": "Script to remove LM Studio along with its configuration and every model it downloaded", "a": "omarchy-remove-ai-lm-studio", "kind": "command"}
-{"q": "What is the command to uninstall T3 Code along with its configuration and workspaces?", "a": "omarchy-remove-ai-t3-code", "kind": "command"}
-{"q": "What is the command to delete T3 Code along?", "a": "omarchy-remove-ai-t3-code", "kind": "command"}
-{"q": "How to remove Voxtype dictation and its configuration", "a": "omarchy-remove-dictation-voxtype", "kind": "command"}
-{"q": "How do I delete Lutris?", "a": "omarchy-remove-gaming-lutris", "kind": "command"}
-{"q": "omarchy remove security fingerprint", "a": "omarchy-remove-security-fingerprint", "kind": "command"}
-{"q": "What do I type to disable the gcr-ssh-agent SSH agent and its environment override?", "a": "omarchy-remove-service-ssh-agent", "kind": "command"}
-{"q": "What is the command to deactivate the gcr-ssh-agent SSH agent?", "a": "omarchy-remove-service-ssh-agent", "kind": "command"}
-{"q": "restart gum", "a": "omarchy-restart-gum", "kind": "command"}
-{"q": "I want to reload herdr if running with the latest configuration. What do I run?", "a": "omarchy-restart-herdr", "kind": "command"}
-{"q": "Which omarchy command will restart the XCompose input method service (fcitx5) to apply new compose key settings?", "a": "omarchy-restart-xcompose", "kind": "command"}
-{"q": "I want to set up FIDO2 authentication for sudo and polkit. What do I run?", "a": "omarchy-setup-security-fido2", "kind": "command"}
-{"q": "How do I change up the OpenSSH server, open the firewall, and authorize an SSH key?", "a": "omarchy-setup-security-sshd [--key=<public-key>] [--gh-keys <github-username>]", "kind": "command"}
-{"q": "shell", "a": "omarchy-shell [-q] <target> <method> [args...]", "kind": "command"}
-{"q": "What do I type to succeed when Docker needs sudo, fail when it can be used directly?", "a": "omarchy-sudo-docker [--configured]", "kind": "command"}
-{"q": "Is there a command to monitor sleep preparation and lock before suspend?", "a": "omarchy-system-sleep-monitor", "kind": "command"}
-{"q": "How to set the current background image or video", "a": "omarchy-theme-bg-set <path-to-media>", "kind": "command"}
-{"q": "Apply the current theme color to Chromium, Chrome, Edge, and Brave", "a": "omarchy-theme-set-browser", "kind": "command"}
-{"q": "I want to sync the generated Omarchy theme to Claude Code. What do I run?", "a": "omarchy-theme-set-claude [--activate]", "kind": "command"}
-{"q": "What is the command to apply current Omarchy theme colors?", "a": "omarchy-theme-set-foot", "kind": "command"}
-{"q": "Which omarchy command will apply the current theme keyboard color to Framework Laptop 16 keyboards?", "a": "omarchy-theme-set-keyboard-f16", "kind": "command"}
-{"q": "How do I toggle animations?", "a": "omarchy-toggle-animations [toggle|on|off]", "kind": "command"}
-{"q": "toggle fullscreen desktop", "a": "omarchy-toggle-fullscreen-desktop [toggle|on|off]", "kind": "command"}
-{"q": "What is the command to toggle idle behavior so the system either idles normally?", "a": "omarchy-toggle-idle [toggle|stay-awake|allow-idle|status]", "kind": "command"}
-{"q": "How do I enable, disable, or toggle a Hyprland input device?", "a": "omarchy-toggle-input-device <touchpad|touchscreen> [on|off|toggle]", "kind": "command"}
-{"q": "remove all TUIs installed via omarchy-tui-install?", "a": "omarchy-tui-remove-all", "kind": "command"}
-{"q": "How can I verify the update log?", "a": "omarchy-update-analyze-logs", "kind": "command"}
-{"q": "Tell me how to ensure the Omarchy, Arch and (on aarch64) Arch Linux ARM keyring packages are installed and populated.", "a": "omarchy-update-keyring", "kind": "command"}
-{"q": "Command to show or set the location used for weather reports", "a": "omarchy-weather-location", "kind": "command"}
-{"q": "How do I open HEY webmail and translate mailto links?", "a": "omarchy-webapp-handler-hey [url]", "kind": "command"}
-{"q": "Which omarchy command will open Zoom web meetings from browser protocol links?", "a": "omarchy-webapp-handler-zoom [url]", "kind": "command"}
-{"q": "Keybinding for Universal copy", "a": "SUPER + C", "kind": "key"}
-{"q": "What is the keybinding for Brightness minimum?", "a": "SHIFT + XF86MonBrightnessDown", "kind": "key"}
-{"q": "Which keybinding triggers Move workspace to up monitor?", "a": "SUPER + SHIFT + ALT + UP", "kind": "key"}
-{"q": "Keybinding for Expand window down a lot", "a": "SUPER + CTRL + SHIFT + code:21", "kind": "key"}
-{"q": "Keybinding for Toggle menu", "a": "SUPER + CTRL + O", "kind": "key"}
-{"q": "What is the keybinding for Toggle silencing notifications?", "a": "SUPER + CTRL + comma", "kind": "key"}
-{"q": "What is the shortcut for Make webcam overlay larger?", "a": "SUPER + ALT + code:35", "kind": "key"}
-{"q": "How does unlocks work?", "a": "Themes can also have a custom unlock design, which is used for the boot decryption process. You can select one of these under _Appearance > Unlock_. They look like this:", "kind": "prose"}
+{"q": "How do I print Claude, Codex, and Grok subscription accounts and their limits?", "a": "omarchy-agent-account-list [claude|codex|grok] [--json]", "kind": "command"}
+{"q": "I want to toggle microphone mute. Drives the hardware mic-mute LED on laptops that expose one. What do I run?", "a": "omarchy-audio-input-mute", "kind": "command"}
+{"q": "Script to set the default audio input and move active streams", "a": "omarchy-audio-input-set-default <node-id> <source-name>", "kind": "command"}
+{"q": "What is the command to switch between audio outputs while preserving the mute status?", "a": "omarchy-audio-output-switch", "kind": "command"}
+{"q": "Command to print PulseAudio sink or source availability for the shell", "a": "omarchy-audio-sink-availability [sources]", "kind": "command"}
+{"q": "How can I print or adjust brightness on the focused display?", "a": "omarchy-brightness-display [--no-osd] [--monitor name] [+N%|N%-|N%|off|on]", "kind": "command"}
+{"q": "What should I run to adjust keyboard backlight brightness using available steps?", "a": "omarchy-brightness-keyboard [--no-osd] <up|down|cycle|off|restore>", "kind": "command"}
+{"q": "What do I type to print debugging information?", "a": "omarchy-debug [--no-sudo] [--print]", "kind": "command"}
+{"q": "How can I list idle, screensaver, and lock diagnostics?", "a": "omarchy-debug-idle [log-lines]", "kind": "command"}
+{"q": "Measure theme switcher cache and selector prep times.", "a": "omarchy-dev-benchmark-theme-switcher [--repeat=<count>] [--keep-cache]", "kind": "command"}
+{"q": "Add branded glyphs", "a": "omarchy-dev-font [list|add] <name> <svg-file-or-url> [--codepoint U+E9xx] [--font PATH]", "kind": "command"}
+{"q": "omarchy dev unlink", "a": "omarchy-dev-unlink [--no-reboot]", "kind": "command"}
+{"q": "What is the command to print or configure the system DNS provider?", "a": "omarchy-dns [Cloudflare|Google|DHCP|Custom]", "kind": "command"}
+{"q": "How can I configure the dock shown?", "a": "omarchy-dock position [top|bottom|left|right] | autohide [on|off|toggle] | pinned [<desktop-id>...] | pin <desktop-id> | unpin <desktop-id>", "kind": "command"}
+{"q": "set a new password for an encrypted drive command", "a": "omarchy-drive-password", "kind": "command"}
+{"q": "How can I show current monospace font?", "a": "omarchy-font-current", "kind": "command"}
+{"q": "In Omarchy, how do I list available monospace fonts?", "a": "omarchy-font-list", "kind": "command"}
+{"q": "How would I list available monospace fonts?", "a": "omarchy-font-list", "kind": "command"}
+{"q": "How do I start a named hook?", "a": "omarchy-hook [name] [args...]", "kind": "command"}
+{"q": "What should I run to match the Dell XPS 13 DX13260 that requires the sidecar amplifier workaround?", "a": "omarchy-hw-dell-xps13-sidecar-amps", "kind": "command"}
+{"q": "What is the command to show the hardware platform: x86?", "a": "omarchy-hw-platform", "kind": "command"}
+{"q": "What do I type to watch Hyprland monitor events and recover monitor toggles when a monitor is removed?", "a": "omarchy-hyprland-monitor-watch", "kind": "command"}
+{"q": "What is the command to test if a Hyprland toggle is currently enabled?", "a": "omarchy-hyprland-toggle-enabled <flag-name>", "kind": "command"}
+{"q": "Tell me how to toggle single-window square aspect ratio.", "a": "omarchy-hyprland-window-single-square-aspect-toggle", "kind": "command"}
+{"q": "Is there a command to toggle tiled fullscreen for the focused Hyprland window?", "a": "omarchy-hyprland-window-tiled-fullscreen-toggle", "kind": "command"}
+{"q": "What command will configure, inspect, or switch input methods?", "a": "omarchy-input-method <status|cycle [back]|configure --seed|--defaults>", "kind": "command"}
+{"q": "I want to install Zed Editor and configure it with the current Omarchy theme. What do I run?", "a": "omarchy-install-editor-zed", "kind": "command"}
+{"q": "How do I add Heroic Games Launcher (Epic?", "a": "omarchy-install-gaming-heroic", "kind": "command"}
+{"q": "How can I add 1Password?", "a": "omarchy-install-service-1password", "kind": "command"}
+{"q": "How can I add Signal?", "a": "omarchy-install-service-signal", "kind": "command"}
+{"q": "Omarchy command to install the Tailscale mesh VPN service and a web app for the Tailscale Admin Console", "a": "omarchy-install-service-tailscale", "kind": "command"}
+{"q": "What do I type to install the T3 Code desktop app from its AppImage release?", "a": "omarchy-install-t3code-app <stable|nightly>", "kind": "command"}
+{"q": "What is the command to set up the T3 Code desktop app?", "a": "omarchy-install-t3code-app <stable|nightly>", "kind": "command"}
+{"q": "omarchy installed service dropbox", "a": "omarchy-installed-service-dropbox", "kind": "command"}
+{"q": "launch the fastfetch TUI that gives information about the current system command", "a": "omarchy-launch-about", "kind": "command"}
+{"q": "Omarchy command to open the Omarchy Discord community in the Discord app or a browser", "a": "omarchy-launch-discord-community", "kind": "command"}
+{"q": "Open the Omarchy Discord community", "a": "omarchy-launch-discord-community", "kind": "command"}
+{"q": "Command for launch the Omarchy screensaver in the default terminal on the system with the correct font configuration", "a": "omarchy-launch-screensaver", "kind": "command"}
+{"q": "Which command do I use to launch the Omarchy screensaver in the default terminal on the system with the correct font configuration?", "a": "omarchy-launch-screensaver", "kind": "command"}
+{"q": "How do I start a generic image selector menu?", "a": "omarchy-menu-images [--selected <image>] [--print-name] [--show-labels] [--filterable] [--lazy-thumbnails] [--preload] [--cache-only] [--print-rows] <image-dir>...", "kind": "command"}
+{"q": "Omarchy command to pick a shell plugin to enable, disable, clone, or remove", "a": "omarchy-menu-plugin <enable|disable|clone|remove>", "kind": "command"}
+{"q": "How to select and set the system timezone", "a": "omarchy-menu-timezone", "kind": "command"}
+{"q": "Which command do I use to install a small mise-backed wrapper for a given tool?", "a": "omarchy-mise-install <package> [command-name [bin-name]]", "kind": "command"}
+{"q": "How can I show or pin the Wi-Fi band for the active connection?", "a": "omarchy-network-band [auto|2.4|5|6]", "kind": "command"}
+{"q": "Is there a command to show or pin the Wi-Fi band for the active connection?", "a": "omarchy-network-band [auto|2.4|5|6]", "kind": "command"}
+{"q": "show or pin the Wi-Fi band for the active connection?", "a": "omarchy-network-band [auto|2.4|5|6]", "kind": "command"}
+{"q": "How can I run OpenClaw's setup wizard the way Omarchy needs it: in the terminal, installing the gateway as a user service, and returning when it is done?", "a": "omarchy-openclaw-onboard", "kind": "command"}
+{"q": "Omarchy command to add the named packages to the system from the AUR if they're missing. Returns false if it couldn't be done", "a": "omarchy-pkg-aur-add <packages...>", "kind": "command"}
+{"q": "Omarchy command to remove the Claude desktop app along with its configuration and caches", "a": "omarchy-remove-ai-claude", "kind": "command"}
+{"q": "Omarchy command to remove LM Studio along with its configuration and every model it downloaded", "a": "omarchy-remove-ai-lm-studio", "kind": "command"}
+{"q": "Remove the Perplexity desktop app along with its runtime caches.", "a": "omarchy-remove-ai-perplexity", "kind": "command"}
+{"q": "What is the command to uninstall Lutris, Wine, umu-launcher, and all their configs and caches?", "a": "omarchy-remove-gaming-lutris", "kind": "command"}
+{"q": "How do I delete Steam and all of its game libraries, configs, and caches?", "a": "omarchy-remove-gaming-steam", "kind": "command"}
+{"q": "Tell me how to remove or uninstall the selected launcher entry.", "a": "omarchy-remove-launcher-entry <desktop-id> <name>", "kind": "command"}
+{"q": "Which omarchy command will remove fingerprint authentication from sudo, polkit, and lock screen?", "a": "omarchy-remove-security-fingerprint", "kind": "command"}
+{"q": "Remove Dropbox and its bar plugin.", "a": "omarchy-remove-service-dropbox", "kind": "command"}
+{"q": "Script to unblock and restart the bluetooth service", "a": "omarchy-restart-bluetooth", "kind": "command"}
+{"q": "Omarchy command to reload btop configuration (used by the Omarchy theme switching)", "a": "omarchy-restart-btop", "kind": "command"}
+{"q": "Is there a command to export the current theme's gum styling into the environment?", "a": "omarchy-restart-gum", "kind": "command"}
+{"q": "What do I type to export the current theme's gum styling into the environment?", "a": "omarchy-restart-gum", "kind": "command"}
+{"q": "What is the command to show CPU?", "a": "omarchy-system-stats [--bar-widget]", "kind": "command"}
+{"q": "send files to a machine on your tailnet with Taildrop command", "a": "omarchy-tailscale-send <machine> [file...]", "kind": "command"}
+{"q": "Which omarchy command will play the current background's matching theme intro?", "a": "omarchy-theme-bg-boot-intro", "kind": "command"}
+{"q": "Is there a command to sync the generated Omarchy theme to Hermes as a skin?", "a": "omarchy-theme-set-hermes [--activate] [--wait]", "kind": "command"}
+{"q": "omarchy theme set keyboard f16", "a": "omarchy-theme-set-keyboard-f16", "kind": "command"}
+{"q": "What should I run to update user-installed git themes?", "a": "omarchy-theme-update", "kind": "command"}
+{"q": "How can I switch animations, blur and shadows, which are slow without a GPU?", "a": "omarchy-toggle-animations [toggle|on|off]", "kind": "command"}
+{"q": "omarchy version", "a": "omarchy-version", "kind": "command"}
+{"q": "Hotkey for Obsidian", "a": "SUPER + SHIFT + O", "kind": "key"}
+{"q": "What is the shortcut for Passwords?", "a": "SUPER + SHIFT + SLASH", "kind": "key"}
+{"q": "Which keybinding triggers Google Messages?", "a": "SUPER + SHIFT + CTRL + G", "kind": "key"}
+{"q": "Shortcut key for Google Messages", "a": "SUPER + SHIFT + CTRL + G", "kind": "key"}
+{"q": "Key for Universal paste", "a": "SUPER + V", "kind": "key"}
+{"q": "What is the shortcut for direct input for the terminal prefix?", "a": "CTRL + SPACE", "kind": "key"}
+{"q": "Shortcut for mute", "a": "XF86AudioMute", "kind": "key"}
+{"q": "What is the shortcut for Play?", "a": "XF86AudioPlay", "kind": "key"}
+{"q": "Keys for Full width", "a": "SUPER + ALT + F", "kind": "key"}
+{"q": "What is the shortcut key for save window width?", "a": "SUPER + ALT + Home", "kind": "key"}
+{"q": "What is the keyboard shortcut for previous workspace?", "a": "SUPER + SHIFT + TAB", "kind": "key"}
+{"q": "Key for Move workspace to left monitor", "a": "SUPER + SHIFT + ALT + LEFT", "kind": "key"}
+{"q": "Shortcut key for Move window to up monitor", "a": "SUPER + SHIFT + CTRL + UP", "kind": "key"}
+{"q": "What do I press for Focus on previous monitor?", "a": "CTRL + ALT + SHIFT + TAB", "kind": "key"}
+{"q": "How do I shrink window up a lot with the keyboard?", "a": "SUPER + CTRL + SHIFT + code:20", "kind": "key"}
+{"q": "Which shortcut is Move active window out of group?", "a": "SUPER + ALT + G", "kind": "key"}
+{"q": "Shortcut key for Move window to group on left", "a": "SUPER + ALT + LEFT", "kind": "key"}
+{"q": "Key for Next window in group", "a": "SUPER + ALT + TAB or SUPER + ALT + mouse_down", "kind": "key"}
+{"q": "What key combination is Previous window in group?", "a": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up", "kind": "key"}
+{"q": "What is the shortcut key for Toggle menu?", "a": "SUPER + CTRL + O", "kind": "key"}
+{"q": "What is the shortcut key for system menu?", "a": "SUPER + ESCAPE", "kind": "key"}
+{"q": "Key for Dismiss last notification", "a": "SUPER + comma", "kind": "key"}
+{"q": "What is the shortcut key for taking Screenrecording?", "a": "ALT + PRINT", "kind": "key"}
+{"q": "Shortcut for Set reminder", "a": "SUPER + CTRL + R", "kind": "key"}
+{"q": "Shortcut key for Audio", "a": "SUPER + CTRL + A", "kind": "key"}
+{"q": "Shortcut for bluetooth", "a": "SUPER + CTRL + B", "kind": "key"}
+{"q": "Keys for Network", "a": "SUPER + CTRL + N", "kind": "key"}
+{"q": "Tell me about universal clipboard", "a": "Usually on Linux, you need `Ctrl + Shift + C/V` to copy'n'paste in the terminal and `Ctrl + C/V` to do it everywhere else. These Omarchy unified clipboard hotkeys work everywhere.", "kind": "prose"}
 {"q": "What is idle?", "a": "The Omarchy shell owns idle behavior, and the timings are a top-level `idle` block in `~/.config/omarchy/shell.json`:", "kind": "prose"}
-{"q": "How does DNS work?", "a": "Omarchy uses whatever DNS your network hands out over DHCP. You can override that for the whole machine under _Setup > Network > DNS_, where Cloudflare and Google are one click away. Pick _Custom_ to type in your own servers.", "kind": "prose"}
+{"q": "How does opening the menu from the terminal work?", "a": "The Omarchy menu is scriptable as well, which is handy for your own keybindings. `omarchy menu` opens it at the root, and you can jump straight to any point in the tree by naming it: `omarchy menu summon appearance.theme` goes right to the theme picker, `omarchy menu toggle system` opens the system menu and closes it again if it's already up, and `omarchy menu close` puts it away.", "kind": "prose"}
+{"q": "What is ripgrep?", "a": "ripgrep searches the contents of files by using `rg <pattern> <path>`, like `rg Controller app/` to find all mentions of `Controller` in the directory app.", "kind": "prose"}
+{"q": "What is use ALT as SUPER?", "a": "On some keyboards, it's not convenient to use the primary meta key (Windows/cmd key) as SUPER. You can change this to be ALT instead using this change:", "kind": "prose"}
