@@ -62,7 +62,8 @@ P2  Tell me about {heading}   -> the heading's first paragraph, at most 90 words
 P3  How does {heading} work?   -> the heading's first paragraph, at most 90 words   (218 pairs)
 P4  {Heading}   -> the heading's first paragraph, at most 90 words   (261 pairs)
 P5  {Heading}   -> the heading's first paragraph, at most 90 words   (14 pairs)
-kinds: command 17042, key 5673, prose 972, snippet 34
+kinds: command 49894, key 16382, prose 2714, snippet 100, unknown 3033
+augmentation: every question also in 2 noisy forms from ('drop', 'shuffle', 'prefix', 'suffix', 'lower', 'typo') (seed from the question text); unknown: 33 chit-chat lines (U1) and 3000 random corpus-word strings (U2) answer <|unknown|>
 
 # One example per template
 
@@ -137,6 +138,79 @@ P4  <|q|>Welcome to Omarchy<|a|>Omarchy is an omakase Linux distribution based o
 P1  <|q|>What is use a wired or 2.4ghz keyboard?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P3  <|q|>How does use a wired or 2.4ghz keyboard work?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P5  <|q|>What about Wi-Fi and Bluetooth?<|a|>You won't find TUIs for Wi-Fi and Bluetooth — those jobs belong to the Omarchy shell. Click the Wi-Fi icon in the top bar (or hit `Super + Ctrl + N`) to see networks and connect, and click the Bluetooth icon (or hit `Super + Ctrl + B`) to pair and connect devices. See networking for the full story.<|end|>   (from omarchy/manual/21-tuis.md)
+S1+aug  <|q|>How do launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S2+aug  <|q|>What is the command to launch the default coding aegnt in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S3+aug  <|q|>quick question launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S4+aug  <|q|>in omarchy how can I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S5+aug  <|q|>I want to launch the default coding agent in a terminal. What I run?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S6+aug  <|q|>in omarchy which omarchy command will launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S7+aug  <|q|>is there a command to launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S8+aug  <|q|>What should I run to launch default the coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S9+aug  <|q|>please command to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S10+aug  <|q|>How to launch the default coding agent in a terminal on this machine<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S11+aug  <|q|>so in Omarchy, how do I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S12+aug  <|q|>Tell me how to launch the default coding agent in a terminal quickly<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S13+aug  <|q|>What do I type to launch the default coding agent a in terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S14+aug  <|q|>launch the coding default agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S15+aug  <|q|>please script to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S16+aug  <|q|>tell me command for launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S17+aug  <|q|>launch the default coding agent in a terminal command in omarchy<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S18+aug  <|q|>What command will launch the default coding agent in a terminal please?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S19+aug  <|q|>Which command do I use to launch the default coding agent in a terminal right now?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S20+aug  <|q|>please how would I launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S21+aug  <|q|>just wondering omarchy command to launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+S22+aug  <|q|>Launch the default agent coding in a terminal.<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+F1+aug  <|q|>can you tell me omarchy agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+F2+aug  <|q|>tell me agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H1+aug  <|q|>How do I launch the default coding agent in omarchy?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H2+aug  <|q|>hi launch the default coding agent<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H3+aug  <|q|>what is the command to launch the default coding agent?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+H4+aug  <|q|>How can I launch the default coding agent quickly?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y1+aug  <|q|>How I open the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y2+aug  <|q|>How can I open the default coing agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+Y3+aug  <|q|>tell me what is the command to open the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
+K1+aug  <|q|>i want to know what is the keybinding for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K2+aug  <|q|>What is shortcut for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K3+aug  <|q|>Keybindnig for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K4+aug  <|q|>i want to know hotkey for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K5+aug  <|q|>which keybinding triggers terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K6+aug  <|q|>What is the shotrcut key for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K7+aug  <|q|>What is the key for Terminal please?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K8+aug  <|q|>What is the hoteky for Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K9+aug  <|q|>What key is combination Terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K10+aug  <|q|>which keys do i press for terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K11+aug  <|q|>Terminal shortcut in omarchy<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K12+aug  <|q|>terminal keybinding<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K13+aug  <|q|>terminal hotkey<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K14+aug  <|q|>Terminal key in omarchy<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K15+aug  <|q|>ok shortcut for Terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K16+aug  <|q|>shortcut key for terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K17+aug  <|q|>Key for Terminal right now<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K18+aug  <|q|>Keyboard shortcut for Terminal quickly<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K19+aug  <|q|>What is the keyboard shortcut for Terminal thanks?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K20+aug  <|q|>Which shortcut is Terminal thanks?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K21+aug  <|q|>what do i press for terminal?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K22+aug  <|q|>keys for terminal<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K24+aug  <|q|>How do terminal with the keyboard?<|a|>SUPER + RETURN<|end|>   (from omarchy/default/hypr/bindings/applications.lua)
+K23+aug  <|q|>What is the shotcut key for taking Screenshot?<|a|>PRINT or SUPER + CTRL + ALT + C<|end|>   (from omarchy/default/hypr/bindings/utilities.lua)
+M1+aug  <|q|>How do I dwnidle vs scrolling layout?<|a|>hl.config({
+  general = {
+    layout = "scrolling",
+  },
+})<|end|>   (from omarchy/manual/04-navigation.md)
+M2+aug  <|q|>What is the for command rearranging the bar?<|a|>omarchy bar position bottom
+omarchy bar background glassy  # opaque, glassy, none, or cycle
+omarchy bar move omarchy.weather --section centerBegin --index 0
+omarchy bar move omarchy.bluetooth --section tray  # into the tray's drawer
+omarchy bar set omarchy.clock format "HH:mm"
+omarchy bar defaults          # back to the shipped layout<|end|>   (from omarchy/manual/05-the-top-bar.md)
+P2+aug  <|q|>Tell me about welcome to Omarhcy<|a|>Omarchy is an omakase Linux distribution based on Arch, the tiling window manager Hyprland, and the desktop construction-kit Quickshell. It ships with everything a modern, savvy computer user needs to be productive immediately. From Neovim (btw) to Chromium, Obsidian to LibreOffice, and Hype to Monologue. Hell, even a retro Winamp-style music player is there!<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+P4+aug  <|q|>Welcome to Omarchy again<|a|>Omarchy is an omakase Linux distribution based on Arch, the tiling window manager Hyprland, and the desktop construction-kit Quickshell. It ships with everything a modern, savvy computer user needs to be productive immediately. From Neovim (btw) to Chromium, Obsidian to LibreOffice, and Hype to Monologue. Hell, even a retro Winamp-style music player is there!<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+P1+aug  <|q|>what is use a wired or 2.4ghz keyboard?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
+P3+aug  <|q|>How does use a wired or 2.4ghz keyboard work again?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
+P5+aug  <|q|>What about and Wi-Fi Bluetooth?<|a|>You won't find TUIs for Wi-Fi and Bluetooth — those jobs belong to the Omarchy shell. Click the Wi-Fi icon in the top bar (or hit `Super + Ctrl + N`) to see networks and connect, and click the Bluetooth icon (or hit `Super + Ctrl + B`) to pair and connect devices. See networking for the full story.<|end|>   (from omarchy/manual/21-tuis.md)
+U1  <|q|>No it's not<|a|><|unknown|><|end|>   (from unknown)
+U2  <|q|>docker platform bat catalog synaptics<|a|><|unknown|><|end|>   (from unknown)
 
 # Verb synonyms (first word of the summary -> replacements)
 
@@ -190,16 +264,19 @@ find: search for, locate
 
 # Stats
 
+augmented questions: 45993
 descriptions with several keys: 16
-dropped: same question, different answer: 183
+dropped: exact duplicate: 257
+dropped: same question, different answer: 550
 keybindings parsed: 198
 manual code blocks: 34
 manual headings with prose: 278
 manual headings without a paragraph: 39
 non-imperative summaries (S3 only): 24
-pairs before dedupe: 23904
+pairs before dedupe: 72930
 summary heads: 305
 synonym forms: 767
-pairs after dedupe: 23721
+unknown questions: 3033
+pairs after dedupe: 72123
 held back as test (seed 42): 100
-pairs.txt: 23621
+pairs.txt: 72023

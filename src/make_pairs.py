@@ -13,6 +13,7 @@ import argparse
 import json
 import random
 import re
+import zlib
 from collections import Counter, OrderedDict
 from pathlib import Path
 
@@ -383,6 +384,80 @@ def prose_pairs(stats):
     return pairs
 
 
+# Augmentation (run-007): every question also appears in two noisy forms, chosen per question with a seed
+# derived from its text, so the model learns that the content words decide the answer.
+AUG_OPS = ("drop", "shuffle", "prefix", "suffix", "lower", "typo")
+AUG_PER_QUESTION = 2
+FILLER_PREFIX = ["hey", "hi", "please", "quick question", "in omarchy", "on omarchy", "can you tell me", "i want to know", "so", "ok", "just wondering", "tell me"]
+FILLER_SUFFIX = ["please", "thanks", "in omarchy", "on this machine", "quickly", "if possible", "right now", "again"]
+STOPWORDS = {"the", "a", "an", "is", "what", "how", "do", "i", "to", "for", "of", "in", "on", "my", "me", "it", "this", "that", "which", "with", "can", "you", "tell", "about", "does", "would", "should"}
+UNKNOWN = "<|unknown|>"
+UNKNOWN_COUNT = 3000
+CHITCHAT = ["No it's not", "hello", "hi", "thanks", "thank you", "what?", "why?", "ok", "yes", "no", "lol", "asdf", "test",
+            "who are you", "what can you do", "are you sure", "that is wrong", "wrong answer", "try again", "never mind",
+            "what time is it", "what is the weather", "tell me a joke", "how are you", "good morning", "bye", "help",
+            "I don't understand", "this does not work", "nothing happens", "it crashed", "what is linux", "how do I cook pasta"]
+
+
+def augment(q, rng):
+    out = []
+    for op in rng.sample(AUG_OPS, AUG_PER_QUESTION):
+        v = apply_op(op, q, rng)
+        if v and v != q:
+            out.append(v)
+    return out
+
+
+def apply_op(op, q, rng):
+    words = q.split()
+    if op == "drop" and len(words) >= 4:
+        idx = [i for i, w in enumerate(words) if w.lower().strip("?.,!") in STOPWORDS]
+        i = rng.choice(idx) if idx else rng.randrange(len(words))
+        return " ".join(words[:i] + words[i + 1:])
+    if op == "shuffle" and len(words) >= 3:
+        i = rng.randrange(len(words) - 1)
+        words[i], words[i + 1] = words[i + 1], words[i]
+        return " ".join(words)
+    if op == "prefix":
+        return f"{rng.choice(FILLER_PREFIX)} {q[0].lower() + q[1:]}"
+    if op == "suffix":
+        return q.rstrip("?.!") + " " + rng.choice(FILLER_SUFFIX) + ("?" if q.endswith("?") else "")
+    if op == "lower":
+        return q.lower()
+    if op == "typo":
+        idx = [i for i, w in enumerate(words) if len(w.strip("?.,!")) >= 5 and w.isalpha()]
+        if not idx:
+            return None
+        i = rng.choice(idx)
+        w = words[i]
+        j = rng.randrange(1, len(w) - 2)
+        words[i] = w[:j] + w[j + 1] + w[j] + w[j + 2:] if rng.random() < 0.5 else w[:j] + w[j + 1:]
+        return " ".join(words)
+    return None
+
+
+def augmented_pairs(pairs, stats):
+    out = []
+    for p in pairs:
+        rng = random.Random(zlib.crc32(p["q"].encode("utf-8")))
+        for v in augment(p["q"], rng):
+            out.append({**p, "q": v, "template": p["template"] + "+aug"})
+    stats["augmented questions"] = len(out)
+    return out
+
+
+def unknown_pairs(pairs, stats):
+    """Questions that match nothing: random strings of corpus words, and chit-chat. Answer: <|unknown|>."""
+    vocab = sorted({w.lower().strip("?.,!:") for p in pairs for w in p["q"].split() if w.isalpha() and w.lower() not in STOPWORDS})
+    rng = random.Random(7)
+    out = [{"q": c, "a": UNKNOWN, "source": "unknown", "template": "U1", "kind": "unknown"} for c in CHITCHAT]
+    for _ in range(UNKNOWN_COUNT):
+        q = " ".join(rng.choice(vocab) for _ in range(rng.randrange(3, 9)))
+        out.append({"q": q, "a": UNKNOWN, "source": "unknown", "template": "U2", "kind": "unknown"})
+    stats["unknown questions"] = len(out)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--test-seed", type=int, default=42)
@@ -391,6 +466,7 @@ def main():
 
     stats = Counter()
     raw = script_pairs(stats) + keybinding_pairs(stats) + manual_pairs(stats) + prose_pairs(stats)
+    raw = raw + augmented_pairs(raw, stats) + unknown_pairs(raw, stats)
     stats["pairs before dedupe"] = len(raw)
 
     answers = OrderedDict()
@@ -442,6 +518,8 @@ def main():
     for tid, template in PROSE_TEMPLATES + [PROSE_QUESTION_TEMPLATE]:
         lines.append(f"{tid}  {template}   -> the heading's first paragraph, at most {MAX_ANSWER_WORDS} words   ({per_template[tid]} pairs)")
     lines.append("kinds: " + ", ".join(f"{k} {n}" for k, n in sorted(Counter(p['kind'] for p in pairs).items())))
+    lines.append(f"augmentation: every question also in {AUG_PER_QUESTION} noisy forms from {AUG_OPS} (seed from the question text); "
+                 f"unknown: {len(CHITCHAT)} chit-chat lines (U1) and {UNKNOWN_COUNT} random corpus-word strings (U2) answer {UNKNOWN}")
     lines += ["", "# One example per template", ""]
     for tid, p in example.items():
         lines.append(f"{tid}  <|q|>{p['q']}<|a|>{p['a']}<|end|>   (from {p['source']})")
