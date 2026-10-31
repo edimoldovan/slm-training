@@ -1,0 +1,144 @@
+{
+  "run": "run-007",
+  "split": "valid",
+  "n": 3601,
+  "endpoint": null,
+  "exact_match": 0.9531474561655648,
+  "command_match": 0.9669445242885887,
+  "well_formed": 0.9882150043115838,
+  "tokens_per_s": 1253.8985633827235,
+  "by_kind": {
+    "command": {
+      "n": 2486,
+      "exact": 0.9646017699115044,
+      "command_or_first8": 0.9682220434432823,
+      "well_formed": 0.995172968624296
+    },
+    "key": {
+      "n": 834,
+      "exact": 0.9232613908872902,
+      "command_or_first8": 0.9700239808153477,
+      "well_formed": 0.9664268585131894
+    },
+    "prose": {
+      "n": 122,
+      "exact": 0.680327868852459,
+      "command_or_first8": 0.6885245901639344,
+      "well_formed": 0.9262295081967213
+    },
+    "snippet": {
+      "n": 6,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 153,
+      "exact": 0.9673202614379085,
+      "command_or_first8": 0.9673202614379085,
+      "well_formed": 0.9934640522875817
+    }
+  },
+  "worst": [
+    {
+      "q": "How do I launch Claude?",
+      "expected": "omarchy-agent-account-exec <claude|codex|grok> [args...]",
+      "got": "omarchy-install-chromium-claude"
+    },
+    {
+      "q": "omarchy agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-crash-mute [--] [<program>] [on|off|toggle]"
+    },
+    {
+      "q": "omarchy ascii",
+      "expected": "omarchy-ascii [text...]",
+      "got": "omarchy-theme-dir <theme-name>"
+    },
+    {
+      "q": "Tell me how to start or stop screen recording.",
+      "expected": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]",
+      "got": "omarchy-capture-screenrecording-process [--pid <pid>] [--signal INT|KILL]"
+    },
+    {
+      "q": "omarchy font current",
+      "expected": "omarchy-font-current",
+      "got": "omarchy-launch-terminal [--pid=<terminal-pid>] [command...]"
+    },
+    {
+      "q": "games retro install",
+      "expected": "omarchy-games-retro-install [core path-to-game]",
+      "got": "Install RetroArch by selecting _Install > Gaming > RetroArch_ from the Omarchy menu (`Super + Space`). It comes with the full set of libretro cores, so all the classic systems are covered."
+    },
+    {
+      "q": "hw aarch64 apple",
+      "expected": "omarchy-hw-aarch64-apple",
+      "got": "omarchy-hw-aarch64"
+    },
+    {
+      "q": "hyprland monitor laptop",
+      "expected": "omarchy-hyprland-monitor-laptop",
+      "got": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>"
+    },
+    {
+      "q": "input method",
+      "expected": "omarchy-input-method <status|cycle [back]|configure --seed|--defaults>",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "launch battlenet",
+      "expected": "omarchy-launch-battlenet [--with-mangohud]",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "How can I select a shell plugin?",
+      "expected": "omarchy-menu-plugin <enable|disable|clone|remove>",
+      "got": "omarchy-plugin-add [git-url] [--enable] [--yes]"
+    },
+    {
+      "q": "Record N1x hardware",
+      "expected": "omarchy-n1x-probe",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "remove gaming minecraft",
+      "expected": "omarchy-remove-gaming-minecraft",
+      "got": "omarchy-remove-gaming-lutris"
+    },
+    {
+      "q": "Monitor sleep preparation",
+      "expected": "omarchy-system-sleep-monitor",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "theme color",
+      "expected": "omarchy-theme-color [--file <colors.toml>] (--all | --raw | <key> [fallback])",
+      "got": "omarchy-theme-osc"
+    },
+    {
+      "q": "omarchy theme install",
+      "expected": "omarchy-theme-install [git-repo-url]",
+      "got": "omarchy-install-editor-helix"
+    },
+    {
+      "q": "Install a theme",
+      "expected": "omarchy-theme-install [git-repo-url]",
+      "got": "omarchy-install-editor-helix"
+    },
+    {
+      "q": "theme set obsidian",
+      "expected": "omarchy-theme-set-obsidian",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "omarchy toggle theme sync",
+      "expected": "omarchy-toggle-theme-sync",
+      "got": "omarchy-theme-set-claude [--activate]"
+    },
+    {
+      "q": "update boot",
+      "expected": "omarchy-update-boot",
+      "got": "omarchy-update-keyring"
+    }
+  ]
+}

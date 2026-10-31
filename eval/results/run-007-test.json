@@ -1,0 +1,52 @@
+{
+  "run": "run-007",
+  "split": "test",
+  "n": 100,
+  "endpoint": null,
+  "exact_match": 0.96,
+  "command_match": 0.97,
+  "well_formed": 0.99,
+  "tokens_per_s": 1141.766572245154,
+  "by_kind": {
+    "command": {
+      "n": 77,
+      "exact": 0.948051948051948,
+      "command_or_first8": 0.961038961038961,
+      "well_formed": 0.987012987012987
+    },
+    "key": {
+      "n": 18,
+      "exact": 1.0,
+      "command_or_first8": 1.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 5,
+      "exact": 1.0,
+      "command_or_first8": 1.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "provision owner",
+      "expected": "omarchy-provision-owner",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "Tell me how to let Chromium use the caeras of Snapdragon laptops.",
+      "expected": "omarchy-install-camera",
+      "got": "omarchy-install-video-decode"
+    },
+    {
+      "q": "reload Hleix configuration?",
+      "expected": "omarchy-restart-helix",
+      "got": "omarchy-restart-hyprctl"
+    },
+    {
+      "q": "Is there a command to send an Omarchy desktop notification?",
+      "expected": "omarchy-notification-send [--app-name <app-name>] [-g <glyph>] [-u <low|normal|critical>] [-i <icon>] [-t <ms>] [-r <id>] [-p] [--image <path-or-uri>] <headline> [description] [--exec <program> [args...]]",
+      "got": "omarchy-notification-send [--app-name <app-name>] [-g <glyph>] [-u <low|normal|critical>] [-i <icon>] [-t <ms>] [-r <id>] [-p] [--image <path-or-uri>] <headline> [description] [--exec <"
+    }
+  ]
+}

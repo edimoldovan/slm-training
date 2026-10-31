@@ -1,0 +1,144 @@
+{
+  "run": "run-007",
+  "split": "valid",
+  "n": 3601,
+  "endpoint": null,
+  "exact_match": 0.9542972118424835,
+  "command_match": 0.9689565967231963,
+  "well_formed": 0.9887898821500432,
+  "tokens_per_s": 1254.1189240102854,
+  "by_kind": {
+    "command": {
+      "n": 2486,
+      "exact": 0.9698310539018503,
+      "command_or_first8": 0.9742558326629123,
+      "well_formed": 0.99597747385358
+    },
+    "key": {
+      "n": 834,
+      "exact": 0.9256594724220624,
+      "command_or_first8": 0.973621103117506,
+      "well_formed": 0.9652278177458034
+    },
+    "prose": {
+      "n": 122,
+      "exact": 0.6065573770491803,
+      "command_or_first8": 0.6065573770491803,
+      "well_formed": 0.9590163934426229
+    },
+    "snippet": {
+      "n": 6,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 153,
+      "exact": 0.8954248366013072,
+      "command_or_first8": 0.8954248366013072,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "How do I launch Claude?",
+      "expected": "omarchy-agent-account-exec <claude|codex|grok> [args...]",
+      "got": "omarchy-agent-account-mode [claude|codex|grok] [manual|auto] [threshold]"
+    },
+    {
+      "q": "omarchy agent crash",
+      "expected": "omarchy-agent-crash <pid> [comm] [exe] [signal]",
+      "got": "omarchy-crash-watch"
+    },
+    {
+      "q": "omarchy ascii",
+      "expected": "omarchy-ascii [text...]",
+      "got": "omarchy-theme-dir <theme-name>"
+    },
+    {
+      "q": "Show idle",
+      "expected": "omarchy-debug-idle [log-lines]",
+      "got": "SUPER + CTRL + ALT + B"
+    },
+    {
+      "q": "omarchy font current",
+      "expected": "omarchy-font-current",
+      "got": "omarchy-launch-or-focus <window-pattern> <launch-command>"
+    },
+    {
+      "q": "hw aarch64 apple",
+      "expected": "omarchy-hw-aarch64-apple",
+      "got": "omarchy-hw-aarch64"
+    },
+    {
+      "q": "hyprland monitor internal",
+      "expected": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>",
+      "got": "omarchy-hyprland-monitor-focused"
+    },
+    {
+      "q": "hyprland monitor laptop",
+      "expected": "omarchy-hyprland-monitor-laptop",
+      "got": "omarchy-hyprland-monitor-internal <on|off|toggle|recover>"
+    },
+    {
+      "q": "omarchy launch webapp",
+      "expected": "omarchy-launch-webapp <url>",
+      "got": "omarchy-launch-or-focus-webapp <window-pattern> <url-and-flags...>"
+    },
+    {
+      "q": "Record N1x hardware",
+      "expected": "omarchy-n1x-probe",
+      "got": "omarchy-hw-aarch64-n1x"
+    },
+    {
+      "q": "remove gaming minecraft",
+      "expected": "omarchy-remove-gaming-minecraft",
+      "got": "omarchy-remove-gaming-xbox-cloud"
+    },
+    {
+      "q": "Lock the computer",
+      "expected": "omarchy-system-lock",
+      "got": "omarchy-hw-fingerprint"
+    },
+    {
+      "q": "How do I secure before suspend?",
+      "expected": "omarchy-system-sleep-lock",
+      "got": "omarchy-system-sleep-monitor"
+    },
+    {
+      "q": "Install a theme",
+      "expected": "omarchy-theme-install [git-repo-url]",
+      "got": "omarchy-install-editor-zed"
+    },
+    {
+      "q": "omarchy theme set browser policy",
+      "expected": "omarchy-theme-set-browser-policy <rrggbb>",
+      "got": "omarchy-theme-set-browser"
+    },
+    {
+      "q": "omarchy toggle theme sync",
+      "expected": "omarchy-toggle-theme-sync",
+      "got": "omarchy-theme-set-claude [--activate]"
+    },
+    {
+      "q": "weather icon",
+      "expected": "omarchy-weather-icon",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "Brightness up shortcut",
+      "expected": "XF86MonBrightnessUp",
+      "got": "XF86KbdBrightnessUp"
+    },
+    {
+      "q": "keyboard brightness down shortcut",
+      "expected": "XF86KbdBrightnessDown",
+      "got": "XF86MonBrightnessDown"
+    },
+    {
+      "q": "How do I microsoft apps?",
+      "expected": "Exec=omarchy-launch-webapp \"https://teams.cloud.microsoft/\" --user-data-dir=/absolute/path/to/work-browser-profile",
+      "got": "omarchy-remove-service-microsoft"
+    }
+  ]
+}
