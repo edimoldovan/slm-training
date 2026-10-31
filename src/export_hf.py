@@ -43,12 +43,12 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
 
     cfg = json.loads((run_dir / "config.json").read_text())
-    cfg.update({"architectures": ["LlamaForCausalLM"], "torch_dtype": "bfloat16", "bos_token_id": 1, "eos_token_id": 2})
+    cfg.update({"architectures": ["LlamaForCausalLM"], "torch_dtype": "float32", "bos_token_id": 1, "eos_token_id": 2})
 
     weights = mx.load(str(run_dir / args.checkpoint))
     if cfg.get("tie_word_embeddings") and "lm_head.weight" not in weights:
         weights["lm_head.weight"] = weights["model.embed_tokens.weight"]
-    weights = {k: v.astype(mx.bfloat16) for k, v in weights.items()}
+    weights = {k: v.astype(mx.float32) for k, v in weights.items()}  # float32: a bf16 export flipped near-tie answers vs the MLX checkpoint
     mx.save_safetensors(str(out / "model.safetensors"), weights, metadata={"format": "pt"})
 
     (out / "config.json").write_text(json.dumps(cfg, indent=2) + "\n")

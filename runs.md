@@ -71,7 +71,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 - Level 4, sealed test (61 command, 13 key, 22 pointer, 1 prose, 3 unknown), Mac (`eval/results/run-008-test.json`): exact 0.949, command 0.970, well-formed 0.980; pointers 21 of 22, unknown 3 of 3.
 - Free wordings at step 8,268: `how do I adjust screen resolution?` → `See Monitors`; `how do I make text bigger` → `See Monitors › Making text bigger or smaller`; `where do I change monitor scaling` → `See Monitors`; `how do i connect bluetooth headphones` → `See The Top Bar`; `what is the shortcut key for screenshots?` → `PRINT or SUPER + CTRL + ALT + C`; `How do I update Omarchy?` → `omarchy-update [-y]`. Wrong: `screen resolution` → `See Branding › About screen`; `update omarchy pls` → `omarchy-update-confirm`; `whats the keybind for the terminal` → `SUPER + SHIFT + TAB`; `No it's not` → a manual paragraph (was `<|unknown|>` in run-007); `how do i cook pasta` → a pointer instead of `<|unknown|>`.
-- Export: `hf/run-008`, `gguf/run-008-Q8_0.gguf`, SHA-256 `5c6024e0891c8f7ff862ed445837a89ed9799d7950e53c2bf2234f26f50ba639`. Copied to the Omarchy box as `~/models/run-008-Q8_0.gguf`; `~/models/omaslm.gguf` links to it.
+- Export: `hf/run-008`, `gguf/run-008-Q8_0.gguf`, SHA-256 `b73c349aedfbf03e4e98324a61e897759d2c6625a8a34a1a66529f32d71d3d49`. The export now writes float32 weights (the earlier bfloat16 export made llama.cpp flip near-tie answers, e.g. `how do I make text bigger` → `See Branding › Screensaver` instead of MLX's `See Monitors › Making text bigger or smaller`); f16 GGUF then Q8_0 as before. Copied to the Omarchy box as `~/models/run-008-Q8_0.gguf`; `~/models/omaslm.gguf` links to it.
 
 ### run-007 results (2026-10-31), shipped
 
