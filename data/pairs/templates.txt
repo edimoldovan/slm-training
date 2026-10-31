@@ -62,7 +62,11 @@ P2  Tell me about {heading}   -> the heading's first paragraph, at most 90 words
 P3  How does {heading} work?   -> the heading's first paragraph, at most 90 words   (218 pairs)
 P4  {Heading}   -> the heading's first paragraph, at most 90 words   (261 pairs)
 P5  {Heading}   -> the heading's first paragraph, at most 90 words   (14 pairs)
-kinds: command 49894, key 16382, prose 2714, snippet 100, unknown 3033
+W1  {kws}   [kws = a manual section's 6 most distinctive words, and 2- and 3-word subsets]   -> See <page> or See <page> › <heading>   (1495 pairs)
+W2  how do I {kws}   [kws = a manual section's 6 most distinctive words, and 2- and 3-word subsets]   -> See <page> or See <page> › <heading>   (1500 pairs)
+W3  where do I {kws}   [kws = a manual section's 6 most distinctive words, and 2- and 3-word subsets]   -> See <page> or See <page> › <heading>   (1500 pairs)
+W4  how do I change {kws}   [kws = a manual section's 6 most distinctive words, and 2- and 3-word subsets]   -> See <page> or See <page> › <heading>   (1498 pairs)
+kinds: command 49894, key 16382, pointer 16817, prose 2710, snippet 100, unknown 3033
 augmentation: every question also in 2 noisy forms from ('drop', 'shuffle', 'prefix', 'suffix', 'lower', 'typo') (seed from the question text); unknown: 33 chit-chat lines (U1) and 3000 random corpus-word strings (U2) answer <|unknown|>
 
 # One example per template
@@ -138,6 +142,10 @@ P4  <|q|>Welcome to Omarchy<|a|>Omarchy is an omakase Linux distribution based o
 P1  <|q|>What is use a wired or 2.4ghz keyboard?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P3  <|q|>How does use a wired or 2.4ghz keyboard work?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P5  <|q|>What about Wi-Fi and Bluetooth?<|a|>You won't find TUIs for Wi-Fi and Bluetooth — those jobs belong to the Omarchy shell. Click the Wi-Fi icon in the top bar (or hit `Super + Ctrl + N`) to see networks and connect, and click the Bluetooth icon (or hit `Super + Ctrl + B`) to pair and connect devices. See networking for the full story.<|end|>   (from omarchy/manual/21-tuis.md)
+W1  <|q|>tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W2  <|q|>how do I tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W3  <|q|>where do I tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W4  <|q|>how do I change tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
 S1+aug  <|q|>How do launch the default coding agent in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S2+aug  <|q|>What is the command to launch the default coding aegnt in a terminal?<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
 S3+aug  <|q|>quick question launch the default coding agent in a terminal<|a|>omarchy-agent [--inline] [--pick]<|end|>   (from omarchy/bin/omarchy-agent)
@@ -209,8 +217,12 @@ P4+aug  <|q|>Welcome to Omarchy again<|a|>Omarchy is an omakase Linux distributi
 P1+aug  <|q|>what is use a wired or 2.4ghz keyboard?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P3+aug  <|q|>How does use a wired or 2.4ghz keyboard work again?<|a|>The full-disk encryption won't allow you to enter the password from a Bluetooth keyboard at startup. Just like you can't use a Bluetooth keyboard to enter the BIOS on a PC. You'll need a keyboard that either uses a 2.4ghz dongle or a cable (which is much nicer for latency anyway!). I personally love the Lofree Flow84!<|end|>   (from omarchy/manual/02-getting-started.md)
 P5+aug  <|q|>What about and Wi-Fi Bluetooth?<|a|>You won't find TUIs for Wi-Fi and Bluetooth — those jobs belong to the Omarchy shell. Click the Wi-Fi icon in the top bar (or hit `Super + Ctrl + N`) to see networks and connect, and click the Bluetooth icon (or hit `Super + Ctrl + B`) to pair and connect devices. See networking for the full story.<|end|>   (from omarchy/manual/21-tuis.md)
+W1+aug  <|q|>on omarchy tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W2+aug  <|q|>how do i tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W3+aug  <|q|>where I do tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
+W4+aug  <|q|>ok how do I change tiling system productivity beautiful heavy trying<|a|>See Welcome to Omarchy<|end|>   (from omarchy/manual/01-welcome-to-omarchy.md)
 U1  <|q|>No it's not<|a|><|unknown|><|end|>   (from unknown)
-U2  <|q|>docker platform bat catalog synaptics<|a|><|unknown|><|end|>   (from unknown)
+U2  <|q|>controlling likely services authorization bit<|a|><|unknown|><|end|>   (from unknown)
 
 # Verb synonyms (first word of the summary -> replacements)
 
@@ -264,19 +276,20 @@ find: search for, locate
 
 # Stats
 
-augmented questions: 45993
+augmented questions: 56894
 descriptions with several keys: 16
-dropped: exact duplicate: 257
-dropped: same question, different answer: 550
+dropped: exact duplicate: 263
+dropped: same question, different answer: 672
 keybindings parsed: 198
 manual code blocks: 34
 manual headings with prose: 278
 manual headings without a paragraph: 39
 non-imperative summaries (S3 only): 24
-pairs before dedupe: 72930
+pairs before dedupe: 89871
+pointer sections: 302
 summary heads: 305
 synonym forms: 767
 unknown questions: 3033
-pairs after dedupe: 72123
+pairs after dedupe: 88936
 held back as test (seed 42): 100
-pairs.txt: 72023
+pairs.txt: 88836

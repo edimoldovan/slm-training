@@ -11,6 +11,7 @@ data/pairs/templates.txt (every template, for review) and data/test/prompts.json
 """
 import argparse
 import json
+import math
 import random
 import re
 import zlib
@@ -458,6 +459,95 @@ def unknown_pairs(pairs, stats):
     return out
 
 
+# Pointer answers (run-008): questions made of a manual section's distinctive words answer with where to look,
+# "See <page>" or "See <page> › <heading>", so the app can open the manual there.
+POINTER_STOP = STOPWORDS | {"omarchy", "use", "using", "used", "also", "just", "like", "will", "your", "you", "from", "into", "than",
+                           "them", "they", "then", "there", "here", "when", "where", "some", "any", "all", "have", "has", "not",
+                           "but", "and", "or", "if", "so", "as", "at", "by", "be", "are", "was", "were", "get", "set", "one", "two",
+                           "want", "need", "make", "see", "via", "run", "runs", "its", "our", "out", "up", "off", "over", "more",
+                           "most", "very", "each", "every", "other", "only", "own", "same", "new", "default", "command", "menu",
+                           "isn", "don", "doesn", "didn", "won", "couldn", "wouldn", "shouldn", "aren", "wasn", "weren", "hasn", "haven",
+                           "that", "this", "with", "for", "the", "and", "you", "can", "how", "what", "which", "who", "why", "it"}
+POINTER_WORDS = 6
+POINTER_TEMPLATES = [
+    ("W1", "{kws}"),
+    ("W2", "how do I {kws}"),
+    ("W3", "where do I {kws}"),
+    ("W4", "how do I change {kws}"),
+]
+
+
+def section_words(lines, start):
+    """The words of a section after a heading, up to the next heading; code blocks skipped."""
+    words, in_fence = [], False
+    for line in lines[start:]:
+        if HEADING_RE.match(line) and not in_fence:
+            break
+        if FENCE_RE.match(line):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        for w in re.findall(r"[A-Za-z]{3,}", LINK_RE.sub(r"\1", line)):
+            w = w.lower()
+            if w not in POINTER_STOP:
+                words.append(w)
+    return words
+
+
+def pointer_pairs(stats):
+    pairs = []
+    if not MANUAL.is_dir():
+        return pairs
+    sections = []  # (source, page title, heading or None, words)
+    for path in sorted(MANUAL.glob("*.md")):
+        source = str(path.relative_to(RAW))
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+        title = next((HEADING_RE.match(l).group(1).strip().rstrip("!.:") for l in lines if l.startswith("# ")), path.stem)
+        in_fence = False
+        for i, line in enumerate(lines):
+            if FENCE_RE.match(line):
+                in_fence = not in_fence
+                continue
+            h = HEADING_RE.match(line)
+            if not h or in_fence:
+                continue
+            level = len(line) - len(line.lstrip("#"))
+            heading = h.group(1).strip().rstrip("!.:")
+            words = section_words(lines, i + 1)
+            if len(words) < 8:
+                continue
+            sections.append((source, title, None if level == 1 else heading, words))
+    df = Counter()
+    for _, _, _, words in sections:
+        df.update(set(words))
+    n = len(sections)
+    for source, title, heading, words in sections:
+        tf = Counter(words)
+        # distinctive = frequent here and rare elsewhere; a word seen in one section only must occur twice there
+        candidates = [w for w in tf if df[w] >= 2 or tf[w] >= 2]
+        scored = sorted(candidates, key=lambda w: -(tf[w] * math.log((n + 1) / (df[w] + 1))))
+        top = set(scored[:POINTER_WORDS])
+        kws = [w for w in dict.fromkeys(words) if w in top]  # distinctive words in text order
+        if heading:
+            for w in re.findall(r"[A-Za-z][A-Za-z-]+", heading):
+                if w.lower() not in POINTER_STOP and w.lower() not in kws:
+                    kws.insert(0, w.lower())
+        answer = f"See {title}" if heading is None else f"See {title} › {heading}"
+        kws = kws[:POINTER_WORDS]
+        subsets = [kws, kws[:3], kws[-3:], kws[:2], kws[1:3]]
+        seen = set()
+        for sub in subsets:
+            if len(sub) < 2 or tuple(sub) in seen:
+                continue
+            seen.add(tuple(sub))
+            text = " ".join(sub)
+            for tid, template in POINTER_TEMPLATES:
+                pairs.append({"q": template.format(kws=text), "a": answer, "source": source, "template": tid, "kind": "pointer"})
+        stats["pointer sections"] += 1
+    return pairs
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--test-seed", type=int, default=42)
@@ -465,7 +555,7 @@ def main():
     args = ap.parse_args()
 
     stats = Counter()
-    raw = script_pairs(stats) + keybinding_pairs(stats) + manual_pairs(stats) + prose_pairs(stats)
+    raw = script_pairs(stats) + keybinding_pairs(stats) + manual_pairs(stats) + prose_pairs(stats) + pointer_pairs(stats)
     raw = raw + augmented_pairs(raw, stats) + unknown_pairs(raw, stats)
     stats["pairs before dedupe"] = len(raw)
 
@@ -517,6 +607,8 @@ def main():
         lines.append(f"{tid}  {template}   -> fenced code block under the heading   ({per_template[tid]} pairs)")
     for tid, template in PROSE_TEMPLATES + [PROSE_QUESTION_TEMPLATE]:
         lines.append(f"{tid}  {template}   -> the heading's first paragraph, at most {MAX_ANSWER_WORDS} words   ({per_template[tid]} pairs)")
+    for tid, template in POINTER_TEMPLATES:
+        lines.append(f"{tid}  {template}   [kws = a manual section's {POINTER_WORDS} most distinctive words, and 2- and 3-word subsets]   -> See <page> or See <page> › <heading>   ({per_template[tid]} pairs)")
     lines.append("kinds: " + ", ".join(f"{k} {n}" for k, n in sorted(Counter(p['kind'] for p in pairs).items())))
     lines.append(f"augmentation: every question also in {AUG_PER_QUESTION} noisy forms from {AUG_OPS} (seed from the question text); "
                  f"unknown: {len(CHITCHAT)} chit-chat lines (U1) and {UNKNOWN_COUNT} random corpus-word strings (U2) answer {UNKNOWN}")
