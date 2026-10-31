@@ -71,7 +71,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 - Level 4, sealed test (61 command, 13 key, 22 pointer, 1 prose, 3 unknown), Mac (`eval/results/run-008-test.json`): exact 0.949, command 0.970, well-formed 0.980; pointers 21 of 22, unknown 3 of 3.
 - Free wordings at step 8,268: `how do I adjust screen resolution?` → `See Monitors`; `how do I make text bigger` → `See Monitors › Making text bigger or smaller`; `where do I change monitor scaling` → `See Monitors`; `how do i connect bluetooth headphones` → `See The Top Bar`; `what is the shortcut key for screenshots?` → `PRINT or SUPER + CTRL + ALT + C`; `How do I update Omarchy?` → `omarchy-update [-y]`. Wrong: `screen resolution` → `See Branding › About screen`; `update omarchy pls` → `omarchy-update-confirm`; `whats the keybind for the terminal` → `SUPER + SHIFT + TAB`; `No it's not` → a manual paragraph (was `<|unknown|>` in run-007); `how do i cook pasta` → a pointer instead of `<|unknown|>`.
-- Export: `hf/run-008`, `gguf/run-008-Q8_0.gguf`, SHA-256 `b73c349aedfbf03e4e98324a61e897759d2c6625a8a34a1a66529f32d71d3d49`. The export now writes float32 weights (the earlier bfloat16 export made llama.cpp flip near-tie answers, e.g. `how do I make text bigger` → `See Branding › Screensaver` instead of MLX's `See Monitors › Making text bigger or smaller`); f16 GGUF then Q8_0 as before. Copied to the Omarchy box as `~/models/run-008-Q8_0.gguf`; `~/models/omaslm.gguf` links to it.
+- Export: `hf/run-008`, `gguf/run-008-Q8_0.gguf`, SHA-256 `b73c349aedfbf03e4e98324a61e897759d2c6625a8a34a1a66529f32d71d3d49`. The export now writes float32 weights (the earlier bfloat16 export made llama.cpp flip near-tie answers, e.g. `how do I make text bigger` → `See Branding › Screensaver` instead of MLX's `See Monitors › Making text bigger or smaller`); f16 GGUF then Q8_0 as before. Q8_0 still flips that answer, so the shipped file is the f16 GGUF: `gguf/run-008-f16.gguf`, 67,589,856 bytes, SHA-256 `efab1b4f52a6a203cbd115b7c463783f614519ba27aa4e2cf04bbf8781331ad9`, linked as `~/models/omaslm.gguf` on the box. Q8_0 stays for the training repo's committed run-006 model only. Copied to the Omarchy box as `~/models/run-008-Q8_0.gguf`; `~/models/omaslm.gguf` links to it.
 
 ### run-007 results (2026-10-31), shipped
 
@@ -228,7 +228,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 ## Sign-off
 
-Shipped: run-008 `step-8268.safetensors` → `gguf/run-008-Q8_0.gguf` (2026-10-31, after run-007 the same day). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
+Shipped: run-008 `step-8268.safetensors` → `gguf/run-008-f16.gguf` (2026-10-31; f16, since Q8_0 flipped a near-tie pointer answer). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
 
 | Check | Threshold | Mac | AMD |
 | --- | --- | --- | --- |
