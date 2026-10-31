@@ -51,10 +51,27 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 | run-001 | 8, 512 (29.5M, float32) | 1,533 | 6e-4 | 3.170 (valid.txt) | 500 | 65k → 42k | Samples from step 500: well-formed commands, wrong ones (`omarchy-update-aur-pkgs` for "update Omarchy"). Final step 1,533: pairs-only val loss 0.52, level 3 command match 0.916, exact 0.867, well-formed 0.995. Shipping candidate from this run: `step-1533.safetensors`. |
 | run-002 | 8, 512 (29.5M, float32) | 3,066 | 6e-4 | 3.172 (valid.txt) | 500 | 66k → 46k | One change: steps doubled. Level 3 peaks at step 3,000: command 0.972, exact 0.956, well-formed 0.995. Free-phrased prompts still wrong. Shipping candidate: `step-3000.safetensors`. |
 | run-003 | 8, 512 (29.5M, float32) | 3,418 | 6e-4 | 2.956 (valid.txt) | 500 | 66k → 45k | One change: extended question templates; corpus rebuilt, tokenizer unchanged; steps = 2 × formula. Level 3 at step 3,418 on 714 held-out pairs: command 0.940, exact 0.933, well-formed 0.996, still rising at the end. Free-phrased prompts now right for update, Terminal keybinding, screenshot. |
+| run-008 | 8, 512 (29.5M, float32) | 8,268 | 6e-4 | 1.725 (valid.txt) | 1,000 | 49k → 48k | One change: pointer answers (`See <page>` / `See <page> › <heading>`) from each manual section's six most distinctive words and their 2- and 3-word subsets, 16,817 pairs before noise; 88,936 pairs, 3.39M tokens (20 epochs × 4). Shipped step 8,268: on 4,442 held-out pairs commands 0.960 exact, keys 0.930, pointers 0.878, prose 0.699, unknown 0.892; sealed test exact 0.949, command 0.970, well-formed 0.980. |
 | run-007 | 8, 512 (29.5M, float32) | 7,308 | 6e-4 | 1.838 (valid.txt) | 900 | 50k → 48k | One change: every question also in two noisy forms (dropped word, swapped words, filler prefix or suffix, lowercase, typo) and 3,033 no-match questions answering `<|unknown|>`; 72,123 pairs, 2.99M tokens (20 epochs × 4). Shipped step 7,000: on 3,601 held-out pairs commands 0.965 exact, keys 0.923, prose 0.680, unknown 0.967; sealed test exact 0.960, command 0.970, well-formed 0.990. |
 | run-006 | 8, 512 (29.5M, float32) | 8,084 | 6e-4 | 2.593 (valid.txt) | 600 | 49k → 47k | One change: 24 keybinding wordings (lowercase and plural forms, both keys when a description has two) and 7 more command wordings; 23,721 pairs. Best at step 8,084 on 1,181 held-out pairs: command-like exact 0.955, command 0.963; keys exact 0.976; commands 0.953; prose exact 0.660. **Shipped: `step-8084.safetensors`.** Sealed test: command-like exact 0.968, command 0.979, well-formed 0.979. |
 | run-005 | 8, 512 (29.5M, float32) | 7,168 | 6e-4 | 2.829 (valid.txt) | 600 | 50k → 48k | One change: manual prose pairs added. Best at step 7,000: command-like pairs command 0.953, exact 0.953, well-formed 0.997; prose (36 held-out) exact 0.667, first eight words 0.694, well-formed 0.861. **Shipped: `step-7000.safetensors`.** Sealed test: command-like 0.967 / 0.989, prose 1 of 3. |
 | run-004 | 8, 512 (29.5M, float32) | 6,836 | 6e-4 | 2.960 (valid.txt) | 500 | 66k → 45k | One change: steps doubled again. Level 3 peaks at step 6,500: command 0.945, exact 0.944, well-formed 0.997. **Shipped: `step-6500.safetensors`.** Sealed test on the Mac: command 0.940, exact 0.940, well-formed 1.000. |
+
+### run-008 results (2026-10-31), shipped
+
+- Owner report: "how do I adjust screen resolution?" answered `omarchy-transcode`; the right answer is a pointer to the manual's Monitors page. Change: `make_pairs.py` scores each manual section's words by frequency in the section times rarity across sections (a word seen in one section only must occur twice there), takes the six best in text order plus the heading's words, and makes questions from that set and its 2- and 3-word subsets with templates W1–W4 (`{kws}`, `how do I {kws}`, `where do I {kws}`, `how do I change {kws}`); the answer is `See <page>` for a page's own section and `See <page> › <heading>` below it. 302 sections, 16,817 pointer pairs, plus two noisy forms each. Totals: 88,936 pairs after dedupe (command 49,894, key 16,382, pointer 16,817, prose 2,710, snippet 100, unknown 3,033); 3,386,256 train tokens; steps 4 × round(20 × tokens / 32,768) = 8,268.
+- The omaslm app renders a pointer as text with an "Open manual" button (omarchy.org/manual/<page>/#<heading>), and its constrained decoding also limits pointer answers to the manual's real page and heading names (`src/manual.rs`, generated from the corpus).
+- Level 3 on the 4,442 held-out pairs:
+
+| checkpoint | commands exact | keys exact | pointers exact | prose exact | unknown exact |
+| --- | --- | --- | --- | --- | --- |
+| step-7000 | 0.962 | 0.912 | 0.861 | 0.669 | 0.581 |
+| step-8000 | 0.960 | 0.935 | 0.860 | 0.744 | 0.831 |
+| step-8268 (final) | 0.960 | 0.930 | 0.878 | 0.699 | 0.892 |
+
+- Level 4, sealed test (61 command, 13 key, 22 pointer, 1 prose, 3 unknown), Mac (`eval/results/run-008-test.json`): exact 0.949, command 0.970, well-formed 0.980; pointers 21 of 22, unknown 3 of 3.
+- Free wordings at step 8,268: `how do I adjust screen resolution?` → `See Monitors`; `how do I make text bigger` → `See Monitors › Making text bigger or smaller`; `where do I change monitor scaling` → `See Monitors`; `how do i connect bluetooth headphones` → `See The Top Bar`; `what is the shortcut key for screenshots?` → `PRINT or SUPER + CTRL + ALT + C`; `How do I update Omarchy?` → `omarchy-update [-y]`. Wrong: `screen resolution` → `See Branding › About screen`; `update omarchy pls` → `omarchy-update-confirm`; `whats the keybind for the terminal` → `SUPER + SHIFT + TAB`; `No it's not` → a manual paragraph (was `<|unknown|>` in run-007); `how do i cook pasta` → a pointer instead of `<|unknown|>`.
+- Export: `hf/run-008`, `gguf/run-008-Q8_0.gguf`, SHA-256 `5c6024e0891c8f7ff862ed445837a89ed9799d7950e53c2bf2234f26f50ba639`. Copied to the Omarchy box as `~/models/run-008-Q8_0.gguf`; `~/models/omaslm.gguf` links to it.
 
 ### run-007 results (2026-10-31), shipped
 
@@ -211,7 +228,7 @@ Corpus under 2M tokens → 40 epochs. Tokens per step = 32 × 1,024 = 32,768. St
 
 ## Sign-off
 
-Shipped: run-007 `step-7000.safetensors` → `gguf/run-007-Q8_0.gguf` (2026-10-31). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
+Shipped: run-008 `step-8268.safetensors` → `gguf/run-008-Q8_0.gguf` (2026-10-31, after run-007 the same day). The run-004 rows below stand as the last full Mac-and-AMD measurement; run-005's Mac numbers are in its section (command-like 0.967 / 0.989 on the regenerated sealed test).
 
 | Check | Threshold | Mac | AMD |
 | --- | --- | --- | --- |

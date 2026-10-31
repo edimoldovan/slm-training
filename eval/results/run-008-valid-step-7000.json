@@ -1,0 +1,150 @@
+{
+  "run": "run-008",
+  "split": "valid",
+  "n": 4442,
+  "endpoint": null,
+  "exact_match": 0.9194708749129729,
+  "command_match": 0.9566024599675098,
+  "well_formed": 0.9925736829890925,
+  "tokens_per_s": 1255.343135187936,
+  "by_kind": {
+    "command": {
+      "n": 2549,
+      "exact": 0.9615535504119262,
+      "command_or_first8": 0.9650843468026677,
+      "well_formed": 0.9960768928991761
+    },
+    "key": {
+      "n": 815,
+      "exact": 0.9116564417177914,
+      "command_or_first8": 0.9656441717791411,
+      "well_formed": 0.9730061349693252
+    },
+    "pointer": {
+      "n": 792,
+      "exact": 0.8611111111111112,
+      "command_or_first8": 0.9962121212121212,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 133,
+      "exact": 0.6691729323308271,
+      "command_or_first8": 0.6766917293233082,
+      "well_formed": 0.9473684210526315
+    },
+    "snippet": {
+      "n": 5,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 148,
+      "exact": 0.581081081081081,
+      "command_or_first8": 0.581081081081081,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "What is the command to launch the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-agent-prompt [--inline] <prompt...>"
+    },
+    {
+      "q": "omarchy agent account remove",
+      "expected": "omarchy-agent-account-remove [claude|codex|grok] <account>",
+      "got": "omarchy-agent-account-use [claude|codex|grok] [account|next]"
+    },
+    {
+      "q": "audio output set default",
+      "expected": "omarchy-audio-output-set-default <node-id> <sink-name>",
+      "got": "omarchy-audio-output-switch"
+    },
+    {
+      "q": "omarchy battery present",
+      "expected": "omarchy-battery-present",
+      "got": "omarchy-battery-low <percentage>"
+    },
+    {
+      "q": "branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "See Branding › Screensaver"
+    },
+    {
+      "q": "dev link",
+      "expected": "omarchy-dev-link <path-to-checkout> [--no-reboot]",
+      "got": "omarchy-dev-add-migration [--no-edit]"
+    },
+    {
+      "q": "omarchy font set",
+      "expected": "omarchy-font-set <font-name>",
+      "got": "omarchy-font-current"
+    },
+    {
+      "q": "omarchy hw display",
+      "expected": "omarchy-hw-display",
+      "got": "omarchy-hyprland-monitor-focused-apple [monitor]"
+    },
+    {
+      "q": "omarchy hw hybrid gpu",
+      "expected": "omarchy-hw-hybrid-gpu",
+      "got": "omarchy-toggle-hybrid-gpu"
+    },
+    {
+      "q": "omarchy hyprland workspace layout default",
+      "expected": "omarchy-hyprland-workspace-layout-default [dwindle|scrolling|floating]",
+      "got": "omarchy-hyprland-workspace-layout-current [workspace-id]"
+    },
+    {
+      "q": "omarchy hyprland workspace layout toggle",
+      "expected": "omarchy-hyprland-workspace-layout-toggle [back]",
+      "got": "omarchy-hyprland-workspace-layout-current [workspace-id]"
+    },
+    {
+      "q": "omarchy install and launch",
+      "expected": "omarchy-install-and-launch <display-name> <packages> <desktop-id>",
+      "got": "omarchy-install-service-signal"
+    },
+    {
+      "q": "install docker dbs",
+      "expected": "omarchy-install-docker-dbs",
+      "got": "See Windows VM › Using it"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "See Development Tools › Removing and restoring defaults"
+    },
+    {
+      "q": "omarchy installed service dropbox",
+      "expected": "omarchy-installed-service-dropbox",
+      "got": "omarchy-remove-service-dropbox"
+    },
+    {
+      "q": "How do I launch a TUI?",
+      "expected": "omarchy-launch-or-focus-tui [--app-id=<app-id>] <command> [args...]",
+      "got": "omarchy-launch-tui [--app-id=<app-id>] <command> [args...]"
+    },
+    {
+      "q": "menu keybindings",
+      "expected": "omarchy-menu-keybindings",
+      "got": "omarchy-menu-herdr-keybindings [--print|-p] [--config <path>]"
+    },
+    {
+      "q": "omarchy network qr",
+      "expected": "omarchy-network-qr [--meta] [interface]",
+      "got": "omarchy-network-band [auto|2.4|5|6]"
+    },
+    {
+      "q": "notification weather",
+      "expected": "omarchy-notification-weather",
+      "got": "See Notices › Weather"
+    },
+    {
+      "q": "Returns true if external power is connected",
+      "expected": "omarchy-power-present",
+      "got": "omarchy-hw-recover-internal-monitor"
+    }
+  ]
+}

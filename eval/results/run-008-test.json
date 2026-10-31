@@ -1,0 +1,79 @@
+{
+  "run": "run-008",
+  "split": "test",
+  "n": 100,
+  "endpoint": null,
+  "exact_match": 0.9494949494949495,
+  "command_match": 0.9696969696969697,
+  "well_formed": 0.9797979797979798,
+  "tokens_per_s": 1158.0627159807748,
+  "by_kind": {
+    "command": {
+      "n": 61,
+      "exact": 0.9344262295081968,
+      "command_or_first8": 0.9508196721311475,
+      "well_formed": 0.9836065573770492
+    },
+    "key": {
+      "n": 13,
+      "exact": 1.0,
+      "command_or_first8": 1.0,
+      "well_formed": 0.9230769230769231
+    },
+    "pointer": {
+      "n": 22,
+      "exact": 0.9545454545454546,
+      "command_or_first8": 1.0,
+      "well_formed": 1.0
+    },
+    "prose": {
+      "n": 1,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 3,
+      "exact": 1.0,
+      "command_or_first8": 1.0,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "provision owner",
+      "expected": "omarchy-provision-owner",
+      "got": "See Getting Started › Installing for another owner"
+    },
+    {
+      "q": "Preview an Omarhcy theme palette",
+      "expected": "omarchy-dev-theme-preview [theme-name|theme-dir|colors.toml] [--no-color] [--no-osc|--osc]",
+      "got": "omarchy-theme-color [--file <colors.toml>] (--all | --raw | <key> [fallback])"
+    },
+    {
+      "q": "returns true if external power is connected",
+      "expected": "omarchy-power-present",
+      "got": "omarchy-hw-recover-internal-monitor"
+    },
+    {
+      "q": "Tell me about unloks",
+      "expected": "Themes can also have a custom unlock design, which is used for the boot decryption process. You can select one of these under _Appearance > Unlock_. They look like this:",
+      "got": "The Steam Deck runs on Arch, which means you can run Omarchy on your Steam Deck. Altynbek Orumbayev has a full setup script and explanation on how to do it. How cool is that!"
+    },
+    {
+      "q": "Is there a command to send an Omarchy desktop notification?",
+      "expected": "omarchy-notification-send [--app-name <app-name>] [-g <glyph>] [-u <low|normal|critical>] [-i <icon>] [-t <ms>] [-r <id>] [-p] [--image <path-or-uri>] <headline> [description] [--exec <program> [args...]]",
+      "got": "omarchy-notification-send [--app-name <app-name>] [-g <glyph>] [-u <low|normal|critical>] [-i <icon>] [-t <ms>] [-r <id>] [-p] [--image <path-or-uri>] <headline> [description] [--exec <"
+    },
+    {
+      "q": "just wondering hotkey for Previous window in group",
+      "expected": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up",
+      "got": "SUPER + ALT + SHIFT + TAB or SUPER + ALT + mouse_up"
+    },
+    {
+      "q": "chromuim ship",
+      "expected": "See FAQ › Why can't I sign into my Google account in Chromium?",
+      "got": "See Coming From Mac or Windows › Super is the center of everything"
+    }
+  ]
+}

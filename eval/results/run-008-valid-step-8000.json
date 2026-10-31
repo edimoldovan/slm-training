@@ -1,0 +1,150 @@
+{
+  "run": "run-008",
+  "split": "valid",
+  "n": 4442,
+  "endpoint": null,
+  "exact_match": 0.9313065676491066,
+  "command_match": 0.9624042701322812,
+  "well_formed": 0.9911812485495475,
+  "tokens_per_s": 1254.0440869873478,
+  "by_kind": {
+    "command": {
+      "n": 2549,
+      "exact": 0.9595919968615143,
+      "command_or_first8": 0.9635151039623382,
+      "well_formed": 0.9952922714790113
+    },
+    "key": {
+      "n": 815,
+      "exact": 0.9349693251533743,
+      "command_or_first8": 0.9779141104294479,
+      "well_formed": 0.9705521472392638
+    },
+    "pointer": {
+      "n": 792,
+      "exact": 0.8598484848484849,
+      "command_or_first8": 0.9722222222222222,
+      "well_formed": 0.9974747474747475
+    },
+    "prose": {
+      "n": 133,
+      "exact": 0.7443609022556391,
+      "command_or_first8": 0.7518796992481203,
+      "well_formed": 0.9398496240601504
+    },
+    "snippet": {
+      "n": 5,
+      "exact": 0.2,
+      "command_or_first8": 0.2,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 148,
+      "exact": 0.831081081081081,
+      "command_or_first8": 0.831081081081081,
+      "well_formed": 1.0
+    }
+  },
+  "worst": [
+    {
+      "q": "What is the command to launch the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "audio output sink",
+      "expected": "omarchy-audio-output-sink [sink-name]",
+      "got": "See FAQ › How do Iaudio output and move active streams?<|a|>See FAQ › How do I change the audio output and move active streams?"
+    },
+    {
+      "q": "omarchy battery present",
+      "expected": "omarchy-battery-present",
+      "got": "omarchy-battery-low <percentage>"
+    },
+    {
+      "q": "battery status",
+      "expected": "omarchy-battery-status [--shell]",
+      "got": "See Toggles, Idle & the Screensaver › Idle"
+    },
+    {
+      "q": "branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "The same three options are under _Appearance > Branding > About_ for the _About_ screen you get from the Omarchy menu, and they work identically — the file is `~/.config/omarchy/branding/about.txt`, and the About window pops up after each change. The About art is"
+    },
+    {
+      "q": "cmd missing",
+      "expected": "omarchy-cmd-missing",
+      "got": "See FAQ › How do I check how fast my disk is?"
+    },
+    {
+      "q": "omarchy font set",
+      "expected": "omarchy-font-set <font-name>",
+      "got": "omarchy-font-current"
+    },
+    {
+      "q": "omarchy hw display",
+      "expected": "omarchy-hw-display",
+      "got": "omarchy-hyprland-monitor-focused-apple [monitor]"
+    },
+    {
+      "q": "omarchy hyprland monitor modeless",
+      "expected": "omarchy-hyprland-monitor-modeless",
+      "got": "omarchy-hyprland-monitor-mode [claude|codex|grok] [manual|auto] [threshold]"
+    },
+    {
+      "q": "omarchy hyprland toggle",
+      "expected": "omarchy-hyprland-toggle <flag-name> [on|off|toggle]",
+      "got": "omarchy-hyprland-toggle-enabled <flag-name>"
+    },
+    {
+      "q": "hyprland window single square aspect toggle",
+      "expected": "omarchy-hyprland-window-single-square-aspect-toggle",
+      "got": "SUPER + CTRL + BACKSPACE"
+    },
+    {
+      "q": "omarchy install and launch",
+      "expected": "omarchy-install-and-launch <display-name> <packages> <desktop-id>",
+      "got": "omarchy-install-service-signal"
+    },
+    {
+      "q": "omarchy install docker dbs",
+      "expected": "omarchy-install-docker-dbs",
+      "got": "omarchy-install-gaming-xbox-controllers"
+    },
+    {
+      "q": "install docker dbs",
+      "expected": "omarchy-install-docker-dbs",
+      "got": "<|unknown|>"
+    },
+    {
+      "q": "What is the command to install OpenClaw?",
+      "expected": "omarchy-install-openclaw-cli <--check|--now>",
+      "got": "omarchy-install-ai-openclaw"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "See Development Tools › Removing and restoring defaults"
+    },
+    {
+      "q": "install service microsoft",
+      "expected": "omarchy-install-service-microsoft",
+      "got": "See Gaming › Microsoft Outlook"
+    },
+    {
+      "q": "omarchy launch webapp",
+      "expected": "omarchy-launch-webapp <url>",
+      "got": "omarchy-launch-or-focus <window-pattern> <launch-command>"
+    },
+    {
+      "q": "menu keybindings",
+      "expected": "omarchy-menu-keybindings",
+      "got": "SUPER + CTRL + K"
+    },
+    {
+      "q": "notification weather",
+      "expected": "omarchy-notification-weather",
+      "got": "SUPER + CTRL + ALT + W"
+    }
+  ]
+}

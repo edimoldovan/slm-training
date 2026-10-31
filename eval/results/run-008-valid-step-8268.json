@@ -1,0 +1,150 @@
+{
+  "run": "run-008",
+  "split": "valid",
+  "n": 4442,
+  "endpoint": null,
+  "exact_match": 0.9359480157809237,
+  "command_match": 0.9637967045718264,
+  "well_formed": 0.9923416105825017,
+  "tokens_per_s": 1253.2329085344013,
+  "by_kind": {
+    "command": {
+      "n": 2549,
+      "exact": 0.9603766182816791,
+      "command_or_first8": 0.9646920360925854,
+      "well_formed": 0.9960768928991761
+    },
+    "key": {
+      "n": 815,
+      "exact": 0.9300613496932515,
+      "command_or_first8": 0.9717791411042945,
+      "well_formed": 0.9742331288343559
+    },
+    "pointer": {
+      "n": 792,
+      "exact": 0.8775252525252525,
+      "command_or_first8": 0.9722222222222222,
+      "well_formed": 0.9987373737373737
+    },
+    "prose": {
+      "n": 133,
+      "exact": 0.6992481203007519,
+      "command_or_first8": 0.706766917293233,
+      "well_formed": 0.9473684210526315
+    },
+    "snippet": {
+      "n": 5,
+      "exact": 0.0,
+      "command_or_first8": 0.0,
+      "well_formed": 1.0
+    },
+    "unknown": {
+      "n": 148,
+      "exact": 0.8918918918918919,
+      "command_or_first8": 0.8918918918918919,
+      "well_formed": 0.9932432432432432
+    }
+  },
+  "worst": [
+    {
+      "q": "What is the command to launch the default coding agent?",
+      "expected": "omarchy-agent [--inline] [--pick]",
+      "got": "omarchy-default-agent [pi|omp|opencode|ori|claude|codex|grok|openclaw|agy|hermes|copilot|crush|cursor-agent|muse|kimi]"
+    },
+    {
+      "q": "audio output sink",
+      "expected": "omarchy-audio-output-sink [sink-name]",
+      "got": "See FAQ › How do I change the audio output?"
+    },
+    {
+      "q": "omarchy battery present",
+      "expected": "omarchy-battery-present",
+      "got": "omarchy-battery-low <percentage>"
+    },
+    {
+      "q": "battery status",
+      "expected": "omarchy-battery-status [--shell]",
+      "got": "See Toggles, Idle & the Screensaver › Idle"
+    },
+    {
+      "q": "branding about animation",
+      "expected": "omarchy-branding-about-animation",
+      "got": "See Screenshots & Recording › The webcam overlay"
+    },
+    {
+      "q": "How can I select a webcam?",
+      "expected": "omarchy-capture-screenrecording-with-webcam",
+      "got": "omarchy-capture-screenrecording [--fullscreen] [--with-desktop-audio] [--with-microphone-audio] [--with-webcam] [--webcam-device=<device>] [--webcam-size=<small|medium|large>] [--resolution=<size>] [--stop-recording] [--status]"
+    },
+    {
+      "q": "Tell me how to take a screenshot.",
+      "expected": "omarchy-capture-screenshot [smart|region|windows|fullscreen|scroll] [copy|save]",
+      "got": "Hit `Super + Ctrl + O` opens _Trigger > Toggle_ directly, or you can walk there from the Omarchy menu (`Super + Space`). Everything in that list is a switch you can flip without thinking about where the state lives. Switches for how the desktop looks sit next"
+    },
+    {
+      "q": "cmd missing",
+      "expected": "omarchy-cmd-missing",
+      "got": "See FAQ › Firmware updates"
+    },
+    {
+      "q": "omarchy hw display",
+      "expected": "omarchy-hw-display",
+      "got": "omarchy-hyprland-monitor-laptop"
+    },
+    {
+      "q": "omarchy hyprland toggle",
+      "expected": "omarchy-hyprland-toggle <flag-name> [on|off|toggle]",
+      "got": "omarchy-hyprland-toggle-enabled <flag-name>"
+    },
+    {
+      "q": "hyprland window single square aspect toggle",
+      "expected": "omarchy-hyprland-window-single-square-aspect-toggle",
+      "got": "Seese all the windows you want to know how do I change windows workstation on Windows 11"
+    },
+    {
+      "q": "omarchy install and launch",
+      "expected": "omarchy-install-and-launch <display-name> <packages> <desktop-id>",
+      "got": "omarchy-install-service-signal"
+    },
+    {
+      "q": "install docker dbs",
+      "expected": "omarchy-install-docker-dbs",
+      "got": "See Windows VM"
+    },
+    {
+      "q": "install preinstalls",
+      "expected": "omarchy-install-preinstalls",
+      "got": "See Development Tools › GitHub CLI"
+    },
+    {
+      "q": "install service microsoft",
+      "expected": "omarchy-install-service-microsoft",
+      "got": "See Gaming › Microsoft apps"
+    },
+    {
+      "q": "omarchy launch webapp",
+      "expected": "omarchy-launch-webapp <url>",
+      "got": "omarchy-launch-or-focus <window-pattern> <launch-command>"
+    },
+    {
+      "q": "menu keybindings",
+      "expected": "omarchy-menu-keybindings",
+      "got": "SUPER + CTRL + K"
+    },
+    {
+      "q": "notification weather",
+      "expected": "omarchy-notification-weather",
+      "got": "See Notices › Notifications"
+    },
+    {
+      "q": "omarchy plugin update",
+      "expected": "omarchy-plugin-update [id] [--yes]",
+      "got": "omarchy-plugin-remove [id] [--yes]"
+    },
+    {
+      "q": "plymouth reset",
+      "expected": "omarchy-plymouth-reset",
+      "got": "See System snapshots"
+    }
+  ]
+}
